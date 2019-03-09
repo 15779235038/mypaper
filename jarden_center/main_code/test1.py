@@ -33,17 +33,17 @@ def Algorithm1(G,basesore,sourceList):
      simqueue.enqueue(sourceList[i])
 
     # while(not(simqueue.empty())):
-    while (n<6):
+    while (n<100 and simqueue.size()<98):
             print ("这次感染列表有个感染点")
             print (simqueue.size())
             sourceItem_=simqueue.dequeue()
             SG.add_node( sourceItem_)
             for sourceNeightor in list(G.neighbors( sourceItem_)):
+                if G.node[sourceNeightor]['Cn']==0:
+                    G.node[sourceNeightor]['Scn']+=G.nodes[ sourceItem_]['Scn']
                 G.add_node(sourceNeightor, Cn=1)
                 SG.add_node(sourceNeightor)
                 SG.add_edge( sourceItem_,sourceNeightor)
-                if G.node[sourceNeightor]['Cn']==1:
-                    G.node[sourceNeightor]['Scn']+=G.nodes[ sourceItem_]['Scn']
                 simqueue.enqueue(sourceNeightor)
             n+=1
     #对所有n<V(就是分数达到阕值的节点感染）算是谣言的不同之处吧。更新。
