@@ -27,14 +27,14 @@ from  queue import  Queue
 
 def Algorithm1(G,basesore,sourceList):
     n = 0
-    SG=nx.Graph()
+    SG=nx.MultiGraph()
     simqueue = Queue()
     for i in range(len(sourceList)):
      simqueue.enqueue(sourceList[i])
 
     # while(not(simqueue.empty())):
-    while (n<100 and simqueue.size()<98):
-            print ("这次感染列表有个感染点")
+    while (n<50 and simqueue.size()<98):
+            print ("这次感染队列列表有个感染点")
             print (simqueue.size())
             sourceItem_=simqueue.dequeue()
             SG.add_node( sourceItem_)
@@ -43,7 +43,7 @@ def Algorithm1(G,basesore,sourceList):
                     G.node[sourceNeightor]['Scn']+=G.nodes[ sourceItem_]['Scn']
                 G.add_node(sourceNeightor, Cn=1)
                 SG.add_node(sourceNeightor)
-                SG.add_edge( sourceItem_,sourceNeightor)
+                SG.add_edge(sourceItem_,sourceNeightor)
                 simqueue.enqueue(sourceNeightor)
             n+=1
     #对所有n<V(就是分数达到阕值的节点感染）算是谣言的不同之处吧。更新。
