@@ -1,12 +1,7 @@
 import networkx as nx
-import matplotlib.pyplot as plt
-import  csv
-import  igraph as ig
 import random
 
-
-import Girvan_Newman
-from Girvan_Newman import GN #引用模块中的函数
+from 分区.Girvan_Newman import GN #引用模块中的函数
 
 #读取文件中边关系，然后成为一个成熟的图
 def  ContractDict(dir,G):
@@ -22,30 +17,24 @@ def  ContractDict(dir,G):
 #生成感染图，我们看看感染图是什么样子。
 
 
-
-from  queue import  Queue
-
 def Algorithm1(G,basesore,sourceList):
-    n = 0
-    SG=nx.MultiGraph()
-    simqueue = Queue()
-    for i in range(len(sourceList)):
-     simqueue.enqueue(sourceList[i])
 
-    # while(not(simqueue.empty())):
-    while (n<50 and simqueue.size()<98):
-            print ("这次感染队列列表有个感染点")
-            print (simqueue.size())
-            sourceItem_=simqueue.dequeue()
-            SG.add_node( sourceItem_)
-            for sourceNeightor in list(G.neighbors( sourceItem_)):
-                if G.node[sourceNeightor]['Cn']==0:
-                    G.node[sourceNeightor]['Scn']+=G.nodes[ sourceItem_]['Scn']
+    SG=nx.Graph()
+    print ("感染列表送入，为啥加不进去",sourceList)
+    for index in range(0,6):
+        for sourceItem in list(sourceList):
+            SG.add_node(sourceItem)
+            for sourceNeightor in list(G.neighbors(sourceItem)):
+                #  将感染点邻接点以一定概率加入到感染节点当中。
+                # random_number=random.random()
+                # if  random_number>0.6:
+
+                #他们的传染边还要加上特别的属性，比如方向传播属性。
                 G.add_node(sourceNeightor, Cn=1)
                 SG.add_node(sourceNeightor)
-                SG.add_edge(sourceItem_,sourceNeightor)
-                simqueue.enqueue(sourceNeightor)
-            n+=1
+                SG.add_edge(sourceItem,sourceNeightor)
+                if G.node[sourceNeightor]['Cn']==1:
+                        G.node[sourceNeightor]['Scn']+=G.nodes[sourceItem]['Scn']
     #对所有n<V(就是分数达到阕值的节点感染）算是谣言的不同之处吧。更新。
     for index in  range(1,35):
         if G.node[index]['Scn']>basesore:
@@ -158,7 +147,7 @@ Ginti = nx.Graph()
 #初始化图
 for index in range(1,35):
     Ginti.add_node(index)
-
+    print (index)
 
 #构建图
 G=ContractDict('karate [Edges].csv',Ginti)

@@ -1,12 +1,7 @@
 import networkx as nx
-import matplotlib.pyplot as plt
-import  csv
-import  igraph as ig
 import random
 
-
-import Girvan_Newman
-from Girvan_Newman import GN #引用模块中的函数
+from 分区.Girvan_Newman import GN #引用模块中的函数
 
 #读取文件中边关系，然后成为一个成熟的图
 def  ContractDict(dir,G):
@@ -22,24 +17,30 @@ def  ContractDict(dir,G):
 #生成感染图，我们看看感染图是什么样子。
 
 
+
+from 分区.queue import  Queue
+
 def Algorithm1(G,basesore,sourceList):
+    n = 0
+    SG=nx.MultiGraph()
+    simqueue = Queue()
+    for i in range(len(sourceList)):
+     simqueue.enqueue(sourceList[i])
 
-    SG=nx.Graph()
-    print ("感染列表送入，为啥加不进去",sourceList)
-    for index in range(0,6):
-        for sourceItem in list(sourceList):
-            SG.add_node(sourceItem)
-            for sourceNeightor in list(G.neighbors(sourceItem)):
-                #  将感染点邻接点以一定概率加入到感染节点当中。
-                # random_number=random.random()
-                # if  random_number>0.6:
-
-                #他们的传染边还要加上特别的属性，比如方向传播属性。
+    # while(not(simqueue.empty())):
+    while (n<50 and simqueue.size()<98):
+            print ("这次感染队列列表有个感染点")
+            print (simqueue.size())
+            sourceItem_=simqueue.dequeue()
+            SG.add_node( sourceItem_)
+            for sourceNeightor in list(G.neighbors( sourceItem_)):
+                if G.node[sourceNeightor]['Cn']==0:
+                    G.node[sourceNeightor]['Scn']+=G.nodes[ sourceItem_]['Scn']
                 G.add_node(sourceNeightor, Cn=1)
                 SG.add_node(sourceNeightor)
-                SG.add_edge(sourceItem,sourceNeightor)
-                if G.node[sourceNeightor]['Cn']==1:
-                        G.node[sourceNeightor]['Scn']+=G.nodes[sourceItem]['Scn']
+                SG.add_edge(sourceItem_,sourceNeightor)
+                simqueue.enqueue(sourceNeightor)
+            n+=1
     #对所有n<V(就是分数达到阕值的节点感染）算是谣言的不同之处吧。更新。
     for index in  range(1,35):
         if G.node[index]['Scn']>basesore:
@@ -60,11 +61,6 @@ def  randomNum(head,tail):
 
 #遍历这个文件中每一条边，也就是行。然后在被传染或者恢复的边中。选中其中一些边作为
 #已经传染，或者已经被传染，这需要g以及对文件的操作。
-
-
-
-
-
 def   Product_infection_Graph(G,dir):
     GInfetion = nx.Graph()
     #获取所有关于这个已经感染总图的被感染子图。
@@ -84,9 +80,6 @@ def   Product_infection_Graph(G,dir):
                     GInfetion.add_node(int(float(line1[1])))
                     GInfetion.add_edge(int(float(line1[0])),int(float(line1[1])))
     return  GInfetion
-
-
-
 
 
 
@@ -152,7 +145,7 @@ Ginti = nx.Graph()
 #初始化图
 for index in range(1,35):
     Ginti.add_node(index)
-    print (index)
+
 
 #构建图
 G=ContractDict('karate [Edges].csv',Ginti)
@@ -167,7 +160,6 @@ print ('一开始图的边个数',G.number_of_edges())
 
 #  先给全体的Cn、Scn的0的赋值。
 for index in range(1,35):
-
     G.add_node(index, Cn=0,Scn=0)
 # print (G.nodes[6416])
 
@@ -187,7 +179,7 @@ print ('感染点列表',sourceList)
 
 
 #  图形化还差得远。很烦。
-#  开始送入我们的算法中，就G和basesore,还有感染源list三个参数
+#  开始送入我们的算法中，就G和basesore,还有感染源list三个参数，返回一个是所有图，以及传染图。
 GResult,SGResult=Algorithm1(G,5,sourceList)
 
 
@@ -200,22 +192,13 @@ Infected_node=[]
 for i  in range(1,35):
     if  G.node[i]['Cn']== 1:
         Infected_node.append(i)
-
 print ('感染点计数，以及他们',len(Infected_node),Infected_node)
 
 
-# #打印出Csn
-# for i  in range(1,35):
-#     if  G.node[i]['Cn']== 1:
-#
-#         print ('print Scn',G.node[i]['Scn'])
-#
 
 
-#  生成感染图(注意，这里的感染图。是有所有接触过的顶点） ,不包括之前的未感染的边。
-GInfection=Product_infection_Graph(G,'karate [Edges].csv')
-#我想看看感染图，
-nx.write_gml(GInfection,'test.gml')
+
+nx.write_gml(SGResult,'test.gml')
 
 
 #copy防止引用
@@ -230,7 +213,7 @@ print  ('感染图，边总数',SGResult.edges())
 
 
 
-
+#将感染图构建边文件test.csv以及节点文件test1.csv
 
 import csv
 
@@ -279,9 +262,8 @@ algorithm.to_gml()
 # 现在已经知道被感染的节点，那么问题来了，如何在被感染的分区之后的一些节点中找到
 #源?
 
-
 #prepare   parameter：准备参数，也就是我们的。
 
-
+#计算分区结果，并且打印出中心度最高的节点。判断是不是源点。
 cal_source(SGResult_copy,partition)
 
