@@ -1,7 +1,7 @@
 import networkx as nx
 import random
 
-from 分区.Girvan_Newman import GN #引用模块中的函数
+from divid.Girvan_Newman import GN #引用模块中的函数
 
 #读取文件中边关系，然后成为一个成熟的图
 def  ContractDict(dir,G):
@@ -150,7 +150,7 @@ for index in range(1,35):
     print (index)
 
 #构建图
-G=ContractDict('karate [Edges].csv',Ginti)
+G=ContractDict('karate_[Edges].csv',Ginti)
 
 
 print ('一开始图的顶点个数',G.number_of_nodes())
@@ -208,7 +208,7 @@ print ('感染点计数，以及他们',len(Infected_node),Infected_node)
 
 
 #  生成感染图(注意，这里的感染图。是有所有接触过的顶点） ,不包括之前的未感染的边。
-GInfection=Product_infection_Graph(G,'karate [Edges].csv')
+GInfection=Product_infection_Graph(G,'karate_[Edges].csv')
 #我想看看感染图，
 nx.write_gml(GInfection,'test.gml')
 

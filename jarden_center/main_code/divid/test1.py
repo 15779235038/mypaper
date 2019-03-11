@@ -1,7 +1,7 @@
 import networkx as nx
 import random
 
-from 分区.Girvan_Newman import GN #引用模块中的函数
+from divid.Girvan_Newman import GN #引用模块中的函数
 
 #读取文件中边关系，然后成为一个成熟的图
 def  ContractDict(dir,G):
@@ -18,7 +18,7 @@ def  ContractDict(dir,G):
 
 
 
-from 分区.queue import  Queue
+from divid.queue import  Queue
 
 def Algorithm1(G,basesore,sourceList):
     n = 0
@@ -28,7 +28,7 @@ def Algorithm1(G,basesore,sourceList):
      simqueue.enqueue(sourceList[i])
 
     # while(not(simqueue.empty())):
-    while (n<50 and simqueue.size()<98):
+    while (n<100 and simqueue.size()<98):
             print ("这次感染队列列表有个感染点")
             print (simqueue.size())
             sourceItem_=simqueue.dequeue()
@@ -57,29 +57,6 @@ def  randomNum(head,tail):
 
 
 
-
-
-#遍历这个文件中每一条边，也就是行。然后在被传染或者恢复的边中。选中其中一些边作为
-#已经传染，或者已经被传染，这需要g以及对文件的操作。
-def   Product_infection_Graph(G,dir):
-    GInfetion = nx.Graph()
-    #获取所有关于这个已经感染总图的被感染子图。
-    infection=[]
-    count=1
-    for  index  in range(1,35):
-        if G.nodes[index]['Cn'] == 1:
-            infection.append(index)
-            count+=1
-    # print ('cont',count)
-    # print ('indexlist',len(infection))
-    with open(dir, 'r') as f:
-        for line in f:
-                line1=line.strip().split(",")
-                if int(float(line1[0])) in infection and int(float(line1[1])) in infection:
-                    GInfetion.add_node(int(float(line1[0])))
-                    GInfetion.add_node(int(float(line1[1])))
-                    GInfetion.add_edge(int(float(line1[0])),int(float(line1[1])))
-    return  GInfetion
 
 
 
@@ -148,7 +125,7 @@ for index in range(1,35):
 
 
 #构建图
-G=ContractDict('karate [Edges].csv',Ginti)
+G=ContractDict('karate_[Edges].csv',Ginti)
 
 
 print ('一开始图的顶点个数',G.number_of_nodes())
@@ -218,24 +195,24 @@ print  ('感染图，边总数',SGResult.edges())
 import csv
 
 #python2可以用file替代open
-with open("test.csv","w") as csvfile:
+with open("test.csv","w",newline='') as csvfile:
     writer = csv.writer(csvfile)
     cout=1
-    writer.writerow(["source","target","type","Id"])
+    writer.writerow(["source","target","type"])
     for  u,v  in SGResult.edges():
         cout+=1
-        writer.writerow([u,v,"Directed",cout])
+        writer.writerow([u,v,"Directed"])
 
 
 #python2可以用file替代open
-with open("test1.csv","w") as csvfile:
+with open("test1.csv","w",newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["id","label"])
     for  u  in SGResult.nodes():
         if u in sourceList:
-           writer.writerow([u,'source'])
+           writer.writerow([u,'1'])
         else:
-            writer.writerow([u])
+            writer.writerow([u,'0'])
 
 
 
