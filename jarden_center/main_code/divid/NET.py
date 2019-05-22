@@ -1,7 +1,7 @@
 import networkx as nx
 import random
 
-from divid.Girvan_Newman import GN #引用模块中的函数
+from Girvan_Newman import GN #引用模块中的函数
 
 #读取文件中边关系，然后成为一个成熟的图
 def  ContractDict(dir,G):
@@ -12,6 +12,15 @@ def  ContractDict(dir,G):
             G.add_edge(int(float(line1[0])),int(float(line1[1])))
     # print (G.number_of_edges())
     return G
+
+
+
+
+
+
+
+
+
 
 
 #生成感染图，我们看看感染图是什么样子。

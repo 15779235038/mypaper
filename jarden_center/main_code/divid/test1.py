@@ -1,7 +1,7 @@
 import networkx as nx
 import random
 
-from divid.Girvan_Newman import GN #引用模块中的函数
+from Girvan_Newman import GN #引用模块中的函数
 
 #读取文件中边关系，然后成为一个成熟的图
 def  ContractDict(dir,G):
@@ -18,7 +18,7 @@ def  ContractDict(dir,G):
 
 
 
-from divid.queue import  Queue
+from queues import  Queue
 
 def Algorithm1(G,basesore,sourceList):
     n = 0
@@ -29,8 +29,8 @@ def Algorithm1(G,basesore,sourceList):
 
     # while(not(simqueue.empty())):
     while (n<100 and simqueue.size()<98):
-            print ("这次感染队列列表有个感染点")
-            print (simqueue.size())
+            # print ("这次感染队列列表有个感染点")
+            #  print (simqueue.size())
             sourceItem_=simqueue.dequeue()
             SG.add_node( sourceItem_)
             for sourceNeightor in list(G.neighbors( sourceItem_)):
@@ -209,7 +209,7 @@ with open("test1.csv","w",newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["id","label"])
     for  u  in SGResult.nodes():
-        if u in sourceList:
+        if u in sourceList :
            writer.writerow([u,'1'])
         else:
             writer.writerow([u,'0'])
