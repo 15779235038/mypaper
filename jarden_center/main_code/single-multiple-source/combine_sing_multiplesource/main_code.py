@@ -173,26 +173,10 @@ def  randomSourcelist(subinfectG):
 
 
 
-def  getTuresubinfectionG(infectG):
-    #start  by  a  random  SInode
-    randomInfectionNode=0
-    # sum  nodes  in  infect G:
-    sum=infectG.number_of_nodes()
-    print()
-    flag1=0
-    while  flag1==0:
-      randomnumber= random.randint(1,  sum)
-      if infectG.node[ randomnumber]['SI']==2:
-          randomInfectionNode= randomnumber
-          flag1=1
-
-
-
-
-    print ('随机开始的点感染点'+str(randomInfectionNode))
+def  getTuresubinfectionG(infectG,randomInfectionsource):
     #put  nehibour  infectNode in this partion, stop by  this  infect  communiy  hehibour  have no  infectNode
     firstPartion=[]
-    firstPartion.append(4022)
+    firstPartion.append(randomInfectionsource)
     flag=0
     while(flag==0):
         print('这个firstpartion是多少？'+str(firstPartion))
@@ -203,25 +187,114 @@ def  getTuresubinfectionG(infectG):
                     # print('这个点是' + '已经被感染的')
                     if neighbor not in  firstPartion:  # 已经加过过得节点就不要再感染了。
                         firstPartion.append(neighbor)
-
         # print ('这一圈形成的firstpartion是'+str(len(firstPartion)))
         #chenk in  firstPartion ,who have no  infectionNode  in  neighbor
+        neighborList=[]
         for node  in firstPartion:
             for   neighbor  in  list(infectG.neighbors(node)):
                     if  neighbor not in  firstPartion:
-                        if infectG.node[neighbor]['SI']==2:
-                              print ('没满足条件')
-                              flag=0
-                        elif infectG.node[neighbor]['SI']==1:
-                              flag=1
+                        neighborList.append(infectG.node[neighbor]['SI'])
+        if  2  in neighborList:
+            print ('这个社区周围还有被感染点')
+            pass
+        elif  2 not in neighborList:
+            print('这个社区周围没有被感染点')
+            flag=1
 
-    if  4022 in firstPartion  and 125  in firstPartion:
-        print ('可以')
+
     print ('输出这个感染社区'+str(len(firstPartion)))
+    return firstPartion
 
 
 
 
+
+
+
+
+def  multiplelistTo_ormialy(mutiolist):
+    alllist=[]
+    for  i  in  range(len(mutiolist)):
+        for j  in  range(len(mutiolist[i])):
+            alllist.append(mutiolist[i][j])
+    return alllist
+
+
+
+
+
+
+
+
+def  getmultipleCommunity(infectionG):
+    #return  multipleCommuniytlist
+    multipleCommuniytlist=[]
+
+    # start  by  a  random  SInode
+    randomInfectionNode = 0
+    # sum  nodes  in  infect G:
+    sum = infectionG.number_of_nodes()
+    flag1= 0
+    flag2=0
+    flag=0
+    while flag == 0:
+
+            infectionList=[]
+            allList=[]
+            diff_list=[]
+            #刚开始啥社区都没有
+            if  len(multipleCommuniytlist)==0:
+                print ('在没有社区的操作')
+            #刚开始随机产生一个点。
+                while flag1 == 0:
+                    randomnumber = random.randint(1, sum)
+                    if infectG.node[randomnumber]['SI'] == 2:
+                        randomInfectionNode = randomnumber
+                        flag1 = 1
+                print('随机开始的点感染点' + str(randomInfectionNode))
+                partion = getTuresubinfectionG(infectionG,randomInfectionNode)
+                multipleCommuniytlist.append(partion)  # 第一个社区
+            else:
+                print('在已经有社区的操作')
+                #总的点集合-已经找到的社区节点=在这里继续找。
+
+                infectionList=multiplelistTo_ormialy(multipleCommuniytlist)
+                allList=list(infectionG.nodes)
+                diff_list = list(set(allList).difference(set(infectionList)))
+                print ('在总的区里面，但不在已经分好的社区里面。'+str(len(diff_list)))
+                while flag2 == 0:
+                    randomnumber =random.sample(diff_list, 1)
+                    if infectionG.node[randomnumber[0]]['SI'] == 2:
+                        randomInfectionNode =randomnumber[0]
+                        flag2 = 1
+                print('随机开始的点感染点' + str(randomInfectionNode))
+                partion = getTuresubinfectionG(infectionG,randomInfectionNode)
+                multipleCommuniytlist.append(partion)  #
+            #终止条件,剩下社区没有被感染点了。
+            haveinfectionList = multiplelistTo_ormialy(multipleCommuniytlist)
+            allList = list(infectionG.nodes)
+            diff_list_ = list(set(allList).difference(set( haveinfectionList)))
+            restList=[]
+            for i  in diff_list_:
+               restList.append(infectionG.node[i]['SI'])
+            if  2  in restList:
+                print('有感染点在restList中，')
+                pass
+            elif 2  not in restList:
+                print('已经没有感染点在restList中，')
+                flag=1
+
+    print ('感染社区个数以及各自人数')
+    print (len(multipleCommuniytlist))
+    print(len(multipleCommuniytlist[0]))
+    if  125  in  multipleCommuniytlist[0]  and 4022  in  multipleCommuniytlist[0]:
+        print ('头两个源点在的')
+    print(len(multipleCommuniytlist[1]))
+    return multipleCommuniytlist
+
+
+
+def   multiplePartion(mutiplelist,infectionG):
 
 
 
@@ -307,10 +380,5 @@ except:
 
 #now  to  practice single-multiple  source Partition.Get  ture  parition
 
-TuresubinfectionG=getTuresubinfectionG(infectG)
-
-
-
-
-
+multipList=getmultipleCommunity(infectG)
 
