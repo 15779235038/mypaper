@@ -294,8 +294,37 @@ def  getmultipleCommunity(infectionG):
 
 
 
+
+def   findmultiplesource(singleRegionList,infectionG):
+      #首先需要判断是否多源。不断找源点去对这个区域。
+      tempGraph=nx.Graph()
+      for  edge in infectionG.edges:
+          if infectG.adj[edge[0]][edge[1]]['Infection']==2:
+              if edge[0] in singleRegionList and edge[1] in singleRegionList:
+                  tempGraph.add_edge(edge[0],edge[1])
+      print ('感染区域的传播子图边个数')
+      print (tempGraph.number_of_edges())
+      #求出这个区域最远的路径出来。返回这个区域半径。
+      print('感染区域的传播半径')
+      print (nx.radius(tempGraph))
+
+
+
+
+
+
+
+
+
+
+
 def   multiplePartion(mutiplelist,infectionG):
 
+     #所有单源list
+     allsigleList=[]
+     siglelist=[]
+     #将第一个传播区域定下来。
+     iglelist=findmultiplesource(mutiplelist[0],infectionG)
 
 
 
@@ -382,3 +411,4 @@ except:
 
 multipList=getmultipleCommunity(infectG)
 
+multiplePartion(multipList,infectG)
