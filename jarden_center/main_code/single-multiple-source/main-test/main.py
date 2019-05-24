@@ -1,6 +1,6 @@
 import networkx as nx
 import random
-
+from networkx.algorithms import community
 from queues1 import *
 
 
@@ -456,7 +456,7 @@ def  revsitionAlgorithm(u,h,infectG,subinfectG):
 
     print  ('传播子图为source1G,它的点数和边数为'+str(source1G.number_of_nodes())+'-------'+str(source1G.number_of_edges()))
     #在nodelist找出源点来。
-    times=3
+    times=6   #时间刻多点
     IDdict={}
     IDdict_dup = {}
     # 先赋予初始值。
@@ -498,6 +498,7 @@ def  revsitionAlgorithm(u,h,infectG,subinfectG):
     print (allnodelist_keylist)
 
     result=0
+    resultlist=[]
    #如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
     if  len(allnodelist_keylist)==1:
         print ('那就是这个源点了')
@@ -514,7 +515,6 @@ def  revsitionAlgorithm(u,h,infectG,subinfectG):
 
 
     print (nx.shortest_path_length(subinfectG,result,u))  #0
-    print ('')
     print (nx.shortest_path_length(subinfectG,125,result) )#  2
     print(nx.shortest_path_length(subinfectG, 4022, result))  #  8
 
@@ -566,7 +566,7 @@ for  edge  in  list(G.edges):
 
 
 rumorSourceList=contractSource(G,2,3)  #产生源点。图，源点个数，源点差距距离。
-infectG=Algorithm1(G,rumorSourceList,4 )  #产生感染图，深度是3
+infectG=Algorithm1(G,rumorSourceList,5 )  #产生感染图，深度是3
 
 #gephi 查看infectG转成csv情况。
 ConvertGToCsv(infectG,'G.csv')
@@ -629,7 +629,7 @@ print ('查看感染图直径'+str(nx.diameter(subinfectG)))
 
 #随机生成u1，h1,u2.h2来让E(u1,h1,u2,h2)最大。
 
-resutltList,lasth=contactu1h1u2h2(subinfectG,infectG,rumorSourceList,4,5)        #这里的后三个参数。第一个是真实两源源点，第三个是这个源点的传播h，最后一个是试探h。
+resutltList,lasth=contactu1h1u2h2(subinfectG,infectG,rumorSourceList,5,6)        #这里的后三个参数。第一个是真实两源源点，第三个是这个源点的传播h，最后一个是试探h。
 #返回的结果是两个heav center以及它的h，因为这里的h是一样的。
 
 #现在分别计算在每个点下，找源点。看看reverse infection algorithm，试下第一个点

@@ -260,7 +260,7 @@ for  edge  in  list(G.edges):
 
 
 rumorSourceList=contractSource(G,2,3)  #产生源点。图，源点个数，源点差距距离。
-infectG=Algorithm1(G,rumorSourceList,3)   #产生感染图，
+infectG=Algorithm1(G,rumorSourceList,2)   #产生感染图，
 
 #gephi 查看infectG转成csv情况。
 ConvertGToCsv(infectG,'G.csv')
