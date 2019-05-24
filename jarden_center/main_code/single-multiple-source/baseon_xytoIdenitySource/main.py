@@ -401,29 +401,15 @@ def   findmultiplesource(singleRegionList,infectionG):
       #求出这个区域最远的路径出来。返回这个区域半径。
       print('这个感染区域的传播半径')
       maxh=nx.radius(tempGraph)
-      #我们认为一个传播区域最多只有3个源点。每个源点都可以试试。有一个评价函数来判断哪个好写。
-      #这个评价函数不好想。妈的。
-      # for  i range(3):
-      #当前是一个源点
-      randomsource = randomSourcelist(tempGraph)
-      for  h  in range(maxh):    #试探放入圆进去。
-          print('h为' + str(h) + '的情况' + '----------------------------------------')
-
-          flag=0
-          while flag==0:
-              print ('随机产生一个源点为'+str(randomsource))
-              if  isReceived(randomsource, h, tempGraph, infectionG) ==True:
-                  print ('在h为'+str(h)+'的情况下，'+str(randomsource)+'这个源点可以的。')
-                  flag=1   #跳出，等待下一个h
-              else:
-                    #就要换点了。来支持这个h了。
-                    node =  randomsource
-                    newnode=findBigEccentricity(h,node,tempGraph,infectionG)
-                    print ('找到的新源点为'+str(newnode))
-                    randomsource=newnode
-                    flag=1
+      '''请将tempGrap投影到x，y轴上，利用gephi图的方法。然后将这个图的边界点都挑选出来。
+      1  构建垂直平分线。
+      2  通过多个边界点构建的垂直平分线确定圆心，如果构建的圆心list都集中某个区域，就认为是单源。
+      #   如果这个构建的heart list太离谱，小于某个阙值。就认为多源。再重新取局部边界顶点，确立新的圆心list。多源定位。
+      4  这样单源就确立了，直接jarder  center  。如果多源的话，通过刚才确定的圆心和边界点。确立感染区域，重新jarder center定位。
+      '''
 
 
+      #首先第一步，将这个tempGra圆投影到x，y轴。
 
 
 
