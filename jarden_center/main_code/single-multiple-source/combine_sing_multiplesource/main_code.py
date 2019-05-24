@@ -161,16 +161,6 @@ def   ConvertGToCsvSub(G,dir):
 
 
 
-#随机产生两源点。
-def  randomSourcelist(subinfectG):
-    nodelist = []
-    for node in subinfectG:
-        nodelist.append(node)
-    slice = random.sample(nodelist, 2)
-    print('随机产生的源点是' + str(slice))
-    return  slice
-
-
 
 
 def  getTuresubinfectionG(infectG,randomInfectionsource):
@@ -294,19 +284,71 @@ def  getmultipleCommunity(infectionG):
 
 
 
+#随机产生一个源点。
+def  randomSourcelist(subinfectG):
+    nodelist = []
+    for node in subinfectG:
+        nodelist.append(node)
+    slice = random.sample(nodelist, 1)
+    print('随机产生的源点是' + str(slice))
+    return  slice
+
+
+def isReceived(u, h, subinfectionG, infectionG):
+    # 对u进行长达h的圆构建
+    circleNodesList = list(nx.bfs_tree(infectionG, source=u, depth_limit=h).nodes)  # 这包含了这个构建的圆的所有节点。
+    subinfectionList = list(subinfectionG.nodes)  # 传染子图的所有点。
+    # 计算列表相似度试试看
+    # print ('感染源的h节点集合为'+str(circleNodesList))
+
+    count = 0
+    for i in circleNodesList:
+        if i in subinfectionList:
+            count = count + 1
+    similir = count / len(circleNodesList)
+    print('u,h对应圆重和subinfectionG图的重合比例为' + str(similir))
+    if similir > 0.9:
+        print('这里的' + str(u) + '和h是' + str(h) + '是可以在subinfection中存在的')
+        return True
+    else:
+        print('这里的' + str(u) + '和h是' + str(h) + '是不可以在subinfection中存在的，返回false')
+        return False
+
+    # if  set(circleNodesList) < set(subinfectionList): #圆是子集的话就可以，这里是可以放宽条件的。比如说只要重合概率达到90%就可以
+    #    print ('这里的u，h是可以在subinfection中存在的')
+    #    return  True
+    # else:
+    #     print('这里的u，h是不行的在subinfection中')
+    #     return False
+
 
 def   findmultiplesource(singleRegionList,infectionG):
       #首先需要判断是否多源。不断找源点去对这个区域。
       tempGraph=nx.Graph()
       for  edge in infectionG.edges:
-          if infectG.adj[edge[0]][edge[1]]['Infection']==2:
+          if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
               if edge[0] in singleRegionList and edge[1] in singleRegionList:
                   tempGraph.add_edge(edge[0],edge[1])
       print ('感染区域的传播子图边个数')
       print (tempGraph.number_of_edges())
       #求出这个区域最远的路径出来。返回这个区域半径。
       print('感染区域的传播半径')
-      print (nx.radius(tempGraph))
+      maxh=nx.radius(tempGraph)
+      #我们认为一个传播区域最多只有3个源点。每个源点都可以试试。有一个评价函数来判断哪个好写。
+      #这个评价函数不好想。妈的。
+      for  h  in range(maxh):    #试探放入圆进去。
+          print('h为' + str(h) + '的情况' + '----------------------------------------')
+          randomsource=randomSourcelist(tempGraph)
+          print ('随机产生一个源点为'+str(randomsource))
+          if  isReceived(randomsource, h, tempGraph, infectionG) ==True:
+              print ('在h为'+str(h)+'的情况下，')
+
+
+
+
+
+
+
 
 
 
