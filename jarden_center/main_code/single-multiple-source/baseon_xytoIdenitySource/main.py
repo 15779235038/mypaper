@@ -395,9 +395,11 @@ def   findmultiplesource(singleRegionList,infectionG):
       for  edge in infectionG.edges:
           if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
               if edge[0] in singleRegionList and edge[1] in singleRegionList:
-                  tempGraph.add_edge(edge[0],edge[1])
+                  tempGraph.add_edges_from([edge],weight=1)
       print ('这个感染区域的传播子图边个数')
       print (tempGraph.number_of_edges())
+
+
       #求出这个区域最远的路径出来。返回这个区域半径。
       print('这个感染区域的传播半径')
       maxh=nx.radius(tempGraph)
@@ -408,7 +410,8 @@ def   findmultiplesource(singleRegionList,infectionG):
       4  这样单源就确立了，直接jarder  center  。如果多源的话，通过刚才确定的圆心和边界点。确立感染区域，重新jarder center定位。
       '''
       #首先第一步，将这个tempGra圆投影到x，y轴。
-
+      #让我看看这个图
+      ConvertGToCsvSub(tempGraph,'tempGraph.csv')
 
 
 
