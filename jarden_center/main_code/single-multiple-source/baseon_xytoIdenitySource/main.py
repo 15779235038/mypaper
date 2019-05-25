@@ -407,8 +407,6 @@ def   findmultiplesource(singleRegionList,infectionG):
       #   如果这个构建的heart list太离谱，小于某个阙值。就认为多源。再重新取局部边界顶点，确立新的圆心list。多源定位。
       4  这样单源就确立了，直接jarder  center  。如果多源的话，通过刚才确定的圆心和边界点。确立感染区域，重新jarder center定位。
       '''
-
-
       #首先第一步，将这个tempGra圆投影到x，y轴。
 
 
