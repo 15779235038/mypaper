@@ -388,7 +388,7 @@ def isReceived(u, h, subinfectionG, infectionG):
     #     print('这里的u，h是不行的在subinfection中')
     #     return False
 
-
+import   matplotlib
 def   findmultiplesource(singleRegionList,infectionG):
       #首先需要判断是否多源。不断找源点去对这个区域。
       tempGraph=nx.Graph()
@@ -402,7 +402,7 @@ def   findmultiplesource(singleRegionList,infectionG):
 
       #求出这个区域最远的路径出来。返回这个区域半径。
       print('这个感染区域的传播半径')
-      maxh=nx.radius(tempGraph)
+      # maxh=nx.radius(tempGraph)
       '''请将tempGrap投影到x，y轴上，利用gephi图的方法。然后将这个图的边界点都挑选出来。
       1  构建垂直平分线。
       2  通过多个边界点构建的垂直平分线确定圆心，如果构建的圆心list都集中某个区域，就认为是单源。
@@ -412,7 +412,7 @@ def   findmultiplesource(singleRegionList,infectionG):
       #首先第一步，将这个tempGra圆投影到x，y轴。
       #让我看看这个图
       ConvertGToCsvSub(tempGraph,'tempGraph.csv')
-
+      nx.draw_kamada_kawai(tempGraph)
 
 
 
