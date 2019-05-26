@@ -438,7 +438,7 @@ def   findmultiplesource(singleRegionList,infectionG):
       pos={}
       for  node in tempGraph.nodes:
 
-          pos[node]=[random.uniform(0,20),random.uniform(0,20)]
+          pos[node]=[random.uniform(0,10),random.uniform(0,10)]
 
       for  i  in range(10):
             print ('这是第'+str(i)+'次迭代。哈哈哈哈---------------------------------------------------------------')
@@ -512,14 +512,26 @@ def   findmultiplesource(singleRegionList,infectionG):
                         else:
                             pass
       print (pos)
-      counttemp=0
-      for  edge  in tempGraph.edges:
-           if   calcucedistance(pos[edge[0]],pos[edge[1]])>3:
-               counttemp=counttemp+1
-      print ('距离大于5的两个点的边数量'+str(counttemp))
-      nx.draw(tempGraph,pos)
-      plt.savefig('hello.png')
+      p1 = []  # 数据点
+      p2 = []
+      for  key,value  in  pos.items():
+            p1.append(pos[key][0])
+            p2.append(pos[key][1])
+
+          # 创建绘图图表对象，可以不显式创建，跟cv2中的cv2.namedWindow()用法差不多
+      plt.figure('Draw')
+      plt.scatter(p1, p2)  # scatter绘制散点图
+      plt.draw()  # 显示绘图
       plt.show()
+      plt.savefig("easyplot.jpg")  # 保存图象
+      # counttemp=0
+      # for  edge  in tempGraph.edges:
+      #      if   calcucedistance(pos[edge[0]],pos[edge[1]])>3:
+      #          counttemp=counttemp+1
+      # print ('距离大于5的两个点的边数量'+str(counttemp))
+      # nx.draw(tempGraph,pos)
+      # plt.savefig('hello.png')
+      # plt.show()
       #寻找边界点，排除一些垃圾点。从这些pos中找到一个符合情况的
 
 
