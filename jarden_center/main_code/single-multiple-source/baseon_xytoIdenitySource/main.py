@@ -1,7 +1,7 @@
 import networkx as nx
 import random
 from networkx.algorithms import community
-from queues1 import *
+
 
 
 # from Girvan_Newman import GN #引用模块中的函数
@@ -394,6 +394,9 @@ def isReceived(u, h, subinfectionG, infectionG):
 
 
 
+def  getkey(pos,value):
+   return  {value: key for key, value in pos.iteritems()}[value]
+
 import   matplotlib.pyplot  as plt
 def   findmultiplesource(singleRegionList,infectionG):
       #首先需要判断是否多源。不断找源点去对这个区域。
@@ -434,67 +437,86 @@ def   findmultiplesource(singleRegionList,infectionG):
       c4=0.1
       pos={}
       for  node in tempGraph.nodes:
-          pos[node]=[random.uniform(0,50),random.uniform(0,50)]
 
-      for  i  in range(200):
+          pos[node]=[random.uniform(0,20),random.uniform(0,20)]
 
+      for  i  in range(5):
             print ('这是第'+str(i)+'次迭代。哈哈哈哈---------------------------------------------------------------')
             #计算每一个点受到的力,只跟邻居节点有关系
             for node in tempGraph.nodes:
-                for  nehihbor  in   list(tempGraph.neighbors(node)):
-                    movex=0
-                    movey=0
-                    #我只是希望它能尽量排在这些邻居点为圆心半径为1的圆上。
-                    #所以需要每一个邻居对它的计算斥力和吸引力。计算斥力,这一个就够了，我不需要那些没有相连边的距离。
-                    force=calcuce(pos[node],pos[nehihbor])
-                    #这个force大于0代表着，是吸引力，这个force小于0代表着的是斥力。吸引力的话，就要往这个neightor方向接近一点。
-                    #斥力的话，就要往这个方向后退一点。
-                    if force>0:
-                        print ('是吸引力，那么开始这个节点位置是'+str(pos[node]))
-                        print ('邻居节点位置为'+str(pos[nehihbor]))
-                        movex = 0.1 * (abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
-                        movey=0.1 * (abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
-                        print ('他们距离是'+str(calcucedistance(pos[node],pos[nehihbor]))+'夹角sin值'+str(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))))
-                        print ('移动x是'+str(abs((pos[nehihbor][0]-pos[node][0]))*0.1))
-                        print('移动y是' + str(abs((pos[nehihbor][1]-pos[node][1]))*0.1))
-                        #往pospos[nehihbor]哪个方向移动一下。判断在什么方向，才好。计算方向向量
-                        if  pos[nehihbor][0]>pos[node][0]:   #x2>x1
-                            #移动距离
-                            pos[node][0] = pos[node][0] +abs((pos[nehihbor][0]-pos[node][0]))*0.1
+                bfstreelist=list(nx.bfs_tree(tempGraph,source=node,depth_limit=2).nodes)
+                for  nehihbor  in   list( tempGraph.neighbors(node)):
+                    if node!=nehihbor:
+                        movex=0
+                        movey=0
+                        #我只是希望它能尽量排在这些邻居点为圆心半径为1的圆上。
+                        #所以需要每一个邻居对它的计算斥力和吸引力。计算斥力,这一个就够了，我不需要那些没有相连边的距离。
+                        force=calcuce(pos[node],pos[nehihbor],node,nehihbor,tempGraph)
+                        #这个force大于0代表着，是吸引力，这个force小于0代表着的是斥力。吸引力的话，就要往这个neightor方向接近一点。
+                        #斥力的话，就要往这个方向后退一点。
+                        if force>0:
+                            print ('是吸引力，那么开始这个节点位置是'+str(pos[node]))
+                            print ('邻居节点位置为'+str(pos[nehihbor]))
+                            #请移动到该节点距离为1的地方。角度为他们夹角。
+                            # movex = 0.1 * (abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
+                            # movey=0.1 * (abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
+                            print ('他们原先距离是'+str(calcucedistance(pos[node],pos[nehihbor]))+'夹角sin值'+str(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor]))))+'夹角余值'+str(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))))
+
+
+                            movex = abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (calcucedistance(pos[node], pos[nehihbor]) - 1)
+                            movey=abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (calcucedistance(pos[node], pos[nehihbor]) - 1)
+                            print('移动x是' + str(movex))
+                            print('移动y是' + str(movey))
+
+                            #往pospos[nehihbor]哪个方向移动一下。判断在什么方向，才好。计算方向向量
+                            if  pos[nehihbor][0]>pos[node][0]:   #x2>x1
+                                #移动距离
+                                # movex=abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor]))))* (calcucedistance(pos[node],pos[nehihbor])-1)  #他们夹角
+                                # pos[node][0] = pos[node][0] +abs((pos[nehihbor][0]-pos[node][0]))*0.1
+                                pos[node][0] = pos[node][0]+movex
+                            else:
+                                # pos[node][0] = pos[node][0] - abs((pos[nehihbor][0]-pos[node][0]))*0.1
+                                pos[node][0] = pos[node][0] - movex
+                            if pos[nehihbor][1]>pos[node][1]:   #x2>x1
+                                #移动距离
+                                # pos[node][1] = pos[node][1] +abs((pos[nehihbor][1]-pos[node][1]))*0.1
+                                pos[node][1] = pos[node][1] +movey
+                            else:
+                                # pos[node][1] = pos[node][1] - abs((pos[nehihbor][1]-pos[node][1]))*0.1
+                                pos[node][1] = pos[node][1] -movey
+                            print ('这个节点移动后新位置'+str(pos[node]))
+                            print ('跟原来节点距离为'+str(calcucedistance(pos[node],pos[nehihbor])))
+                        elif force<0:   #是斥力
+                            print('是斥力，那么开始这个节点位置是' + str(pos[node]))
+                            print('邻居节点位置为' + str(pos[nehihbor]))
+                            movex =  (abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (1-calcucedistance(pos[node],pos[nehihbor])))
+                            movey =  (abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (1-calcucedistance(pos[node],pos[nehihbor])))
+                            # 往pospos[nehihbor]哪个方向移动一下。判断在什么方向，才好。计算方向向量
+                            if pos[nehihbor][0] > pos[node][0]:  # x2>x1
+                                # 移动距离
+                                # pos[node][0] = pos[node][0] - abs((pos[nehihbor][0]-pos[node][0])+1)*0.1
+                                pos[node][0] = pos[node][0] -movex
+                            else:
+                                # pos[node][0] = pos[node][0] + abs((pos[nehihbor][0]-pos[node][0])+1)*0.1
+                                pos[node][0]=pos[node][0] +movex
+
+                            if pos[nehihbor][1] > pos[node][1]:  # x2>x1
+                                # 移动距离
+                                # pos[node][1] = pos[node][1] - abs((pos[nehihbor][1]-pos[node][1])+1)*0.1
+                                pos[node][1] = pos[node][1] -movey
+                            else:
+                                # pos[node][1] = pos[node][1] + abs((pos[nehihbor][1]-pos[node][1])+1)*0.1
+                                pos[node][1] = pos[node][1] - movey
+                            print('移动后这个节点新位置' + str(pos[node]))
+                            print ('跟原来节点距离为'+str(calcucedistance(pos[node],pos[nehihbor])))
                         else:
-                            pos[node][0] = pos[node][0] - abs((pos[nehihbor][0]-pos[node][0]))*0.1
-
-                        if pos[nehihbor][1]>pos[node][1]:   #x2>x1
-                            #移动距离
-                            pos[node][1] = pos[node][1] +abs((pos[nehihbor][1]-pos[node][1]))*0.1
-                        else:
-                            pos[node][1] = pos[node][1] - abs((pos[nehihbor][1]-pos[node][1]))*0.1
-                        print ('这个节点移动后新位置'+str(pos[node]))
-
-
-
-                    elif force<0:   #是斥力
-                        print('是斥力，那么开始这个节点位置是' + str(pos[node]))
-                        print('邻居节点位置为' + str(pos[nehihbor]))
-                        movex = 0.1 * (abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
-                        movey = 0.1 * (abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
-                        # 往pospos[nehihbor]哪个方向移动一下。判断在什么方向，才好。计算方向向量
-                        if pos[nehihbor][0] > pos[node][0]:  # x2>x1
-                            # 移动距离
-                            pos[node][0] = pos[node][0] - abs((pos[nehihbor][0]-pos[node][0]))*0.1
-                        else:
-                            pos[node][0] = pos[node][0] + abs((pos[nehihbor][0]-pos[node][0]))*0.1
-
-                        if pos[nehihbor][1] > pos[node][1]:  # x2>x1
-                            # 移动距离
-                            pos[node][1] = pos[node][1] - abs((pos[nehihbor][1]-pos[node][1]))*0.1
-                        else:
-                            pos[node][1] = pos[node][1] + abs((pos[nehihbor][1]-pos[node][1]))*0.1
-                        print('移动后这个节点新位置' + str(pos[node]))
-
-                    else:
-                        pass
+                            pass
       print (pos)
+      counttemp=0
+      for  edge  in tempGraph.edges:
+           if   calcucedistance(pos[edge[0]],pos[edge[1]])>5:
+               counttemp=counttemp+1
+      print ('距离大于5的两个点的边数量'+str(counttemp))
       nx.draw(tempGraph,pos)
       plt.savefig('hello.png')
       plt.show()
@@ -507,20 +529,27 @@ def   findmultiplesource(singleRegionList,infectionG):
 
 
 import math
-def  calcuce(axisA,asisB):
+def  calcuce(axisA,asisB,node1,node2,temp_Graph):
     c1=2.0
     c2=1.0
     x=axisA[0]-asisB[0]
     y=axisA[1]-asisB[1]
     distance=math.sqrt((x ** 2) + (y ** 2))
-    print ('两个点距离'+str(distance))
-    print ('返回'+str(c1*math.log(distance/c2) ))
-
+    print ('-------------------------------------------------------------------------------------')
+    print ('开始计算两个点距离'+str(distance)+'看他们会不会是吸引力，还是斥力')
     #distance是坐标轴距离，而nx是他们之间点距离。if坐标轴距离大于点距离，靠近。
     #if distance<点距离，远一点。
-
-    
-    return c1*math.log(distance/c2)
+    if  distance>nx.shortest_path_length(temp_Graph,node1,node2):
+        print ('在坐标轴上距离大于他们之间距离，吸引力。应该拉近')
+        attractDis=distance-nx.shortest_path_length(temp_Graph,node1,node2)
+        return attractDis
+    elif distance<nx.shortest_path_length(temp_Graph,node1,node2):
+       print ('在坐标轴上距离小于他们之间距离，斥力。应该疏远')
+       repeldis=distance-nx.shortest_path_length(temp_Graph,node1,node2)
+       return repeldis
+    else:
+        print('在坐标轴上距离等于他们之间距离')
+        return 0
 
 
 
