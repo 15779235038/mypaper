@@ -388,7 +388,13 @@ def isReceived(u, h, subinfectionG, infectionG):
     #     print('这里的u，h是不行的在subinfection中')
     #     return False
 
-import   matplotlib
+
+
+ # 计算方位角函数
+
+
+
+import   matplotlib.pyplot  as plt
 def   findmultiplesource(singleRegionList,infectionG):
       #首先需要判断是否多源。不断找源点去对这个区域。
       tempGraph=nx.Graph()
@@ -412,7 +418,87 @@ def   findmultiplesource(singleRegionList,infectionG):
       #首先第一步，将这个tempGra圆投影到x，y轴。
       #让我看看这个图
       ConvertGToCsvSub(tempGraph,'tempGraph.csv')
-      nx.draw_kamada_kawai(tempGraph)
+      # pos=nx.kamada_kawai_layout(tempGraph)
+      # print (pos)
+      # nx.draw(tempGraph,pos)
+      # # nx.draw_spring(tempGraph)
+      # plt.savefig("ba.png")  # 输出方式1: 将图像存为一个png格式的图片文件
+      # plt.show()
+      # nx.draw(tempGraph)
+      # plt.savefig('hello.png')
+      # plt.show()
+      #将这个图中节点随便放在一个坐标轴的位置。迭代多少次之后，计算每个节点受到的所有力，移动这个点到它该到的位置。
+      c1=2.0
+      c2=1.0
+      c3=1.0
+      c4=0.1
+      pos={}
+      for  node in tempGraph.nodes:
+          pos[node]=[random.uniform(0,50),random.uniform(0,50)]
+
+      for  i  in range(200):
+
+            print ('这是第'+str(i)+'次迭代。哈哈哈哈---------------------------------------------------------------')
+            #计算每一个点受到的力,只跟邻居节点有关系
+            for node in tempGraph.nodes:
+                for  nehihbor  in   list(tempGraph.neighbors(node)):
+                    movex=0
+                    movey=0
+                    #我只是希望它能尽量排在这些邻居点为圆心半径为1的圆上。
+                    #所以需要每一个邻居对它的计算斥力和吸引力。计算斥力,这一个就够了，我不需要那些没有相连边的距离。
+                    force=calcuce(pos[node],pos[nehihbor])
+                    #这个force大于0代表着，是吸引力，这个force小于0代表着的是斥力。吸引力的话，就要往这个neightor方向接近一点。
+                    #斥力的话，就要往这个方向后退一点。
+                    if force>0:
+                        print ('是吸引力，那么开始这个节点位置是'+str(pos[node]))
+                        print ('邻居节点位置为'+str(pos[nehihbor]))
+                        movex = 0.1 * (abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
+                        movey=0.1 * (abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
+                        print ('他们距离是'+str(calcucedistance(pos[node],pos[nehihbor]))+'夹角sin值'+str(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))))
+                        print ('移动x是'+str(abs((pos[nehihbor][0]-pos[node][0]))*0.1))
+                        print('移动y是' + str(abs((pos[nehihbor][1]-pos[node][1]))*0.1))
+                        #往pospos[nehihbor]哪个方向移动一下。判断在什么方向，才好。计算方向向量
+                        if  pos[nehihbor][0]>pos[node][0]:   #x2>x1
+                            #移动距离
+                            pos[node][0] = pos[node][0] +abs((pos[nehihbor][0]-pos[node][0]))*0.1
+                        else:
+                            pos[node][0] = pos[node][0] - abs((pos[nehihbor][0]-pos[node][0]))*0.1
+
+                        if pos[nehihbor][1]>pos[node][1]:   #x2>x1
+                            #移动距离
+                            pos[node][1] = pos[node][1] +abs((pos[nehihbor][1]-pos[node][1]))*0.1
+                        else:
+                            pos[node][1] = pos[node][1] - abs((pos[nehihbor][1]-pos[node][1]))*0.1
+                        print ('这个节点移动后新位置'+str(pos[node]))
+
+
+
+                    elif force<0:   #是斥力
+                        print('是斥力，那么开始这个节点位置是' + str(pos[node]))
+                        print('邻居节点位置为' + str(pos[nehihbor]))
+                        movex = 0.1 * (abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
+                        movey = 0.1 * (abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * calcucedistance(pos[node],pos[nehihbor]))
+                        # 往pospos[nehihbor]哪个方向移动一下。判断在什么方向，才好。计算方向向量
+                        if pos[nehihbor][0] > pos[node][0]:  # x2>x1
+                            # 移动距离
+                            pos[node][0] = pos[node][0] - abs((pos[nehihbor][0]-pos[node][0]))*0.1
+                        else:
+                            pos[node][0] = pos[node][0] + abs((pos[nehihbor][0]-pos[node][0]))*0.1
+
+                        if pos[nehihbor][1] > pos[node][1]:  # x2>x1
+                            # 移动距离
+                            pos[node][1] = pos[node][1] - abs((pos[nehihbor][1]-pos[node][1]))*0.1
+                        else:
+                            pos[node][1] = pos[node][1] + abs((pos[nehihbor][1]-pos[node][1]))*0.1
+                        print('移动后这个节点新位置' + str(pos[node]))
+
+                    else:
+                        pass
+      print (pos)
+      nx.draw(tempGraph,pos)
+      plt.savefig('hello.png')
+      plt.show()
+      #寻找边界点，排除一些垃圾点。从这些pos中找到一个符合情况的
 
 
 
@@ -420,9 +506,56 @@ def   findmultiplesource(singleRegionList,infectionG):
 
 
 
+import math
+def  calcuce(axisA,asisB):
+    c1=2.0
+    c2=1.0
+    x=axisA[0]-asisB[0]
+    y=axisA[1]-asisB[1]
+    distance=math.sqrt((x ** 2) + (y ** 2))
+    print ('两个点距离'+str(distance))
+    print ('返回'+str(c1*math.log(distance/c2) ))
+
+    #distance是坐标轴距离，而nx是他们之间点距离。if坐标轴距离大于点距离，靠近。
+    #if distance<点距离，远一点。
+
+    
+    return c1*math.log(distance/c2)
 
 
 
+def  calcucedistance(axisA,asisB):
+    c1=2.0
+    c2=1.0
+    x=axisA[0]-asisB[0]
+    y=axisA[1]-asisB[1]
+    distance=math.sqrt((x ** 2) + (y ** 2))
+    return distance
+
+
+
+
+
+ # 计算方位角函数
+def azimuthAngles( list1,list2):
+    angle = 0.0;
+    dx = list2[0] - list1[0]
+    dy = list2[1] - list1[1]
+    if  list2[0] == list1[0]:
+        angle = math.pi / 2.0
+        if  list2[1] == list1[1] :
+            angle = 0.0
+        elif list2[1] < list1[1] :
+            angle = 3.0 * math.pi / 2.0
+    elif list2[0] > list1[0] and list2[1] > list1[1]:
+        angle = math.atan(dx / dy)
+    elif  list2[0] > list1[0] and  list2[1] < list1[1] :
+        angle = math.pi / 2 + math.atan(-dy / dx)
+    elif  list2[0] < list1[0] and list2[1] < list1[1] :
+        angle = math.pi + math.atan(dx / dy)
+    elif  list2[0] < list1[0] and list2[1] > list1[1] :
+        angle = 3.0 * math.pi / 2.0 + math.atan(dy / -dx)
+    return (angle * 180 / math.pi)
 
 
 
