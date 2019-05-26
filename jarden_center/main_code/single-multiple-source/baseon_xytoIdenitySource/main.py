@@ -440,7 +440,7 @@ def   findmultiplesource(singleRegionList,infectionG):
 
           pos[node]=[random.uniform(0,20),random.uniform(0,20)]
 
-      for  i  in range(5):
+      for  i  in range(10):
             print ('这是第'+str(i)+'次迭代。哈哈哈哈---------------------------------------------------------------')
             #计算每一个点受到的力,只跟邻居节点有关系
             for node in tempGraph.nodes:
@@ -463,8 +463,8 @@ def   findmultiplesource(singleRegionList,infectionG):
                             print ('他们原先距离是'+str(calcucedistance(pos[node],pos[nehihbor]))+'夹角sin值'+str(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor]))))+'夹角余值'+str(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))))
 
 
-                            movex = abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (calcucedistance(pos[node], pos[nehihbor]) - 1)
-                            movey=abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (calcucedistance(pos[node], pos[nehihbor]) - 1)
+                            movex = abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (calcucedistance(pos[node], pos[nehihbor]) )
+                            movey=abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (calcucedistance(pos[node], pos[nehihbor]) )
                             print('移动x是' + str(movex))
                             print('移动y是' + str(movey))
 
@@ -473,40 +473,40 @@ def   findmultiplesource(singleRegionList,infectionG):
                                 #移动距离
                                 # movex=abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor]))))* (calcucedistance(pos[node],pos[nehihbor])-1)  #他们夹角
                                 # pos[node][0] = pos[node][0] +abs((pos[nehihbor][0]-pos[node][0]))*0.1
-                                pos[node][0] = pos[node][0]+movex
+                                pos[node][0] = pos[node][0]+movex*0.1
                             else:
                                 # pos[node][0] = pos[node][0] - abs((pos[nehihbor][0]-pos[node][0]))*0.1
-                                pos[node][0] = pos[node][0] - movex
+                                pos[node][0] = pos[node][0] - movex*0.1
                             if pos[nehihbor][1]>pos[node][1]:   #x2>x1
                                 #移动距离
                                 # pos[node][1] = pos[node][1] +abs((pos[nehihbor][1]-pos[node][1]))*0.1
-                                pos[node][1] = pos[node][1] +movey
+                                pos[node][1] = pos[node][1] +movey*0.1
                             else:
                                 # pos[node][1] = pos[node][1] - abs((pos[nehihbor][1]-pos[node][1]))*0.1
-                                pos[node][1] = pos[node][1] -movey
+                                pos[node][1] = pos[node][1] -movey*0.1
                             print ('这个节点移动后新位置'+str(pos[node]))
                             print ('跟原来节点距离为'+str(calcucedistance(pos[node],pos[nehihbor])))
                         elif force<0:   #是斥力
                             print('是斥力，那么开始这个节点位置是' + str(pos[node]))
                             print('邻居节点位置为' + str(pos[nehihbor]))
-                            movex =  (abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (1-calcucedistance(pos[node],pos[nehihbor])))
-                            movey =  (abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (1-calcucedistance(pos[node],pos[nehihbor])))
+                            movex =  (abs(math.sin(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (1-calcucedistance(pos[node],pos[nehihbor])))
+                            movey =  (abs(math.cos(math.radians(azimuthAngles(pos[node], pos[nehihbor])))) * (1-calcucedistance(pos[node],pos[nehihbor])))
                             # 往pospos[nehihbor]哪个方向移动一下。判断在什么方向，才好。计算方向向量
                             if pos[nehihbor][0] > pos[node][0]:  # x2>x1
                                 # 移动距离
                                 # pos[node][0] = pos[node][0] - abs((pos[nehihbor][0]-pos[node][0])+1)*0.1
-                                pos[node][0] = pos[node][0] -movex
+                                pos[node][0] = pos[node][0] -movex*0.1
                             else:
                                 # pos[node][0] = pos[node][0] + abs((pos[nehihbor][0]-pos[node][0])+1)*0.1
-                                pos[node][0]=pos[node][0] +movex
+                                pos[node][0]=pos[node][0] +movex*0.1
 
                             if pos[nehihbor][1] > pos[node][1]:  # x2>x1
                                 # 移动距离
                                 # pos[node][1] = pos[node][1] - abs((pos[nehihbor][1]-pos[node][1])+1)*0.1
-                                pos[node][1] = pos[node][1] -movey
+                                pos[node][1] = pos[node][1] -movey*0.1
                             else:
                                 # pos[node][1] = pos[node][1] + abs((pos[nehihbor][1]-pos[node][1])+1)*0.1
-                                pos[node][1] = pos[node][1] - movey
+                                pos[node][1] = pos[node][1] - movey*0.1
                             print('移动后这个节点新位置' + str(pos[node]))
                             print ('跟原来节点距离为'+str(calcucedistance(pos[node],pos[nehihbor])))
                         else:
@@ -514,7 +514,7 @@ def   findmultiplesource(singleRegionList,infectionG):
       print (pos)
       counttemp=0
       for  edge  in tempGraph.edges:
-           if   calcucedistance(pos[edge[0]],pos[edge[1]])>5:
+           if   calcucedistance(pos[edge[0]],pos[edge[1]])>3:
                counttemp=counttemp+1
       print ('距离大于5的两个点的边数量'+str(counttemp))
       nx.draw(tempGraph,pos)
