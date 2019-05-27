@@ -438,7 +438,7 @@ def   findmultiplesource(singleRegionList,infectionG):
       pos={}
       for  node in tempGraph.nodes:
           pos[node]=[random.uniform(0,10),random.uniform(0,10)]
-      for  i  in range(100):
+      for  i  in range(10):
             print ('这是第'+str(i)+'次迭代。哈哈哈哈---------------------------------------------------------------')
             #计算每一个点受到的力,只跟邻居节点有关系
             for node in tempGraph.nodes:
@@ -509,23 +509,26 @@ def   findmultiplesource(singleRegionList,infectionG):
                         else:
                             pass
       print (pos)
-      p1 = []  # 数据点
-      p2 = []
-      for  key,value  in  pos.items():
-            p1.append(pos[key][0])
-            p2.append(pos[key][1])
-
-          # 创建绘图图表对象，可以不显式创建，跟cv2中的cv2.namedWindow()用法差不多
-      plt.figure('Draw')
-      plt.scatter(p1, p2)  # scatter绘制散点图
-      plt.draw()  # 显示绘图
+      nx.draw(tempGraph,pos)
+      plt.savefig('hello.png')
       plt.show()
-      plt.savefig("easyplot.png")  # 保存图象
-      counttemp=0
-      for  edge  in tempGraph.edges:
-           if   calcucedistance(pos[edge[0]],pos[edge[1]])>3:
-               counttemp=counttemp+1
-      print ('距离大于5的两个点的边数量'+str(counttemp))
+      # p1 = []  # 数据点
+      # p2 = []
+      # for  key,value  in  pos.items():
+      #       p1.append(pos[key][0])
+      #       p2.append(pos[key][1])
+      #
+      #     # 创建绘图图表对象，可以不显式创建，跟cv2中的cv2.namedWindow()用法差不多
+      # plt.figure('Draw')
+      # plt.scatter(p1, p2)  # scatter绘制散点图
+      # plt.draw()  # 显示绘图
+      # plt.show()
+      # plt.savefig("easyplot.png")  # 保存图象
+      # counttemp=0
+      # for  edge  in tempGraph.edges:
+      #      if   calcucedistance(pos[edge[0]],pos[edge[1]])>3:
+      #          counttemp=counttemp+1
+      # print ('距离大于5的两个点的边数量'+str(counttemp))
       # peripherylist=list(nx.periphery(tempGraph))
       # print ('边缘节点大概有'+str(len(peripherylist)))
       #
