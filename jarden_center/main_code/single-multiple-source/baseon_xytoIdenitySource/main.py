@@ -438,7 +438,7 @@ def   findmultiplesource(singleRegionList,infectionG):
       pos={}
       for  node in tempGraph.nodes:
           pos[node]=[random.uniform(0,10),random.uniform(0,10)]
-      for  i  in range(10):
+      for  i  in range(50):
             print ('这是第'+str(i)+'次迭代。哈哈哈哈---------------------------------------------------------------')
             #计算每一个点受到的力,只跟邻居节点有关系
             for node in tempGraph.nodes:
