@@ -352,23 +352,23 @@ def   findmultiplesource(singleRegionList,infectionG):
                          min=mincover
                          sourceNew=source
                   print ('得到单源点情况最小的覆盖率为'+str(min)+'源点为'+str(sourceNew))
-                  maxCover.append([sourceNew,min])
+                  maxCover.append([sourceNew,h,min])
               else:
-                  
-                  max=0
+                  min=200
                   print ('多源情况,先考察同时传播传播')
                   print ('源点为'+str(sourceNum)+'情况')
                   #先判断源点个数，从chooseList中随机挑选两点，进行h构建。
                   combinationList = list(combinations(chooseList,sourceNum))  #这是排列组合，再次针对这个排列组合
-                  for  source  in combinationList:
-                          coincode=getSimilir(source,h,singleRegionList,infectionG)
-                          if  coincode < max:
-                              max = coincode
-                              sourceNews=source
-                  print('得到多源点情况最小的覆盖率为' + str(max))
-                  maxCover.append([sourceNews, max])
+                  sourceNews=[]
+                  for  sources  in combinationList:
+                          mincover=getSimilir(sources,h,singleRegionList,infectionG)
+                          if  mincover < min:
+                              min = mincover
+                              sourceNews=sources
+                  print('得到多源点情况最小的覆盖率为' + str( min))
+                  maxCover.append([sourceNews,h, min])
 
-
+      print (maxCover)
 
 
 
@@ -418,7 +418,8 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
                 count = count + 1
         Intersection =list(set( circleNodesList).intersection(set(singleRegionList)))  #交集
         Union=list(set(circleNodesList).union(set(singleRegionList)))
-        ratio=Intersection/Union-1.0
+        ratios=len(Intersection) / len(Union)
+        ratio= ratios - 1.0
         print('在u为'+str(ulist)+'h为'+str(hlist)+'情况下的覆盖率'+str(ratio))
         return abs(ratio)
 
@@ -437,7 +438,8 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
         # count
         Intersection = list(set(circleNodesList).intersection(set(singleRegionList)))  # 交集
         Union = list(set(circleNodesList).union(set(singleRegionList)))  #并集
-        ratio = Intersection / Union - 1.0
+        ratios = len(Intersection) / len(Union)
+        ratio = ratios - 1.0
         print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
 
         return abs(ratio)
