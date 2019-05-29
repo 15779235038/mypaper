@@ -330,12 +330,13 @@ def   findmultiplesource(singleRegionList,infectionG):
       chooseList=[]
       for  node  in  tempGraph.nodes:
            randomnum=random.random()
-           if  randomnum>0.9:
+           if  randomnum>0.95:
                chooseList.append(node)
       chooseList.append(125)
       chooseList.append(4022)
       print ('chooseList个元素个数为'+str(len(chooseList)))
       maxh=nx.radius(tempGraph)
+      print ('感染图半径为'+str(maxh))
       maxCover=[]
       for  sourceNum  in range(1,3):
           print ('在源点在'+str(sourceNum)+'个数的情况下')
@@ -344,27 +345,28 @@ def   findmultiplesource(singleRegionList,infectionG):
               if  sourceNum ==1:#单源点。
                   print('单源点情况下')
                   #计算chooselist的每一个点在这个h下的bfs树覆盖率（对所有的infectionG试试）看看。
-                  max=1000
-                  cover=0
-
+                  min=200
                   for  source  in chooseList:
-                     cover=getSimilir(source,h,singleRegionList,infectionG)  #取得覆盖率
-                     if  cover<max:
-                         max=cover
-                     sourceNew=source
-                  print ('得到单源点情况最小的覆盖率为'+str(max)+'源点为'+str(source))
-                  maxCover.append([sourceNum,cover])
+                     mincover=getSimilir(source,h,singleRegionList,infectionG)  #取得覆盖率
+                     if  min>mincover:
+                         min=mincover
+                         sourceNew=source
+                  print ('得到单源点情况最小的覆盖率为'+str(min)+'源点为'+str(sourceNew))
+                  maxCover.append([sourceNew,min])
               else:
+                  
                   max=0
                   print ('多源情况,先考察同时传播传播')
+                  print ('源点为'+str(sourceNum)+'情况')
                   #先判断源点个数，从chooseList中随机挑选两点，进行h构建。
                   combinationList = list(combinations(chooseList,sourceNum))  #这是排列组合，再次针对这个排列组合
                   for  source  in combinationList:
-                       coincode=getSimilir(source,h,singleRegionList,infectionG)
-                  if  coincode < max:
-                      max = coincode
+                          coincode=getSimilir(source,h,singleRegionList,infectionG)
+                          if  coincode < max:
+                              max = coincode
+                              sourceNews=source
                   print('得到多源点情况最小的覆盖率为' + str(max))
-                  maxCover.append([sourceNum, coincode])
+                  maxCover.append([sourceNews, max])
 
 
 
@@ -393,6 +395,19 @@ def   findmultiplesource(singleRegionList,infectionG):
 
 
 def getSimilir(ulist, hlist, singleRegionList, infectionG):
+
+
+
+    '''
+    S树-S感染。
+
+
+    :param ulist:
+    :param hlist:
+    :param singleRegionList:
+    :param infectionG:
+    :return:
+    '''
     if isinstance(ulist, int):
         circleNodesList = list(nx.bfs_tree(infectionG, source=ulist, depth_limit=hlist).nodes)  # 这包含了这个构建的圆的所有节点。
         # 计算列表相似度试试看
@@ -401,8 +416,14 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
         for i in circleNodesList:
             if i in singleRegionList:
                 count = count + 1
-        coincide=len(circleNodesList)-count
-        return coincide
+        Intersection =list(set( circleNodesList).intersection(set(singleRegionList)))  #交集
+        Union=list(set(circleNodesList).union(set(singleRegionList)))
+        ratio=Intersection/Union-1.0
+        print('在u为'+str(ulist)+'h为'+str(hlist)+'情况下的覆盖率'+str(ratio))
+        return abs(ratio)
+
+
+
     else:
         #多源点,获得多源点的感染
         circleNodesList=[]
@@ -413,8 +434,13 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
         for i in circleNodesList:
             if i in singleRegionList:
                 count = count + 1
-        coincide = len(circleNodesList) - count
-        return coincide
+        # count
+        Intersection = list(set(circleNodesList).intersection(set(singleRegionList)))  # 交集
+        Union = list(set(circleNodesList).union(set(singleRegionList)))  #并集
+        ratio = Intersection / Union - 1.0
+        print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
+
+        return abs(ratio)
 
 
 
