@@ -68,6 +68,9 @@ def Algorithm1(G, SourceList, time_sum,hlist):
     for j in range(len(SourceList)-1):
         nodelist=list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
         edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
+        nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
+
+
         for i in nodelist:
             G.node[i]['SI'] = 2
         for  k  in  edgelist:
@@ -77,6 +80,8 @@ def Algorithm1(G, SourceList, time_sum,hlist):
     #第3个源点传播。
     nodelist=list(nx.bfs_tree(G, source=SourceList[2], depth_limit=2).nodes)
     edgelist = list(nx.bfs_tree(G, source=SourceList[2], depth_limit=2).edges)
+    nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
+
     for j in nodelist:
         G.node[j]['SI'] = 2
     for l in edgelist:
@@ -214,7 +219,7 @@ def  multiplelistTo_ormialy(mutiolist):
 
 
 
-
+import  random
 
 def  getmultipleCommunity(infectionG):
     #return  multipleCommuniytlist
@@ -240,23 +245,23 @@ def  getmultipleCommunity(infectionG):
                     if infectG.node[randomnumber]['SI'] == 2:
                         randomInfectionNode = randomnumber
                         flag1 = 1
-                print('随机开始的点感染点' + str(randomInfectionNode))
+                print('第一个感染社区随机开始的点感染点' + str(randomInfectionNode))
                 partion = getTuresubinfectionG(infectionG,randomInfectionNode)
                 multipleCommuniytlist.append(partion)  # 第一个社区
             else:
-                print('在已经有社区的操作')
+                print('在已经有感染社区，开始找下一个社区的时候的操作')
                 #总的点集合-已经找到的社区节点=在这里继续找。
 
                 infectionList=multiplelistTo_ormialy(multipleCommuniytlist)
                 allList=list(infectionG.nodes)
-                diff_list = list(set(allList).difference(set(infectionList)))
+                diff_list = list(set(allList).difference(set(infectionList)))  #差集合
                 print ('在总的区里面，但不在已经分好的社区里面。'+str(len(diff_list)))
                 while flag2 == 0:
                     randomnumber =random.sample(diff_list, 1)
                     if infectionG.node[randomnumber[0]]['SI'] == 2:
                         randomInfectionNode =randomnumber[0]
                         flag2 = 1
-                print('随机开始的点感染点' + str(randomInfectionNode))
+                print('有感染社区之后随机开始的点感染点随机开始的点感染点' + str(randomInfectionNode))
                 partion = getTuresubinfectionG(infectionG,randomInfectionNode)
                 multipleCommuniytlist.append(partion)  #
             #终止条件,剩下社区没有被感染点了。
@@ -344,7 +349,7 @@ def   findmultiplesource(singleRegionList,infectionG):
           chooseList.append(center)
 
       print ('chooseList'+'总共有多少元素'+str(len(chooseList)))
-      maxCover=[]
+      minCover=[]
       for  sourceNum  in range(1,3):
           print ('在源点在'+str(sourceNum)+'个数的情况下')
           for  h  in range(2,5):
@@ -359,7 +364,7 @@ def   findmultiplesource(singleRegionList,infectionG):
                          min=mincover
                          sourceNew=source
                   print ('得到单源点情况最小的覆盖率为'+str(min)+'源点为'+str(sourceNew))
-                  maxCover.append([sourceNew,h,min])
+                  minCover.append([sourceNew,h,min])
               else:
                   min=200
                   print ('多源情况,先考察同时传播传播')
@@ -373,10 +378,15 @@ def   findmultiplesource(singleRegionList,infectionG):
                               min = mincover
                               sourceNews=sources
                   print('得到多源点情况最小的覆盖率为' + str( min))
-                  maxCover.append([sourceNews,h, min])
+                  minCover.append([sourceNews,h, min])
+      print (minCover)
+      #返回的应该是最可能的结果。获取mincover最小的返回。第三个元素才是需要考虑东西。
+      listToTxt(minCover, 'result.txt')
+      result = sorted(minCover, key=lambda x: (x[2]))
+      return result[0]
 
-      print (maxCover)
-      listToTxt(maxCover,'result.txt')
+
+
 
 
 
@@ -464,22 +474,34 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
 
 
 
+'''
+this   function  :   to  get  sourcelist fo  everyRegionList  and   caluce  every  distance of  source and result
 
+
+'''
 
 
 import math
-def   multiplePartion(mutiplelist,infectionG):
+def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
      #所有单源list
-     allsigleList=[]
-     siglelist=[]
+     allsigleSourceList=[]
 
      #将第一个传播区域定下来。
      import datetime
      starttime = datetime.datetime.now()
      # long running
 
-     iglelist = findmultiplesource(mutiplelist[0], infectionG)
+     for  sigleReionlist  in  mutiplelist:
+         allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG))
+
+     #现在已经返回关于每个社区的源点及其社区了，开始画图吧。
+     print ('最后的每个分区的源点是'+str(allsigleSourceList))
+
+     #开始画图。我们可能需要两个图，来帮助我们分别这种方法，一个是单源的，一个是多源的。
+
+
+
      # do something other
      endtime = datetime.datetime.now()
      print(str((endtime - starttime).seconds)+'秒')
@@ -571,4 +593,4 @@ except:
 
 multipList=getmultipleCommunity(infectG)
 
-multiplePartion(multipList,infectG)
+multiplePartion(multipList,infectG,rumorSourceList)
