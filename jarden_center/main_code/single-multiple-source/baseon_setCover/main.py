@@ -136,7 +136,7 @@ def  contractSource(G,sourceNum,sourceMaxDistance):
             continue
     rumorSourceList.append(point)
     print('真实两源感染区域是'+str(rumorSourceList)+'另一个感染点区域是'+str(point))
-
+    tureSourceList=[2,1]
     return rumorSourceList
 
 
@@ -486,25 +486,133 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
      #所有单源list
      allsigleSourceList=[]
-
+     allSigleSourceListNum=[2,1]
+     rumorSourceList=[[rumorSourceList[0],rumorSourceList[1]],[rumorSourceList[2]]]
      #将第一个传播区域定下来。
      import datetime
      starttime = datetime.datetime.now()
      # long running
-
      for  sigleReionlist  in  mutiplelist:
          allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG))
 
      #现在已经返回关于每个社区的源点及其社区了，开始画图吧。
-     print ('最后的每个分区的源点是'+str(allsigleSourceList))
+     print ('最后的每个分区的圆点和他的h是'+str(allsigleSourceList))
+     # for  sigleRegionSource  in  allSigleSourceListNum:
 
-     #开始画图。我们可能需要两个图，来帮助我们分别这种方法，一个是单源的，一个是多源的。
+
+
+
+     # #开始画图。我们可能需要两个图，来帮助我们分别这种方法，一个是单源的，一个是多源的。
+     # '''
+     # 这个有个规则的，比如多源定位。你如果定的多源，那就各自每个真实源点找最近的源点。最后计算平均值。
+     # 如果你定的是单源，那就分别计算这个源跟多个真实源点的距离平均值。
+     # 如果是单源定位，你定的单源，自然最好。直接计算距离。
+     # '''
+     # #开始分区，计算error distance。
+     # for  singleSourcelist in  allsigleSourceList:
+     #      for   number  in  allSigleSourceListNum:
+     #            #判断源点数目是否对的上不
+     #            if  len(number) ==len(singleSourcelist[0]):
+     #                #源点数目对的上，开始计算平均距离。
+     #
+     #
+     #
+     #
+     #
+
+
 
 
 
      # do something other
      endtime = datetime.datetime.now()
      print(str((endtime - starttime).seconds)+'秒')
+
+
+
+
+
+
+
+
+
+
+
+#设计反向传播算法，接收参数。u，h，infectG。
+def  revsitionAlgorithm(u,h,infectG,subinfectG):
+    nodelist=list(nx.bfs_tree(subinfectG,source=u,depth_limit=h).nodes)
+    source1G=nx.Graph()  #构建新的单源传播圆出来
+    for edge in  subinfectG.edges:
+        if edge[0]  in  nodelist  and edge[1]  in  nodelist:
+            source1G.add_edge(edge[0],edge[1])
+
+    print  ('传播子图为source1G,它的点数和边数为'+str(source1G.number_of_nodes())+'-------'+str(source1G.number_of_edges()))
+    #在nodelist找出源点来。
+    times=6   #时间刻多点
+    IDdict={}
+    IDdict_dup = {}
+    # 先赋予初始值。
+    for  node  in  list(source1G.nodes):
+        # subinfectG.node[node]['ID']=list(node)   #赋予的初始值为list
+        IDdict[node]=[node]
+        IDdict_dup[node] = [node]
+    allnodelist_keylist = []  #包含所有接受全部节点id的键值对的key
+    for  t  in  range(times):
+        print ('t为'+str(t)+'的时候-----------------------------------------------------------------------------')
+        for  node  in  nodelist:  #对每一个节点来说
+            for heighbour in   list(source1G.neighbors(node)):   #对每一个节点的邻居来说
+                  retD=list(set(IDdict[heighbour]).difference(set( IDdict[node])))  #如果邻居中有这个node没有的，那就加到这个node中去。
+                  if  len(retD)!=0:   #表示在B中，但不在A.是有的，那就求并集
+                            #求并集,把并集放进我们的retC中。
+                            # print ('并集就是可使用'+str(retD))
+                            retC = list(set(IDdict[heighbour]).union(set(IDdict[node])))
+                            IDdict_dup[node] = list(set(IDdict_dup[node] + retC))  #先用一个dict把结果装入,然后这个时间过去再加回去。
+
+        for key, value in IDdict_dup.items():
+            IDdict[key] = IDdict_dup[key]
+        # for key, value in IDdict.items():
+        #     print(key, value)
+    #在每一个时间刻检查是否有节点满足获得所有的id了。
+
+        flag=0
+        for key, value in IDdict.items():
+            # d.iteritems: an iterator over the (key, value) items
+            if   sorted(IDdict[key])==sorted(nodelist):
+                 print ('在t为'+str(t)+'的时间的时候，我们有了接受全部node的ID的人')
+                 print ('它的key为'+str(key))
+                 allnodelist_keylist.append(key)
+                 print ('有了接受所有的节点了这样的节点了')
+                 flag=1
+
+        if  flag==1:
+            break
+    # print (IDdict)
+    print (allnodelist_keylist)
+
+    result=0
+    resultlist=[]
+   #如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
+    if  len(allnodelist_keylist)==1:
+        print ('那就是这个源点了')
+        result=allnodelist_keylist[0]
+    else:
+        #构建样本路径
+        print ('构建样本路径看看')
+        jarcenlist=[]
+        for  i  in  allnodelist_keylist:
+            jarcenlist.append([i,nx.eccentricity(source1G,i)])  #按照离心率进行排序,最小离心率的就是源点。
+            resultlist = sorted(jarcenlist, key=lambda x: x[1])
+        result=resultlist[0][0]
+        print('构建样本路径之后结果为'+str(resultlist[0][0]))
+
+    return result
+    # print (nx.shortest_path_length(subinfectG,result,u))  #0
+    # print (nx.shortest_path_length(subinfectG,125,result) )#  2
+    # print(nx.shortest_path_length(subinfectG, 4022, result))  #  8
+    #
+
+
+
 
 
 
