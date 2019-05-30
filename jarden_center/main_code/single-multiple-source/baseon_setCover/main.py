@@ -257,14 +257,16 @@ def  getmultipleCommunity(infectionG):
                 diff_list = list(set(allList).difference(set(infectionList)))  #差集合
                 print ('在总的区里面，但不在已经分好的社区里面。'+str(len(diff_list)))
                 while flag2 == 0:
-                    randomnumber =random.sample(diff_list, 1)
-                    if infectionG.node[randomnumber[0]]['SI'] == 2:
-                        randomInfectionNode =randomnumber[0]
+                    randomnumber =random.sample(diff_list, 2)
+                    if infectionG.node[randomnumber[1]]['SI'] == 2:
+                        randomInfectionNode =randomnumber[1]
                         flag2 = 1
                 print('有感染社区之后随机开始的点感染点随机开始的点感染点' + str(randomInfectionNode))
                 partion = getTuresubinfectionG(infectionG,randomInfectionNode)
                 multipleCommuniytlist.append(partion)  #
             #终止条件,剩下社区没有被感染点了。
+
+
             haveinfectionList = multiplelistTo_ormialy(multipleCommuniytlist)
             allList = list(infectionG.nodes)
             diff_list_ = list(set(allList).difference(set( haveinfectionList)))
@@ -272,10 +274,10 @@ def  getmultipleCommunity(infectionG):
             for i  in diff_list_:
                restList.append(infectionG.node[i]['SI'])
             if  2  in restList:
-                print('有感染点在restList中，')
+                print('有感染点在restList中，就是说有感染点在除了这些感染子图之外。')
                 pass
             elif 2  not in restList:
-                print('已经没有感染点在restList中，')
+                print('已经没有感染点在restList中，就是说有感染点在除了这些感染子图之外。')
                 flag=1
 
     print ('感染社区个数以及各自人数')
@@ -495,9 +497,51 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
      for  sigleReionlist  in  mutiplelist:
          allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG))
 
+     #构建传播子图.
+     tempGraph1 = nx.Graph()
+     for edge in infectionG.edges:
+         # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
+         if edge[0] in mutiplelist[0] and edge[1] in mutiplelist[0]:
+             tempGraph1.add_edges_from([edge], weight=1)
+     print('这个感染区域的传播子图边个数')
+     print(tempGraph1.number_of_edges())
+
+
+
+
+
+     # 构建传播子图.
+     tempGraph2 = nx.Graph()
+     for edge in infectionG.edges:
+         # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
+         if edge[0] in mutiplelist[1] and edge[1] in mutiplelist[1]:
+             tempGraph2.add_edges_from([edge], weight=1)
+     print('这个感染区域的传播子图边个数')
+     print(tempGraph2.number_of_edges())
+
+
+
+
+
+
+     resultSource=[]
      #现在已经返回关于每个社区的源点及其社区了，开始画图吧。
      print ('最后的每个分区的圆点和他的h是'+str(allsigleSourceList))
-     # for  sigleRegionSource  in  allSigleSourceListNum:
+     for  sigleRegionSource  in  allSigleSourceListNum:
+          if  len(sigleRegionSource[0])==2: #两源点
+              source1=revsitionAlgorithm(sigleRegionSource[0][0],sigleRegionSource[1],infectionG,tempGraph1)
+              source2=revsitionAlgorithm(sigleRegionSource[0][1],sigleRegionSource[1],infectionG,tempGraph1)
+              print ('用反转算法计算出来的源点为'+str(source2)+str(source1))
+
+              resultSource.append([source1,source2])
+
+          else:
+              source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[2], infectionG, tempGraph2)
+              print('用反转算法计算出来的单源点为' + str(source3))
+              resultSource.append(source3)
+
+
+     print (resultSource)
 
 
 
