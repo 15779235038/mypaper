@@ -308,7 +308,7 @@ def   findmultiplesource(singleRegionList,infectionG):
       #首先需要判断是否多源。不断找源点去对这个区域。
       tempGraph=nx.Graph()
       for  edge in infectionG.edges:
-          if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
+          # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
               if edge[0] in singleRegionList and edge[1] in singleRegionList:
                   tempGraph.add_edges_from([edge],weight=1)
       print ('这个感染区域的传播子图边个数')
@@ -336,11 +336,18 @@ def   findmultiplesource(singleRegionList,infectionG):
       chooseList.append(4022)
       print ('chooseList个元素个数为'+str(len(chooseList)))
       maxh=nx.radius(tempGraph)
-      print ('感染图半径为'+str(maxh))
+      print ('感染图半径为'+str(maxh))   #把边都加入话，半径都小了。都不是一个好树了，难受
+      centerlist=list(nx.center(tempGraph))
+      print ('感染图的中心为'+str(centerlist))
+      chooseList=chooseList[-50:]   #取最后50个。
+      for  center in centerlist:
+          chooseList.append(center)
+
+      print ('chooseList'+'总共有多少元素'+str(len(chooseList)))
       maxCover=[]
       for  sourceNum  in range(1,3):
           print ('在源点在'+str(sourceNum)+'个数的情况下')
-          for  h  in range(2,maxh):
+          for  h  in range(2,5):
               print ('在h为'+str(h)+'的情况下')
               if  sourceNum ==1:#单源点。
                   print('单源点情况下')
@@ -369,13 +376,20 @@ def   findmultiplesource(singleRegionList,infectionG):
                   maxCover.append([sourceNews,h, min])
 
       print (maxCover)
+      listToTxt(maxCover,'result.txt')
 
 
 
 
 
 
-
+def  listToTxt(listTo,dir):
+    fileObject = open(dir, 'a')
+    for ip in listTo:
+        fileObject.write(str(ip))
+        fileObject.write('\n')
+    fileObject.write('\n')
+    fileObject.close()
 
 
 
@@ -459,8 +473,18 @@ def   multiplePartion(mutiplelist,infectionG):
      #所有单源list
      allsigleList=[]
      siglelist=[]
+
      #将第一个传播区域定下来。
-     iglelist=findmultiplesource(mutiplelist[0],infectionG)
+     import datetime
+     starttime = datetime.datetime.now()
+     # long running
+
+     iglelist = findmultiplesource(mutiplelist[0], infectionG)
+     # do something other
+     endtime = datetime.datetime.now()
+     print(str((endtime - starttime).seconds)+'秒')
+
+
 
 
 
