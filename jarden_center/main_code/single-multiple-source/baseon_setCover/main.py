@@ -255,13 +255,18 @@ def  getmultipleCommunity(infectionG):
                 infectionList=multiplelistTo_ormialy(multipleCommuniytlist)
                 allList=list(infectionG.nodes)
                 diff_list = list(set(allList).difference(set(infectionList)))  #差集合
-                print ('在总的区里面，但不在已经分好的社区里面。'+str(len(diff_list)))
+                print ('在总的区里面，但不在已经分好的社区里面。这些点有多少个？'+str(len(diff_list)))
+                print ('下面开始在除了已有的感染区域外，重新找一个点，是感染点')
                 while flag2 == 0:
-                    randomnumber =random.sample(diff_list, 2)
-                    if infectionG.node[randomnumber[1]]['SI'] == 2:
-                        randomInfectionNode =randomnumber[1]
+                    randomnumber =random.sample(diff_list, 3)
+                    if infectionG.node[randomnumber[2]]['SI'] == 2:
+                        print ('找到了，这个除了已有的感染区域外，重新找一个点，是感染点的点就是'+str(randomnumber[2]))
+                        randomInfectionNode =randomnumber[2]
                         flag2 = 1
-                print('有感染社区之后随机开始的点感染点随机开始的点感染点' + str(randomInfectionNode))
+                    else:
+                        pass
+
+                print('有感染社区之后随机开始的点感染点随机开始的点感染点是' + str(randomInfectionNode))
                 partion = getTuresubinfectionG(infectionG,randomInfectionNode)
                 multipleCommuniytlist.append(partion)  #
             #终止条件,剩下社区没有被感染点了。
@@ -383,8 +388,9 @@ def   findmultiplesource(singleRegionList,infectionG):
                   minCover.append([sourceNews,h, min])
       print (minCover)
       #返回的应该是最可能的结果。获取mincover最小的返回。第三个元素才是需要考虑东西。
-      listToTxt(minCover, 'result.txt')
+      # listToTxt(minCover, 'result.txt')
       result = sorted(minCover, key=lambda x: (x[2]))
+      listToTxt(result[0],'newresult.txt')
       return result[0]
 
 
@@ -397,9 +403,7 @@ def   findmultiplesource(singleRegionList,infectionG):
 
 def  listToTxt(listTo,dir):
     fileObject = open(dir, 'a')
-    for ip in listTo:
-        fileObject.write(str(ip))
-        fileObject.write('\n')
+    fileObject.write(str(listTo))
     fileObject.write('\n')
     fileObject.close()
 
@@ -474,6 +478,20 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
 
 
 
+import  sys
+def   getListfortxt(rootdir):
+    lines = []
+    with open(rootdir, 'r') as file_to_read:
+        while True:
+            line = file_to_read.readline()
+            if not line:
+                break
+            line = line.strip('\n')
+            lines.append(line)
+
+    lists = [x for x in  lines if x != []]
+    return lists
+
 
 
 '''
@@ -489,15 +507,21 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
      #所有单源list
      allsigleSourceList=[]
      allSigleSourceListNum=[2,1]
-     truerumorSourceLists=[[rumorSourceList[0],rumorSourceList[1]],[rumorSourceList[2]]]
+
      #将第一个传播区域定下来。
      import datetime
      starttime = datetime.datetime.now()
-     # long running
-     for  sigleReionlist  in  mutiplelist:
-         allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG))
+     # long running,这里可以读的文件代替，就比较省时间。反正都是为了allsigleSourcellist填充
 
-     #构建传播子图.
+
+     '''   这个是保留项，我觉得反转算法有点问题，反正（u,h是写完了）,下面这个很好时间'''
+
+     # for  sigleReionlist  in  mutiplelist:
+     #     allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG))
+     #
+     allsigleSourceList=[[(3995, 125), 3, 0.10049571879224872], [815, 2, 0.10382513661202186]]
+     #上面这个就是通过圆（u，h）构建的结果，看着办。第一个是双源的，第二个是单源的。
+     #构建每个传播区域的传播子图.
      tempGraph1 = nx.Graph()
      for edge in infectionG.edges:
          # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
@@ -505,6 +529,7 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
              tempGraph1.add_edges_from([edge], weight=1)
      print('这个感染区域的传播子图边个数')
      print(tempGraph1.number_of_edges())
+     print (tempGraph1.number_of_nodes())
 
 
 
@@ -518,28 +543,31 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
              tempGraph2.add_edges_from([edge], weight=1)
      print('这个感染区域的传播子图边个数')
      print(tempGraph2.number_of_edges())
-
+     print(tempGraph2.number_of_nodes())
 
 
      resultSource=[]
      #现在已经返回关于每个社区的源点及其社区了，开始画图吧。
      print ('最后的每个分区的圆点和他的h是'+str(allsigleSourceList))
+
+
+
      for  sigleRegionSource  in  allsigleSourceList:
           if isinstance(sigleRegionSource[0], int): #单源点
-              source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[2], infectionG, tempGraph2)
+              source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[1], infectionG, tempGraph2)
               print('用反转算法计算出来的单源点为' + str(source3))
-              resultSource.append(source3)
+              resultSource.append([source3])
           else:
-
+              print ('多源点情况---------------------------')
               source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, tempGraph1)
               source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, tempGraph1)
               print('用反转算法计算出来的源点为' + str(source2) + str(source1))
               resultSource.append([source1, source2])
 
 
-     print (resultSource)
-
-
+     print ('总的用反转算法算出来的结果为'+str(resultSource))
+     truerumorSourceLists = [[rumorSourceList[0], rumorSourceList[1]], [rumorSourceList[2]]]
+     #上面这两个，可以干一架了。
 
 
      #真实集合
@@ -548,7 +576,9 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
      for   resultsourcelist in  resultSource:
            if  len(resultsourcelist)>1 and len(truerumorSourceLists[0])>1 :
                #开始计算它对应的源点差值，要找一些好的值。
-                combinationList = list(combinations(resultsourcelist, truerumorSourceLists[0]))  # 这是排列组合，再次针对这个排列组合
+                print(resultsourcelist,truerumorSourceLists[0])
+                tempLists=list(resultsourcelist+truerumorSourceLists[0])
+                combinationList = list(combinations(tempLists, 2))  # 这是排列组合，再次针对这个排列组合
                 #计算所有组合，然后找出距离最近的符合len的两组，这里我明显知道是2.
                 lengthlist=[]
                 for   combination  in  combinationList:
@@ -556,10 +586,14 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
                 result = sorted( lengthlist, key=lambda x: (x[1]))
 
                 resultSourceMinDistance=result[:2]
-                print ('我们算的的两源定位的距离结果为'+resultSourceMinDistance)
+                print ('我们算的的两源定位的距离结果为'+str(resultSourceMinDistance))
            else:
-               distance=nx.shortest_path_length(infectionG,resultsourcelist,truerumorSourceLists[1])
-               print('我们算的的单源定位的距离结果为'+ str(distance))
+
+               # if  769  in  list(infectionG.nodes):
+               #     print ('在的啊------------------------------------------')
+               distance=nx.shortest_path_length(infectionG,resultsourcelist[0],truerumorSourceLists[1][0])
+               print('我们算的的单源定位的距离结果为'+ str(resultsourcelist[0])+str(truerumorSourceLists[1][0])+str(distance))
+
 
      # #开始画图。我们可能需要两个图，来帮助我们分别这种方法，一个是单源的，一个是多源的。
      # '''
@@ -599,6 +633,7 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
 #设计反向传播算法，接收参数。u，h，infectG。
 def  revsitionAlgorithm(u,h,infectG,subinfectG):
+    print ('反转算法参数,u和h'+str(u)+'----------'+str(h))
     nodelist=list(nx.bfs_tree(subinfectG,source=u,depth_limit=h).nodes)
     source1G=nx.Graph()  #构建新的单源传播圆出来
     for edge in  subinfectG.edges:
@@ -762,6 +797,10 @@ except:
 
 #now  to  practice single-multiple  source Partition.Get  ture  parition
 
+
+
+# if  769  in list(infectG.nodes):
+#     print ('明明就在')
 multipList=getmultipleCommunity(infectG)
 
-multiplePartion(multipList,infectG,rumorSourceList)
+multiplePartion(multipList, G,rumorSourceList)
