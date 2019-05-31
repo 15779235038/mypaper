@@ -489,7 +489,7 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
      #所有单源list
      allsigleSourceList=[]
      allSigleSourceListNum=[2,1]
-     rumorSourceList=[[rumorSourceList[0],rumorSourceList[1]],[rumorSourceList[2]]]
+     truerumorSourceLists=[[rumorSourceList[0],rumorSourceList[1]],[rumorSourceList[2]]]
      #将第一个传播区域定下来。
      import datetime
      starttime = datetime.datetime.now()
@@ -521,30 +521,45 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
 
 
-
-
-
      resultSource=[]
      #现在已经返回关于每个社区的源点及其社区了，开始画图吧。
      print ('最后的每个分区的圆点和他的h是'+str(allsigleSourceList))
-     for  sigleRegionSource  in  allSigleSourceListNum:
-          if  len(sigleRegionSource[0])==2: #两源点
-              source1=revsitionAlgorithm(sigleRegionSource[0][0],sigleRegionSource[1],infectionG,tempGraph1)
-              source2=revsitionAlgorithm(sigleRegionSource[0][1],sigleRegionSource[1],infectionG,tempGraph1)
-              print ('用反转算法计算出来的源点为'+str(source2)+str(source1))
-
-              resultSource.append([source1,source2])
-
-          else:
+     for  sigleRegionSource  in  allsigleSourceList:
+          if isinstance(sigleRegionSource[0], int): #单源点
               source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[2], infectionG, tempGraph2)
               print('用反转算法计算出来的单源点为' + str(source3))
               resultSource.append(source3)
+          else:
+
+              source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, tempGraph1)
+              source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, tempGraph1)
+              print('用反转算法计算出来的源点为' + str(source2) + str(source1))
+              resultSource.append([source1, source2])
 
 
      print (resultSource)
 
 
 
+
+     #真实集合
+     #结果集合和我们的真实源开始对照，其中多源就要这些节点去自动找了。
+
+     for   resultsourcelist in  resultSource:
+           if  len(resultsourcelist)>1 and len(truerumorSourceLists[0])>1 :
+               #开始计算它对应的源点差值，要找一些好的值。
+                combinationList = list(combinations(resultsourcelist, truerumorSourceLists[0]))  # 这是排列组合，再次针对这个排列组合
+                #计算所有组合，然后找出距离最近的符合len的两组，这里我明显知道是2.
+                lengthlist=[]
+                for   combination  in  combinationList:
+                      lengthlist.append([combination,nx.shortest_path_length(infectionG,combination[0],combination[1])])
+                result = sorted( lengthlist, key=lambda x: (x[1]))
+
+                resultSourceMinDistance=result[:2]
+                print ('我们算的的两源定位的距离结果为'+resultSourceMinDistance)
+           else:
+               distance=nx.shortest_path_length(infectionG,resultsourcelist,truerumorSourceLists[1])
+               print('我们算的的单源定位的距离结果为'+ str(distance))
 
      # #开始画图。我们可能需要两个图，来帮助我们分别这种方法，一个是单源的，一个是多源的。
      # '''
@@ -648,6 +663,10 @@ def  revsitionAlgorithm(u,h,infectG,subinfectG):
             resultlist = sorted(jarcenlist, key=lambda x: x[1])
         result=resultlist[0][0]
         print('构建样本路径之后结果为'+str(resultlist[0][0]))
+
+
+
+
 
     return result
     # print (nx.shortest_path_length(subinfectG,result,u))  #0
