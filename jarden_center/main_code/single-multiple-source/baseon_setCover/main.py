@@ -68,7 +68,7 @@ def Algorithm1(G, SourceList, time_sum,hlist):
     for j in range(len(SourceList)-1):
         nodelist=list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
         edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
-        nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
+        # nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
 
 
         for i in nodelist:
@@ -80,9 +80,8 @@ def Algorithm1(G, SourceList, time_sum,hlist):
     #第3个源点传播。
     nodelist=list(nx.bfs_tree(G, source=SourceList[2], depth_limit=2).nodes)
     edgelist = list(nx.bfs_tree(G, source=SourceList[2], depth_limit=2).edges)
-    nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
-    if   815  in  nodelist:
-        print ('在的llllllllllllllllllllll')
+    # nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
+
     for j in nodelist:
         G.node[j]['SI'] = 2
     for l in edgelist:
@@ -104,41 +103,49 @@ def Algorithm1(G, SourceList, time_sum,hlist):
 
 #产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
 def  contractSource(G,sourceNum,sourceMaxDistance):
-    #now  I  want  produce  three  point ,   two  point  have  commbine  region with  each other,one  point have
-    # more  distance with  that  two point ,in this algorithm .two point have,so  need to product a  point away form
-    #two  point
-    # # 产生2个节点，看看。设定一个值3。表示这个点度比较小。且两个点距离较小。
-    # flag=1
-    # while(flag):
-    #     rumorSourceList = []
-    #     while  (len(rumorSourceList)!=2):
-    #         random_RumorSource = random.randint(0, 4039)
-    #         if random_RumorSource not in rumorSourceList:
-    #                 rumorSourceList.append(random_RumorSource)
-    #     print('源点个数' + str(len(rumorSourceList)))
-    #     #产生源点距离大于5.小于7
-    #     if  len(nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight'))>6  and len(nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight'))<10 :
-    #         flag=0
-    #
-    # # 查看产生随机源点的个数2，并且他们距离为3.
-    # print('源点个数' + str(len(rumorSourceList)))
-    # print ('源点距离'+str(nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight')))
-    rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 950
+     sumlist=list(G.nodes)
+     flag=0
+     flag1=0
+     #先随机找个点，然后找到距离它为>6,小于10的吧。
+     while (flag==0):
+         rumorSourceList = []
+         # random_RumorSource = random.randint(0, 7000)
+         random_Rumo= random.sample(  sumlist, 1)
+         random_RumorSource= random_Rumo[0]
+         #在剩下的节点找到我们的第二个点。
+         for  node  in  list(G.nodes):
+              if  nx.has_path(G,node,random_RumorSource)==True:
+                  if  nx.shortest_path_length(G,node,random_RumorSource)>4 and  nx.shortest_path_length(G,node,random_RumorSource)<6:
+                      rumorSourceList.append(node)
+                      rumorSourceList.append(random_RumorSource)
+                      flag=1
+                      break
 
 
-    #produce  a  point away form  rumorSourceList  that  distance are  6
-    point =9999
-    for  node  in G.nodes:
-        try:
-            if nx.shortest_path_length(G, node, rumorSourceList[0]) > 6 and nx.shortest_path_length(G, node,rumorSourceList[1]) >7:
-                point = node
-                break
-        except:
-            continue
-    rumorSourceList.append(point)
-    print('真实两源感染区域是'+str(rumorSourceList)+'另一个感染点区域是'+str(point))
-    tureSourceList=[2,1]
-    return rumorSourceList
+     # 查看产生随机源点的个数2，并且他们距离为3.
+     print('源点个数' + str(len(rumorSourceList))+'以及产生的两源点是'+str(rumorSourceList))
+     print ('两个源点距离'+str(nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight')))
+     # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 950
+
+
+
+
+
+
+     #produce  a  point away form  rumorSourceList  that  distance are  6
+     point =9999
+     for  node  in list(G.nodes):
+            if  nx.has_path(G,node,rumorSourceList[0])==True  and  nx.has_path(G,node,rumorSourceList[1])==True:
+                if nx.shortest_path_length(G, node, rumorSourceList[0]) > 6 and nx.shortest_path_length(G, node,rumorSourceList[1]) >6:
+                    point = node
+                    print ('找到了，这个点为'+str(node))
+                    break
+
+     rumorSourceList.append(point)
+     print('真实两源感染是'+str(rumorSourceList)+'另一个感染点是'+str(point))
+     tureSourceList=[2,1]
+     # rumorSourceList=[418, 6057, 2419]
+     return rumorSourceList
 
 
 import  csv
@@ -176,7 +183,7 @@ def  getTuresubinfectionG(infectG,randomInfectionsource):
     flag=0
     while(flag==0):
         print('这个firstpartion是多少？'+str(firstPartion))
-        print (list(infectG.neighbors(firstPartion[0])))
+        # print (list(infectG.neighbors(firstPartion[0])))
         for  infetcionnode  in firstPartion:
             for  neighbor  in  list(infectG.neighbors(infetcionnode)):
                 if infectG.node[neighbor]['SI']==2:
@@ -229,7 +236,7 @@ def  getmultipleCommunity(infectionG):
     # start  by  a  random  SInode
     randomInfectionNode = 0
     # sum  nodes  in  infect G:
-    sum = infectionG.number_of_nodes()
+    sumlist = list(infectionG.nodes)
     flag1= 0
     flag2=0
     flag=0
@@ -242,9 +249,9 @@ def  getmultipleCommunity(infectionG):
                 print ('在没有社区的操作')
             #刚开始随机产生一个点。
                 while flag1 == 0:
-                    randomnumber = random.randint(1, sum)
-                    if infectG.node[randomnumber]['SI'] == 2:
-                        randomInfectionNode = randomnumber
+                    randomnumber = random.sample(sumlist, 1)
+                    if infectionG.node[randomnumber[0]]['SI'] == 2:
+                        randomInfectionNode = randomnumber[0]
                         flag1 = 1
                 print('第一个感染社区随机开始的点感染点' + str(randomInfectionNode))
                 partion1 = getTuresubinfectionG(infectionG,randomInfectionNode)
@@ -253,18 +260,19 @@ def  getmultipleCommunity(infectionG):
             else:
                 print('在已经有感染社区，开始找下一个社区的时候的操作')
                 #总的点集合-已经找到的社区节点=在这里继续找。
-
                 infectionList=multiplelistTo_ormialy(multipleCommuniytlist)
                 allList=list(infectionG.nodes)
                 diff_list = list(set(allList).difference(set(infectionList)))  #差集合
                 print ('在总的区里面，但不在已经分好的社区里面。这些点有多少个？'+str(len(diff_list)))
                 print ('下面开始在除了已有的感染区域外，重新找一个点，是感染点')
+                flag2=0
                 while flag2 == 0:
-                    randomnumber =random.sample(diff_list, 3)
-                    if infectionG.node[randomnumber[2]]['SI'] == 2:
-                        print ('这个除了已有的感染区域外，重新找一个点，是感染点的点就是'+str(randomnumber[2]))
-                        randomInfectionNode =randomnumber[2]
-                        flag2 = 1
+                    for  infectionNode  in diff_list:
+                        if infectionG.node[infectionNode]['SI'] == 2:
+                            print ('重新找一个点，是感染点的点就是'+str(infectionNode))
+                            randomInfectionNode =infectionNode
+                            flag2 = 1
+                            break
 
                 print('有感染社区之后随机开始的点感染点随机开始的点感染点是' + str(randomInfectionNode))
                 partion2 = getTuresubinfectionG(infectionG,randomInfectionNode)
@@ -296,7 +304,7 @@ def  getmultipleCommunity(infectionG):
     print(len(multipleCommuniytlist[0]))
     if  125  in  multipleCommuniytlist[0]  and 4022  in  multipleCommuniytlist[0]:
         print ('头两个源点在的')
-    print(len(multipleCommuniytlist[1]))
+    # print(len(multipleCommuniytlist[1]))
     return multipleCommuniytlist
 
 
@@ -761,7 +769,7 @@ Ginti = nx.Graph()
 #     Ginti.add_node(index)
 
 # 构建图，这个图是有有效距离的。
-G = ContractDict('../data/facebook_combined.txt', Ginti)
+G = ContractDict('../data/Wiki-Vote.txt', Ginti)
 
 # 因为邮件是一个有向图，我们这里构建的是无向图。
 print('一开始图的顶点个数', G.number_of_nodes())
@@ -770,8 +778,8 @@ print('一开始图的边个数', G.number_of_edges())
 
 
 #  先给全体的Cn、Scn,time的0的赋值。
-for index in range(G.number_of_nodes()):
-    G.add_node(index, SI=1)
+for node in list(G.nodes):
+    G.add_node(node, SI=1)
 
 
 # 初始化所有边是否感染。Infection
@@ -812,16 +820,13 @@ ConvertGToCsvSub(subinfectG,'SubInfectionG.csv')
 print (nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight'))
 print (nx.shortest_path(subinfectG, rumorSourceList[0], rumorSourceList[1], weight='weight'))  #在子图中有路径，就是感染到了。
 
-try:
-   print(nx.shortest_path(subinfectG, rumorSourceList[1], rumorSourceList[2], weight='weight'))
-
-except:
-    print ('嗯，这里选的第三个点跟第2个源点是可以的，放心。图并没有连通。')
-    try:
-        print(nx.shortest_path(subinfectG, rumorSourceList[0], rumorSourceList[2], weight='weight'))
-
-    except:
-        print('嗯，这里选的第三个点跟第1个源点是可以的，放心。图并没有连通。')
+if nx.has_path(subinfectG,rumorSourceList[1],rumorSourceList[2])==False:
+    if nx.has_path(subinfectG,rumorSourceList[0],rumorSourceList[2])==False:
+        print('========================================================================')
+        print ('这里的第3个点，跟他们都没有路径相连。可以的')
+else:
+    print ('========================================================================')
+    print ('这里的第3个点，不行的，很烦')
 # print (nx.shortest_path(subinfectG, rumorSourceList[1], rumorSourceList[2], weight='weight'))    #这个报错就是第三个point并没有被感染到的意思。
 
 #now  to  practice single-multiple  source Partition.Get  ture  parition
@@ -831,7 +836,7 @@ except:
 # if  769  in list(infectG.nodes):
 #     print ('明明就在')
 multipList=getmultipleCommunity(infectG)
-multiplePartion(multipList, G,rumorSourceList)
+multiplePartion(multipList, infectG,rumorSourceList)
 
 
 
