@@ -607,7 +607,7 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
      for  resultSource  in resultSourceMinDistance:
           distancecai.append(resultSource[1])
      distancecai.append(distance)
-     print ('产生距离偏差值之list为'+distancecai)
+     print ('产生距离偏差值之list为'+str(distancecai))
 
      sumdistance=0
      for  i  in distancecai:
@@ -832,3 +832,7 @@ except:
 #     print ('明明就在')
 multipList=getmultipleCommunity(infectG)
 multiplePartion(multipList, G,rumorSourceList)
+
+
+
+#产生一组模拟两源数据的，然后计算平均值。
