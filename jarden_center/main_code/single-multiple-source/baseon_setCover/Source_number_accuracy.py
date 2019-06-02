@@ -63,6 +63,7 @@ def Algorithm1(G, SourceList, time_sum,hlist):
     for j in range(len(SourceList)):
         nodelist=list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
         edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
+        print (len(nodelist))
         nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
         for i in nodelist:
             G.node[i]['SI'] = 2
@@ -204,57 +205,14 @@ from queues1 import *
 
 
 def  getTuresubinfectionG(infectG,randomInfectionsource):
-    #put  nehibour  infectNode in this partion, stop by  this  infect  communiy  hehibour  have no  infectNode
-    firstPartion=[]
-    # firstPartion.append(randomInfectionsource)
-    flag=0
 
-    nodeListQueue=Queues()
-    nodeListQueue.enqueue(randomInfectionsource)
-
-    allinfectionNode=[]
-    while(flag==0):
-
-        if  nodeListQueue.size==1:
-            firstPartion.append(nodeListQueue.dequeue())
-        else:
-            for i in range(nodeListQueue.size()):
-                # print ('输出每次的队列数目'+str(simqueue.size()))
-                firstPartion.append( nodeListQueue.dequeue())
-        print('这个firstpartion是多少？'+str(firstPartion))
-        # print (list(infectG.neighbors(firstPartion[0])))
+    infectionNodeList=[]
+    for  nodes  in  list(infectG.nodes):
+         if   infectG.node[nodes]['SI']==2:
+             infectionNodeList.append(nodes)
 
 
-
-        for  infetcionnode  in firstPartion:
-            for  neighbor  in  list(infectG.neighbors(infetcionnode)):
-                if infectG.node[neighbor]['SI']==2:
-                    # print('这个点是' + '已经被感染的')
-                    if neighbor not in  firstPartion:  # 已经加过过得节点就不要再感染了。
-                        nodeListQueue.enqueue(neighbor)
-        # print ('这一圈形成的firstpartion是'+str(len(firstPartion)))
-
-
-
-        #chenk in  firstPartion ,who have no  infectionNode  in  neighbor
-        for i in range(nodeListQueue.size()):
-            # print ('输出每次的队列数目'+str(simqueue.size()))
-            allinfectionNode.append(nodeListQueue.dequeue())
-        neighborList=[]
-        for node  in allinfectionNode:
-            for   neighbor  in  list(infectG.neighbors(node)):
-                    if  neighbor not in  allinfectionNode:
-                        neighborList.append(infectG.node[neighbor]['SI'])
-        if  2  in neighborList:
-            print ('这个社区周围还有被感染点')
-            pass
-        elif  2 not in neighborList:
-            print('这个社区周围没有被感染点')
-            flag=1
-
-
-    print ('输出这个感染社区'+str(len(firstPartion)))
-    return firstPartion
+    return infectionNodeList
 
 
 
@@ -305,57 +263,11 @@ def  getmultipleCommunity(infectionG):
                 partion1 = getTuresubinfectionG(infectionG,randomInfectionNode)
                 multipleCommuniytlist.append(partion1)  # 第一个社区
                 print('把第1个社区加入进去，现在感染社区点个数为' + str(len(multipleCommuniytlist)))
-            else:
-                print('在已经有感染社区，开始找下一个社区的时候的操作')
-                #总的点集合-已经找到的社区节点=在这里继续找。
-                infectionList=multiplelistTo_ormialy(multipleCommuniytlist)
-                allList=list(infectionG.nodes)
-                diff_list = list(set(allList).difference(set(infectionList)))  #差集合
-                print ('在总的区里面，但不在已经分好的社区里面。这些点有多少个？'+str(len(diff_list)))
-                print ('下面开始在除了已有的感染区域外，重新找一个点，是感染点')
-                flag2=0
-                while flag2 == 0:
-                    for  infectionNode  in diff_list:
-                        if infectionG.node[infectionNode]['SI'] == 2:
-                            print ('重新找一个点，是感染点的点就是'+str(infectionNode))
-                            randomInfectionNode =infectionNode
-                            flag2 = 1
-                            break
-
-                    print ('找不到是感染点的点就是')
-
-                print('有感染社区之后随机开始的点感染点随机开始的点感染点是' + str(randomInfectionNode))
-                partion2 = getTuresubinfectionG(infectionG,randomInfectionNode)
-
-                multipleCommuniytlist.append(partion2)  #
-                print('把第二到第n个社区加入进去,现在的感染社区点个数为' + str(len(multipleCommuniytlist)))
-            #终止条件,剩下社区没有被感染点了。
-
-
-            haveinfectionList = multiplelistTo_ormialy(multipleCommuniytlist)
-            print ('已经被识别的的社区里面的感染点个数为'+str(len(haveinfectionList)))
-            allList = list(infectionG.nodes)
-            diff_list_ = list(set(allList).difference(set( haveinfectionList)))
-            restList=[]
-            for i  in diff_list_:
-               restList.append(infectionG.node[i]['SI'])
-            if  2  in restList :
-                print('有感染点在restList中，就是说还有感染点在除了这些感染子图之外。')
-                pass
-            elif 2  not in restList  :  #保留项
-                print('已经没有感染点在restList中，就是说没有感染点在除了这些感染子图之外。')
                 flag=1
-
-
-
 
     print ('感染社区个数以及各自人数')
     print (len(multipleCommuniytlist))
     print(len(multipleCommuniytlist[0]))
-    # print(len(multipleCommuniytlist[1]))
-    if  125  in  multipleCommuniytlist[0]  and 4022  in  multipleCommuniytlist[0]:
-        print ('头两个源点在的')
-    # print(len(multipleCommuniytlist[1]))
     return multipleCommuniytlist
 
 
@@ -403,14 +315,14 @@ def  getkey(pos,value):
    return  {value: key for key, value in pos.iteritems()}[value]
 
 import   matplotlib.pyplot  as plt
-def   findmultiplesource(singleRegionList,infectionG):
+def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
       #首先需要判断是否多源。不断找源点去对这个区域。
       tempGraph=nx.Graph()
       for  edge in infectionG.edges:
           # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
               if edge[0] in singleRegionList and edge[1] in singleRegionList:
                   tempGraph.add_edges_from([edge],weight=1)
-      print ('这个感染区域的传播子图边个数')
+      print ('这个感染区域的传播图边个数')
       print (tempGraph.number_of_edges())
       #求出这个区域最远的路径出来。返回这个区域半径。
       print('这个感染区域的传播半径')
@@ -435,11 +347,12 @@ def   findmultiplesource(singleRegionList,infectionG):
       print('感染图的中心为' + str(centerlist))
       for center in centerlist:
           chooseList.append(center)    #
-      chooseList.append(82)
-      chooseList.append(6675)
+      print ('把源点加入进去')
+      for  j  in trueSourcelist:
+          chooseList.append(j)
       print ('chooseList个元素个数为'+str(len(chooseList)))
-      maxh=nx.radius(tempGraph)
-      print ('感染图半径为'+str(maxh))   #把边都加入话，半径都小了。都不是一个好树了，难受
+      # maxh=nx.radius(tempGraph)
+      # print ('感染图半径为'+str(maxh))   #把边都加入话，半径都小了。都不是一个好树了，难受
 
       chooseList = chooseList[-20:]  # 取最后20个。
       print ('chooseList'+'总共有多少元素'+str(len(chooseList)))
@@ -602,13 +515,15 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
 
      '''   这个是保留项，我觉得反转算法有点问题，反正（u,h是写完了）,下面这个很好时间'''
+     for  sigleReionlist  in  mutiplelist:
+         allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG,rumorSourceList))
 
-     # for  sigleReionlist  in  mutiplelist:
-     #     allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG))
 
-     allsigleSourceList=[[(82, 6675), 3, 0.0], [2419, 2, 0.33333333333333337]]
-     #上面这个就是通过圆（u，h）构建的结果，看着办。第一个是双源的，第二个是单源的。
-     #构建每个传播区域的传播子图.
+
+
+
+
+     #构建关于这个社区的传播子图
      tempGraph1 = nx.Graph()
      for edge in infectionG.edges:
          # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
@@ -621,31 +536,20 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
 
 
-
-     # 构建传播子图.
-     tempGraph2 = nx.Graph()
-     for edge in infectionG.edges:
-         # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
-         if edge[0] in mutiplelist[1] and edge[1] in mutiplelist[1]:
-             tempGraph2.add_edges_from([edge], weight=1)
-     print('这个感染区域的传播子图边个数')
-     print(tempGraph2.number_of_edges())
-     print(tempGraph2.number_of_nodes())
-
-
      resultSource=[]
      #现在已经返回关于每个社区的源点及其社区了，开始画图吧。
-     print ('最后的每个分区的圆点和他的h是'+str(allsigleSourceList))
+     print ('最后我们找到的误差率最低的的每个分区的圆点和他的h是'+str(allsigleSourceList))
 
 
 
      for  sigleRegionSource  in  allsigleSourceList:
           if isinstance(sigleRegionSource[0], int): #单源点
-              source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[1], infectionG, tempGraph2)
+              print('算出来的误差率最低单源点情况---------------------------')
+              source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[1], infectionG,tempGraph1)
               print('用反转算法计算出来的单源点为' + str(source3))
-              resultSource.append([source3])
+              resultSource.append(source3)
           else:
-              print ('多源点情况---------------------------')
+              print ('算出来的误差率最低多源点情况---------------------------')
               source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, tempGraph1)
               source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, tempGraph1)
               print('用反转算法计算出来的源点为' + str(source2) + str(source1))
@@ -653,50 +557,62 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
 
      print ('总的用反转算法算出来的结果为'+str(resultSource))
-     truerumorSourceLists = [[rumorSourceList[0], rumorSourceList[1]], [rumorSourceList[2]]]
+     truerumorSourceLists = [rumorSourceList[0]]
      #上面这两个，可以干一架了。
 
+     #
+     # #真实集合
+     # #结果集合和我们的真实源开始对照，其中多源就要这些节点去自动找了。
+     #
+     # for   resultsourcelist in  resultSource:
+     #       if  len(resultsourcelist)>1 and len(truerumorSourceLists[0])>1 :
+     #           #开始计算它对应的源点差值，要找一些好的值。
+     #            print(resultsourcelist,truerumorSourceLists[0])
+     #            tempLists=list(resultsourcelist+truerumorSourceLists[0])
+     #            combinationList = list(combinations(tempLists, 2))  # 这是排列组合，再次针对这个排列组合
+     #            #计算所有组合，然后找出距离最近的符合len的两组，这里我明显知道是2.
+     #            lengthlist=[]
+     #            for   combination  in  combinationList:
+     #                  lengthlist.append([combination,nx.shortest_path_length(infectionG,combination[0],combination[1])])
+     #            result = sorted( lengthlist, key=lambda x: (x[1]))
+     #
+     #            resultSourceMinDistance=result[:2]   #只要前两个
+     #            print ('125,4022  是真实源点，')
+     #            print ('我们算的的两源定位的距离结果为'+str(resultSourceMinDistance))
+     #       else:
+     #
+     #           # if  769  in  list(infectionG.nodes):
+     #           #     print ('在的啊------------------------------------------')
+     #           distance=nx.shortest_path_length(infectionG,resultsourcelist[0],truerumorSourceLists[1][0])
+     #           print('我们算的的单源定位的距离结果为定位结果'+str(resultsourcelist[0])+'真实结果'+str(truerumorSourceLists[1][0])+'他们距离'+str(distance))
 
-     #真实集合
-     #结果集合和我们的真实源开始对照，其中多源就要这些节点去自动找了。
 
-     for   resultsourcelist in  resultSource:
-           if  len(resultsourcelist)>1 and len(truerumorSourceLists[0])>1 :
-               #开始计算它对应的源点差值，要找一些好的值。
-                print(resultsourcelist,truerumorSourceLists[0])
-                tempLists=list(resultsourcelist+truerumorSourceLists[0])
-                combinationList = list(combinations(tempLists, 2))  # 这是排列组合，再次针对这个排列组合
-                #计算所有组合，然后找出距离最近的符合len的两组，这里我明显知道是2.
-                lengthlist=[]
-                for   combination  in  combinationList:
-                      lengthlist.append([combination,nx.shortest_path_length(infectionG,combination[0],combination[1])])
-                result = sorted( lengthlist, key=lambda x: (x[1]))
 
-                resultSourceMinDistance=result[:2]   #只要前两个
-                print ('125,4022  是真实源点，')
-                print ('我们算的的两源定位的距离结果为'+str(resultSourceMinDistance))
-           else:
+     # endtime = datetime.datetime.now()
+     # print(str((endtime - starttime).seconds) + '秒')
+     # # distancecai=[]
+     # # for  resultSource  in resultSourceMinDistance:
+     # #      distancecai.append(resultSource[1])
+     # # distancecai.append(distance)
+     # # print ('产生距离偏差值之list为'+str(distancecai))
+     #
+     #
+     #
+     # sumdistance=0
+     # for  i  in distancecai:
+     #      sumdistance=sumdistance+i
+     # print ('产生的源点平均偏差距离为'+str(sumdistance/3))
 
-               # if  769  in  list(infectionG.nodes):
-               #     print ('在的啊------------------------------------------')
-               distance=nx.shortest_path_length(infectionG,resultsourcelist[0],truerumorSourceLists[1][0])
-               print('我们算的的单源定位的距离结果为定位结果'+str(resultsourcelist[0])+'真实结果'+str(truerumorSourceLists[1][0])+'他们距离'+str(distance))
 
-     endtime = datetime.datetime.now()
-     print(str((endtime - starttime).seconds) + '秒')
-     distancecai=[]
-     for  resultSource  in resultSourceMinDistance:
-          distancecai.append(resultSource[1])
-     distancecai.append(distance)
-     print ('产生距离偏差值之list为'+str(distancecai))
-
-     sumdistance=0
-     for  i  in distancecai:
-          sumdistance=sumdistance+i
-     print ('产生的源点平均偏差距离为'+str(sumdistance/3))
-     return   sumdistance/3
+     errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
+     print ('误差距离为'+str(errordistance))
+     return   errordistance
 
      # do something other
+
+
+
+
 
 
 
@@ -942,14 +858,13 @@ if __name__ == '__main__':
         sourceList.append(contractSource(G,sourceNumber,2))
     print (sourceList)
 
-
+    print ('产生3源点成功------------------------------------------')
     #  1到三源点，现在根据每个源点产生传播。然后，就可以定位了。每次传播都要定位的。
     infectG=Algorithm1(G,sourceList[0],5,6 )
-
+    print ('源点传播成功')
     #  找社区，按照代理，只能找到一个社区的。
-
     multipList = getmultipleCommunity(infectG)
-    multiplePartion(multipList, infectG,sourceList)
+    errordistance=multiplePartion(multipList, infectG,sourceList[0])
 
 
 
