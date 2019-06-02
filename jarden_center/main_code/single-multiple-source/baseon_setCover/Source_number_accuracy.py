@@ -200,29 +200,50 @@ def   ConvertGToCsvSub(G,dir):
 
 
 
-
+from queues1 import *
 
 
 def  getTuresubinfectionG(infectG,randomInfectionsource):
     #put  nehibour  infectNode in this partion, stop by  this  infect  communiy  hehibour  have no  infectNode
     firstPartion=[]
-    firstPartion.append(randomInfectionsource)
+    # firstPartion.append(randomInfectionsource)
     flag=0
+
+    nodeListQueue=Queues()
+    nodeListQueue.enqueue(randomInfectionsource)
+
+    allinfectionNode=[]
     while(flag==0):
+
+        if  nodeListQueue.size==1:
+            firstPartion.append(nodeListQueue.dequeue())
+        else:
+            for i in range(nodeListQueue.size()):
+                # print ('输出每次的队列数目'+str(simqueue.size()))
+                firstPartion.append( nodeListQueue.dequeue())
         print('这个firstpartion是多少？'+str(firstPartion))
         # print (list(infectG.neighbors(firstPartion[0])))
+
+
+
         for  infetcionnode  in firstPartion:
             for  neighbor  in  list(infectG.neighbors(infetcionnode)):
                 if infectG.node[neighbor]['SI']==2:
                     # print('这个点是' + '已经被感染的')
                     if neighbor not in  firstPartion:  # 已经加过过得节点就不要再感染了。
-                        firstPartion.append(neighbor)
+                        nodeListQueue.enqueue(neighbor)
         # print ('这一圈形成的firstpartion是'+str(len(firstPartion)))
+
+
+
         #chenk in  firstPartion ,who have no  infectionNode  in  neighbor
+        for i in range(nodeListQueue.size()):
+            # print ('输出每次的队列数目'+str(simqueue.size()))
+            allinfectionNode.append(nodeListQueue.dequeue())
         neighborList=[]
-        for node  in firstPartion:
+        for node  in allinfectionNode:
             for   neighbor  in  list(infectG.neighbors(node)):
-                    if  neighbor not in  firstPartion:
+                    if  neighbor not in  allinfectionNode:
                         neighborList.append(infectG.node[neighbor]['SI'])
         if  2  in neighborList:
             print ('这个社区周围还有被感染点')
@@ -336,6 +357,28 @@ def  getmultipleCommunity(infectionG):
         print ('头两个源点在的')
     # print(len(multipleCommuniytlist[1]))
     return multipleCommuniytlist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
