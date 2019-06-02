@@ -26,19 +26,11 @@ def ContractDict(dir, G):
             line1 = line.split()
             G.add_edge(int(line1[0]), int(line1[1]))
 
-    # print (G.number_of_edges())
-
-    #构建距离权重。
-    #遍历节点，找到节点度为分布频率。在此基础上，将每个节点依照度大小排序。从而进行边的重定义。对它的边进行权重定义
-    degreeList=[]
-
     for edge in  G.edges:
             G.add_edge(edge[0], edge[1], weight=1)
             # G.add_edge(edge[0],edge[1],weight=effectDistance(randomnum))
 
-    #数据预处理，去掉0这个点。很容易坏事。
-    # G.remove_node(0)
-    # print (G.number_of_nodes())
+
     return G
 
 import math
@@ -106,50 +98,91 @@ def Algorithm1(G, SourceList, time_sum,hlist):
 
 #产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
 def  contractSource(G,sourceNum,sourceMaxDistance):
-     # sumlist=list(G.nodes)
-     # flag=0
-     # flag1=0
-     # #先随机找个点，然后找到距离它为>6,小于10的吧。
-     # while (flag==0):
-     #     rumorSourceList = []
-     #     # random_RumorSource = random.randint(0, 7000)
-     #     random_Rumo= random.sample(  sumlist, 1)
-     #     random_RumorSource= random_Rumo[0]
-     #     #在剩下的节点找到我们的第二个点。
-     #     for  node  in  list(G.nodes):
-     #          if  nx.has_path(G,node,random_RumorSource)==True:
-     #              if  nx.shortest_path_length(G,node,random_RumorSource)>4 and  nx.shortest_path_length(G,node,random_RumorSource)<6:
-     #                  rumorSourceList.append(node)
-     #                  rumorSourceList.append(random_RumorSource)
-     #                  flag=1
-     #                  break
-     #
-     #
-     # # 查看产生随机源点的个数2，并且他们距离为3.
-     # print('源点个数' + str(len(rumorSourceList))+'以及产生的两源点是'+str(rumorSourceList))
-     # print ('两个源点距离'+str(nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight')))
-     # # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 950
-     #
-     #
-     #
-     #
-     #
-     #
-     # #produce  a  point away form  rumorSourceList  that  distance are  6
-     # point =9999
-     # for  node  in list(G.nodes):
-     #        if  nx.has_path(G,node,rumorSourceList[0])==True  and  nx.has_path(G,node,rumorSourceList[1])==True:
-     #            if nx.shortest_path_length(G, node, rumorSourceList[0]) >6 and nx.shortest_path_length(G, node,rumorSourceList[1]) >6:
-     #                point = node
-     #                print ('找到了，这个点为'+str(node))
-     #                break
-     #
-     # rumorSourceList.append(point)
-     #
-     # tureSourceList=[2,1]
-     rumorSourceList=[82, 6675, 2419]  #对于wiki找到的好节点
+     sumlist=list(G.nodes)
+     flag=0
+     flag1=0
+     rumorSourceList = []
+     #先随机找个点，然后找到距离它为>6,小于10的吧。
+     while (flag==0):
+
+         if  sourceNum==1:
+             # random_RumorSource = random.randint(0, 7000)
+             random_Rumo = random.sample(sumlist, 1)
+             random_RumorSource = random_Rumo[0]
+             rumorSourceList.append(random_RumorSource)
+             flag=1
+         elif sourceNum==2:
+             random_Rumo = random.sample(sumlist, 1)
+             random_RumorSource = random_Rumo[0]
+             #在剩下的节点找到我们的第二个点。
+             for  node  in  list(G.nodes):
+                  if  nx.has_path(G,node,random_RumorSource)==True:
+                      if  nx.shortest_path_length(G,node,random_RumorSource)>4 and  nx.shortest_path_length(G,node,random_RumorSource)<6:
+                          rumorSourceList.append(node)
+                          rumorSourceList.append(random_RumorSource)
+                          flag=1
+                          break
+         elif sourceNum==3:
+              threeNumberFLAG=0
+              while  threeNumberFLAG==0:
+                  #先随机找一个点。
+                  random_Rumo = random.sample(sumlist, 1)
+                  random_RumorSource = random_Rumo[0]
+                  #找第二、三个点。
+                  for  index   in  range(len(sumlist)-2):
+                       if nx.has_path(G,sumlist[index],random_RumorSource)==True and  nx.has_path(G,sumlist[index+1],random_RumorSource)==True:
+                          if  nx.shortest_path_length(G,source=sumlist[index],target=random_RumorSource)>4  and nx.shortest_path_length(G,source=sumlist[index],target=random_RumorSource)<6 and  nx.shortest_path_length(G,source=sumlist[index+1],target=random_RumorSource)>4 and nx.shortest_path_length(G,source=sumlist[index+1],target=random_RumorSource)<6:
+                            rumorSourceList.append(random_RumorSource)
+                            rumorSourceList.append(sumlist[index])
+                            rumorSourceList.append(sumlist[index+1])
+
+                  if  len(rumorSourceList)==3:
+                      print ('找到了3个点')
+                      threeNumberFLAG=1
+                      flag=1
+                  else:
+                      pass
+
+
+     # 查看产生随机源点的个数2，并且他们距离为3.
+     print('源点个数' + str(len(rumorSourceList))+'以及产生的两源点是'+str(rumorSourceList))
+    # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 95
      print('真实两源感染是'+str(rumorSourceList))
      return rumorSourceList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 import  csv
@@ -767,93 +800,67 @@ def  revsitionAlgorithm(u,h,infectG,subinfectG):
 
 
 
-
-#  制造这个图
-Ginti = nx.Graph()
-# 初始化图,加很多节点
-# for index in range(1,1005):
-#     print (index)
-#     Ginti.add_node(index)
-
-# 构建图，这个图是有有效距离的。
-G = ContractDict('../data/Wiki-Vote.txt', Ginti)
-
-# 因为邮件是一个有向图，我们这里构建的是无向图。
-print('一开始图的顶点个数', G.number_of_nodes())
-print('一开始图的边个数', G.number_of_edges())
-
-
-
-#  先给全体的Cn、Scn,time的0的赋值。
-for node in list(G.nodes):
-    G.add_node(node, SI=1)
-
-
-# 初始化所有边是否感染。Infection
-for  edge  in  list(G.edges):
-    G.add_edge(edge[0],edge[1], Infection=1)
-
-
-
-
-rumorSourceList=contractSource(G,3,5)  #产生源点。图，源点个数，源点差距距离。
-hlist=[3,2]   #不同传播区域传播深度，
-infectG=Algorithm1(G,rumorSourceList,5,hlist )  #产生感染图，深度是3
-
-#gephi 查看infectG转成csv情况。
-ConvertGToCsv(infectG,'G.csv')
-subinfectG=nx.Graph()
-count=1
-count1=1
-for  edge in  infectG.edges:
-    # print (edge)\
-    if  infectG.adj[edge[0]][edge[1]]['Infection']==1:
-       count1 =count1+1
-    if  infectG.adj[edge[0]][edge[1]]['Infection']==2:
-        count = count + 1
-        subinfectG.add_edges_from([(edge[0],edge[1])],weight= 1)
-
-print (count)
-print (count1)
-# 因为邮件是一个有向图，我们这里构建的是无向图。
-print('传染子图的顶点个数',  subinfectG.number_of_nodes())
-print('传染子图的边个数',  subinfectG.number_of_edges())
-
-
-ConvertGToCsvSub(subinfectG,'SubInfectionG.csv')
 #
-#检测是否是有相互感染到。
-
-print (nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight'))
-print (nx.shortest_path(subinfectG, rumorSourceList[0], rumorSourceList[1], weight='weight'))  #在子图中有路径，就是感染到了。
-
-if nx.has_path(subinfectG,rumorSourceList[1],rumorSourceList[2])==False:
-    if nx.has_path(subinfectG,rumorSourceList[0],rumorSourceList[2])==False:
-        print('========================================================================')
-        print ('这里的第3个点，跟他们都没有路径相连。可以的')
-else:
-    print ('========================================================================')
-    print ('这里的第3个点，不行的，很烦')
-# print (nx.shortest_path(subinfectG, rumorSourceList[1], rumorSourceList[2], weight='weight'))    #这个报错就是第三个point并没有被感染到的意思。
-
-#now  to  practice single-multiple  source Partition.Get  ture  parition
-
-
-
-# if  769  in list(infectG.nodes):
-#     print ('明明就在')
-multipList=getmultipleCommunity(infectG)
-multiplePartion(multipList, infectG,rumorSourceList)
-
-
-
-#产生一组模拟两源数据的，然后计算平均值。
-
-
-
-
-
-
+#
+#
+# rumorSourceList=contractSource(G,3,5)  #产生源点。图，源点个数，源点差距距离。
+# hlist=[3,2]   #不同传播区域传播深度，
+# infectG=Algorithm1(G,rumorSourceList,5,hlist )  #产生感染图，深度是3
+#
+# #gephi 查看infectG转成csv情况。
+# ConvertGToCsv(infectG,'G.csv')
+# subinfectG=nx.Graph()
+# count=1
+# count1=1
+# for  edge in  infectG.edges:
+#     # print (edge)\
+#     if  infectG.adj[edge[0]][edge[1]]['Infection']==1:
+#        count1 =count1+1
+#     if  infectG.adj[edge[0]][edge[1]]['Infection']==2:
+#         count = count + 1
+#         subinfectG.add_edges_from([(edge[0],edge[1])],weight= 1)
+#
+# print (count)
+# print (count1)
+# # 因为邮件是一个有向图，我们这里构建的是无向图。
+# print('传染子图的顶点个数',  subinfectG.number_of_nodes())
+# print('传染子图的边个数',  subinfectG.number_of_edges())
+#
+#
+# ConvertGToCsvSub(subinfectG,'SubInfectionG.csv')
+# #
+# #检测是否是有相互感染到。
+#
+# print (nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight'))
+# print (nx.shortest_path(subinfectG, rumorSourceList[0], rumorSourceList[1], weight='weight'))  #在子图中有路径，就是感染到了。
+#
+# if nx.has_path(subinfectG,rumorSourceList[1],rumorSourceList[2])==False:
+#     if nx.has_path(subinfectG,rumorSourceList[0],rumorSourceList[2])==False:
+#         print('========================================================================')
+#         print ('这里的第3个点，跟他们都没有路径相连。可以的')
+# else:
+#     print ('========================================================================')
+#     print ('这里的第3个点，不行的，很烦')
+# # print (nx.shortest_path(subinfectG, rumorSourceList[1], rumorSourceList[2], weight='weight'))    #这个报错就是第三个point并没有被感染到的意思。
+#
+# #now  to  practice single-multiple  source Partition.Get  ture  parition
+#
+#
+#
+# # if  769  in list(infectG.nodes):
+# #     print ('明明就在')
+# multipList=getmultipleCommunity(infectG)
+# multiplePartion(multipList, infectG,rumorSourceList)
+#
+#
+#
+# #产生一组模拟两源数据的，然后计算平均值。
+#
+#
+#
+#
+#
+#
 
 
 
@@ -866,7 +873,46 @@ if __name__ == '__main__':
     1  产生一个社区，无非就是源点从1到5.然后用我们这种方式
     判断准确率。
     '''
-    
+
+    #1 产生这个图。
+
+    #  制造这个图
+    Ginti = nx.Graph()
+    # 初始化图,加很多节点
+    # for index in range(1,1005):
+    #     print (index)
+    #     Ginti.add_node(index)
+
+    # 构建图，这个图是有有效距离的。
+    G = ContractDict('../data/Wiki-Vote.txt', Ginti)
+
+    # 因为邮件是一个有向图，我们这里构建的是无向图。
+    print('一开始图的顶点个数', G.number_of_nodes())
+    print('一开始图的边个数', G.number_of_edges())
+
+    #  先给全体的Cn、Scn,time的0的赋值。
+    for node in list(G.nodes):
+        G.add_node(node, SI=1)
+
+    # 初始化所有边是否感染。Infection
+    for edge in list(G.edges):
+        G.add_edge(edge[0], edge[1], Infection=1)
+
+    print  ('这个图产生完毕')
+
+
+
+    sourceList=[]
+    #  从1个源点产生到5个源点。但都是有交集的。按照交叉领域来比较？
+
+    for  sourceNumber  in  range(1,4):
+        sourceList.append(contractSource(G,sourceNumber,2))
+
+    print (sourceList)
+
+
+
+
     print ('ninao1')
 
 
