@@ -60,28 +60,16 @@ def Algorithm1(G, SourceList, time_sum,hlist):
     nodelist=[]
     edgelist=[]
     infectionNodelist=[]
-    for j in range(len(SourceList)-1):
+    for j in range(len(SourceList)):
         nodelist=list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
         edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
-        # nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
-
-
+        nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
         for i in nodelist:
             G.node[i]['SI'] = 2
         for  k  in  edgelist:
             G.adj[k[0]][k[1]]['Infection']=2
         print ('头两个感染社区点数为'+str(len(nodelist)))
 
-    #第3个源点传播。
-    nodelist=list(nx.bfs_tree(G, source=SourceList[2], depth_limit=1).nodes)
-    edgelist = list(nx.bfs_tree(G, source=SourceList[2], depth_limit=1).edges)
-    # nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
-
-    for j in nodelist:
-        G.node[j]['SI'] = 2
-    for l in edgelist:
-        G.adj[l[0]][l[1]]['Infection'] = 2
-    print('第三个感染社区点数为'+str(len(nodelist)))
     return G
 
 
@@ -123,6 +111,7 @@ def  contractSource(G,sourceNum,sourceMaxDistance):
                           flag=1
                           break
          elif sourceNum==3:
+              print ('3源点情况。')
               threeNumberFLAG=0
               while  threeNumberFLAG==0:
                   #先随机找一个点。
@@ -135,7 +124,8 @@ def  contractSource(G,sourceNum,sourceMaxDistance):
                             rumorSourceList.append(random_RumorSource)
                             rumorSourceList.append(sumlist[index])
                             rumorSourceList.append(sumlist[index+1])
-
+                            print ('找到了3源点了。')
+                            break
                   if  len(rumorSourceList)==3:
                       print ('找到了3个点')
                       threeNumberFLAG=1
@@ -907,13 +897,22 @@ if __name__ == '__main__':
 
     for  sourceNumber  in  range(1,4):
         sourceList.append(contractSource(G,sourceNumber,2))
-
     print (sourceList)
 
 
+    #  1到三源点，现在根据每个源点产生传播。然后，就可以定位了。每次传播都要定位的。
+    infectG=Algorithm1(G,sourceList[0],5,6 )
+
+    #  找社区，按照代理，只能找到一个社区的。
+
+    multipList = getmultipleCommunity(infectG)
+    multiplePartion(multipList, infectG,sourceList)
 
 
-    print ('ninao1')
+
+
+
+
 
 
 
