@@ -78,8 +78,8 @@ def Algorithm1(G, SourceList, time_sum,hlist):
         print ('头两个感染社区点数为'+str(len(nodelist)))
 
     #第3个源点传播。
-    nodelist=list(nx.bfs_tree(G, source=SourceList[2], depth_limit=2).nodes)
-    edgelist = list(nx.bfs_tree(G, source=SourceList[2], depth_limit=2).edges)
+    nodelist=list(nx.bfs_tree(G, source=SourceList[2], depth_limit=1).nodes)
+    edgelist = list(nx.bfs_tree(G, source=SourceList[2], depth_limit=1).edges)
     # nodelist = random.sample(nodelist, int(float(len(nodelist))*0.9))  # 从list中随机获取5个元素，作为一个片断返回
 
     for j in nodelist:
@@ -103,48 +103,49 @@ def Algorithm1(G, SourceList, time_sum,hlist):
 
 #产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
 def  contractSource(G,sourceNum,sourceMaxDistance):
-     sumlist=list(G.nodes)
-     flag=0
-     flag1=0
-     #先随机找个点，然后找到距离它为>6,小于10的吧。
-     while (flag==0):
-         rumorSourceList = []
-         # random_RumorSource = random.randint(0, 7000)
-         random_Rumo= random.sample(  sumlist, 1)
-         random_RumorSource= random_Rumo[0]
-         #在剩下的节点找到我们的第二个点。
-         for  node  in  list(G.nodes):
-              if  nx.has_path(G,node,random_RumorSource)==True:
-                  if  nx.shortest_path_length(G,node,random_RumorSource)>4 and  nx.shortest_path_length(G,node,random_RumorSource)<6:
-                      rumorSourceList.append(node)
-                      rumorSourceList.append(random_RumorSource)
-                      flag=1
-                      break
-
-
-     # 查看产生随机源点的个数2，并且他们距离为3.
-     print('源点个数' + str(len(rumorSourceList))+'以及产生的两源点是'+str(rumorSourceList))
-     print ('两个源点距离'+str(nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight')))
-     # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 950
-
-
-
-
-
-
-     #produce  a  point away form  rumorSourceList  that  distance are  6
-     point =9999
-     for  node  in list(G.nodes):
-            if  nx.has_path(G,node,rumorSourceList[0])==True  and  nx.has_path(G,node,rumorSourceList[1])==True:
-                if nx.shortest_path_length(G, node, rumorSourceList[0]) > 6 and nx.shortest_path_length(G, node,rumorSourceList[1]) >6:
-                    point = node
-                    print ('找到了，这个点为'+str(node))
-                    break
-
-     rumorSourceList.append(point)
-     print('真实两源感染是'+str(rumorSourceList)+'另一个感染点是'+str(point))
-     tureSourceList=[2,1]
-     # rumorSourceList=[418, 6057, 2419]
+     # sumlist=list(G.nodes)
+     # flag=0
+     # flag1=0
+     # #先随机找个点，然后找到距离它为>6,小于10的吧。
+     # while (flag==0):
+     #     rumorSourceList = []
+     #     # random_RumorSource = random.randint(0, 7000)
+     #     random_Rumo= random.sample(  sumlist, 1)
+     #     random_RumorSource= random_Rumo[0]
+     #     #在剩下的节点找到我们的第二个点。
+     #     for  node  in  list(G.nodes):
+     #          if  nx.has_path(G,node,random_RumorSource)==True:
+     #              if  nx.shortest_path_length(G,node,random_RumorSource)>4 and  nx.shortest_path_length(G,node,random_RumorSource)<6:
+     #                  rumorSourceList.append(node)
+     #                  rumorSourceList.append(random_RumorSource)
+     #                  flag=1
+     #                  break
+     #
+     #
+     # # 查看产生随机源点的个数2，并且他们距离为3.
+     # print('源点个数' + str(len(rumorSourceList))+'以及产生的两源点是'+str(rumorSourceList))
+     # print ('两个源点距离'+str(nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight')))
+     # # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 950
+     #
+     #
+     #
+     #
+     #
+     #
+     # #produce  a  point away form  rumorSourceList  that  distance are  6
+     # point =9999
+     # for  node  in list(G.nodes):
+     #        if  nx.has_path(G,node,rumorSourceList[0])==True  and  nx.has_path(G,node,rumorSourceList[1])==True:
+     #            if nx.shortest_path_length(G, node, rumorSourceList[0]) >6 and nx.shortest_path_length(G, node,rumorSourceList[1]) >6:
+     #                point = node
+     #                print ('找到了，这个点为'+str(node))
+     #                break
+     #
+     # rumorSourceList.append(point)
+     #
+     # tureSourceList=[2,1]
+     rumorSourceList=[82, 6675, 2419]  #对于wiki找到的好节点
+     print('真实两源感染是'+str(rumorSourceList))
      return rumorSourceList
 
 
@@ -274,6 +275,8 @@ def  getmultipleCommunity(infectionG):
                             flag2 = 1
                             break
 
+                    print ('找不到是感染点的点就是')
+
                 print('有感染社区之后随机开始的点感染点随机开始的点感染点是' + str(randomInfectionNode))
                 partion2 = getTuresubinfectionG(infectionG,randomInfectionNode)
 
@@ -289,7 +292,7 @@ def  getmultipleCommunity(infectionG):
             restList=[]
             for i  in diff_list_:
                restList.append(infectionG.node[i]['SI'])
-            if  2  in restList  or  len(multipleCommuniytlist)==2:
+            if  2  in restList :
                 print('有感染点在restList中，就是说还有感染点在除了这些感染子图之外。')
                 pass
             elif 2  not in restList  :  #保留项
@@ -302,6 +305,7 @@ def  getmultipleCommunity(infectionG):
     print ('感染社区个数以及各自人数')
     print (len(multipleCommuniytlist))
     print(len(multipleCommuniytlist[0]))
+    # print(len(multipleCommuniytlist[1]))
     if  125  in  multipleCommuniytlist[0]  and 4022  in  multipleCommuniytlist[0]:
         print ('头两个源点在的')
     # print(len(multipleCommuniytlist[1]))
@@ -358,17 +362,17 @@ def   findmultiplesource(singleRegionList,infectionG):
            randomnum=random.random()
            if  randomnum>0.95:
                chooseList.append(node)
-      chooseList.append(125)
-      chooseList.append(4022)
+      centerlist = list(nx.center(tempGraph))
+      print('感染图的中心为' + str(centerlist))
+      for center in centerlist:
+          chooseList.append(center)    #
+      chooseList.append(82)
+      chooseList.append(6675)
       print ('chooseList个元素个数为'+str(len(chooseList)))
       maxh=nx.radius(tempGraph)
       print ('感染图半径为'+str(maxh))   #把边都加入话，半径都小了。都不是一个好树了，难受
-      centerlist=list(nx.center(tempGraph))
-      print ('感染图的中心为'+str(centerlist))
-      chooseList=chooseList[-50:]   #取最后50个。
-      for  center in centerlist:
-          chooseList.append(center)
 
+      chooseList = chooseList[-20:]  # 取最后20个。
       print ('chooseList'+'总共有多少元素'+str(len(chooseList)))
       minCover=[]
       for  sourceNum  in range(1,3):
@@ -532,8 +536,8 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
      # for  sigleReionlist  in  mutiplelist:
      #     allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG))
-     #
-     allsigleSourceList=[[(3995, 125), 3, 0.10049571879224872], [815, 2, 0.10382513661202186]]
+
+     allsigleSourceList=[[(82, 6675), 3, 0.0], [2419, 2, 0.33333333333333337]]
      #上面这个就是通过圆（u，h）构建的结果，看着办。第一个是双源的，第二个是单源的。
      #构建每个传播区域的传播子图.
      tempGraph1 = nx.Graph()
