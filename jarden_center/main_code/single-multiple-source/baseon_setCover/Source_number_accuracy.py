@@ -618,26 +618,6 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
 
 
-import numpy as np
-import matplotlib.pyplot as plt
-
-def   plotform(x,y):
-
-    #X轴，Y轴数据
-    x = [0,1,2,3,4,5,6]
-    y = [0.3,0.4,2,5,3,4.5,4]
-    plt.figure(figsize=(8,4)) #创建绘图对象
-    plt.plot(x,y,"b--",linewidth=1)   #在当前绘图对象绘图（X轴，Y轴，蓝色虚线，线宽度）
-    plt.xlabel("Number of sources") #X轴标签
-    plt.ylabel("Average error  (in hops)")  #Y轴标签
-    plt.title("facebook_combined  data") #图标题
-    plt.show()  #显示图
-    plt.savefig("line.jpg") #保存图
-
-
-
-
-
 
 
 
@@ -813,6 +793,39 @@ def  revsitionAlgorithm(u,h,infectG,subinfectG):
 
 
 
+import numpy as np
+import matplotlib.pyplot as plt
+
+def   plotform(x,y):
+
+
+
+
+    x = range(1,6)
+    y_train = [0.840, 0.839, 0.834, 0.832, 0.824, 0.831, 0.823, 0.817, 0.814, 0.812, 0.812, 0.807, 0.805]
+    y_test = [0.838, 0.840, 0.840, 0.834, 0.828, 0.814, 0.812, 0.822, 0.818, 0.815, 0.807, 0.801, 0.796]
+    # plt.plot(x, y, 'ro-')
+    # plt.plot(x, y1, 'bo-')
+    # pl.xlim(-1, 11)  # 限定横轴的范围
+    # pl.ylim(-1, 110)  # 限定纵轴的范围
+
+    plt.plot(x, y_train, marker='o', mec='r', mfc='w', label='uniprot90_train')
+    plt.plot(x, y_test, marker='*', ms=10, label='uniprot90_test')
+    plt.legend()  # 让图例生效
+
+
+    plt.margins(0)
+    plt.subplots_adjust(bottom=0.10)
+    plt.xlabel('Number of sources')  # X轴标签
+    plt.ylabel("Average error  (in hops)")  # Y轴标签
+    plt.title("Wiki-Vote  data") #标题
+    plt.savefig('f1.png')
+    plt.show()
+
+
+
+
+
 
 
 
@@ -853,20 +866,41 @@ if __name__ == '__main__':
 
     sourceList=[]
     #  从1个源点产生到5个源点。但都是有交集的。按照交叉领域来比较？
-
-    for  sourceNumber  in  range(1,4):
-        sourceList.append(contractSource(G,sourceNumber,2))
-    print (sourceList)
-
-    print ('产生3源点成功------------------------------------------')
-    #  1到三源点，现在根据每个源点产生传播。然后，就可以定位了。每次传播都要定位的。
-    infectG=Algorithm1(G,sourceList[0],5,6 )
-    print ('源点传播成功')
-    #  找社区，按照代理，只能找到一个社区的。
-    multipList = getmultipleCommunity(infectG)
-    errordistance=multiplePartion(multipList, infectG,sourceList[0])
+    #
+    # for  sourceNumber  in  range(1,4):
+    #     sourceList.append(contractSource(G,sourceNumber,2))
+    # print (sourceList)
+    #
+    # print ('产生3源点成功------------------------------------------')
 
 
+#产生5次，每次都有误差，计算出来。并统计。
+
+
+    for i  in  range(1,11):
+        sourceList.append(contractSource(G,1,2))
+
+    errordistanceList=[]  #误差集合。
+    errorSum=0
+
+    #对每一个单源点都有这个操作。
+    for  singleSource  in  sourceList:
+        #  先给全体的Cn、Scn,time的0的赋值。
+        for node in list(G.nodes):
+            G.add_node(node, SI=1)
+        # 初始化所有边是否感染。Infection
+        for edge in list(G.edges):
+            G.add_edge(edge[0], edge[1], Infection=1)
+        #开始之前都要刷新这个图，
+        infectG = Algorithm1(G, singleSource, 5, 6)
+        print ('源点传播成功')
+        #  找社区，按照代理，只能找到一个社区的。
+        multipList = getmultipleCommunity(infectG)
+        errordistance=multiplePartion(multipList, infectG,singleSource)
+        errorSum=errorSum+errordistance
+        errordistanceList.append(errordistance)
+        print ('误差集合为'+str(errordistanceList))
+    print (errorSum/10)
 
 
 
