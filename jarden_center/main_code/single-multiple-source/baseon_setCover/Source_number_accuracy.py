@@ -135,7 +135,32 @@ def  contractSource(G,sourceNum,sourceMaxDistance):
                       pass
 
          elif  sourceNum==4:
-             
+             # 先随机找一个点。
+             random_Rumo = random.sample(sumlist, 1)
+             random_RumorSource = random_Rumo[0]
+             # # 找第二、三,四个点。
+             # for index in range(len(sumlist) - 3):
+             #     if nx.has_path(G, sumlist[index], random_RumorSource) == True and nx.has_path(G, sumlist[index + 1],
+             #                                                                                   random_RumorSource) == True  and nx.has_path(G, sumlist[index+2], random_RumorSource) == True:
+             #         if nx.shortest_path_length(G, source=sumlist[index],
+             #                                    target=random_RumorSource) > 4 and nx.shortest_path_length(G, source=
+             #         sumlist[index], target=random_RumorSource) < 6 and nx.shortest_path_length(G, source=sumlist[
+             #             index + 1], target=random_RumorSource) > 4 and nx.shortest_path_length(G, source=sumlist[
+             #             index + 1], target=random_RumorSource) < 6\
+             #                 :
+             #             rumorSourceList.append(random_RumorSource)
+             #             rumorSourceList.append(sumlist[index])
+             #             rumorSourceList.append(sumlist[index + 1])
+             #             print('找到了3源点了。')
+             #             break
+             # if len(rumorSourceList) == 4:
+             #     print('找到了4个点')
+             #     flag = 1
+             # else:
+             #     pass
+
+
+
 
 
      # 查看产生随机源点的个数2，并且他们距离为3.
