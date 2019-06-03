@@ -134,6 +134,9 @@ def  contractSource(G,sourceNum,sourceMaxDistance):
                   else:
                       pass
 
+         elif  sourceNum==4:
+             
+
 
      # 查看产生随机源点的个数2，并且他们距离为3.
      print('源点个数' + str(len(rumorSourceList))+'以及产生的两源点是'+str(rumorSourceList))
@@ -354,10 +357,10 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
       # maxh=nx.radius(tempGraph)
       # print ('感染图半径为'+str(maxh))   #把边都加入话，半径都小了。都不是一个好树了，难受
 
-      chooseList = chooseList[-20:]  # 取最后20个。
+      chooseList = chooseList[-10:]  # 取最后20个。
       print ('chooseList'+'总共有多少元素'+str(len(chooseList)))
       minCover=[]
-      for  sourceNum  in range(1,3):
+      for  sourceNum  in range(2,4):
           print ('在源点在'+str(sourceNum)+'个数的情况下')
           for  h  in range(2,5):
               print ('在h为'+str(h)+'的情况下')
@@ -537,6 +540,7 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
 
      resultSource=[]
+     # allsigleSourceList=[[(472, 5397), 3, 0.08817960508520417]]
      #现在已经返回关于每个社区的源点及其社区了，开始画图吧。
      print ('最后我们找到的误差率最低的的每个分区的圆点和他的h是'+str(allsigleSourceList))
 
@@ -545,68 +549,50 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
      for  sigleRegionSource  in  allsigleSourceList:
           if isinstance(sigleRegionSource[0], int): #单源点
               print('算出来的误差率最低单源点情况---------------------------')
-              source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[1], infectionG,tempGraph1)
+              source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[1], infectionG,infectionG)
               print('用反转算法计算出来的单源点为' + str(source3))
               resultSource.append(source3)
-          else:
-              print ('算出来的误差率最低多源点情况---------------------------')
-              source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, tempGraph1)
-              source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, tempGraph1)
+          elif len(sigleRegionSource[0])==2:
+              print ('算出来的误差率最低2源点情况---------------------------')
+              source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
+              source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, infectionG)
               print('用反转算法计算出来的源点为' + str(source2) + str(source1))
-              resultSource.append([source1, source2])
+              resultSource.append(source1)
+              resultSource.append(source2)
+
+          elif len(sigleRegionSource[0])==3:
+              print('算出来的误差率最低3源点情况---------------------------')
+              source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
+              source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, infectionG)
+              source3=revsitionAlgorithm(sigleRegionSource[0][2], sigleRegionSource[1], infectionG, infectionG)
+              print('用反转算法计算出来的源点为' + str(source2) + str(source1))
+              resultSource.append(source1)
+              resultSource.append(source2)
+              resultSource.append(source3)
+
 
 
      print ('总的用反转算法算出来的结果为'+str(resultSource))
-     truerumorSourceLists = [rumorSourceList[0]]
+
+
+     errordistanceFor=[]
      #上面这两个，可以干一架了。
+     for  turesourcelist  in rumorSourceList:
+          everydistion=[]
+          for resultsourceindex  in  resultSource:
+              everydistion.append(nx.shortest_path_length(infectionG,source=turesourcelist,target=resultsourceindex))
+          everydistion.sort()
+          print (  everydistion)
+          errordistanceFor.append(  everydistion[0])
 
-     #
-     # #真实集合
-     # #结果集合和我们的真实源开始对照，其中多源就要这些节点去自动找了。
-     #
-     # for   resultsourcelist in  resultSource:
-     #       if  len(resultsourcelist)>1 and len(truerumorSourceLists[0])>1 :
-     #           #开始计算它对应的源点差值，要找一些好的值。
-     #            print(resultsourcelist,truerumorSourceLists[0])
-     #            tempLists=list(resultsourcelist+truerumorSourceLists[0])
-     #            combinationList = list(combinations(tempLists, 2))  # 这是排列组合，再次针对这个排列组合
-     #            #计算所有组合，然后找出距离最近的符合len的两组，这里我明显知道是2.
-     #            lengthlist=[]
-     #            for   combination  in  combinationList:
-     #                  lengthlist.append([combination,nx.shortest_path_length(infectionG,combination[0],combination[1])])
-     #            result = sorted( lengthlist, key=lambda x: (x[1]))
-     #
-     #            resultSourceMinDistance=result[:2]   #只要前两个
-     #            print ('125,4022  是真实源点，')
-     #            print ('我们算的的两源定位的距离结果为'+str(resultSourceMinDistance))
-     #       else:
-     #
-     #           # if  769  in  list(infectionG.nodes):
-     #           #     print ('在的啊------------------------------------------')
-     #           distance=nx.shortest_path_length(infectionG,resultsourcelist[0],truerumorSourceLists[1][0])
-     #           print('我们算的的单源定位的距离结果为定位结果'+str(resultsourcelist[0])+'真实结果'+str(truerumorSourceLists[1][0])+'他们距离'+str(distance))
+     multipdistance=0
+     for  error  in errordistanceFor:
+         multipdistance=multipdistance+error
 
 
-
-     # endtime = datetime.datetime.now()
-     # print(str((endtime - starttime).seconds) + '秒')
-     # # distancecai=[]
-     # # for  resultSource  in resultSourceMinDistance:
-     # #      distancecai.append(resultSource[1])
-     # # distancecai.append(distance)
-     # # print ('产生距离偏差值之list为'+str(distancecai))
-     #
-     #
-     #
-     # sumdistance=0
-     # for  i  in distancecai:
-     #      sumdistance=sumdistance+i
-     # print ('产生的源点平均偏差距离为'+str(sumdistance/3))
-
-
-     errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
-     print ('误差距离为'+str(errordistance))
-     return   errordistance
+     # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
+     print ('误差距离为'+str(  multipdistance))
+     return     multipdistance/len(errordistanceFor)
 
      # do something other
 
@@ -802,8 +788,8 @@ def   plotform(x,y):
 
 
     x = range(1,6)
-    y_train = [0.840, 0.839, 0.834, 0.832, 0.824, 0.831, 0.823, 0.817, 0.814, 0.812, 0.812, 0.807, 0.805]
-    y_test = [0.838, 0.840, 0.840, 0.834, 0.828, 0.814, 0.812, 0.822, 0.818, 0.815, 0.807, 0.801, 0.796]
+    y_train = [1.3, 1.4, 1.5333333333333332, 0.832, 0.824]
+    y_test = [0.838, 0.840, 0.840, 0.834, 0.8281]
     # plt.plot(x, y, 'ro-')
     # plt.plot(x, y1, 'bo-')
     # pl.xlim(-1, 11)  # 限定横轴的范围
@@ -874,11 +860,11 @@ if __name__ == '__main__':
     # print ('产生3源点成功------------------------------------------')
 
 
-#产生5次，每次都有误差，计算出来。并统计。
+#产生10次，每次都有误差，计算出来。并统计。
 
 
     for i  in  range(1,11):
-        sourceList.append(contractSource(G,1,2))
+        sourceList.append(contractSource(G,4,2))
 
     errordistanceList=[]  #误差集合。
     errorSum=0
