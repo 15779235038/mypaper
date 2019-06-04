@@ -135,30 +135,15 @@ def  contractSource(G,sourceNum,sourceMaxDistance):
                       pass
 
          elif  sourceNum==4:
-             # 先随机找一个点。
-             random_Rumo = random.sample(sumlist, 1)
-             random_RumorSource = random_Rumo[0]
-             # # 找第二、三,四个点。
-             # for index in range(len(sumlist) - 3):
-             #     if nx.has_path(G, sumlist[index], random_RumorSource) == True and nx.has_path(G, sumlist[index + 1],
-             #                                                                                   random_RumorSource) == True  and nx.has_path(G, sumlist[index+2], random_RumorSource) == True:
-             #         if nx.shortest_path_length(G, source=sumlist[index],
-             #                                    target=random_RumorSource) > 4 and nx.shortest_path_length(G, source=
-             #         sumlist[index], target=random_RumorSource) < 6 and nx.shortest_path_length(G, source=sumlist[
-             #             index + 1], target=random_RumorSource) > 4 and nx.shortest_path_length(G, source=sumlist[
-             #             index + 1], target=random_RumorSource) < 6\
-             #                 :
-             #             rumorSourceList.append(random_RumorSource)
-             #             rumorSourceList.append(sumlist[index])
-             #             rumorSourceList.append(sumlist[index + 1])
-             #             print('找到了3源点了。')
-             #             break
-             # if len(rumorSourceList) == 4:
-             #     print('找到了4个点')
-             #     flag = 1
-             # else:
-             #     pass
-
+               templist=list(nx.all_simple_paths(G,source=174,target=2419))
+               print (templist)
+               max=0
+               result=[]
+               for temp in templist:
+                   if len(temp)>max:
+                       max=len(temp)
+                       result=temp
+               print (result)
 
 
 
@@ -812,16 +797,16 @@ def   plotform(x,y):
 
 
 
-    x = range(1,6)
-    y_train = [1.3, 1.4, 1.5333333333333332, 0.832, 0.824]
-    y_test = [0.838, 0.840, 0.840, 0.834, 0.8281]
+    x = range(1,4)
+    y_train = [1.3, 1.4, 1.5333333333333332]
+    y_test = [2.53, 2,31, 2.12]
     # plt.plot(x, y, 'ro-')
     # plt.plot(x, y1, 'bo-')
     # pl.xlim(-1, 11)  # 限定横轴的范围
     # pl.ylim(-1, 110)  # 限定纵轴的范围
 
-    plt.plot(x, y_train, marker='o', mec='r', mfc='w', label='uniprot90_train')
-    plt.plot(x, y_test, marker='*', ms=10, label='uniprot90_test')
+    plt.plot(x, y_train, marker='o', mec='r', mfc='w', label='our method')
+    plt.plot(x, y_test, marker='*', ms=10, label='other method')
     plt.legend()  # 让图例生效
 
 
