@@ -149,6 +149,11 @@ def  contractSource(G,sourceNum,sourceMaxDistance):
      return rumorSourceList
 
 
+
+
+
+
+
 import  csv
 
 def   ConvertGToCsv(G,dir):

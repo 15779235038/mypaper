@@ -370,7 +370,7 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
       chooseList = chooseList[-10:]  # 取最后20个。
       print ('chooseList'+'总共有多少元素'+str(len(chooseList)))
       minCover=[]
-      for  sourceNum  in range(2,4):
+      for  sourceNum  in range(1,4):
           print ('在源点在'+str(sourceNum)+'个数的情况下')
           for  h  in range(2,5):
               print ('在h为'+str(h)+'的情况下')
@@ -378,7 +378,7 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
                   print('单源点情况下')
                   #计算chooselist的每一个点在这个h下的bfs树覆盖率（对所有的infectionG试试）看看。
                   min=200
-                  for  source  in chooseList:
+                  for  source  in chooseList:                 #这个chooseList大有可为。
                      mincover=getSimilir(source,h,singleRegionList,infectionG)  #取得覆盖率
                      if  min>mincover:
                          min=mincover
@@ -587,9 +587,9 @@ def   multiplePartion(mutiplelist,infectionG,rumorSourceList):
 
      errordistanceFor=[]
      #上面这两个，可以干一架了。
-     for  turesourcelist  in rumorSourceList:
+     for  turesourcelist  in rumorSourceList:   #真实源
           everydistion=[]
-          for resultsourceindex  in  resultSource:
+          for resultsourceindex  in  resultSource:  #自己算法找出的源。
               everydistion.append(nx.shortest_path_length(infectionG,source=turesourcelist,target=resultsourceindex))
           everydistion.sort()
           print (  everydistion)
@@ -874,7 +874,7 @@ if __name__ == '__main__':
 
 
     for i  in  range(1,11):
-        sourceList.append(contractSource(G,4,2))
+        sourceList.append(contractSource(G,1,2))
 
     errordistanceList=[]  #误差集合。
     errorSum=0
