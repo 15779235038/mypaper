@@ -362,10 +362,10 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
            randomnum=random.random()
            if  randomnum>0.95:
                chooseList.append(node)
-      centerlist = list(nx.center(tempGraph))
-      print('感染图的中心为' + str(centerlist))
-      for center in centerlist:
-          chooseList.append(center)    #
+      # centerlist = list(nx.center(tempGraph))
+      # print('感染图的中心为' + str(centerlist))
+      # for center in centerlist:
+      #     chooseList.append(center)    #
       print ('把源点加入进去')
       for  j  in trueSourcelist:
           chooseList.append(j)
@@ -391,6 +391,21 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
                          sourceNew=source
                   print ('得到单源点情况最小的覆盖率为'+str(min)+'源点为'+str(sourceNew))
                   minCover.append([sourceNew,h,min])
+
+                  # for everynode in Alternativenodeset:
+                  #     mincover=
+
+
+
+
+
+
+
+
+
+
+
+
               else:
                   min=200
                   print ('多源情况,先考察同时传播传播')
@@ -848,7 +863,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/Wiki-Vote.txt', Ginti)
+    G = ContractDict('../data/facebook_combined.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -880,7 +895,7 @@ if __name__ == '__main__':
 
 
     for i  in  range(1,11):
-        sourceList.append(contractSource(G,1,2))
+        sourceList.append(contractSource(G,2,2))
 
     errordistanceList=[]  #误差集合。
     errorSum=0
