@@ -60,6 +60,8 @@ def Algorithm1(G, SourceList, time_sum,hlist):
     nodelist=[]
     edgelist=[]
     infectionNodelist=[]
+
+    print('开始传染的点是'+str(SourceList))
     for j in range(len(SourceList)):
         nodelist=list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
         edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
@@ -425,7 +427,9 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
 
 
 
-              else:
+              elif sourceNum==2:
+                  #两源情况，怎么办。
+
                   min=200
                   print ('多源情况,先考察同时传播传播')
                   print ('源点为'+str(sourceNum)+'情况')
@@ -439,6 +443,23 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
                               sourceNews=sources
                   print('得到多源点情况最小的覆盖率为' + str( min))
                   minCoverlist.append([sourceNews,h, min])
+
+              elif sourceNum==3:
+                  print ('源点个数为3')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       print (minCoverlist)
       #返回的应该是最可能的结果。获取mincover最小的返回。第三个元素才是需要考虑东西。
       # listToTxt(minCover, 'result.txt')
@@ -509,7 +530,7 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
 
 
     else:
-        #多源点,获得多源点的感染
+        #多源点,获得多源点的覆盖率
         circleNodesList=[]
         for u in  ulist:
             circleNodesList.extend(list(nx.bfs_tree(infectionG, source=u, depth_limit=hlist).nodes))
