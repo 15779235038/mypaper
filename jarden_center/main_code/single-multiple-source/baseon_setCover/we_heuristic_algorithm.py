@@ -375,26 +375,45 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
 
       chooseList = chooseList[-10:]  # 取最后20个。
       print ('chooseList'+'总共有多少元素'+str(len(chooseList)))
-      minCover=[]
+      minCoverlist=[]
       for  sourceNum  in range(1,4):
           print ('在源点在'+str(sourceNum)+'个数的情况下')
           for  h  in range(2,5):
               print ('在h为'+str(h)+'的情况下')
               if  sourceNum ==1:#单源点。
-                  print('单源点情况下')
-                  #计算chooselist的每一个点在这个h下的bfs树覆盖率（对所有的infectionG试试）看看。
-                  min=200
-                  for  source  in chooseList:                 #这个chooseList大有可为。单源点的情况下。不断寻找周围节点能让误差率变小的点。
-                     mincover=getSimilir(source,h,singleRegionList,infectionG)  #取得覆盖率
-                     if  min>mincover:
-                         min=mincover
-                         sourceNew=source
-                  print ('得到单源点情况最小的覆盖率为'+str(min)+'源点为'+str(sourceNew))
-                  minCover.append([sourceNew,h,min])
+                  # print('单源点情况下')
+                  # #计算chooselist的每一个点在这个h下的bfs树覆盖率（对所有的infectionG试试）看看。
+                  # min=200
+                  # for  source  in chooseList:                 #这个chooseList大有可为。单源点的情况下。不断寻找周围节点能让误差率变小的点。
+                  #    mincover=getSimilir(source,h,singleRegionList,infectionG)  #取得覆盖率
+                  #    if  min>mincover:
+                  #        min=mincover
+                  #        sourceNew=source
+                  # print ('得到单源点情况最小的覆盖率为'+str(min)+'源点为'+str(sourceNew))
+                  # minCover.append([sourceNew,h,min])
+                  flag=0
+                  #随机找一个点，不断符合bfs结构。但我不想这个样子，我想想怎么好点。
+                  firstnode = random.choice(Alternativenodeset)
+                  while flag==0:
+                      print ('随机取得点是'+str(firstnode))
+                      mincover=getSimilir(firstnode,h,singleRegionList,infectionG)  #取得覆盖率
+                      #取出邻居list
+                      nehibourlist=list(nx.neighbors(tempGraph,firstnode))
+                      nehibourCoverlist=[]
+                      for nehibour in nehibourlist:
+                          nehibourcover=getSimilir(nehibour,h,singleRegionList,infectionG)
+                          nehibourCoverlist.append([nehibour,nehibourcover])
 
-                  # for everynode in Alternativenodeset:
-                  #     mincover=
-
+                      nehibourCoverlist=sorted(nehibourCoverlist,key=lambda x:x[1])
+                      print('他的邻居节点以及误差率' + str(nehibourCoverlist))
+                      if   nehibourCoverlist[0][1]<mincover:  #最小的都没有他小，就是这个了
+                          #将这个点替换成新的源点
+                           firstnode=nehibourCoverlist[0][0]
+                           flag=0
+                      else:
+                           minCoverlist.append([ firstnode, h, mincover])
+                           print('得到单源点情况最小的覆盖率为' + str( mincover))
+                           flag=1
 
 
 
@@ -419,11 +438,11 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
                               min = mincover
                               sourceNews=sources
                   print('得到多源点情况最小的覆盖率为' + str( min))
-                  minCover.append([sourceNews,h, min])
-      print (minCover)
+                  minCoverlist.append([sourceNews,h, min])
+      print (minCoverlist)
       #返回的应该是最可能的结果。获取mincover最小的返回。第三个元素才是需要考虑东西。
       # listToTxt(minCover, 'result.txt')
-      result = sorted(minCover, key=lambda x: (x[2]))
+      result = sorted(minCoverlist, key=lambda x: (x[2]))
       listToTxt(result[0],'newresult.txt')
       return result[0]
 
@@ -483,7 +502,7 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
         Intersection =list(set( circleNodesList).intersection(set(singleRegionList)))  #交集
         Union=list(set(circleNodesList).union(set(singleRegionList)))
         ratios=len(Intersection) / len(Union)
-        ratio= ratios - 1.0
+        ratio= 1.0-ratios
         print('在u为'+str(ulist)+'h为'+str(hlist)+'情况下的覆盖率'+str(ratio))
         return abs(ratio)
 
@@ -503,7 +522,7 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
         Intersection = list(set(circleNodesList).intersection(set(singleRegionList)))  # 交集
         Union = list(set(circleNodesList).union(set(singleRegionList)))  #并集
         ratios = len(Intersection) / len(Union)
-        ratio = ratios - 1.0
+        ratio = 1.0-ratios
         print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
 
         return abs(ratio)
@@ -895,7 +914,7 @@ if __name__ == '__main__':
 
 
     for i  in  range(1,11):
-        sourceList.append(contractSource(G,2,2))
+        sourceList.append(contractSource(G,1,2))
 
     errordistanceList=[]  #误差集合。
     errorSum=0

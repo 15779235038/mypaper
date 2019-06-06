@@ -25,12 +25,18 @@
 #
 
 
+import random
+list1 = ['佛山', '南宁', '北海', '杭州', '南昌', '厦门', '温州']
+a = random.choice(list1)
+print(type(a))
 
 
 
 
 
-
+'''
+这是找四源点的情况。
+'''
 
 import  networkx as nx
 def ContractDict(dir, G):
