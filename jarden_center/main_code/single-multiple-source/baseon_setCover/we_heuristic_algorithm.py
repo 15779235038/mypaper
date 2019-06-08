@@ -402,6 +402,7 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
                       #取出邻居list
                       nehibourlist=list(nx.neighbors(tempGraph,firstnode))
                       nehibourCoverlist=[]
+                      #对邻居list进行操作，计算每个邻居的覆盖误差率。
                       for nehibour in nehibourlist:
                           nehibourcover=getSimilir(nehibour,h,singleRegionList,infectionG)
                           nehibourCoverlist.append([nehibour,nehibourcover])
@@ -423,13 +424,9 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
 
 
 
-
-
-
-
               elif sourceNum==2:
                   #两源情况，怎么办。
-
+                  #用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
                   min=200
                   print ('多源情况,先考察同时传播传播')
                   print ('源点为'+str(sourceNum)+'情况')
