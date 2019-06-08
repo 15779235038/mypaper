@@ -427,6 +427,18 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
               elif sourceNum==2:
                   #两源情况，怎么办。
                   #用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
+                  '''
+                  
+                  1 变种jaya算法，首先生成100个种群大小。
+                  2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
+                  3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
+                  
+                  '''
+
+
+                  
+
+
                   min=200
                   print ('多源情况,先考察同时传播传播')
                   print ('源点为'+str(sourceNum)+'情况')
