@@ -62,7 +62,7 @@ def ContractDict(dir, G):
 
 
 Ginti = nx.Graph()
-G = ContractDict('../data/Wiki-Vote.txt', Ginti)
+G = ContractDict('../../../data/Wiki-Vote.txt', Ginti)
 
 # 因为邮件是一个有向图，我们这里构建的是无向图。
 print('一开始图的顶点个数', G.number_of_nodes())

@@ -378,21 +378,11 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
       chooseList = chooseList[-10:]  # 取最后20个。
       print ('chooseList'+'总共有多少元素'+str(len(chooseList)))
       minCoverlist=[]
-      for  sourceNum  in range(1,4):
+      for  sourceNum  in range(2,3):
           print ('在源点在'+str(sourceNum)+'个数的情况下')
-          for  h  in range(2,5):
+          for  h  in range(2,4):
               print ('在h为'+str(h)+'的情况下')
               if  sourceNum ==1:#单源点。
-                  # print('单源点情况下')
-                  # #计算chooselist的每一个点在这个h下的bfs树覆盖率（对所有的infectionG试试）看看。
-                  # min=200
-                  # for  source  in chooseList:                 #这个chooseList大有可为。单源点的情况下。不断寻找周围节点能让误差率变小的点。
-                  #    mincover=getSimilir(source,h,singleRegionList,infectionG)  #取得覆盖率
-                  #    if  min>mincover:
-                  #        min=mincover
-                  #        sourceNew=source
-                  # print ('得到单源点情况最小的覆盖率为'+str(min)+'源点为'+str(sourceNew))
-                  # minCover.append([sourceNew,h,min])
                   flag=0
                   #随机找一个点，不断符合bfs结构。但我不想这个样子，我想想怎么好点。
                   firstnode = random.choice(Alternativenodeset)
@@ -435,23 +425,54 @@ def   findmultiplesource(singleRegionList,infectionG,trueSourcelist):
                   
                   '''
 
-
-                  
-
-
                   min=200
                   print ('多源情况,先考察同时传播传播')
                   print ('源点为'+str(sourceNum)+'情况')
                   #先判断源点个数，从chooseList中随机挑选两点，进行h构建。
-                  combinationList = list(combinations(chooseList,sourceNum))  #这是排列组合，再次针对这个排列组合
-                  sourceNews=[]
-                  for  sources  in combinationList:
+                  combinationList = list(combinations(Alternativenodeset,sourceNum))  #这是排列组合，再次针对这个排列组合
+                  #从combinationList中寻找100个样本集。
+                  Sampleset=random.sample(combinationList,50)
+                  print('样本集产生完毕，100个，是'+str(Sampleset))
+                  bestsourceNews = []
+                  #迭代五次
+                  for  i  in  range(1,4):
+                          #我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
+                          for sourcesi in range(len(Sampleset)):
+                              print('当前输入list' + str(Sampleset[sourcesi]))
+                              mincover=getSimilir(Sampleset[sourcesi],h,singleRegionList,infectionG)
+                              #往后5个位置找一个比它更好地点。只要找更好就行,找不到就返回不变就可以
+                              # 当前的下标
+                              currentindex=combinationList.index(Sampleset[sourcesi])
+                              length=len(combinationList)
+                              for j  in range(1,100,25):  #要防止数组越界
+                                  if  currentindex+j<  length:  #只要在范围里面才行。
+                                      lateelement=combinationList[currentindex+j]
+                                      print ('当前输入的后面list'+str(lateelement))
+                                      latemincover=getSimilir(lateelement,h,singleRegionList,infectionG)
+                                      if  mincover > latemincover:
+                                          mincover =latemincover #有更好地就要替换
+                                          print ("要进行替换了"+str( Sampleset[sourcesi]) +'被替换成lateelement')
+                                          Sampleset[sourcesi]=lateelement  #替换
+                                          print (Sampleset[sourcesi])
+
+
+                  print ('经过5次迭代之后的sample的list为多少呢？'+str(Sampleset))
+                  #计算样本集的similir，找出最好的。
+                  for  sources  in  Sampleset:
                           mincover=getSimilir(sources,h,singleRegionList,infectionG)
                           if  mincover < min:
-                              min = mincover
-                              sourceNews=sources
+                              min = mincover  #这一次最好的覆盖误差率
+                              bestsourceNews=sources   #最好的覆盖误差率对应的最好的那个解。
+
                   print('得到多源点情况最小的覆盖率为' + str( min))
-                  minCoverlist.append([sourceNews,h, min])
+                  minCoverlist.append([ bestsourceNews,h, min])
+
+
+
+
+
+
+
 
               elif sourceNum==3:
                   print ('源点个数为3')
@@ -889,6 +910,10 @@ def   plotform(x,y):
     plt.show()
 
 
+import datetime
+
+
+
 
 
 
@@ -896,6 +921,8 @@ def   plotform(x,y):
 
 
 if __name__ == '__main__':
+
+    starttime = datetime.datetime.now()
     '''
 
     1  产生一个社区，无非就是源点从1到5.然后用我们这种方式
@@ -944,7 +971,7 @@ if __name__ == '__main__':
 
 
     for i  in  range(1,11):
-        sourceList.append(contractSource(G,1,2))
+        sourceList.append(contractSource(G,2,2))
 
     errordistanceList=[]  #误差集合。
     errorSum=0
@@ -968,7 +995,11 @@ if __name__ == '__main__':
         print ('误差集合为'+str(errordistanceList))
     print (errorSum/10)
 
+    #long running
 
+    endtime = datetime.datetime.now()
+    print ('执行了这么长时间')
+    print ((endtime - starttime).seconds)
 
 
 
