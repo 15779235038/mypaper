@@ -24,14 +24,14 @@
 # plt.show()
 #
 
-
-import random
-list1 = ['佛山', '南宁', '北海', '杭州', '南昌', '厦门', '温州']
-a = random.choice(list1)
-print(type(a))
-
-
-
+#
+# import random
+# list1 = ['佛山', '南宁', '北海', '杭州', '南昌', '厦门', '温州']
+# a = random.choice(list1)
+# print(type(a))
+#
+#
+#
 
 
 '''
@@ -67,52 +67,62 @@ G = ContractDict('../../../data/Wiki-Vote.txt', Ginti)
 # 因为邮件是一个有向图，我们这里构建的是无向图。
 print('一开始图的顶点个数', G.number_of_nodes())
 print('一开始图的边个数', G.number_of_edges())
+#
+#
+#
+# #  先给全体的Cn、Scn,time的0的赋值。
+# for node in list(G.nodes):
+#     G.add_node(node, SI=1)
+#
+#
+# # 初始化所有边是否感染。Infection
+# for  edge  in  list(G.edges):
+#     G.add_edge(edge[0],edge[1], Infection=1)
+#
+#
+# #构图，找直径。先找外围，再找最长的一个路。
+#
+#
+#
+# Gc = max(nx.connected_component_subgraphs(G), key=len)
+# nodelist=list(Gc)
+# print ('连通组件找到了')
+#
+#
+# subgrapn=nx.Graph()
+# #构建子图
+# for  edge in G.edges:
+#     if edge[0] in nodelist and edge[1] in nodelist:
+#         subgrapn.add_edges_from([edge],weight=1)
+#
+#
+# lists=nx.periphery(subgrapn)
+# print( lists)
+# max=0
+# resultlist=[]
+# for  node  in lists:
+#      for node1 in lists:
+#          if node!=node1:
+#              distance=nx.shortest_path_length(G,source=node,target=node1)
+#              print (distance)
+#              if  distance>max:
+#                  max= distance
+#                  resultlist.append([node,node1,max])
+#
+#
+#
+# resultlist.sort()
+# print (resultlist)
+#
+#
+#
 
+# import   networkx as  nx
+# #
+# #
+# # print (list(nx.dfs_edges(G, source=54, depth_limit=7)))
 
-
-#  先给全体的Cn、Scn,time的0的赋值。
-for node in list(G.nodes):
-    G.add_node(node, SI=1)
-
-
-# 初始化所有边是否感染。Infection
-for  edge  in  list(G.edges):
-    G.add_edge(edge[0],edge[1], Infection=1)
-
-
-#构图，找直径。先找外围，再找最长的一个路。
-
-
-
-Gc = max(nx.connected_component_subgraphs(G), key=len)
-nodelist=list(Gc)
-print ('连通组件找到了')
-
-
-subgrapn=nx.Graph()
-#构建子图
-for  edge in G.edges:
-    if edge[0] in nodelist and edge[1] in nodelist:
-        subgrapn.add_edges_from([edge],weight=1)
-
-
-lists=nx.periphery(subgrapn)
-print( lists)
-max=0
-resultlist=[]
-for  node  in lists:
-     for node1 in lists:
-         if node!=node1:
-             distance=nx.shortest_path_length(G,source=node,target=node1)
-             print (distance)
-             if  distance>max:
-                 max= distance
-                 resultlist.append([node,node1,max])
-
-
-
-resultlist.sort()
-print (resultlist)
-
-
-
+import random
+list1 = ['佛山', '南宁', '北海', '杭州', '南昌', '厦门', '温州']
+a = random.choice(list1)
+print(a)
