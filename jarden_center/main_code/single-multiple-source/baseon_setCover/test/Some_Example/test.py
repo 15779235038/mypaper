@@ -62,7 +62,7 @@ def ContractDict(dir, G):
 
 
 Ginti = nx.Graph()
-G = ContractDict('../../../data/Wiki-Vote.txt', Ginti)
+G = ContractDict('../../../data/facebook_combined.txt', Ginti)
 
 # 因为邮件是一个有向图，我们这里构建的是无向图。
 print('一开始图的顶点个数', G.number_of_nodes())
@@ -117,12 +117,12 @@ print('一开始图的边个数', G.number_of_edges())
 #
 #
 
-# import   networkx as  nx
-# #
-# #
-# # print (list(nx.dfs_edges(G, source=54, depth_limit=7)))
+import   networkx as  nx
+#
+#
+listresult=list(nx.dfs_edges(G, source=54))
 
-import random
-list1 = ['佛山', '南宁', '北海', '杭州', '南昌', '厦门', '温州']
-a = random.choice(list1)
-print(a)
+print (listresult)
+for edge in listresult:
+    if edge[0]==54 or edge[1]==54:
+        print ('you1')

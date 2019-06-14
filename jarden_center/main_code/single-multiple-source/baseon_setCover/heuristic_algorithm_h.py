@@ -162,9 +162,30 @@ def contractSource(G, sourceNum, sourceMaxDistance):
             #         flag=1
             # rumorSourceList=[261, 134, 67, 136]
             # flag=1
+            flag1=0
+            while flag1==0:
 
-            random_RumorSource = random.choice(sumlist)
-            rumorSourceList=[random.choice(sumlist),random.choice(sumlist),random.choice(sumlist),random.choice(sumlist)]
+                #随机找个点，然后再找一个点。距离跟他有10个距离就可以
+                random_RumorSource = random.choice(sumlist)
+                rumorSourceList=[random.choice(sumlist),random.choice(sumlist),random.choice(sumlist),random.choice(sumlist)]
+                combinationList = list(combinations(rumorSourceList, 2))
+
+                flag2=0
+                for sample in combinationList:
+                    if  nx.has_path(G, sample[0],sample[1]) == False:
+                        flag2=1
+
+                if flag2==1:
+                    flag1=0
+                else:
+                    flag1=1
+
+
+
+
+
+
+
             if len(rumorSourceList) != len(set(rumorSourceList)) and len(rumorSourceList) != 4:  # 重复或者数目达不到要求
                 #有重复元素
                 flag=0
