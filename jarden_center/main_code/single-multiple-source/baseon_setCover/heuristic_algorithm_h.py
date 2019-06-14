@@ -165,7 +165,10 @@ def contractSource(G, sourceNum, sourceMaxDistance):
             flag1=0
             while flag1==0:
 
-                #随机找个点，然后再找一个点。距离跟他有10个距离就可以
+                #随机找个点，然后再找一个点。距离跟他有10个距离就可以。
+
+
+
                 random_RumorSource = random.choice(sumlist)
                 rumorSourceList=[random.choice(sumlist),random.choice(sumlist),random.choice(sumlist),random.choice(sumlist)]
                 combinationList = list(combinations(rumorSourceList, 2))
@@ -354,7 +357,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
     chooseList = chooseList[-10:]  # 取最后20个。
     print('chooseList' + '总共有多少元素' + str(len(chooseList)))
     minCoverlist = []
-    for sourceNum in range(4, 5):
+    for sourceNum in range(1, 2):
             print('在源点在' + str(sourceNum) + '个数的情况下')
             # print('在h为' + str(h) + '的情况下')
             if sourceNum == 1:  # 单源点。
@@ -983,7 +986,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 4, 2))
+        sourceList.append(contractSource(G, 1, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
