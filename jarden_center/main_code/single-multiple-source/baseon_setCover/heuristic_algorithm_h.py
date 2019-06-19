@@ -495,6 +495,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 Comparisonlist=minCoverlist[-2:]  #取最后两个元素，
                 Difference=abs(Comparisonlist[0][2]-Comparisonlist[1][2])
                 if  Difference<0.05:
+                    listToTxt(Comparisonlist, 'newresult.txt')
                     print ('跳出for循环，两次覆盖率几乎相等那么预测源点个数为'+str(sourceNum-1))
                     break
 
@@ -572,6 +573,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
                 Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
                 if Difference < 0.05:
+                    listToTxt(Comparisonlist, 'newresult.txt')
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
 
@@ -636,8 +638,9 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('得到多源点情况最小的覆盖率为' + str(min))
                 minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
                 Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
-                Difference = abs(Comparisonlist[0][3] - Comparisonlist[1][3])
+                Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
                 if Difference < 0.05:
+                    listToTxt(Comparisonlist, 'newresult.txt')
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
             elif sourceNum == 5:
@@ -704,9 +707,9 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('得到多源点情况最小的覆盖率为' + str(min))
                 minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
                 Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
-                Difference = abs(Comparisonlist[0][3] - Comparisonlist[1][3])
+                Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
                 if Difference < 0.05:
-                    listToTxt([bestsourceNews[0], bestsourceNews[1], min], 'newresult.txt')
+                    listToTxt(Comparisonlist, 'newresult.txt')
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
 
@@ -1114,7 +1117,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 2, 2))
+        sourceList.append(contractSource(G, 1, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
