@@ -148,22 +148,29 @@ def contractSource(G, sourceNum, sourceMaxDistance):
                     pass
 
         elif sourceNum == 4:
+
             flag=0
-            rumorSourceList = []
-            random_Rumo = random.sample(sumlist, 1)
-            random_RumorSource = random_Rumo[0]
-            rumorSourceList.append(random_RumorSource)
+            flag1 = 0
             while flag==0:
-                print  ('随机产生的点为'+str(random_RumorSource))
-                resultList=list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
-                rumorSourceList.append(resultList[4][1])
-                rumorSourceList.append(resultList[8][1])
-                rumorSourceList.append(resultList[12][1])
-                if len(rumorSourceList) == 4 and len(rumorSourceList)==len(set(rumorSourceList)):  # 重复或者数目达不到要求:
-                    print('找到了4个点')
-                    flag = 1
-                else:
-                   pass
+                rumorSourceList = []
+                random_Rumo = random.sample(sumlist, 1)
+                random_RumorSource = random_Rumo[0]
+                rumorSourceList.append(random_RumorSource)
+                flag1=0
+                while flag1==0:
+                    print  ('随机产生的点为'+str(random_RumorSource))
+                    resultList=list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
+                    # print (resultList)
+                    rumorSourceList.append(resultList[4][1])
+                    random_RumorSource=resultList[4][1]
+                    if len(rumorSourceList) == 4 and len(rumorSourceList)==len(set(rumorSourceList)):  # 重复或者数目达不到要求:
+                        print('找到了4个点')
+                        flag1 =1
+                        flag = 1
+                    elif len(rumorSourceList) == 4 and len(rumorSourceList)!=len(set(rumorSourceList)):
+                        print ('是四个点，但是却有重复，只能够重新选择新的开始点')
+                        flag1 = 1
+
 
 
             # flag1=0
