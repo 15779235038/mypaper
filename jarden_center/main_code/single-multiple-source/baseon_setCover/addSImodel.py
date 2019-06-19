@@ -62,14 +62,31 @@ def Algorithm1(G, SourceList, time_sum, hlist):
 
     print('开始传染的点是' + str(SourceList))
     for j in range(len(SourceList)):
-        nodelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
-        edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
-        print(len(nodelist))
-        nodelist = random.sample(nodelist, int(float(len(nodelist)) * 0.9))  # 从list中随机获取5个元素，作为一个片断返回
-        for i in nodelist:
-            G.node[i]['SI'] = 2
-        for k in edgelist:
-            G.adj[k[0]][k[1]]['Infection'] = 2
+        infectList = []
+        infectList.append(j)
+        G.node[j]['SI'] = 2
+        for time in range(0,3):
+             tempinfectList=[]
+             for node in infectList:
+                for height in list(G.neighbors(node)):
+                        randnum=random.random()
+                        if randnum<0.9:
+                            G.node[height]['SI'] = 2
+                            tempinfectList.append(height)
+             for timeInfectnode in tempinfectList:
+                 infectList.append(timeInfectnode)
+
+
+
+
+        # nodelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
+        # edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
+        # print(len(nodelist))
+        # nodelist = random.sample(nodelist, int(float(len(nodelist)) * 0.9))  # 从list中随机获取5个元素，作为一个片断返回
+        # for i in nodelist:
+        #     G.node[i]['SI'] = 2
+        # for k in edgelist:
+        #     G.adj[k[0]][k[1]]['Infection'] = 2
         print('头两个感染社区点数为' + str(len(nodelist)))
 
     return G
