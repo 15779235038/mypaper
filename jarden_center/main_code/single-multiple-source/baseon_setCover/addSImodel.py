@@ -70,7 +70,7 @@ def Algorithm1(G, SourceList, time_sum, hlist):
              for node in infectList:
                 for height in list(G.neighbors(node)):
                         randnum=random.random()
-                        if randnum<0.9:
+                        if randnum<0.5:
                             G.node[height]['SI'] = 2
                             tempinfectList.append(height)
              for timeInfectnode in tempinfectList:
@@ -199,29 +199,27 @@ def contractSource(G, sourceNum, sourceMaxDistance):
 
 
         elif sourceNum == 5:
+            flag = 0
+            flag1 = 0
+            while flag == 0:
+                rumorSourceList = []
+                random_Rumo = random.sample(sumlist, 1)
+                random_RumorSource = random_Rumo[0]
+                rumorSourceList.append(random_RumorSource)
                 flag1 = 0
                 while flag1 == 0:
-
-                    # 随机找个点，然后再找一个点。距离跟他有10个距离就可以。
-                    random_RumorSource = random.choice(sumlist)
-                    rumorSourceList = [random.choice(sumlist), random.choice(sumlist), random.choice(sumlist),
-                                       random.choice(sumlist),random.choice(sumlist)]
-                    combinationList = list(combinations(rumorSourceList, 2))
-
-                    flag2 = 0
-                    for sample in combinationList:
-                        if nx.has_path(G, sample[0], sample[1]) == False:
-                            flag2 = 1
-
-                    if flag2 == 1:
-                        flag1 = 0
-                    else:
+                    print('随机产生的点为' + str(random_RumorSource))
+                    resultList = list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
+                    # print (resultList)
+                    rumorSourceList.append(resultList[4][1])
+                    random_RumorSource = resultList[4][1]
+                    if len(rumorSourceList) == 5 and len(rumorSourceList) == len(set(rumorSourceList)):  # 重复或者数目达不到要求:
+                        print('找到了4个点')
                         flag1 = 1
-                if len(rumorSourceList) != len(set(rumorSourceList)) and len(rumorSourceList) != 4:  # 重复或者数目达不到要求
-                    # 有重复元素
-                    flag = 0
-                else:
-                    flag = 1
+                        flag = 1
+                    elif len(rumorSourceList) == 5 and len(rumorSourceList) != len(set(rumorSourceList)):
+                        print('是四个点，但是却有重复，只能够重新选择新的开始点')
+                        flag1 = 1
 
     # 查看产生随机源点的个数2，并且他们距离为3.
     print('源点个数' + str(len(rumorSourceList)) + '以及产生的真实源点是' + str(rumorSourceList))
@@ -507,7 +505,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 Comparisonlist=minCoverlist[-2:]  #取最后两个元素，
                 Difference=abs(Comparisonlist[0][2]-Comparisonlist[1][2])
                 if  Difference<0.00001:
-                    listToTxt(Comparisonlist, 'newresult.txt')
+
                     print ('跳出for循环，两次覆盖率几乎相等那么预测源点个数为'+str(sourceNum-1))
                     break
 
@@ -585,7 +583,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
                 Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
                 if Difference < 0.00001:
-                    listToTxt(Comparisonlist, 'newresult.txt')
+
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
 
@@ -652,7 +650,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
                 Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
                 if Difference < 0.00001:
-                    listToTxt(Comparisonlist, 'newresult.txt')
+
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
             elif sourceNum == 5:
@@ -721,12 +719,11 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
                 Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
                 if Difference < 0.00001:
-                    listToTxt(Comparisonlist, 'newresult.txt')
+
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
 
-
-
+    listToTxt(minCoverlist, 'newresult.txt')
     print(minCoverlist)
     # 返回的应该是最可能的结果。获取mincover最小的返回。第三个元素才是需要考虑东西。
     # listToTxt(minCover, 'result.txt')
@@ -1129,7 +1126,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 4, 2))
+        sourceList.append(contractSource(G, 5, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
