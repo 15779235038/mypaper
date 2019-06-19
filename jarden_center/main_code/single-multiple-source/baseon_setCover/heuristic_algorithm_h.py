@@ -1048,8 +1048,8 @@ import matplotlib.pyplot as plt
 
 def plotform(x, y):
     x = range(1, 4)
-    y_train = [1.3, 1.4, 1.5333333333333332]
-    y_test = [2.53, 2, 31, 2.12]
+    y_train = [1.0, 1.4, 1.1 , 1.225,1.44]
+    y_test = [2.53, 2, 31, 2.12,1]
     # plt.plot(x, y, 'ro-')
     # plt.plot(x, y1, 'bo-')
     # pl.xlim(-1, 11)  # 限定横轴的范围
