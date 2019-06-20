@@ -9,3 +9,5 @@ print('---------------gml------------------')
 
 read_gml('../../../data/powergrid/power.gml')
 
+#生成我们需要的txt文件。
+
