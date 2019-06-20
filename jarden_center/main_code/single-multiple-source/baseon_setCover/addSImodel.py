@@ -391,12 +391,10 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 1 变种jaya算法，首先生成100个种群大小。
                 2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
                 3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
-
                 '''
                 min = 200
                 print('多源情况,先考察同时传播传播')
                 print('源点个数为' + str(sourceNum) + '情况')
-
                 # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
                 # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
                 sourceAndH = []
@@ -504,22 +502,17 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 #这时候，我们的minCoverlist有两个min，我们来计算下。当两次的min之差小于某个值，我们认为源点为k。
                 Comparisonlist=minCoverlist[-2:]  #取最后两个元素，
                 Difference=abs(Comparisonlist[0][2]-Comparisonlist[1][2])
-                if  Difference<0.00001:
-
-                    print ('跳出for循环，两次覆盖率几乎相等那么预测源点个数为'+str(sourceNum-1))
+                if Difference ==0:
+                    print ('两次覆盖率一样')
+                    pass
+                elif Difference<0.00001:
+                    print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
-
-
-
-
-
-
 
             elif sourceNum == 3:
                 # 两源情况，怎么办。
                 # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
                 '''
-
                 1 变种jaya算法，首先生成100个种群大小。
                 2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
                 3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
@@ -578,15 +571,14 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
 
                 print('得到多源点情况最小的覆盖率为' + str(min))
                 minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
-
-
                 Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
                 Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
-                if Difference < 0.00001:
-
+                if Difference ==0:
+                    print('两次覆盖率一样')
+                    pass
+                elif Difference<0.00001:
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
-
             elif sourceNum == 4:
                 # 两源情况，怎么办。
                 # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
@@ -607,7 +599,6 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 #随机产生这些可能性，随机生成种群50大小。
                 for sampleindex  in range(0,53):
                     combinationList.append([random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset)])
-
                 sourceAndH = []
                 hlists=[2,3]
                 for htemp in range(2, 4):
@@ -649,15 +640,16 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
                 Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
                 Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
-                if Difference < 0.00001:
-
+                if Difference ==0:
+                    print('两次覆盖率一样')
+                    pass
+                elif Difference<0.00001:
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
             elif sourceNum == 5:
                 # 两源情况，怎么办。
                 # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
                 '''
-
                 1 变种jaya算法，首先生成100个种群大小。
                 2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
                 3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
@@ -718,8 +710,10 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
                 Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
                 Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
-                if Difference < 0.00001:
-
+                if Difference ==0:
+                    print('两次覆盖率一样')
+                    pass
+                elif Difference<0.00001:
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
 
