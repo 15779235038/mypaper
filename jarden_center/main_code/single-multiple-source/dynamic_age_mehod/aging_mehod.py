@@ -74,9 +74,6 @@ def Algorithm1(G, SourceList, time_sum, hlist):
             for node in infectList:
                 for height in list(G.neighbors(node)):
                     randnum = random.random()
-                    # print(randnum)
-                    # print (disEffectDistance(G.edges[node, height]['weight']))
-
                     if disEffectDistance(G.edges[node, height]['weight']) < randnum:
                         G.node[height]['SI'] = 2
                         tempinfectList.append(height)
@@ -168,7 +165,29 @@ def contractSource(G, sourceNum, sourceMaxDistance):
                         print ('是四个点，但是却有重复，只能够重新选择新的开始点')
                         flag1 = 1
 
-
+            # flag1=0
+            # while flag1==0:
+            #
+            #     #随机找个点，然后再找一个点。距离跟他有10个距离就可以。
+            #     random_RumorSource = random.choice(sumlist)
+            #     rumorSourceList=[random.choice(sumlist),random.choice(sumlist),random.choice(sumlist),random.choice(sumlist)]
+            #     combinationList = list(combinations(rumorSourceList, 2))
+            #
+            #     flag2=0
+            #     for sample in combinationList:
+            #         if  nx.has_path(G, sample[0],sample[1]) == True:
+            #
+            #                 flag2=1
+            #
+            #     if flag2==1:
+            #         flag1=0
+            #     else:
+            #         flag1=1
+            # if len(rumorSourceList) != len(set(rumorSourceList)) and len(rumorSourceList) != 4:  # 重复或者数目达不到要求
+            #     #有重复元素
+            #     flag=0
+            # else:
+            #     flag=1
 
 
         elif sourceNum == 5:
@@ -323,18 +342,6 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
     Alternativenodeset = list(set(tempGraphNodelist))  # 备选集合。
     # 求出这个区域最远的路径出来。返回这个区域半径。
     print('这个感染区域的传播半径')
-    # maxh=nx.radius(tempGraph)
-    '''
-      1  选择边界点。（or所有点）
-      2  选择中心点，以（u，h）去达到最大的覆盖数目。计算这样形成的u和它所有边界点形成的路径成本。
-      3  再以(u1,h1).(u2,h2)去达到这样的覆盖数目，计算这样形成的路径成本之和。（每次增大h，这个子集合的成本都会增大。）
-      '''
-    # 首先第一步，将这个tempGra圆投影到x，y轴。
-    # 让我看看这个图
-    ConvertGToCsvSub(tempGraph, 'tempGraph.csv')
-    # peripheryList=nx.periphery(tempGraph)  #求解图边界list
-
-    #计算图的拉普拉斯
 
 
     minCoverlist = []
@@ -396,48 +403,14 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
 
 
     elif sourceNum == 2:
+        #针对tempGraph，计算一个age，就是针对tempGraph。
+        DA=0
+        for  node  in list(tempGraph.nodes):
+            #计算这个感染图所有的图显示
 
-        resultList = []
-        for l in range(0, 4):
-            # 随机找两个源，开始
-            sourcePartition = []
-            randomSource = []
-            for number in range(0, sourceNum):
-                randomSource.append(random.choice(Alternativenodeset))
-                sourcePartition.append([])
-            for index in range(len(sourcePartition)):
-                sourcePartition[index].append(randomSource[index])
-                Alternativenodeset.remove(randomSource[index])
-            print (sourcePartition)  # 3个区域划分完毕
 
-            for node in Alternativenodeset:
-                # 分别计算到两个源的距离。
-                lengthlist = []
-                for index1 in range(0, sourceNum):
-                    lengthlist.append([index1, randomSource[index1],node,
-                                       nx.shortest_path_length(infectionG, source=node, target=randomSource[index1])])
-                resulttemp = sorted(lengthlist, key=lambda x: (x[3]))
-                print ('输出关于这个东西的距离集合看看')
-                print (resulttemp)
-                # 加入第一个队列中。
-                sourcePartition[resulttemp[0][0]].append(node)
 
-            result = []
-            for singlePartition in sourcePartition:
-                # ok,接下来已经分割完毕了。sourcePartion1，2就是我们的结果了.在这两个分区中寻找新的点，让目标函数成立。
-                # 第一个分区
-                nodeAnddistance = []
-                for partion1node in singlePartition:  # 计算他们跟其他的距离。
-                    nodedistanceSum = 0
-                    for targetPartion1node in singlePartition:
-                        if partion1node != targetPartion1node:
-                            length = nx.shortest_path_length(infectionG, source=partion1node, target=targetPartion1node)
-                            nodedistanceSum = nodedistanceSum + length
-                    nodeAnddistance.append([partion1node, nodedistanceSum])
-                result1 = sorted(nodeAnddistance, key=lambda x: (x[1]))  # 这就是这个源的结果，看看源是多少来着。
-                print ('结果看看' + str(result1[0]))
-                result.append(result1[0][0])
-            return result
+
     elif sourceNum == 3:
 
         resultList = []
@@ -504,7 +477,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
             for index in range(len(sourcePartition)):
                 sourcePartition[index].append(randomSource[index])
                 Alternativenodeset.remove(randomSource[index])
-                # print (sourcePartition)  # 3个区域划分完毕
+            print (sourcePartition)  # 3个区域划分完毕
 
             for node in Alternativenodeset:
                 # 分别计算到两个源的距离。
@@ -513,16 +486,16 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
                     lengthlist.append([index1, randomSource[index1],
                                        nx.shortest_path_length(infectionG, source=node, target=randomSource[index1])])
                 resulttemp = sorted(lengthlist, key=lambda x: (x[2]))
-                # print (resulttemp)
+
                 # 加入第一个队列中。
                 sourcePartition[resulttemp[0][0]].append(node)
 
             result = []
             for singlePartition in sourcePartition:
+
                 # ok,接下来已经分割完毕了。sourcePartion1，2就是我们的结果了.在这两个分区中寻找新的点，让目标函数成立。
+
                 # 第一个分区
-                # print ('看下每个分区大小')
-                # print (len(singlePartition))
                 nodeAnddistance = []
                 for partion1node in singlePartition:  # 计算他们跟其他的距离。
                     nodedistanceSum = 0
@@ -538,49 +511,84 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
             return result
 
     elif sourceNum == 5:
-        resultList = []
-        for l in range(0, 4):
-            # 随机找两个源，开始
-            sourcePartition = []
-            randomSource = []
-            for number in range(0, sourceNum):
-                randomSource.append(random.choice(Alternativenodeset))
-                sourcePartition.append([])
-            for index in range(len(sourcePartition)):
-                sourcePartition[index].append(randomSource[index])
-                Alternativenodeset.remove(randomSource[index])
-                # print (sourcePartition)  # 3个区域划分完毕
+        # 两源情况，怎么办。
+        # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
+        '''
+        1 变种jaya算法，首先生成100个种群大小。
+        2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
+        3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
 
-            for node in Alternativenodeset:
-                # 分别计算到两个源的距离。
-                lengthlist = []
-                for index1 in range(0, sourceNum):
-                    lengthlist.append([index1, randomSource[index1],
-                                       nx.shortest_path_length(infectionG, source=node, target=randomSource[index1])])
-                resulttemp = sorted(lengthlist, key=lambda x: (x[2]))
-                # print (resulttemp)
-                # 加入第一个队列中。
-                sourcePartition[resulttemp[0][0]].append(node)
+        '''
+        min = 200
+        print('多源情况,先考察同时传播传播')
+        print('源点为' + str(sourceNum) + '情况')
+        # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
+        # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
+        print('这一步炸了')
+        combinationList = []  # 样本集合
+        # 随机产生这些可能性，随机生成种群50大小。
+        for sampleindex in range(0, 53):
+            combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset),
+                                    random.choice(Alternativenodeset), random.choice(Alternativenodeset),
+                                    random.choice(Alternativenodeset)])
 
-            result = []
-            for singlePartition in sourcePartition:
-                # ok,接下来已经分割完毕了。sourcePartion1，2就是我们的结果了.在这两个分区中寻找新的点，让目标函数成立。
-                # 第一个分区
-                # print ('看下每个分区大小')
-                # print (len(singlePartition))
-                nodeAnddistance = []
-                for partion1node in singlePartition:  # 计算他们跟其他的距离。
-                    nodedistanceSum = 0
-                    for targetPartion1node in singlePartition:
-                        if partion1node != targetPartion1node:
-                            length = nx.shortest_path_length(infectionG, source=partion1node, target=targetPartion1node)
-                            nodedistanceSum = nodedistanceSum + length
-                    nodeAnddistance.append([partion1node, nodedistanceSum])
+        sourceAndH = []
+        hlists = [2, 3]
+        for htemp in range(2, 4):
+            for sourcetmep in combinationList:
+                sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
+        # 从combinationList中寻找100个样本集。
+        Sampleset = random.sample(sourceAndH, 50)
+        print('样本集产生完毕，100个，是' + str(Sampleset))
+        bestsourceNews = []
+        # 迭代五次
+        for i in range(1, 4):
+            # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
+            for sourcesi in range(len(Sampleset)):
+                print('当前输入list' + str(Sampleset[sourcesi]))
+                mincover = getSimilir(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
+                                      infectionG)
+                # 随机更换，看如何让变好
+                # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
+                length = len(sourceAndH)
+                for j in range(1, 4, 1):  # 随机变4次，只要能变好
+                    lateelement = [[random.choice(Alternativenodeset), random.choice(Alternativenodeset),
+                                    random.choice(Alternativenodeset), random.choice(Alternativenodeset),
+                                    random.choice(Alternativenodeset)],
+                                   random.choice(hlists)]
+                    print('当前输入的后面list' + str(lateelement))
+                    latemincover = getSimilir(lateelement[0], lateelement[1], singleRegionList, infectionG)
+                    if mincover > latemincover:
+                        mincover = latemincover  # 有更好地就要替换
+                        print("要进行替换了" + str(sourceAndH[sourcesi]) + '被替换成lateelement')
+                        Sampleset[sourcesi] = lateelement  # 替换
+                        print(Sampleset[sourcesi])
 
-                result1 = sorted(nodeAnddistance, key=lambda x: (x[1]))  # 这就是这个源的结果，看看源是多少来着。
-                print ('结果看看' + str(result1[0]))
-                result.append(result1[0][0])
-            return result
+        print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
+        # 计算样本集的similir，找出最好的。
+        for sources in Sampleset:
+            mincover = getSimilir(sources[0], sources[1], singleRegionList, infectionG)
+            if mincover < min:
+                min = mincover  # 这一次最好的覆盖误差率
+                bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
+
+        print('得到多源点情况最小的覆盖率为' + str(min))
+        minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
+        Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
+        Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
+        if Difference == 0:
+            print('两次覆盖率一样')
+            pass
+        elif Difference < 0.00001:
+            print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
+
+    listToTxt(minCoverlist, 'newresult.txt')
+    print(minCoverlist)
+    # 返回的应该是最可能的结果。获取mincover最小的返回。第三个元素才是需要考虑东西。
+    # listToTxt(minCover, 'result.txt')
+    result = sorted(minCoverlist, key=lambda x: (x[2]))
+    # listToTxt(result[0], 'newresult.txt')
+    return result[0]
 
 
 def listToTxt(listTo, dir):
@@ -707,10 +715,6 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNume):
         everydistion = []
         for resultsourceindex in resultSource:  # 自己算法找出的源。
             everydistion.append(nx.shortest_path_length(infectionG, source=turesourcelist, target=resultsourceindex))
-
-            temp=resultSource #结果集匹配到了，最好的结果就要移除这个了。
-            temp.remove(resultsourceindex)
-            resultSource=temp
         everydistion.sort()
         print(everydistion)
         errordistanceFor.append(everydistion[0])
@@ -798,7 +802,8 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 5, 2))
+        sourceList.append(contractSource(G, 2, 2))
+
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -816,7 +821,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource, 5)
+        errordistance = multiplePartion(multipList, infectG, singleSource, 2)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))
