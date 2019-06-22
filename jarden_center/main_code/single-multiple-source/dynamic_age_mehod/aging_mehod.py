@@ -424,11 +424,15 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
             L = nx.normalized_laplacian_matrix(newTempGraph)
             e = np.linalg.eigvals(L.A)
             nodeEigenvalue=max(e)
+            print (nodeEigenvalue)
             nodeDa=abs(MaxEigenvalue-nodeEigenvalue)/MaxEigenvalue
+            print ('--------------------------')
+            print(str(node)+'---------'+str(nodeDa))
             nodeDaList.append([node,nodeDa])
         # nodeDaList= sorted(nodeDaList, key=lambda x: (x[1]))
         nodeDaList.sort(key=lambda x: (x[1]),reverse=True)
         print (nodeDaList)
+        result=nodeDaList[-2:]
         #
         #依次把从前到后比较
 
@@ -441,7 +445,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
         #         newrRankList=[]
         #         newrRankList.append(nodeDaList[everyNodeIndex+1])
 
-
+        return  result
 
 
 

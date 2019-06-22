@@ -33,8 +33,6 @@ Edges	214078
 
 
 #  4     第2个数据集
-
-
 CA-GrQc.txt  
  Directed graph (each unordered pair of nodes is saved once): CA-GrQc.txt   
  Collaboration network of Arxiv General Relativity category (there is an edge if authors coauthored at least one paper)  
