@@ -1,5 +1,5 @@
 
-# 1  
+# 1     第一个数据集
 
 facebook_combined.txt   
 
@@ -8,7 +8,7 @@ Nodes 4039
 Edges 88234
 
 
-# 2
+# 2    第3个数据集
 ###  Email-Enron.txt
 
 
@@ -20,7 +20,7 @@ FromNodeId	ToNodeId
 
 
 
-#  3 
+#  3   准备不要这个数据集
 
 ###  Brightkite_edges.txt   
 
@@ -30,3 +30,13 @@ Brightkite was once a location-based social networking service provider where us
 Dataset statistics
 Nodes	58228
 Edges	214078
+
+
+#  4     第2个数据集
+
+
+CA-GrQc.txt  
+ Directed graph (each unordered pair of nodes is saved once): CA-GrQc.txt   
+ Collaboration network of Arxiv General Relativity category (there is an edge if authors coauthored at least one paper)  
+ Nodes: 5242 Edges: 28980   
+ FromNodeId	ToNodeId  

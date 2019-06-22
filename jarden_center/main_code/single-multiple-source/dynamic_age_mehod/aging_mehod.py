@@ -74,7 +74,7 @@ def Algorithm1(G, SourceList, time_sum, hlist):
             for node in infectList:
                 for height in list(G.neighbors(node)):
                     randnum = random.random()
-                    if 0.3< randnum:
+                    if 0.7< randnum:
                         G.node[height]['SI'] = 2
                         tempinfectList.append(height)
             infectList = tempinfectList
@@ -410,15 +410,17 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
         L = nx.normalized_laplacian_matrix(tempGraph)
         e = np.linalg.eigvals(L.A)
         print("Largest eigenvalue:", max(e))
-        print("Smallest eigenvalue:", min(e))
+        # print("Smallest eigenvalue:", min(e))
 
         MaxEigenvalue=max(e)
         nodeDaList=[]
+        newTempGraph = nx.Graph()
         nodelist=list(tempGraph.nodes)
         for  node  in list(nodelist):
             #计算这个感染图所有的图节点对应的DA值，并统计一定范围的属于某个等级，注意，可能会有多个。
-            newTempGraph=nx.Graph()
-            newTempGraph=tempGraph.remove_node(node)
+            newTempGraph.clear()
+            newTempGraph=tempGraph.copy()
+            newTempGraph.remove_node(node)
             L = nx.normalized_laplacian_matrix(newTempGraph)
             e = np.linalg.eigvals(L.A)
             nodeEigenvalue=max(e)
@@ -427,6 +429,20 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
         # nodeDaList= sorted(nodeDaList, key=lambda x: (x[1]))
         nodeDaList.sort(key=lambda x: (x[1]),reverse=True)
         print (nodeDaList)
+        #
+        #依次把从前到后比较
+
+        # for everyNodeIndex in range(len(nodeDaList)-1):
+        #     rankList = []
+        #     if abs(nodeDaList[everyNodeIndex][1]-nodeDaList[everyNodeIndex+1][1])<0.005:
+        #         rankList.append(nodeDaList[everyNodeIndex])
+        #         rankList.append(nodeDaList[everyNodeIndex+1])
+        #     else:
+        #         newrRankList=[]
+        #         newrRankList.append(nodeDaList[everyNodeIndex+1])
+
+
+
 
 
 
@@ -804,7 +820,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/facebook_combined.txt', Ginti)
+    G = ContractDict('../data/email-Eu-core.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
