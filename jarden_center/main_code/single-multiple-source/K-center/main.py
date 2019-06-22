@@ -76,7 +76,6 @@ def Algorithm1(G, SourceList, time_sum, hlist):
                     randnum = random.random()
                     # print(randnum)
                     # print (disEffectDistance(G.edges[node, height]['weight']))
-
                     if disEffectDistance(G.edges[node, height]['weight']) < randnum:
                         G.node[height]['SI'] = 2
                         tempinfectList.append(height)
@@ -706,14 +705,13 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNume):
     for turesourcelist in rumorSourceList:  # 真实源
         everydistion = []
         for resultsourceindex in resultSource:  # 自己算法找出的源。
-            everydistion.append(nx.shortest_path_length(infectionG, source=turesourcelist, target=resultsourceindex))
-
-            temp=resultSource #结果集匹配到了，最好的结果就要移除这个了。
-            temp.remove(resultsourceindex)
-            resultSource=temp
-        everydistion.sort()
+            everydistion.append([resultsourceindex,nx.shortest_path_length(infectionG, source=turesourcelist, target=resultsourceindex)])
+        everydistion = sorted(everydistion, key=lambda x: (x[1]))
+        #结果集匹配到了，最好的结果就要移除这个了。
+        resultSource.remove(everydistion[0][0])  #移除最小距离的那个
+        print ('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
         print(everydistion)
-        errordistanceFor.append(everydistion[0])
+        errordistanceFor.append(everydistion[0][1])
 
     multipdistance = 0
     for error in errordistanceFor:
