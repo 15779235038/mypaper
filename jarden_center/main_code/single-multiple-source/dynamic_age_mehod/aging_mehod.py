@@ -100,6 +100,7 @@ def contractSource(G, sourceNum, sourceMaxDistance):
             random_RumorSource = random_Rumo[0]
             rumorSourceList.append(random_RumorSource)
             flag = 1
+
         elif sourceNum == 2:
             random_Rumo = random.sample(sumlist, 1)
             random_RumorSource = random_Rumo[0]
@@ -117,8 +118,8 @@ def contractSource(G, sourceNum, sourceMaxDistance):
             threeNumberFLAG = 0
             while threeNumberFLAG == 0:
                 # 先随机找一个点。
-                random_Rumo = random.sample(sumlist, 1)
-                random_RumorSource = random_Rumo[0]
+
+                random_RumorSource = random.choice(sumlist)
                 # 找第二、三个点。
                 for index in range(len(sumlist) - 2):
                     if nx.has_path(G, sumlist[index], random_RumorSource) == True and nx.has_path(G, sumlist[index + 1],
@@ -432,7 +433,8 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
         # nodeDaList= sorted(nodeDaList, key=lambda x: (x[1]))
         nodeDaList.sort(key=lambda x: (x[1]),reverse=True)
         print (nodeDaList)
-        result=nodeDaList[-2:]
+        tempresultlist=nodeDaList[-2:]
+        result=[tempresultlist[0][0],tempresultlist[1][0]]
         #
         #依次把从前到后比较
 
@@ -745,7 +747,6 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNume):
         elif len(sigleRegionSource) == 2:
             for source in sigleRegionSource:
                 resultSource.append(source)
-
         elif len(sigleRegionSource) == 3:
             for source in sigleRegionSource:
                 resultSource.append(source)
