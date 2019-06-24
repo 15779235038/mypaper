@@ -70,7 +70,7 @@ def Algorithm1(G, SourceList, time_sum, hlist):
              for node in infectList:
                 for height in list(G.neighbors(node)):
                         randnum=random.random()
-                        if randnum<0.5:
+                        if randnum<0.2:
                             G.node[height]['SI'] = 2
                             tempinfectList.append(height)
              for timeInfectnode in tempinfectList:
@@ -381,7 +381,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
     chooseList = chooseList[-10:]  # 取最后20个。
     print('chooseList' + '总共有多少元素' + str(len(chooseList)))
     minCoverlist = []
-    for sourceNum in range(1, 6):
+    for sourceNum in range(4, 5):
             print('在源点在' + str(sourceNum) + '个数的情况下')
             # print('在h为' + str(h) + '的情况下')
             if sourceNum == 1:  # 单源点。
@@ -638,14 +638,14 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
 
                 print('得到多源点情况最小的覆盖率为' + str(min))
                 minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
-                Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
-                Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
-                if Difference ==0:
-                    print('两次覆盖率一样')
-                    pass
-                elif Difference<0.00001:
-                    print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
-                    break
+                # Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
+                # Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
+                # if Difference ==0:
+                #     print('两次覆盖率一样')
+                #     pass
+                # elif Difference<0.00001:
+                #     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
+                #     break
             elif sourceNum == 5:
                 # 两源情况，怎么办。
                 # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
@@ -1119,8 +1119,8 @@ if __name__ == '__main__':
 
     # 产生10次，每次都有误差，计算出来。并统计。
 
-    for i in range(1, 11):
-        sourceList.append(contractSource(G, 5, 2))
+    for i in range(1, 3):
+        sourceList.append(contractSource(G, 4, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -1142,7 +1142,7 @@ if __name__ == '__main__':
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))
-    print(errorSum / 10)
+    print(errorSum / 2)
 
     # long running
 

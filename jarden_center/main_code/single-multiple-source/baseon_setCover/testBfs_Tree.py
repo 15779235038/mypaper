@@ -62,15 +62,32 @@ def Algorithm1(G, SourceList, time_sum, hlist):
 
     print('开始传染的点是' + str(SourceList))
     for j in range(len(SourceList)):
-        nodelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
-        edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
-        print(len(nodelist))
-        nodelist = random.sample(nodelist, int(float(len(nodelist)) * 0.9))  # 从list中随机获取5个元素，作为一个片断返回
-        for i in nodelist:
-            G.node[i]['SI'] = 2
-        for k in edgelist:
-            G.adj[k[0]][k[1]]['Infection'] = 2
-        print('头两个感染社区点数为' + str(len(nodelist)))
+        infectList = []
+        infectList.append(j)
+        G.node[j]['SI'] = 2
+        for time in range(0,3):
+             tempinfectList=[]
+             for node in infectList:
+                for height in list(G.neighbors(node)):
+                        randnum=random.random()
+                        if randnum<0.8:
+                            G.node[height]['SI'] = 2
+                            tempinfectList.append(height)
+             for timeInfectnode in tempinfectList:
+                 infectList.append(timeInfectnode)
+
+
+
+
+        # nodelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
+        # edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
+        # print(len(nodelist))
+        # nodelist = random.sample(nodelist, int(float(len(nodelist)) * 0.9))  # 从list中随机获取5个元素，作为一个片断返回
+        # for i in nodelist:
+        #     G.node[i]['SI'] = 2
+        # for k in edgelist:
+        #     G.adj[k[0]][k[1]]['Infection'] = 2
+        print('头两个感染社区点数为' + str(len(infectList)))
 
     return G
 
@@ -131,22 +148,29 @@ def contractSource(G, sourceNum, sourceMaxDistance):
                     pass
 
         elif sourceNum == 4:
+
             flag=0
-            rumorSourceList = []
-            random_Rumo = random.sample(sumlist, 1)
-            random_RumorSource = random_Rumo[0]
-            rumorSourceList.append(random_RumorSource)
+            flag1 = 0
             while flag==0:
-                print  ('随机产生的点为'+str(random_RumorSource))
-                resultList=list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
-                rumorSourceList.append(resultList[4][1])
-                rumorSourceList.append(resultList[8][1])
-                rumorSourceList.append(resultList[12][1])
-                if len(rumorSourceList) == 4 and len(rumorSourceList)==len(set(rumorSourceList)):  # 重复或者数目达不到要求:
-                    print('找到了4个点')
-                    flag = 1
-                else:
-                   pass
+                rumorSourceList = []
+                random_Rumo = random.sample(sumlist, 1)
+                random_RumorSource = random_Rumo[0]
+                rumorSourceList.append(random_RumorSource)
+                flag1=0
+                while flag1==0:
+                    print  ('随机产生的点为'+str(random_RumorSource))
+                    resultList=list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
+                    # print (resultList)
+                    rumorSourceList.append(resultList[4][1])
+                    random_RumorSource=resultList[4][1]
+                    if len(rumorSourceList) == 4 and len(rumorSourceList)==len(set(rumorSourceList)):  # 重复或者数目达不到要求:
+                        print('找到了4个点')
+                        flag1 =1
+                        flag = 1
+                    elif len(rumorSourceList) == 4 and len(rumorSourceList)!=len(set(rumorSourceList)):
+                        print ('是四个点，但是却有重复，只能够重新选择新的开始点')
+                        flag1 = 1
+
 
 
             # flag1=0
@@ -175,29 +199,27 @@ def contractSource(G, sourceNum, sourceMaxDistance):
 
 
         elif sourceNum == 5:
+            flag = 0
+            flag1 = 0
+            while flag == 0:
+                rumorSourceList = []
+                random_Rumo = random.sample(sumlist, 1)
+                random_RumorSource = random_Rumo[0]
+                rumorSourceList.append(random_RumorSource)
                 flag1 = 0
                 while flag1 == 0:
-
-                    # 随机找个点，然后再找一个点。距离跟他有10个距离就可以。
-                    random_RumorSource = random.choice(sumlist)
-                    rumorSourceList = [random.choice(sumlist), random.choice(sumlist), random.choice(sumlist),
-                                       random.choice(sumlist),random.choice(sumlist)]
-                    combinationList = list(combinations(rumorSourceList, 2))
-
-                    flag2 = 0
-                    for sample in combinationList:
-                        if nx.has_path(G, sample[0], sample[1]) == False:
-                            flag2 = 1
-
-                    if flag2 == 1:
-                        flag1 = 0
-                    else:
+                    print('随机产生的点为' + str(random_RumorSource))
+                    resultList = list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
+                    # print (resultList)
+                    rumorSourceList.append(resultList[4][1])
+                    random_RumorSource = resultList[4][1]
+                    if len(rumorSourceList) == 5 and len(rumorSourceList) == len(set(rumorSourceList)):  # 重复或者数目达不到要求:
+                        print('找到了4个点')
                         flag1 = 1
-                if len(rumorSourceList) != len(set(rumorSourceList)) and len(rumorSourceList) != 4:  # 重复或者数目达不到要求
-                    # 有重复元素
-                    flag = 0
-                else:
-                    flag = 1
+                        flag = 1
+                    elif len(rumorSourceList) == 5 and len(rumorSourceList) != len(set(rumorSourceList)):
+                        print('是四个点，但是却有重复，只能够重新选择新的开始点')
+                        flag1 = 1
 
     # 查看产生随机源点的个数2，并且他们距离为3.
     print('源点个数' + str(len(rumorSourceList)) + '以及产生的真实源点是' + str(rumorSourceList))
@@ -311,7 +333,7 @@ def getkey(pos, value):
 import matplotlib.pyplot  as plt
 
 
-def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
+def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNum):
     # 首先需要判断是否多源。不断找源点去对这个区域。
     tempGraph = nx.Graph()
     tempGraphNodelist = []
@@ -359,355 +381,82 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
     chooseList = chooseList[-10:]  # 取最后20个。
     print('chooseList' + '总共有多少元素' + str(len(chooseList)))
     minCoverlist = []
-    for sourceNum in range(4, 5):
-            print('在源点在' + str(sourceNum) + '个数的情况下')
-            # print('在h为' + str(h) + '的情况下')
-            if sourceNum == 1:  # 单源点。
-                # 单源情况，怎么办。
-                # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
-                '''
-                1 变种jaya算法，首先生成100个种群大小。
-                2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
-                3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
+    # for sourceNum in range(3, 4):
+    print('在源点在' + str(sourceNum) + '个数的情况下')
+    # print('在h为' + str(h) + '的情况下')
 
-                '''
-                min = 200
-                print('多源情况,先考察同时传播传播')
-                print('源点个数为' + str(sourceNum) + '情况')
+    if sourceNum == 3:
+        # 两源情况，怎么办。
+        # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
+        '''
+        1 变种jaya算法，首先生成100个种群大小。
+        2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
+        3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
 
-                # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
-                # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
-                sourceAndH = []
-                for htemp in range(2, 4):
-                    for sourcetmep in Alternativenodeset:
-                        sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
-                # 从combinationList中寻找100个样本集。
-                Sampleset = random.sample(sourceAndH, 50)
-                print('样本集产生完毕，100个，是' + str(Sampleset))
-                bestsourceNews = []
-                # 迭代五次
-                for i in range(1, 4):
-                    # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
-                    for sourcesi in range(len(Sampleset)):
-                        print('当前输入list' + str(Sampleset[sourcesi]))
-                        mincover = getSimilir(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                              infectionG)
-                        # 往后5个位置找一个比它更好地点。只要找更好就行,找不到就返回不变就可以
-                        # 当前的下标
-                        currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
-                        length = len(sourceAndH)
-                        for j in range(1, 100, 25):  # 要防止数组越界
-                            if currentindex + j < length:  # 只要在范围里面才行。
-                                lateelement = sourceAndH[currentindex + j]
-                                print('当前输入的后面list' + str(lateelement))
-                                latemincover = getSimilir(lateelement[0], lateelement[1], singleRegionList, infectionG)
-                                if mincover > latemincover:
-                                    mincover = latemincover  # 有更好地就要替换
-                                    print("要进行替换了" + str(sourceAndH[sourcesi]) + '被替换成lateelement')
-                                    Sampleset[sourcesi] = lateelement  # 替换
-                                    print(Sampleset[sourcesi])
+        '''
+        min = 200
+        print('多源情况,先考察同时传播传播')
+        print('源点为' + str(sourceNum) + '情况')
+        # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
+        # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
+        print('这一步炸了')
+        combinationList = []  # 样本集合
+        # 随机产生这些可能性，随机生成种群50大小。
+        for sampleindex in range(0, 53):
+            combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset),
+                                    random.choice(Alternativenodeset)])
 
-                print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
-                # 计算样本集的similir，找出最好的。
-                for sources in Sampleset:
-                    mincover = getSimilir(sources[0], sources[1], singleRegionList, infectionG)
-                    if mincover < min:
-                        min = mincover  # 这一次最好的覆盖误差率
-                        bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
+        sourceAndH = []
+        hlists = [2, 3]
+        for htemp in range(2, 4):
+            for sourcetmep in combinationList:
+                sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
+        # 从combinationList中寻找100个样本集。
+        Sampleset = random.sample(sourceAndH, 50)
+        print('样本集产生完毕，100个，是' + str(Sampleset))
+        bestsourceNews = []
+        # 迭代五次
+        for i in range(1, 4):
+            # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
+            for sourcesi in range(len(Sampleset)):
+                print('当前输入list' + str(Sampleset[sourcesi]))
+                mincover = getSimilir(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
+                                      infectionG)
+                # 随机更换，看如何让变好
+                # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
+                length = len(sourceAndH)
+                for j in range(1, 4, 1):  # 随机变4次，只要能变好
+                    lateelement = [[random.choice(Alternativenodeset), random.choice(Alternativenodeset),
+                                    random.choice(Alternativenodeset)],
+                                   random.choice(hlists)]
+                    print('当前输入的后面list' + str(lateelement))
+                    latemincover = getSimilir(lateelement[0], lateelement[1], singleRegionList, infectionG)
+                    if mincover > latemincover:
+                        mincover = latemincover  # 有更好地就要替换
+                        print("要进行替换了" + str(sourceAndH[sourcesi]) + '被替换成lateelement')
+                        Sampleset[sourcesi] = lateelement  # 替换
+                        print(Sampleset[sourcesi])
 
-                print('得到多源点情况最小的覆盖率为' + str(min))
-                minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
+        print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
+        # 计算样本集的similir，找出最好的。
+        for sources in Sampleset:
+            mincover = getSimilir(sources[0], sources[1], singleRegionList, infectionG)
+            if mincover < min:
+                min = mincover  # 这一次最好的覆盖误差率
+                bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
 
-
-            elif sourceNum == 2:
-                # 两源情况，怎么办。
-                # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
-                '''
-
-                1 变种jaya算法，首先生成100个种群大小。
-                2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
-                3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
-
-                '''
-                min = 200
-                print('多源情况,先考察同时传播传播')
-                print('源点为' + str(sourceNum) + '情况')
-                # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
-                # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
-                print('这一步炸了')
-                combinationList = []  # 样本集合
-                # 随机产生这些可能性，随机生成种群50大小。
-                for sampleindex in range(0, 53):
-                    combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset)])
-
-                sourceAndH = []
-                hlists = [2, 3]
-                for htemp in range(2, 4):
-                    for sourcetmep in combinationList:
-                        sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
-                # 从combinationList中寻找100个样本集。
-                Sampleset = random.sample(sourceAndH, 50)
-                print('样本集产生完毕，100个，是' + str(Sampleset))
-                bestsourceNews = []
-                # 迭代五次
-                for i in range(1, 4):
-                    # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
-                    for sourcesi in range(len(Sampleset)):
-                        print('当前输入list' + str(Sampleset[sourcesi]))
-                        mincover = getSimilir(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                              infectionG)
-                        # 随机更换，看如何让变好
-                        # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
-                        length = len(sourceAndH)
-                        for j in range(1, 4, 1):  # 随机变4次，只要能变好
-                            lateelement = [[random.choice(Alternativenodeset), random.choice(Alternativenodeset)],random.choice(hlists)]
-                            print('当前输入的后面list' + str(lateelement))
-                            latemincover = getSimilir(lateelement[0], lateelement[1], singleRegionList, infectionG)
-                            if mincover > latemincover:
-                                mincover = latemincover  # 有更好地就要替换
-                                print("要进行替换了" + str(sourceAndH[sourcesi]) + '被替换成lateelement')
-                                Sampleset[sourcesi] = lateelement  # 替换
-                                print(Sampleset[sourcesi])
-
-                print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
-                # 计算样本集的similir，找出最好的。
-                for sources in Sampleset:
-                    mincover = getSimilir(sources[0], sources[1], singleRegionList, infectionG)
-                    if mincover < min:
-                        min = mincover  # 这一次最好的覆盖误差率
-                        bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
-
-                print('得到多源点情况最小的覆盖率为' + str(min))
-                minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
-                #这时候，我们的minCoverlist有两个min，我们来计算下。当两次的min之差小于某个值，我们认为源点为k。
-                Comparisonlist=minCoverlist[-2:]  #取最后两个元素，
-                Difference=abs(Comparisonlist[0][2]-Comparisonlist[1][2])
-                if  Difference<0.05:
-                    listToTxt(Comparisonlist, 'newresult.txt')
-                    print ('跳出for循环，两次覆盖率几乎相等那么预测源点个数为'+str(sourceNum-1))
-                    break
+        print('得到3源点情况最小的覆盖率为' + str(min))
+        minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
 
 
-
-
-
-
-
-            elif sourceNum == 3:
-                # 两源情况，怎么办。
-                # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
-                '''
-
-                1 变种jaya算法，首先生成100个种群大小。
-                2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
-                3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
-
-                '''
-                min = 200
-                print('多源情况,先考察同时传播传播')
-                print('源点为' + str(sourceNum) + '情况')
-                # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
-                # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
-                print('这一步炸了')
-                combinationList = []  # 样本集合
-                # 随机产生这些可能性，随机生成种群50大小。
-                for sampleindex in range(0, 53):
-                    combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset),
-                                            random.choice(Alternativenodeset)])
-
-                sourceAndH = []
-                hlists = [2, 3]
-                for htemp in range(2, 4):
-                    for sourcetmep in combinationList:
-                        sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
-                # 从combinationList中寻找100个样本集。
-                Sampleset = random.sample(sourceAndH, 50)
-                print('样本集产生完毕，100个，是' + str(Sampleset))
-                bestsourceNews = []
-                # 迭代五次
-                for i in range(1, 4):
-                    # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
-                    for sourcesi in range(len(Sampleset)):
-                        print('当前输入list' + str(Sampleset[sourcesi]))
-                        mincover = getSimilir(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                              infectionG)
-                        # 随机更换，看如何让变好
-                        # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
-                        length = len(sourceAndH)
-                        for j in range(1, 4, 1):  # 随机变4次，只要能变好
-                            lateelement = [[random.choice(Alternativenodeset), random.choice(Alternativenodeset),
-                                            random.choice(Alternativenodeset)],
-                                           random.choice(hlists)]
-                            print('当前输入的后面list' + str(lateelement))
-                            latemincover = getSimilir(lateelement[0], lateelement[1], singleRegionList, infectionG)
-                            if mincover > latemincover:
-                                mincover = latemincover  # 有更好地就要替换
-                                print("要进行替换了" + str(sourceAndH[sourcesi]) + '被替换成lateelement')
-                                Sampleset[sourcesi] = lateelement  # 替换
-                                print(Sampleset[sourcesi])
-
-                print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
-                # 计算样本集的similir，找出最好的。
-                for sources in Sampleset:
-                    mincover = getSimilir(sources[0], sources[1], singleRegionList, infectionG)
-                    if mincover < min:
-                        min = mincover  # 这一次最好的覆盖误差率
-                        bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
-
-                print('得到多源点情况最小的覆盖率为' + str(min))
-                minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
-
-
-                Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
-                Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
-                if Difference < 0.05:
-                    listToTxt(Comparisonlist, 'newresult.txt')
-                    print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
-                    break
-
-            elif sourceNum == 4:
-                # 两源情况，怎么办。
-                # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
-                '''
-
-                1 变种jaya算法，首先生成100个种群大小。
-                2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
-                3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
-
-                '''
-                min = 200
-                print('多源情况,先考察同时传播传播')
-                print('源点为' + str(sourceNum) + '情况')
-                # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
-                # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
-                print ('这一步炸了')
-                combinationList=[]   #样本集合
-                #随机产生这些可能性，随机生成种群50大小。
-                for sampleindex  in range(0,53):
-                    combinationList.append([random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset)])
-
-                sourceAndH = []
-                hlists=[2,3]
-                for htemp in range(2, 4):
-                    for sourcetmep in combinationList:
-                        sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
-                # 从combinationList中寻找100个样本集。
-                Sampleset = random.sample(sourceAndH, 50)
-                print('样本集产生完毕，100个，是' + str(Sampleset))
-                bestsourceNews = []
-                # 迭代五次
-                for i in range(1, 4):
-                    # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
-                    for sourcesi in range(len(Sampleset)):
-                        print('当前输入list' + str(Sampleset[sourcesi]))
-                        mincover = getSimilir(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                              infectionG)
-                        # 随机更换，看如何让变好
-                        # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
-                        length = len(sourceAndH)
-                        for j in range(1, 4, 1):  # 随机变4次，只要能变好
-                                lateelement = [[random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset)],random.choice(hlists)]
-                                print('当前输入的后面list' + str(lateelement))
-                                latemincover = getSimilir(lateelement[0], lateelement[1], singleRegionList, infectionG)
-                                if mincover > latemincover:
-                                    mincover = latemincover  # 有更好地就要替换
-                                    print("要进行替换了" + str(sourceAndH[sourcesi]) + '被替换成lateelement')
-                                    Sampleset[sourcesi] = lateelement  # 替换
-                                    print(Sampleset[sourcesi])
-
-                print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
-                # 计算样本集的similir，找出最好的。
-                for sources in Sampleset:
-                    mincover = getSimilir(sources[0], sources[1], singleRegionList, infectionG)
-                    if mincover < min:
-                        min = mincover  # 这一次最好的覆盖误差率
-                        bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
-
-                print('得到多源点情况最小的覆盖率为' + str(min))
-                minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
-                # Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
-                # Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
-                # if Difference < 0.05:
-                #     listToTxt(Comparisonlist, 'newresult.txt')
-                #     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
-                #     break
-            elif sourceNum == 5:
-                # 两源情况，怎么办。
-                # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
-                '''
-
-                1 变种jaya算法，首先生成100个种群大小。
-                2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
-                3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
-
-                '''
-                min = 200
-                print('多源情况,先考察同时传播传播')
-                print('源点为' + str(sourceNum) + '情况')
-                # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
-                # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
-                print('这一步炸了')
-                combinationList = []  # 样本集合
-                # 随机产生这些可能性，随机生成种群50大小。
-                for sampleindex in range(0, 53):
-                    combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset),
-                                            random.choice(Alternativenodeset), random.choice(Alternativenodeset),random.choice(Alternativenodeset)])
-
-                sourceAndH = []
-                hlists = [2, 3]
-                for htemp in range(2, 4):
-                    for sourcetmep in combinationList:
-                        sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
-                # 从combinationList中寻找100个样本集。
-                Sampleset = random.sample(sourceAndH, 50)
-                print('样本集产生完毕，100个，是' + str(Sampleset))
-                bestsourceNews = []
-                # 迭代五次
-                for i in range(1, 4):
-                    # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
-                    for sourcesi in range(len(Sampleset)):
-                        print('当前输入list' + str(Sampleset[sourcesi]))
-                        mincover = getSimilir(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                              infectionG)
-                        # 随机更换，看如何让变好
-                        # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
-                        length = len(sourceAndH)
-                        for j in range(1, 4, 1):  # 随机变4次，只要能变好
-                            lateelement = [[random.choice(Alternativenodeset), random.choice(Alternativenodeset),
-                                            random.choice(Alternativenodeset), random.choice(Alternativenodeset), random.choice(Alternativenodeset)],
-                                           random.choice(hlists)]
-                            print('当前输入的后面list' + str(lateelement))
-                            latemincover = getSimilir(lateelement[0], lateelement[1], singleRegionList, infectionG)
-                            if mincover > latemincover:
-                                mincover = latemincover  # 有更好地就要替换
-                                print("要进行替换了" + str(sourceAndH[sourcesi]) + '被替换成lateelement')
-                                Sampleset[sourcesi] = lateelement  # 替换
-                                print(Sampleset[sourcesi])
-
-                print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
-                # 计算样本集的similir，找出最好的。
-                for sources in Sampleset:
-                    mincover = getSimilir(sources[0], sources[1], singleRegionList, infectionG)
-                    if mincover < min:
-                        min = mincover  # 这一次最好的覆盖误差率
-                        bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
-
-                print('得到多源点情况最小的覆盖率为' + str(min))
-                minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
-                Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
-                Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
-                if Difference < 0.05:
-                    listToTxt(Comparisonlist, 'newresult.txt')
-                    print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
-                    break
-
-
-
+    listToTxt(minCoverlist, 'newresult.txt')
     print(minCoverlist)
     # 返回的应该是最可能的结果。获取mincover最小的返回。第三个元素才是需要考虑东西。
     # listToTxt(minCover, 'result.txt')
     result = sorted(minCoverlist, key=lambda x: (x[2]))
     # listToTxt(result[0], 'newresult.txt')
+
+    #源点为3.
     return result[0]
 
 
@@ -792,7 +541,7 @@ this   function  :   to  get  sourcelist fo  everyRegionList  and   caluce  ever
 import math
 
 
-def multiplePartion(mutiplelist, infectionG, rumorSourceList):
+def multiplePartion(mutiplelist, infectionG, rumorSourceList,sourceNum):
     # 所有单源list
     allsigleSourceList = []
     allSigleSourceListNum = [2, 1]
@@ -804,7 +553,7 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
 
     '''   这个是保留项，我觉得反转算法有点问题，反正（u,h是写完了）,下面这个很好时间'''
     for sigleReionlist in mutiplelist:
-        allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG, rumorSourceList))
+        allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG, rumorSourceList,sourceNum))
 
     # 构建关于这个社区的传播子图
     tempGraph1 = nx.Graph()
@@ -836,14 +585,17 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
             resultSource.append(source2)
 
         elif len(sigleRegionSource[0]) == 3:
-            print('算出来的误差率最低3源点情况---------------------------')
-            source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
-            source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, infectionG)
-            source3 = revsitionAlgorithm(sigleRegionSource[0][2], sigleRegionSource[1], infectionG, infectionG)
-            print('用反转算法计算出来的源点为' + str(source2) + str(source1))
-            resultSource.append(source1)
-            resultSource.append(source2)
-            resultSource.append(source3)
+            # print('算出来的误差率最低3源点情况---------------------------')
+            # source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
+            # source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, infectionG)
+            # source3 = revsitionAlgorithm(sigleRegionSource[0][2], sigleRegionSource[1], infectionG, infectionG)
+            # print('用反转算法计算出来的源点为' + str(source2) + str(source1))
+            # resultSource.append(source1)
+            # resultSource.append(source2)
+            # resultSource.append(source3)
+
+            for tempTest in sigleRegionSource[0]:
+                resultSource.append(tempTest)
         elif len(sigleRegionSource[0]) == 4:
             print('算出来的误差率最低3源点情况---------------------------')
             source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
@@ -1082,7 +834,6 @@ if __name__ == '__main__':
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
     print('一开始图的边个数', G.number_of_edges())
-
     #  先给全体的Cn、Scn,time的0的赋值。
     for node in list(G.nodes):
         G.add_node(node, SI=1)
@@ -1105,7 +856,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 3):
-        sourceList.append(contractSource(G, 4, 2))
+        sourceList.append(contractSource(G, 3, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -1123,7 +874,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource)
+        errordistance = multiplePartion(multipList, infectG, singleSource,3)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))
