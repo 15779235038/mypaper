@@ -23,12 +23,12 @@ def ContractDict(dir, G):
         for line in f:
             line1 = line.split()
             G.add_edge(int(line1[0]), int(line1[1]))
-
     for edge in  G.edges:
         G.add_edge(edge[0], edge[1], weight=1)
         # G.add_edge(edge[0],edge[1],weight=effectDistance(randomnum))
-
-
+    print(len(list(G.nodes)))
+    # G.remove_node(0)
+    print (len(list(G.nodes)))
     return G
 
 import math
@@ -61,11 +61,11 @@ def Algorithm1(G, SourceList, time_sum, hlist):
     infectionNodelist = []
 
     print('开始传染的点是' + str(SourceList))
-    for j in range(len(SourceList)):
+    for j in SourceList:
         infectList = []
         infectList.append(j)
         G.node[j]['SI'] = 2
-        for time in range(0,3):
+        for time in range(0,4):
              tempinfectList=[]
              for node in infectList:
                 for height in list(G.neighbors(node)):
@@ -717,7 +717,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
 
-    listToTxt(minCoverlist, 'newresult.txt')
+    # listToTxt(minCoverlist, 'newresult.txt')
     print(minCoverlist)
     # 返回的应该是最可能的结果。获取mincover最小的返回。第三个元素才是需要考虑东西。
     # listToTxt(minCover, 'result.txt')
@@ -748,13 +748,14 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
         circleNodesList = list(nx.bfs_tree(infectionG, source=ulist, depth_limit=hlist).nodes)  # 这包含了这个构建的圆的所有节点。
         # 计算列表相似度试试看
         # print ('感染源的h节点集合为'+str(circleNodesList))
-        count = 0
-        for i in circleNodesList:
-            if i in singleRegionList:
-                count = count + 1
+
         Intersection = list(set(circleNodesList).intersection(set(singleRegionList)))  # 交集
         Union = list(set(circleNodesList).union(set(singleRegionList)))
-        ratios = len(Intersection) / len(Union)
+        count = 0
+        for i in Intersection:
+            if i in Union:
+                count = count + 1
+        ratios = count / len(Union)
         ratio = 1.0 - ratios
         print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
         return abs(ratio)
@@ -767,14 +768,14 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
         for u in ulist:
             circleNodesList.extend(list(nx.bfs_tree(infectionG, source=u, depth_limit=hlist).nodes))
         circleNodesListnew = list(set(circleNodesList))
-        count = 0
-        for i in circleNodesList:
-            if i in singleRegionList:
-                count = count + 1
         # count
         Intersection = list(set(circleNodesList).intersection(set(singleRegionList)))  # 交集
         Union = list(set(circleNodesList).union(set(singleRegionList)))  # 并集
-        ratios = len(Intersection) / len(Union)
+        count = 0
+        for i in Intersection:
+            if i in Union:
+                count = count + 1
+        ratios = count / len(Union)
         ratio = 1.0 - ratios
         print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
 
@@ -861,10 +862,10 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
             resultSource.append(source3)
         elif len(sigleRegionSource[0]) == 4:
             print('算出来的误差率最低3源点情况---------------------------')
-            source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
-            source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, infectionG)
-            source3 = revsitionAlgorithm(sigleRegionSource[0][2], sigleRegionSource[1], infectionG, infectionG)
-            source4 = revsitionAlgorithm(sigleRegionSource[0][3], sigleRegionSource[1], infectionG, infectionG)
+            source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, tempGraph1)
+            source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, tempGraph1)
+            source3 = revsitionAlgorithm(sigleRegionSource[0][2], sigleRegionSource[1], infectionG, tempGraph1)
+            source4 = revsitionAlgorithm(sigleRegionSource[0][3], sigleRegionSource[1], infectionG, tempGraph1)
             print('用反转算法计算出来的源点为' + str(source2) + str(source1))
             resultSource.append(source1)
             resultSource.append(source2)
@@ -885,21 +886,25 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
              resultSource.append(source5)
 
     print('总的用反转算法算出来的结果为' + str(resultSource))
+    listToTxt(resultSource, 'newresult.txt')
+
 
     errordistanceFor = []
     # 上面这两个，可以干一架了。
     for turesourcelist in rumorSourceList:  # 真实源
         everydistion = []
         for resultsourceindex in resultSource:  # 自己算法找出的源。
-            everydistion.append(nx.shortest_path_length(infectionG, source=turesourcelist, target=resultsourceindex))
-        everydistion.sort()
+            everydistion.append([resultsourceindex,
+                                 nx.shortest_path_length(infectionG, source=turesourcelist, target=resultsourceindex)])
+        everydistion = sorted(everydistion, key=lambda x: (x[1]))
+        # 结果集匹配到了，最好的结果就要移除这个了。
+        resultSource.remove(everydistion[0][0])  # 移除最小距离的那个
+        print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
         print(everydistion)
-        errordistanceFor.append(everydistion[0])
-
+        errordistanceFor.append(everydistion[0][1])
     multipdistance = 0
     for error in errordistanceFor:
         multipdistance = multipdistance + error
-
     # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
     print('误差距离为' + str(multipdistance))
     return multipdistance / len(errordistanceFor)
@@ -1119,7 +1124,7 @@ if __name__ == '__main__':
 
     # 产生10次，每次都有误差，计算出来。并统计。
 
-    for i in range(1, 3):
+    for i in range(1, 11):
         sourceList.append(contractSource(G, 4, 2))
 
     errordistanceList = []  # 误差集合。
@@ -1142,7 +1147,7 @@ if __name__ == '__main__':
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))
-    print(errorSum / 2)
+    print(errorSum / 10)
 
     # long running
 
