@@ -376,7 +376,9 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
                         if partion1node != targetPartion1node:
                             length = nx.shortest_path_length(infectionG, source=partion1node, target=targetPartion1node)
                             nodedistanceSum = nodedistanceSum + length
+
                     nodeAnddistance.append([partion1node, nodedistanceSum])
+                    print (str([partion1node, nodedistanceSum]))
                 result1 = sorted(nodeAnddistance, key=lambda x: (x[1]))  # 这就是这个源的结果，看看源是多少来着。
                 print('结果看看' + str(result1[0]))
                 result.append(result1[0][0])
@@ -422,9 +424,11 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
                             length = nx.shortest_path_length(infectionG, source=partion1node, target=targetPartion1node)
                             nodedistanceSum = nodedistanceSum + length
                     nodeAnddistance.append([partion1node, nodedistanceSum])
+                    print(str([partion1node, nodedistanceSum]))
                 result1 = sorted(nodeAnddistance, key=lambda x: (x[1]))  # 这就是这个源的结果，看看源是多少来着。
                 print ('结果看看' + str(result1[0]))
                 result.append(result1[0][0])
+            print (result)
             return result
     elif sourceNum == 3:
 
@@ -466,7 +470,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
                             length = nx.shortest_path_length(infectionG, source=partion1node, target=targetPartion1node)
                             nodedistanceSum = nodedistanceSum + length
                     nodeAnddistance.append([partion1node, nodedistanceSum])
-
+                    print(str([partion1node, nodedistanceSum]))
                 result1 = sorted(nodeAnddistance, key=lambda x: (x[1]))  # 这就是这个源的结果，看看源是多少来着。
                 print ('结果看看' + str(result1[0]))
                 result.append(result1[0][0])
@@ -518,7 +522,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
                             length = nx.shortest_path_length(infectionG, source=partion1node, target=targetPartion1node)
                             nodedistanceSum = nodedistanceSum + length
                     nodeAnddistance.append([partion1node, nodedistanceSum])
-
+                    print(str([partion1node, nodedistanceSum]))
                 result1 = sorted(nodeAnddistance, key=lambda x: (x[1]))  # 这就是这个源的结果，看看源是多少来着。
                 print ('结果看看' + str(result1[0]))
                 result.append(result1[0][0])
@@ -563,7 +567,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
                             length = nx.shortest_path_length(infectionG, source=partion1node, target=targetPartion1node)
                             nodedistanceSum = nodedistanceSum + length
                     nodeAnddistance.append([partion1node, nodedistanceSum])
-
+                    print(str([partion1node, nodedistanceSum]))
                 result1 = sorted(nodeAnddistance, key=lambda x: (x[1]))  # 这就是这个源的结果，看看源是多少来着。
                 print ('结果看看' + str(result1[0]))
                 result.append(result1[0][0])
@@ -668,7 +672,7 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNume):
     resultSource = []
 
     for sigleRegionSource in allsigleSourceList:
-        if isinstance(sigleRegionSource, int):  # 单源点
+        if len(sigleRegionSource) == 1:  # 单源点
             print('算出来的误差率最低单源点情况---------------------------')
             for source in sigleRegionSource:
                 resultSource.append(source)
@@ -784,7 +788,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 1, 2))
+        sourceList.append(contractSource(G, 4, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -802,7 +806,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource,1)
+        errordistance = multiplePartion(multipList, infectG, singleSource,4)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))

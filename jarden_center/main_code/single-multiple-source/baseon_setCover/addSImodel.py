@@ -381,7 +381,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
     chooseList = chooseList[-10:]  # 取最后20个。
     print('chooseList' + '总共有多少元素' + str(len(chooseList)))
     minCoverlist = []
-    for sourceNum in range(5, 6):
+    for sourceNum in range(1, 2):
             print('在源点在' + str(sourceNum) + '个数的情况下')
             # print('在h为' + str(h) + '的情况下')
             if sourceNum == 1:  # 单源点。
@@ -1125,7 +1125,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 5, 2))
+        sourceList.append(contractSource(G, 1, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
