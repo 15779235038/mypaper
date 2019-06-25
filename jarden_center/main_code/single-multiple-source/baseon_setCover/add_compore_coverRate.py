@@ -23,7 +23,6 @@ def ContractDict(dir, G):
         for line in f:
             line1 = line.split()
             G.add_edge(int(line1[0]), int(line1[1]))
-
     for edge in  G.edges:
         G.add_edge(edge[0], edge[1], weight=1)
         # G.add_edge(edge[0],edge[1],weight=effectDistance(randomnum))
@@ -71,11 +70,13 @@ def Algorithm1(G, SourceList, time_sum, hlist):
              for node in infectList:
                 for height in list(G.neighbors(node)):
                         randnum=random.random()
-                        if randnum<1:
+                        if randnum<0.2:
                             G.node[height]['SI'] = 2
                             tempinfectList.append(height)
              for timeInfectnode in tempinfectList:
                  infectList.append(timeInfectnode)
+
+
 
 
         # nodelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
@@ -380,7 +381,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
     chooseList = chooseList[-10:]  # 取最后20个。
     print('chooseList' + '总共有多少元素' + str(len(chooseList)))
     minCoverlist = []
-    for sourceNum in range(4, 5):
+    for sourceNum in range(1, 6):
             print('在源点在' + str(sourceNum) + '个数的情况下')
             # print('在h为' + str(h) + '的情况下')
             if sourceNum == 1:  # 单源点。
@@ -596,7 +597,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print ('这一步炸了')
                 combinationList=[]   #样本集合
                 #随机产生这些可能性，随机生成种群50大小。
-                for sampleindex  in range(0,100):
+                for sampleindex  in range(0,53):
                     combinationList.append([random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset)])
                 sourceAndH = []
                 hlists=[2,3]
@@ -608,7 +609,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 7):
+                for i in range(1, 4):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -637,14 +638,14 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
 
                 print('得到多源点情况最小的覆盖率为' + str(min))
                 minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
-                # Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
-                # Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
-                # if Difference ==0:
-                #     print('两次覆盖率一样')
-                #     pass
-                # elif Difference<0.00001:
-                #     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
-                #     break
+                Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
+                Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
+                if Difference ==0:
+                    print('两次覆盖率一样')
+                    pass
+                elif Difference<0.00001:
+                    print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
+                    break
             elif sourceNum == 5:
                 # 两源情况，怎么办。
                 # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
@@ -754,7 +755,6 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
         for i in Intersection:
             if i in Union:
                 count = count + 1
-            #计算交集在并集中的出现次数。
         ratios = count / len(Union)
         ratio = 1.0 - ratios
         print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
@@ -768,7 +768,6 @@ def getSimilir(ulist, hlist, singleRegionList, infectionG):
         for u in ulist:
             circleNodesList.extend(list(nx.bfs_tree(infectionG, source=u, depth_limit=hlist).nodes))
         circleNodesListnew = list(set(circleNodesList))
-
         # count
         Intersection = list(set(circleNodesList).intersection(set(singleRegionList)))  # 交集
         Union = list(set(circleNodesList).union(set(singleRegionList)))  # 并集
@@ -844,8 +843,6 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
             source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[1], infectionG, infectionG)
             print('用反转算法计算出来的单源点为' + str(source3))
             resultSource.append(source3)
-            resultSource.clear()
-
         elif len(sigleRegionSource[0]) == 2:
             print('算出来的误差率最低2源点情况---------------------------')
             source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
@@ -853,7 +850,6 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
             print('用反转算法计算出来的源点为' + str(source2) + str(source1))
             resultSource.append(source1)
             resultSource.append(source2)
-            resultSource.clear()
 
         elif len(sigleRegionSource[0]) == 3:
             print('算出来的误差率最低3源点情况---------------------------')
@@ -875,9 +871,6 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
             resultSource.append(source2)
             resultSource.append(source3)
             resultSource.append(source4)
-            resultSource.clear()
-            for j in sigleRegionSource[0]:
-                resultSource.append(j)
         elif len(sigleRegionSource[0]) == 5:
              print('算出来的误差率最低3源点情况---------------------------')
              source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
@@ -1132,7 +1125,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 4, 2))
+        sourceList.append(contractSource(G, 5, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
