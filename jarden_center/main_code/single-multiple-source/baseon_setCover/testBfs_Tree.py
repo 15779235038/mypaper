@@ -71,7 +71,7 @@ def Algorithm1(G, SourceList, time_sum, hlist):
              for node in infectList:
                 for height in list(G.neighbors(node)):
                         randnum=random.random()
-                        if randnum<1:
+                        if randnum<0.5:
                             G.node[height]['SI'] = 2
                             tempinfectList.append(height)
              for timeInfectnode in tempinfectList:
@@ -397,7 +397,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
                 # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
                 sourceAndH = []
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in Alternativenodeset:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。
@@ -461,7 +461,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
 
                 sourceAndH = []
                 hlists = [2, 3]
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in combinationList:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。
@@ -531,7 +531,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
 
                 sourceAndH = []
                 hlists = [2, 3]
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in combinationList:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。
@@ -600,7 +600,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                     combinationList.append([random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset)])
                 sourceAndH = []
                 hlists=[2,3]
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in combinationList:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。
@@ -668,7 +668,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
 
                 sourceAndH = []
                 hlists = [2, 3]
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in combinationList:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。

@@ -408,7 +408,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 20):
+                for i in range(1, 10):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -472,7 +472,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 20):
+                for i in range(1, 10):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -507,7 +507,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 if Difference ==0:
                     print ('两次覆盖率一样')
                     pass
-                elif Difference<0.1:
+                elif Difference<0.05:
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
 
@@ -542,7 +542,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 20):
+                for i in range(1, 10):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -578,7 +578,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 if Difference ==0:
                     print('两次覆盖率一样')
                     pass
-                elif Difference<0.1:
+                elif Difference<0.05:
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
             elif sourceNum == 4:
@@ -611,7 +611,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 20):
+                for i in range(1, 10):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -645,7 +645,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 if Difference ==0:
                     print('两次覆盖率一样')
                     pass
-                elif Difference<0.1:
+                elif Difference<0.05:
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
             elif sourceNum == 5:
@@ -679,7 +679,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 20):
+                for i in range(1, 10):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -715,7 +715,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 if Difference ==0:
                     print('两次覆盖率一样')
                     pass
-                elif Difference<0.1:
+                elif Difference<0.05:
                     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNum - 1))
                     break
 

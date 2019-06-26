@@ -6,7 +6,7 @@ def plotform():
     x = range(1, 6)
     dynamic_age = [2.3,2.5,4.3,4.7,5.1]
     K_center = [2.5,2.5,2.4,2.6,3.2]
-    Our_method=[1.4,1.0,1.5,1.5,1.8]
+    Our_method=[1.4,1.5,1.8,2.3,2.7]
     # plt.plot(x, y, 'ro-')
     # plt.plot(x, y1, 'bo-')
     plt.xlim(0, 7)  # 限定横轴的范围
