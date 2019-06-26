@@ -665,7 +665,7 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNume):
     resultSource = []
 
     for sigleRegionSource in allsigleSourceList:
-        if isinstance(sigleRegionSource, int):  # 单源点
+        if len(sigleRegionSource)==1:  # 单源点
             print('算出来的误差率最低单源点情况---------------------------')
             for source in sigleRegionSource:
                 resultSource.append(source)

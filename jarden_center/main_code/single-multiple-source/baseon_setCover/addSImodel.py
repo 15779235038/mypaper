@@ -70,13 +70,13 @@ def Algorithm1(G, SourceList, time_sum, hlist):
              for node in infectList:
                 for height in list(G.neighbors(node)):
                         randnum=random.random()
-                        if randnum<0.2:
+                        if randnum<0.5:
                             G.node[height]['SI'] = 2
                             tempinfectList.append(height)
+
+             # infectList.clear()
              for timeInfectnode in tempinfectList:
                  infectList.append(timeInfectnode)
-
-
 
 
         # nodelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
