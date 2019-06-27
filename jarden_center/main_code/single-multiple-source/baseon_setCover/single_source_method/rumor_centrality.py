@@ -408,7 +408,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 10):
+                for i in range(1, 20):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -472,7 +472,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 10):
+                for i in range(1, 20):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -542,7 +542,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 10):
+                for i in range(1, 20):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -611,7 +611,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 10):
+                for i in range(1, 20):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -679,7 +679,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 print('样本集产生完毕，100个，是' + str(Sampleset))
                 bestsourceNews = []
                 # 迭代五次
-                for i in range(1, 10):
+                for i in range(1, 20):
                     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                     for sourcesi in range(len(Sampleset)):
                         print('当前输入list' + str(Sampleset[sourcesi]))
@@ -806,23 +806,12 @@ this   function  :   to  get  sourcelist fo  everyRegionList  and   caluce  ever
 
 
 '''
+from treelib import Node, Tree
 
 import math
 
 
 def multiplePartion(mutiplelist, infectionG, rumorSourceList):
-    # 所有单源list
-    allsigleSourceList = []
-    allSigleSourceListNum = [2, 1]
-
-    # 将第一个传播区域定下来。
-    import datetime
-    starttime = datetime.datetime.now()
-    # long running,这里可以读的文件代替，就比较省时间。反正都是为了allsigleSourcellist填充
-
-    '''   这个是保留项，我觉得反转算法有点问题，反正（u,h是写完了）,下面这个很好时间'''
-    for sigleReionlist in mutiplelist:
-        allsigleSourceList.append(findmultiplesource(sigleReionlist, infectionG, rumorSourceList))
 
     # 构建关于这个社区的传播子图
     tempGraph1 = nx.Graph()
@@ -833,244 +822,54 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
     print('这个感染区域的传播子图边个数')
     print(tempGraph1.number_of_edges())
     print(tempGraph1.number_of_nodes())
-
+    nodelist=list(tempGraph1.nodes)
     resultSource = []
-    # allsigleSourceList=[[(472, 5397), 3, 0.08817960508520417]]
-    # 现在已经返回关于每个社区的源点及其社区了，开始画图吧。
-    print('最后我们找到的误差率最低的的每个分区的圆点和他的h是' + str(allsigleSourceList))
-
-    for sigleRegionSource in allsigleSourceList:
-        if isinstance(sigleRegionSource[0], int):  # 单源点
-            print('算出来的误差率最低单源点情况---------------------------')
-            source3 = revsitionAlgorithm(sigleRegionSource[0], sigleRegionSource[1], infectionG, infectionG)
-            print('用反转算法计算出来的单源点为' + str(source3))
-            resultSource.append(source3)
-        elif len(sigleRegionSource[0]) == 2:
-            print('算出来的误差率最低2源点情况---------------------------')
-            source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
-            source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, infectionG)
-            print('用反转算法计算出来的源点为' + str(source2) + str(source1))
-            resultSource.append(source1)
-            resultSource.append(source2)
-
-        elif len(sigleRegionSource[0]) == 3:
-            print('算出来的误差率最低3源点情况---------------------------')
-            source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
-            source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, infectionG)
-            source3 = revsitionAlgorithm(sigleRegionSource[0][2], sigleRegionSource[1], infectionG, infectionG)
-            print('用反转算法计算出来的源点为' + str(source2) + str(source1))
-            resultSource.append(source1)
-            resultSource.append(source2)
-            resultSource.append(source3)
-        elif len(sigleRegionSource[0]) == 4:
-            print('算出来的误差率最低3源点情况---------------------------')
-            source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, tempGraph1)
-            source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, tempGraph1)
-            source3 = revsitionAlgorithm(sigleRegionSource[0][2], sigleRegionSource[1], infectionG, tempGraph1)
-            source4 = revsitionAlgorithm(sigleRegionSource[0][3], sigleRegionSource[1], infectionG, tempGraph1)
-            print('用反转算法计算出来的源点为' + str(source2) + str(source1))
-            resultSource.append(source1)
-            resultSource.append(source2)
-            resultSource.append(source3)
-            resultSource.append(source4)
-        elif len(sigleRegionSource[0]) == 5:
-             print('算出来的误差率最低3源点情况---------------------------')
-             source1 = revsitionAlgorithm(sigleRegionSource[0][0], sigleRegionSource[1], infectionG, infectionG)
-             source2 = revsitionAlgorithm(sigleRegionSource[0][1], sigleRegionSource[1], infectionG, infectionG)
-             source3 = revsitionAlgorithm(sigleRegionSource[0][2], sigleRegionSource[1], infectionG, infectionG)
-             source4 = revsitionAlgorithm(sigleRegionSource[0][3], sigleRegionSource[1], infectionG, infectionG)
-             source5 = revsitionAlgorithm(sigleRegionSource[0][4], sigleRegionSource[1], infectionG, infectionG)
-             print('用反转算法计算出来的源点为' + str(source2) + str(source1))
-             resultSource.append(source1)
-             resultSource.append(source2)
-             resultSource.append(source3)
-             resultSource.append(source4)
-             resultSource.append(source5)
-
-    print('总的用反转算法算出来的结果为' + str(resultSource))
-    listToTxt(resultSource, 'newresult.txt')
-
-
-    # errordistanceFor = []
-    # # 上面这两个，可以干一架了。
-    # for turesourcelist in rumorSourceList:  # 真实源
-    #     everydistion = []
-    #     for resultsourceindex in resultSource:  # 自己算法找出的源。
-    #         everydistion.append([resultsourceindex,
-    #                              nx.shortest_path_length(infectionG, source=turesourcelist, target=resultsourceindex)])
-    #     everydistion = sorted(everydistion, key=lambda x: (x[1]))
-    #     # 结果集匹配到了，最好的结果就要移除这个了。
-    #     resultSource.remove(everydistion[0][0])  # 移除最小距离的那个
-    #     print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
-    #     print(everydistion)
-    #     errordistanceFor.append(everydistion[0][1])
-    # multipdistance = 0
-    # for error in errordistanceFor:
-    #     multipdistance = multipdistance + error
-    # # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
-    # print('误差距离为' + str(multipdistance))
-    # return multipdistance / len(errordistanceFor)
-
-    errordistanceFor = []
-    # 上面这两个，可以干一架了。
-    for turesourcelist in rumorSourceList:  # 真实源
-        everydistion = []
-        for resultsourceindex in resultSource:  # 自己算法找出的源。
-            everydistion.append(nx.shortest_path_length(infectionG, source=turesourcelist, target=resultsourceindex))
-        everydistion.sort()
-        print(everydistion)
-        errordistanceFor.append(everydistion[0])
-
-    multipdistance = 0
-    for error in errordistanceFor:
-        multipdistance = multipdistance + error
-
-    # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
-    print('误差距离为' + str(multipdistance))
-    return multipdistance / len(errordistanceFor)
-
-
-
-
-    # do something other
-
-
-# 设计反向传播算法，接收参数。u，h，infectG。
-def revsitionAlgorithm(u, h, infectG, subinfectG):
-    print('反转算法参数,u和h' + str(u) + '----------' + str(h))
-    nodelist = list(nx.bfs_tree(subinfectG, source=u, depth_limit=h).nodes)
-    source1G = nx.Graph()  # 构建新的单源传播圆出来
-    for edge in subinfectG.edges:
-        if edge[0] in nodelist and edge[1] in nodelist:
-            source1G.add_edge(edge[0], edge[1])
-
-    print('传播子图为source1G,它的点数和边数为' + str(source1G.number_of_nodes()) + '-------' + str(source1G.number_of_edges()))
-    # 在nodelist找出源点来。
-    times = 6  # 时间刻多点
-    IDdict = {}
-    IDdict_dup = {}
-    # 先赋予初始值。
-    for node in list(source1G.nodes):
-        # subinfectG.node[node]['ID']=list(node)   #赋予的初始值为list
-        IDdict[node] = [node]
-        IDdict_dup[node] = [node]
-    allnodelist_keylist = []  # 包含所有接受全部节点id的键值对的key
-    for t in range(times):
-        print('t为' + str(t) + '的时候-----------------------------------------------------------------------------')
-        for node in nodelist:  # 对每一个节点来说
-            for heighbour in list(source1G.neighbors(node)):  # 对每一个节点的邻居来说
-                retD = list(set(IDdict[heighbour]).difference(set(IDdict[node])))  # 如果邻居中有这个node没有的，那就加到这个node中去。
-                if len(retD) != 0:  # 表示在B中，但不在A.是有的，那就求并集
-                    # 求并集,把并集放进我们的retC中。
-                    # print ('并集就是可使用'+str(retD))
-                    retC = list(set(IDdict[heighbour]).union(set(IDdict[node])))
-                    IDdict_dup[node] = list(set(IDdict_dup[node] + retC))  # 先用一个dict把结果装入,然后这个时间过去再加回去。
-
-        for key, value in IDdict_dup.items():
-            IDdict[key] = IDdict_dup[key]
-        # for key, value in IDdict.items():
-        #     print(key, value)
-        # 在每一个时间刻检查是否有节点满足获得所有的id了。
-
-        flag = 0
-        for key, value in IDdict.items():
-            # d.iteritems: an iterator over the (key, value) items
-            if sorted(IDdict[key]) == sorted(nodelist):
-                print('在t为' + str(t) + '的时间的时候，我们有了接受全部node的ID的人')
-                print('它的key为' + str(key))
-                allnodelist_keylist.append(key)
-                print('有了接受所有的节点了这样的节点了')
-                flag = 1
-
-        if flag == 1:
-            break
-    # print (IDdict)
-    print(allnodelist_keylist)
-
-    result = 0
-    resultlist = []
-    # 如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
-    if len(allnodelist_keylist) == 1:
-        print('那就是这个源点了')
-        result = allnodelist_keylist[0]
-    else:
-        # 构建样本路径
-        print('构建样本路径看看')
-        jarcenlist = []
-        for i in allnodelist_keylist:
-            jarcenlist.append([i, nx.eccentricity(source1G, i)])  # 按照离心率进行排序,最小离心率的就是源点。
-            resultlist = sorted(jarcenlist, key=lambda x: x[1])
-        result = resultlist[0][0]
-        print('构建样本路径之后结果为' + str(resultlist[0][0]))
-
-    return result
-    # print (nx.shortest_path_length(subinfectG,result,u))  #0
-    # print (nx.shortest_path_length(subinfectG,125,result) )#  2
-    # print(nx.shortest_path_length(subinfectG, 4022, result))  #  8
     #
+    tree = Tree()
+    #初始化这些值。
+    for  nodetemp in (tempGraph1.nodes):
+        tempGraph1.add_node(nodetemp, T=0)
+        tempGraph1.add_node(nodetemp, P=0)
+
+    peripheryList=nx.periphery(tempGraph1)
 
 
-#
-#
-#
-# rumorSourceList=contractSource(G,3,5)  #产生源点。图，源点个数，源点差距距离。
-# hlist=[3,2]   #不同传播区域传播深度，
-# infectG=Algorithm1(G,rumorSourceList,5,hlist )  #产生感染图，深度是3
-#
-# #gephi 查看infectG转成csv情况。
-# ConvertGToCsv(infectG,'G.csv')
-# subinfectG=nx.Graph()
-# count=1
-# count1=1
-# for  edge in  infectG.edges:
-#     # print (edge)\
-#     if  infectG.adj[edge[0]][edge[1]]['Infection']==1:
-#        count1 =count1+1
-#     if  infectG.adj[edge[0]][edge[1]]['Infection']==2:
-#         count = count + 1
-#         subinfectG.add_edges_from([(edge[0],edge[1])],weight= 1)
-#
-# print (count)
-# print (count1)
-# # 因为邮件是一个有向图，我们这里构建的是无向图。
-# print('传染子图的顶点个数',  subinfectG.number_of_nodes())
-# print('传染子图的边个数',  subinfectG.number_of_edges())
-#
-#
-# ConvertGToCsvSub(subinfectG,'SubInfectionG.csv')
-# #
-# #检测是否是有相互感染到。
-#
-# print (nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight'))
-# print (nx.shortest_path(subinfectG, rumorSourceList[0], rumorSourceList[1], weight='weight'))  #在子图中有路径，就是感染到了。
-#
-# if nx.has_path(subinfectG,rumorSourceList[1],rumorSourceList[2])==False:
-#     if nx.has_path(subinfectG,rumorSourceList[0],rumorSourceList[2])==False:
-#         print('========================================================================')
-#         print ('这里的第3个点，跟他们都没有路径相连。可以的')
-# else:
-#     print ('========================================================================')
-#     print ('这里的第3个点，不行的，很烦')
-# # print (nx.shortest_path(subinfectG, rumorSourceList[1], rumorSourceList[2], weight='weight'))    #这个报错就是第三个point并没有被感染到的意思。
-#
-# #now  to  practice single-multiple  source Partition.Get  ture  parition
-#
-#
-#
-# # if  769  in list(infectG.nodes):
-# #     print ('明明就在')
-# multipList=getmultipleCommunity(infectG)
-# multiplePartion(multipList, infectG,rumorSourceList)
-#
-#
-#
-# #产生一组模拟两源数据的，然后计算平均值。
-#
-#
-#
-#
-#
-#
+    node= random.choice(nodelist)
+    print ('node是多少'+str(node))
+    tree.create_node(node, node)  # 创建源节点
+    dict_Temp=dict(nx.bfs_successors(tempGraph1, source=node))
+    True_tree=Begin_tree(dict_Temp,tree,node)
+
+    #创建树来构造。
+
+    True_tree.show()
+
+
+
+
+
+def   Begin_tree(dict,trees,root):
+    temp=Tree()
+    if root in dict.keys():  #有这个key，那么创建就好了啊。
+        print (root)
+        for i  in dict[root]:
+            print ('这个已经在里面了'+str(i))
+
+            print ('----------------------------')
+            trees.create_node(i,parent=root)
+            temp=trees
+        for j in dict[root]:
+            print ('递归开始')
+            Begin_tree(dict,trees,j)
+    else:
+         print ('jlkjlkjljjl')
+         return trees
+
+
+
+from functools import reduce
+
+
 
 
 import numpy as np
@@ -1120,7 +919,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/facebook_combined.txt', Ginti)
+    G = ContractDict('../../data/facebook_combined.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -1129,6 +928,8 @@ if __name__ == '__main__':
     #  先给全体的Cn、Scn,time的0的赋值。
     for node in list(G.nodes):
         G.add_node(node, SI=1)
+        G.add_node(node,T=0)
+        G.add_node(node,P=0)
 
     # 初始化所有边是否感染。Infection
     for edge in list(G.edges):
@@ -1148,7 +949,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 3, 2))
+        sourceList.append(contractSource(G, 1, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
