@@ -832,17 +832,23 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
         tempGraph1.add_node(nodetemp, P=0)
 
     peripheryList=nx.periphery(tempGraph1)
+    print ('边界节点'+str(peripheryList))
+
+    randomnode= random.choice(nodelist)
+    print ('node是多少'+str(randomnode))
+    dict_Temp=dict(nx.bfs_successors(tempGraph1, source=randomnode))
+    print (dict_Temp)
+    for nodeTemps  in nodelist:
+        if nodeTemps in peripheryList:
+            tempGraph1.add_node(nodeTemps,T=1)
+            tempGraph1.add_node(nodeTemps,P=1)
+        else:
+            if nodeTemps ==randomnode:
+                #直接算这个点的那个函数。
 
 
-    node= random.choice(nodelist)
-    print ('node是多少'+str(node))
-    tree.create_node(node, node)  # 创建源节点
-    dict_Temp=dict(nx.bfs_successors(tempGraph1, source=node))
-    True_tree=Begin_tree(dict_Temp,tree,node)
 
-    #创建树来构造。
 
-    True_tree.show()
 
 
 

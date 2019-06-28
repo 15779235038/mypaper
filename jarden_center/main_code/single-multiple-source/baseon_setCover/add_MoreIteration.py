@@ -1,4 +1,14 @@
 
+
+
+
+
+
+
+
+
+
+
 import networkx as nx
 import random
 from networkx.algorithms import community
@@ -73,11 +83,22 @@ def Algorithm1(G, SourceList, time_sum, hlist):
                         if randnum<0.5:
                             G.node[height]['SI'] = 2
                             tempinfectList.append(height)
+
              # infectList.clear()
              for timeInfectnode in tempinfectList:
                  infectList.append(timeInfectnode)
 
 
+
+
+        # nodelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
+        # edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
+        # print(len(nodelist))
+        # nodelist = random.sample(nodelist, int(float(len(nodelist)) * 0.9))  # 从list中随机获取5个元素，作为一个片断返回
+        # for i in nodelist:
+        #     G.node[i]['SI'] = 2
+        # for k in edgelist:
+        #     G.adj[k[0]][k[1]]['Infection'] = 2
         print('头两个感染社区点数为' + str(len(infectList)))
 
     return G
@@ -389,7 +410,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                 # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
                 # combinationList = list(combinations(Alternativenodeset, sourceNum))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
                 sourceAndH = []
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in Alternativenodeset:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。
@@ -453,7 +474,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
 
                 sourceAndH = []
                 hlists = [2, 3]
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in combinationList:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。
@@ -523,7 +544,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
 
                 sourceAndH = []
                 hlists = [2, 3]
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in combinationList:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。
@@ -592,7 +613,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                     combinationList.append([random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset),random.choice(Alternativenodeset)])
                 sourceAndH = []
                 hlists=[2,3]
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in combinationList:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。
@@ -660,7 +681,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
 
                 sourceAndH = []
                 hlists = [2, 3]
-                for htemp in range(2, 4):
+                for htemp in range(2, 5):
                     for sourcetmep in combinationList:
                         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
                 # 从combinationList中寻找100个样本集。
@@ -689,6 +710,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                                 print("要进行替换了" + str(sourceAndH[sourcesi]) + '被替换成lateelement')
                                 Sampleset[sourcesi] = lateelement  # 替换
                                 print(Sampleset[sourcesi])
+
                 print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
                 # 计算样本集的similir，找出最好的。
                 for sources in Sampleset:
@@ -696,8 +718,6 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
                     if mincover < min:
                         min = mincover  # 这一次最好的覆盖误差率
                         bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
-
-
 
                 print('得到多源点情况最小的覆盖率为' + str(min))
                 minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
@@ -716,16 +736,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist):
     # listToTxt(minCover, 'result.txt')
     result = sorted(minCoverlist, key=lambda x: (x[2]))
     listToTxt(result[0], 'coverError.txt')    #覆盖率结果
-
     return result[0]
-
-
-
-
-
-
-
-
 
 
 def listToTxt(listTo, dir):
@@ -733,9 +744,6 @@ def listToTxt(listTo, dir):
     fileObject.write(str(listTo))
     fileObject.write('\n')
     fileObject.close()
-
-
-
 
 
 def getSimilir(ulist, hlist, singleRegionList, infectionG):
@@ -914,23 +922,73 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
     # print('误差距离为' + str(multipdistance))
     # return multipdistance / len(errordistanceFor)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #这里首先解决源点不等情况，然后再计算误差。首先要让他们相等。
     errordistanceFor = []
     # 上面这两个，可以干一架了。
-    for turesourcelist in rumorSourceList:  # 真实源
-        everydistion = []
-        for resultsourceindex in resultSource:  # 自己算法找出的源。
-            everydistion.append(nx.shortest_path_length(infectionG, source=turesourcelist, target=resultsourceindex))
-        everydistion.sort()
-        print(everydistion)
-        errordistanceFor.append(everydistion[0])
 
-    multipdistance = 0
-    for error in errordistanceFor:
-        multipdistance = multipdistance + error
+    listToTxt(rumorSourceList,'compare.txt')
+    listToTxt(resultSource, 'compare.txt')
 
-    # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
-    print('误差距离为' + str(multipdistance))
-    return multipdistance / len(errordistanceFor)
+
+
+    #三种情况
+
+    if len(resultSource)>=len(rumorSourceList):
+        for turesourcelist in rumorSourceList:  # 真实源
+            everydistion = []
+            for resultsourceindex in resultSource:  # 自己算法找出的源。
+                everydistion.append([resultsourceindex,
+                                     nx.shortest_path_length(infectionG, source=turesourcelist,
+                                                             target=resultsourceindex)])
+            everydistion = sorted(everydistion, key=lambda x: (x[1]))
+            # 结果集匹配到了，最好的结果就要移除这个了。
+            resultSource.remove(everydistion[0][0])  # 移除最小距离的那个
+            print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
+            print(everydistion)
+            errordistanceFor.append(everydistion[0][1])
+        multipdistance = 0
+        for error in errordistanceFor:
+            multipdistance = multipdistance + error
+        # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
+        print('误差距离为' + str(multipdistance))
+        return multipdistance / len(errordistanceFor)
+
+    elif len(resultSource)<len(rumorSourceList):
+        for  resultSourceindex  in resultSource:
+            everydistion=[]
+            for  turesourcelist in rumorSourceList:
+                everydistion.append([turesourcelist,
+                                     nx.shortest_path_length(infectionG, source=resultSourceindex,
+                                                             target=turesourcelist)])
+            everydistion = sorted(everydistion, key=lambda x: (x[1]))
+            resultSource.remove(everydistion[0][0])  # 移除最小距离的那个
+            print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
+            print(everydistion)
+            errordistanceFor.append(everydistion[0][1])
+        multipdistance = 0
+        for error in errordistanceFor:
+            multipdistance = multipdistance + error
+        # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
+        print('误差距离为' + str(multipdistance))
+        return multipdistance / len(errordistanceFor)
+
 
 
 
@@ -1007,10 +1065,7 @@ def revsitionAlgorithm(u, h, infectG, subinfectG):
         print('构建样本路径之后结果为' + str(resultlist[0][0]))
 
     return result
-    # print (nx.shortest_path_length(subinfectG,result,u))  #0
-    # print (nx.shortest_path_length(subinfectG,125,result) )#  2
-    # print(nx.shortest_path_length(subinfectG, 4022, result))  #  8
-    #
+
 
 
 
@@ -1119,6 +1174,24 @@ if __name__ == '__main__':
     endtime = datetime.datetime.now()
     print('执行了这么长时间')
     print((endtime - starttime).seconds)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

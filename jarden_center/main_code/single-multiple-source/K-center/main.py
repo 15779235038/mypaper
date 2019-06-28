@@ -431,7 +431,6 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
             print (result)
             return result
     elif sourceNum == 3:
-
         resultList = []
         for l in range(0, 4):
             # 随机找两个源，开始

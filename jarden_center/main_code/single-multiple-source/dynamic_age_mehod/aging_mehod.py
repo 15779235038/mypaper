@@ -65,22 +65,35 @@ def Algorithm1(G, SourceList, time_sum, hlist):
     infectionNodelist = []
 
     print('开始传染的点是' + str(SourceList))
-    for j in range(len(SourceList)):
+    for j in SourceList:
         infectList = []
         infectList.append(j)
         G.node[j]['SI'] = 2
-        for time in range(0, 5):
-            tempinfectList = []
-            for node in infectList:
+        for time in range(0,4):
+             tempinfectList=[]
+             for node in infectList:
                 for height in list(G.neighbors(node)):
-                    randnum = random.random()
-                    if 0.7< randnum:
-                        G.node[height]['SI'] = 2
-                        tempinfectList.append(height)
-            infectList = tempinfectList
-            # for timeInfectnode in tempinfectList:
-            #     infectList.append(timeInfectnode)
-        print('头两个感染社区点数为' + str(len(set(infectList))))
+                        randnum=random.random()
+                        if randnum<0.5:
+                            G.node[height]['SI'] = 2
+                            tempinfectList.append(height)
+
+             # infectList.clear()
+             for timeInfectnode in tempinfectList:
+                 infectList.append(timeInfectnode)
+
+
+
+
+        # nodelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
+        # edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
+        # print(len(nodelist))
+        # nodelist = random.sample(nodelist, int(float(len(nodelist)) * 0.9))  # 从list中随机获取5个元素，作为一个片断返回
+        # for i in nodelist:
+        #     G.node[i]['SI'] = 2
+        # for k in edgelist:
+        #     G.adj[k[0]][k[1]]['Infection'] = 2
+        print('头两个感染社区点数为' + str(len(infectList)))
 
     return G
 
@@ -754,7 +767,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/email-Eu-core.txt', Ginti)
+    G = ContractDict('../data/CA-GrQc.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -780,7 +793,7 @@ if __name__ == '__main__':
 
     # 产生10次，每次都有误差，计算出来。并统计。
 
-    for i in range(1, 2):
+    for i in range(1, 11):
         sourceList.append(contractSource(G, 3, 2))
 
 
