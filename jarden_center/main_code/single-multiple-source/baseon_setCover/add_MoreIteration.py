@@ -900,7 +900,7 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
 
     print('总的用反转算法算出来的结果为' + str(resultSource))
     listToTxt(resultSource, 'newresult.txt')
-
+    resultSource=list(set(resultSource))
 
     # errordistanceFor = []
     # # 上面这两个，可以干一架了。
@@ -1145,7 +1145,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 2, 2))
+        sourceList.append(contractSource(G,1, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
