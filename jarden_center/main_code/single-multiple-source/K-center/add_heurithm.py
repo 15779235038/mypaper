@@ -334,8 +334,9 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
     # peripheryList=nx.periphery(tempGraph)  #求解图边界list
 
     #计算图的拉普拉斯
-
-
+    k=1
+    sourceNum=2
+    # while 1:
     minCoverlist = []
     print('在源点在' + str(sourceNum) + '个数的情况下')
     # print('在h为' + str(h) + '的情况下')
@@ -365,7 +366,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
                 # 加入第一个队列中。
                 sourcePartition[resulttemp[0][0]].append(node)
 
-            #针对分区结果，我们可以得到
+            #针对分区结果，我们可以得到分区的
 
 
             result = []
@@ -393,13 +394,13 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
 
     elif sourceNum == 2:
 
-        resultList = []
-        for l in range(0, 4):
+            resultList = []
+
             # 随机找两个源，开始
             sourcePartition = []
             randomSource = []
             for number in range(0, sourceNum):
-                randomSource.append(random.choice(Alternativenodeset))
+                randomSource.append(random.choice(Alternativenodeset))    #随机选择k个源。
                 sourcePartition.append([])
             for index in range(len(sourcePartition)):
                 sourcePartition[index].append(randomSource[index])
@@ -766,7 +767,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/Email-Enron.txt', Ginti)
+    G = ContractDict('../data/CA-GrQc.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -793,7 +794,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 1, 2))
+        sourceList.append(contractSource(G, 2, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -811,17 +812,11 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource,1)
+        errordistance = multiplePartion(multipList, infectG, singleSource,2)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))
-        listToTxt(str(datetime.datetime.now()), 'K-center_result.txt')
-        listToTxt('输出每次结果看看', 'K-center_result.txt')
-        listToTxt(errordistanceList, 'K-center_result.txt')
     print(errorSum / 10)
-
-    # listToTxt('输出每次结果看看','K-center_result.txt')
-    # listToTxt(errordistanceList, 'K-center_result.txt')
 
     # long running
 

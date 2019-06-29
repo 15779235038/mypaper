@@ -1117,7 +1117,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/CA-GrQc.txt', Ginti)
+    G = ContractDict('../data/Email-Enron.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -1167,6 +1167,9 @@ if __name__ == '__main__':
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))
+        listToTxt(str(datetime.datetime.now()), 'our_method_result.txt')
+        listToTxt('输出每次结果看看', 'our_method_result.txt')
+        listToTxt(errordistanceList, 'our_method_result.txt')
     print(errorSum / 10)
 
     # long running
