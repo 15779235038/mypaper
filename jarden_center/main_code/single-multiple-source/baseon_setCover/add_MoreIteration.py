@@ -173,8 +173,14 @@ def contractSource(G, sourceNum, sourceMaxDistance):
                     print  ('随机产生的点为'+str(random_RumorSource))
                     resultList=list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
                     # print (resultList)
-                    rumorSourceList.append(resultList[4][1])
-                    random_RumorSource=resultList[4][1]
+                    randomnum=random.random()
+                    dis=4
+                    if randomnum >0.5:
+                        dis=3
+                    else:
+                        dis=5
+                    rumorSourceList.append(resultList[dis][1])
+                    random_RumorSource=resultList[dis][1]
                     if len(rumorSourceList) == 4 and len(rumorSourceList)==len(set(rumorSourceList)):  # 重复或者数目达不到要求:
                         print('找到了4个点')
                         flag1 =1
@@ -183,31 +189,6 @@ def contractSource(G, sourceNum, sourceMaxDistance):
                         print ('是四个点，但是却有重复，只能够重新选择新的开始点')
                         flag1 = 1
 
-
-
-            # flag1=0
-            # while flag1==0:
-            #
-            #     #随机找个点，然后再找一个点。距离跟他有10个距离就可以。
-            #     random_RumorSource = random.choice(sumlist)
-            #     rumorSourceList=[random.choice(sumlist),random.choice(sumlist),random.choice(sumlist),random.choice(sumlist)]
-            #     combinationList = list(combinations(rumorSourceList, 2))
-            #
-            #     flag2=0
-            #     for sample in combinationList:
-            #         if  nx.has_path(G, sample[0],sample[1]) == True:
-            #
-            #                 flag2=1
-            #
-            #     if flag2==1:
-            #         flag1=0
-            #     else:
-            #         flag1=1
-            # if len(rumorSourceList) != len(set(rumorSourceList)) and len(rumorSourceList) != 4:  # 重复或者数目达不到要求
-            #     #有重复元素
-            #     flag=0
-            # else:
-            #     flag=1
 
 
         elif sourceNum == 5:
@@ -1145,7 +1126,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G,1, 2))
+        sourceList.append(contractSource(G,4, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -1170,6 +1151,7 @@ if __name__ == '__main__':
         listToTxt(str(datetime.datetime.now()), 'our_method_result.txt')
         listToTxt('输出每次结果看看', 'our_method_result.txt')
         listToTxt(errordistanceList, 'our_method_result.txt')
+        listToTxt('输出平均值', errorSum/len(errordistanceList))
     print(errorSum / 10)
 
     # long running
