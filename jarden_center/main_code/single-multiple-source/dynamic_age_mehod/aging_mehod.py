@@ -802,7 +802,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 4, 2))
+        sourceList.append(contractSource(G, 5, 2))
 
 
     errordistanceList = []  # 误差集合。
@@ -821,7 +821,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource,4)
+        errordistance = multiplePartion(multipList, infectG, singleSource,5)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))
