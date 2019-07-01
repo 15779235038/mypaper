@@ -115,58 +115,79 @@ def contractSource(G, sourceNum, sourceMaxDistance):
 
         if sourceNum == 1:
             # random_RumorSource = random.randint(0, 7000)
-            random_Rumo = random.sample(sumlist, 1)
-            random_RumorSource = random_Rumo[0]
+
+            random_RumorSource = random.choice(sumlist)
             rumorSourceList.append(random_RumorSource)
             flag = 1
         elif sourceNum == 2:
-            random_Rumo = random.sample(sumlist, 1)
-            random_RumorSource = random_Rumo[0]
-            # 在剩下的节点找到我们的第二个点。
-            for node in list(G.nodes):
-                if nx.has_path(G, node, random_RumorSource) == True:
-                    if nx.shortest_path_length(G, node, random_RumorSource) > 4 and nx.shortest_path_length(G, node,
-                                                                                             random_RumorSource) < 6:
-                        rumorSourceList.append(node)
-                        rumorSourceList.append(random_RumorSource)
-                        flag = 1
-                        break
-        elif sourceNum == 3:
-            print('3源点情况。')
-            threeNumberFLAG = 0
-            while threeNumberFLAG == 0:
-                # 先随机找一个点。
-                random_Rumo = random.sample(sumlist, 1)
-                random_RumorSource = random_Rumo[0]
-                # 找第二、三个点。
-                for index in range(len(sumlist) - 2):
-                    if nx.has_path(G, sumlist[index], random_RumorSource) == True and nx.has_path(G, sumlist[index + 1],
-                                                                                                  random_RumorSource) == True:
-                        if nx.shortest_path_length(G, source=sumlist[index],
-                                                   target=random_RumorSource) > 4 and nx.shortest_path_length(G, source=
-                        sumlist[index], target=random_RumorSource) < 6 and nx.shortest_path_length(G, source=sumlist[
-                            index + 1], target=random_RumorSource) > 4 and nx.shortest_path_length(G, source=sumlist[
-                            index + 1], target=random_RumorSource) < 6:
-                            rumorSourceList.append(random_RumorSource)
-                            rumorSourceList.append(sumlist[index])
-                            rumorSourceList.append(sumlist[index + 1])
-                            print('找到了3源点了。')
-                            break
-                if len(rumorSourceList) == 3:
-                    print('找到了3个点')
-                    threeNumberFLAG = 1
-                    flag = 1
-                else:
-                    pass
 
+            flag = 0
+            flag1 = 0
+            while flag == 0:
+                rumorSourceList = []
+                random_Rumo = random.sample(sumlist, 5)
+                random_RumorSource = random_Rumo[2]
+                rumorSourceList.append(random_RumorSource)
+                flag1 = 0
+                while flag1 == 0:
+                    print('随机产生的点为' + str(random_RumorSource))
+                    resultList = list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
+                    # print (resultList)
+                    randomnum = random.random()
+                    dis = 4
+                    if randomnum > 0.5:
+                        dis = 3
+                    elif randomnum > 0.3:
+                        dis = 5
+                    elif randomnum > 0.1:
+                        dis = 6
+                    rumorSourceList.append(resultList[dis][1])
+                    random_RumorSource = resultList[dis][1]
+                    if len(rumorSourceList) == 2 and len(rumorSourceList) == len(set(rumorSourceList)):  # 重复或者数目达不到要求:
+                        print('找到了4个点')
+                        flag1 = 1
+                        flag = 1
+                    elif len(rumorSourceList) == 2 and len(rumorSourceList) != len(set(rumorSourceList)):
+                        print('是四个点，但是却有重复，只能够重新选择新的开始点')
+                        flag1 = 1
+        elif sourceNum == 3:
+            flag = 0
+            flag1 = 0
+            while flag == 0:
+                rumorSourceList = []
+                random_Rumo = random.sample(sumlist, 5)
+                random_RumorSource = random_Rumo[2]
+                rumorSourceList.append(random_RumorSource)
+                flag1 = 0
+                while flag1 == 0:
+                    print('随机产生的点为' + str(random_RumorSource))
+                    resultList = list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
+                    # print (resultList)
+                    randomnum = random.random()
+                    dis = 4
+                    if randomnum > 0.5:
+                        dis = 3
+                    elif randomnum > 0.3:
+                        dis = 5
+                    elif randomnum > 0.1:
+                        dis = 6
+                    rumorSourceList.append(resultList[dis][1])
+                    random_RumorSource = resultList[dis][1]
+                    if len(rumorSourceList) == 3 and len(rumorSourceList) == len(set(rumorSourceList)):  # 重复或者数目达不到要求:
+                        print('找到了4个点')
+                        flag1 = 1
+                        flag = 1
+                    elif len(rumorSourceList) == 3 and len(rumorSourceList) != len(set(rumorSourceList)):
+                        print('是四个点，但是却有重复，只能够重新选择新的开始点')
+                        flag1 = 1
         elif sourceNum == 4:
 
             flag=0
             flag1 = 0
             while flag==0:
                 rumorSourceList = []
-                random_Rumo = random.sample(sumlist, 1)
-                random_RumorSource = random_Rumo[0]
+                random_Rumo = random.sample(sumlist, 5)
+                random_RumorSource = random_Rumo[2]
                 rumorSourceList.append(random_RumorSource)
                 flag1=0
                 while flag1==0:
@@ -177,8 +198,10 @@ def contractSource(G, sourceNum, sourceMaxDistance):
                     dis=4
                     if randomnum >0.5:
                         dis=3
-                    else:
+                    elif  randomnum>0.3:
                         dis=5
+                    elif randomnum>0.1:
+                        dis=6
                     rumorSourceList.append(resultList[dis][1])
                     random_RumorSource=resultList[dis][1]
                     if len(rumorSourceList) == 4 and len(rumorSourceList)==len(set(rumorSourceList)):  # 重复或者数目达不到要求:
@@ -959,7 +982,7 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList):
                                      nx.shortest_path_length(infectionG, source=resultSourceindex,
                                                              target=turesourcelist)])
             everydistion = sorted(everydistion, key=lambda x: (x[1]))
-            resultSource.remove(everydistion[0][0])  # 移除最小距离的那个
+            rumorSourceList.remove(everydistion[0][0])  # 移除最小距离的那个
             print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
             print(everydistion)
             errordistanceFor.append(everydistion[0][1])
@@ -1098,7 +1121,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/Email-Enron.txt', Ginti)
+    G = ContractDict('../data/email-Eu-core.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -1126,7 +1149,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G,4, 2))
+        sourceList.append(contractSource(G,5, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -1151,7 +1174,7 @@ if __name__ == '__main__':
         listToTxt(str(datetime.datetime.now()), 'our_method_result.txt')
         listToTxt('输出每次结果看看', 'our_method_result.txt')
         listToTxt(errordistanceList, 'our_method_result.txt')
-        listToTxt('输出平均值', errorSum/len(errordistanceList))
+        listToTxt('输出平均值' +str(errorSum/len(errordistanceList)), 'our_method_result.txt' )
     print(errorSum / 10)
 
     # long running

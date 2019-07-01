@@ -38,3 +38,10 @@ CA-GrQc.txt
  Collaboration network of Arxiv General Relativity category (there is an edge if authors coauthored at least one paper)  
  Nodes: 5242 Edges: 28980   
  FromNodeId	ToNodeId  
+ 
+ #  5  第4个数据集
+ 
+Directed graph (each unordered pair of nodes is saved once): CA-CondMat.txt   
+Collaboration network of Arxiv Condensed Matter category (there is an edge if authors coauthored at least one paper)   
+Nodes: 23133 Edges: 186936  
+FromNodeId	ToNodeId  

@@ -6,7 +6,13 @@ from networkx.algorithms import community
 
 # 读取文件中边关系，然后成为一个成熟的图,是有一个有效距离的。这里需要加
 
+import os
 
+
+
+os.environ["CUDA_VISIBLE_DEVICES"]='0'
+
+#指定第一块gpu
 '''
 有效距离的定义：度大点的传播距离较远。目前只有一个指标：根据度数的大小。度数越大，与他相连的边的权重越大。
 越不容易传播、越可能在距离比较远的时间传播。以此为方法定义权重。
@@ -99,74 +105,102 @@ def contractSource(G, sourceNum, sourceMaxDistance):
 
         if sourceNum == 1:
             # random_RumorSource = random.randint(0, 7000)
-            random_Rumo = random.sample(sumlist, 1)
-            random_RumorSource = random_Rumo[0]
+
+            random_RumorSource = random.choice(sumlist)
             rumorSourceList.append(random_RumorSource)
             flag = 1
         elif sourceNum == 2:
-            random_Rumo = random.sample(sumlist, 1)
-            random_RumorSource = random_Rumo[0]
-            # 在剩下的节点找到我们的第二个点。
-            for node in list(G.nodes):
-                if nx.has_path(G, node, random_RumorSource) == True:
-                    if nx.shortest_path_length(G, node, random_RumorSource) > 4 and nx.shortest_path_length(G, node,
-                                                                                                            random_RumorSource) < 6:
-                        rumorSourceList.append(node)
-                        rumorSourceList.append(random_RumorSource)
-                        flag = 1
-                        break
-        elif sourceNum == 3:
-            print('3源点情况。')
-            threeNumberFLAG = 0
-            while threeNumberFLAG == 0:
-                # 先随机找一个点。
-                random_Rumo = random.sample(sumlist, 1)
-                random_RumorSource = random_Rumo[0]
-                # 找第二、三个点。
-                for index in range(len(sumlist) - 2):
-                    if nx.has_path(G, sumlist[index], random_RumorSource) == True and nx.has_path(G, sumlist[index + 1],
-                                                                                                  random_RumorSource) == True:
-                        if nx.shortest_path_length(G, source=sumlist[index],
-                                                   target=random_RumorSource) > 4 and nx.shortest_path_length(G, source=
-                        sumlist[index], target=random_RumorSource) < 6 and nx.shortest_path_length(G, source=sumlist[
-                            index + 1], target=random_RumorSource) > 4 and nx.shortest_path_length(G, source=sumlist[
-                            index + 1], target=random_RumorSource) < 6:
-                            rumorSourceList.append(random_RumorSource)
-                            rumorSourceList.append(sumlist[index])
-                            rumorSourceList.append(sumlist[index + 1])
-                            print('找到了3源点了。')
-                            break
-                if len(rumorSourceList) == 3:
-                    print('找到了3个点')
-                    threeNumberFLAG = 1
-                    flag = 1
-                else:
-                    pass
 
+            flag = 0
+            flag1 = 0
+            while flag == 0:
+                rumorSourceList = []
+                random_Rumo = random.sample(sumlist, 5)
+                random_RumorSource = random_Rumo[2]
+                rumorSourceList.append(random_RumorSource)
+                flag1 = 0
+                while flag1 == 0:
+                    print('随机产生的点为' + str(random_RumorSource))
+                    resultList = list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
+                    # print (resultList)
+                    randomnum = random.random()
+                    dis = 4
+                    if randomnum > 0.5:
+                        dis = 3
+                    elif randomnum > 0.3:
+                        dis = 5
+                    elif randomnum > 0.1:
+                        dis = 6
+                    rumorSourceList.append(resultList[dis][1])
+                    random_RumorSource = resultList[dis][1]
+                    if len(rumorSourceList) == 2 and len(rumorSourceList) == len(set(rumorSourceList)):  # 重复或者数目达不到要求:
+                        print('找到了4个点')
+                        flag1 = 1
+                        flag = 1
+                    elif len(rumorSourceList) == 2 and len(rumorSourceList) != len(set(rumorSourceList)):
+                        print('是四个点，但是却有重复，只能够重新选择新的开始点')
+                        flag1 = 1
+        elif sourceNum == 3:
+            flag = 0
+            flag1 = 0
+            while flag == 0:
+                rumorSourceList = []
+                random_Rumo = random.sample(sumlist, 5)
+                random_RumorSource = random_Rumo[2]
+                rumorSourceList.append(random_RumorSource)
+                flag1 = 0
+                while flag1 == 0:
+                    print('随机产生的点为' + str(random_RumorSource))
+                    resultList = list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
+                    # print (resultList)
+                    randomnum = random.random()
+                    dis = 4
+                    if randomnum > 0.5:
+                        dis = 3
+                    elif randomnum > 0.3:
+                        dis = 5
+                    elif randomnum > 0.1:
+                        dis = 6
+                    rumorSourceList.append(resultList[dis][1])
+                    random_RumorSource = resultList[dis][1]
+                    if len(rumorSourceList) == 3 and len(rumorSourceList) == len(set(rumorSourceList)):  # 重复或者数目达不到要求:
+                        print('找到了4个点')
+                        flag1 = 1
+                        flag = 1
+                    elif len(rumorSourceList) == 3 and len(rumorSourceList) != len(set(rumorSourceList)):
+                        print('是四个点，但是却有重复，只能够重新选择新的开始点')
+                        flag1 = 1
         elif sourceNum == 4:
 
             flag = 0
             flag1 = 0
             while flag == 0:
                 rumorSourceList = []
-                random_Rumo = random.sample(sumlist, 1)
-                random_RumorSource = random_Rumo[0]
+                random_Rumo = random.sample(sumlist, 5)
+                random_RumorSource = random_Rumo[2]
                 rumorSourceList.append(random_RumorSource)
                 flag1 = 0
                 while flag1 == 0:
-                    print  ('随机产生的点为' + str(random_RumorSource))
+                    print('随机产生的点为' + str(random_RumorSource))
                     resultList = list(nx.dfs_edges(G, source=random_RumorSource, depth_limit=5))
                     # print (resultList)
-                    rumorSourceList.append(resultList[4][1])
-                    random_RumorSource = resultList[4][1]
+                    randomnum = random.random()
+                    dis = 4
+                    if randomnum > 0.5:
+                        dis = 3
+                    elif randomnum > 0.3:
+                        dis = 5
+                    elif randomnum > 0.1:
+                        dis = 6
+                    rumorSourceList.append(resultList[dis][1])
+                    random_RumorSource = resultList[dis][1]
                     if len(rumorSourceList) == 4 and len(rumorSourceList) == len(set(rumorSourceList)):  # 重复或者数目达不到要求:
                         print('找到了4个点')
                         flag1 = 1
                         flag = 1
                     elif len(rumorSourceList) == 4 and len(rumorSourceList) != len(set(rumorSourceList)):
-                        print ('是四个点，但是却有重复，只能够重新选择新的开始点')
+                        print('是四个点，但是却有重复，只能够重新选择新的开始点')
                         flag1 = 1
-
 
 
 
@@ -198,7 +232,6 @@ def contractSource(G, sourceNum, sourceMaxDistance):
     # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 95
     print('真实两源感染是' + str(rumorSourceList))
     return rumorSourceList
-
 
 import csv
 
@@ -766,7 +799,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/Email-Enron.txt', Ginti)
+    G = ContractDict('../data/email-Eu-core.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -793,7 +826,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 2, 2))
+        sourceList.append(contractSource(G, 3, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -811,7 +844,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource,2)
+        errordistance = multiplePartion(multipList, infectG, singleSource,3)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))
