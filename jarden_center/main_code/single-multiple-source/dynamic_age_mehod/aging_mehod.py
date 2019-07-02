@@ -775,7 +775,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/CA-CondMat.txt', Ginti)
+    G = ContractDict('../data/p2p-Gnutella30.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())

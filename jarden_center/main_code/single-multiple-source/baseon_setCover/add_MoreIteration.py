@@ -1,14 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
 import networkx as nx
 import random
 from networkx.algorithms import community
@@ -1121,7 +1111,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/email-Eu-core.txt', Ginti)
+    G = ContractDict('../data/p2p-Gnutella30.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -1149,7 +1139,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G,5, 2))
+        sourceList.append(contractSource(G,1, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0

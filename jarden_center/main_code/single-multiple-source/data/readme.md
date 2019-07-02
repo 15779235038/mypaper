@@ -45,3 +45,19 @@ Directed graph (each unordered pair of nodes is saved once): CA-CondMat.txt
 Collaboration network of Arxiv Condensed Matter category (there is an edge if authors coauthored at least one paper)   
 Nodes: 23133 Edges: 186936  
 FromNodeId	ToNodeId  
+
+
+#  6  一个小数据集
+
+email-eu——core
+
+node： 1005  
+边：25571
+
+
+#  7  一万多点的数据集
+
+Directed graph (each unordered pair of nodes is saved once): p2p-Gnutella30.txt   
+Directed Gnutella P2P network from August 30 2002  
+Nodes: 36682 Edges: 88328  
+FromNodeId	ToNodeId  
