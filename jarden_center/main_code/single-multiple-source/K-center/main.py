@@ -17,7 +17,7 @@ os.environ["CUDA_VISIBLE_DEVICES"]='0'
 有效距离的定义：度大点的传播距离较远。目前只有一个指标：根据度数的大小。度数越大，与他相连的边的权重越大。
 越不容易传播、越可能在距离比较远的时间传播。以此为方法定义权重。
 '''
-from sklearn import preprocessing
+
 
 import numpy as np
 
@@ -75,7 +75,7 @@ def Algorithm1(G, SourceList, time_sum, hlist):
         infectList = []
         infectList.append(j)
         G.node[j]['SI'] = 2
-        for time in range(0, 5):
+        for time in range(0, 4):
             tempinfectList = []
             for node in infectList:
                 for height in list(G.neighbors(node)):
@@ -826,7 +826,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 3, 2))
+        sourceList.append(contractSource(G, 1, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -844,7 +844,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource,3)
+        errordistance = multiplePartion(multipList, infectG, singleSource,1)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))

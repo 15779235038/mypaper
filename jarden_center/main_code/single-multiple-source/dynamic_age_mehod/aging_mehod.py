@@ -11,7 +11,7 @@ from networkx.algorithms import community
 有效距离的定义：度大点的传播距离较远。目前只有一个指标：根据度数的大小。度数越大，与他相连的边的权重越大。
 越不容易传播、越可能在距离比较远的时间传播。以此为方法定义权重。
 '''
-from sklearn import preprocessing
+
 
 import numpy as np
 
@@ -178,30 +178,6 @@ def contractSource(G, sourceNum, sourceMaxDistance):
                         print ('是四个点，但是却有重复，只能够重新选择新的开始点')
                         flag1 = 1
 
-            # flag1=0
-            # while flag1==0:
-            #
-            #     #随机找个点，然后再找一个点。距离跟他有10个距离就可以。
-            #     random_RumorSource = random.choice(sumlist)
-            #     rumorSourceList=[random.choice(sumlist),random.choice(sumlist),random.choice(sumlist),random.choice(sumlist)]
-            #     combinationList = list(combinations(rumorSourceList, 2))
-            #
-            #     flag2=0
-            #     for sample in combinationList:
-            #         if  nx.has_path(G, sample[0],sample[1]) == True:
-            #
-            #                 flag2=1
-            #
-            #     if flag2==1:
-            #         flag1=0
-            #     else:
-            #         flag1=1
-            # if len(rumorSourceList) != len(set(rumorSourceList)) and len(rumorSourceList) != 4:  # 重复或者数目达不到要求
-            #     #有重复元素
-            #     flag=0
-            # else:
-            #     flag=1
-
 
         elif sourceNum == 5:
             flag = 0
@@ -231,6 +207,11 @@ def contractSource(G, sourceNum, sourceMaxDistance):
     # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 95
     print('真实两源感染是' + str(rumorSourceList))
     return rumorSourceList
+
+
+
+
+
 
 
 import csv
@@ -802,7 +783,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 4, 2))
+        sourceList.append(contractSource(G, 1, 2))
 
 
     errordistanceList = []  # 误差集合。
@@ -821,7 +802,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource,4)
+        errordistance = multiplePartion(multipList, infectG, singleSource,1)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))
