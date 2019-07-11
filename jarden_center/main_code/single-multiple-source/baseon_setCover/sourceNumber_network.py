@@ -66,15 +66,15 @@ def Algorithm1(G, SourceList, time_sum, hlist):
         infectList = []
         infectList.append(j)
         G.node[j]['SI'] = 2
-        for time in range(0, 10):
+        for time in range(0, 5):
             tempinfectList = []
-            for node in infectList:
+            for node in list(set(infectList)):
                 for height in list(G.neighbors(node)):
                     randnum = random.random()
                     if randnum < 0.5:
                         G.node[height]['SI'] = 2
                         tempinfectList.append(height)
-            # infectList.clear()
+            infectList.clear()
             for timeInfectnode in tempinfectList:
                 infectList.append(timeInfectnode)
 
@@ -460,8 +460,8 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNumbe
             combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset)])
 
         sourceAndH = []
-        hlists = [6,7,8,9,10,11]
-        for htemp in range(5, 11):
+        hlists = [3,4,5]
+        for htemp in range(2, 6):
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
         # 从combinationList中寻找100个样本集。
@@ -531,8 +531,8 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNumbe
                                     random.choice(Alternativenodeset)])
 
         sourceAndH = []
-        hlists = [2, 3]
-        for htemp in range(2, 5):
+        hlists = [3, 4, 5]
+        for htemp in range(2, 6):
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
         # 从combinationList中寻找100个样本集。
@@ -601,7 +601,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNumbe
             combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset),
                                     random.choice(Alternativenodeset), random.choice(Alternativenodeset)])
         sourceAndH = []
-        hlists = [2, 3]
+        hlists = [3, 4, 5]
         for htemp in range(2, 7):
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
@@ -673,8 +673,8 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNumbe
                                     random.choice(Alternativenodeset)])
 
         sourceAndH = []
-        hlists = [6,7,8,9,10,11]  #样本更新值，更新h
-        for htemp in range(7, 11):     #样本初始值
+        hlists = [3, 4, 5]
+        for htemp in range(2, 7):     #样本初始值
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
         # 从combinationList中寻找100个样本集。
@@ -1085,7 +1085,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/treenetwork3000.txt', Ginti)
+    G = ContractDict('../data/email-Eu-core.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -1113,7 +1113,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 101):
-        sourceList.append(contractSource(G,2, 2))
+        sourceList.append(contractSource(G,3, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -1131,7 +1131,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource, 2)
+        errordistance = multiplePartion(multipList, infectG, singleSource, 3)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         print('误差集合为' + str(errordistanceList))

@@ -61,3 +61,10 @@ Directed graph (each unordered pair of nodes is saved once): p2p-Gnutella30.txt
 Directed Gnutella P2P network from August 30 2002  
 Nodes: 36682 Edges: 88328  
 FromNodeId	ToNodeId  
+
+#  8
+
+Directed graph (each unordered pair of nodes is saved once): Wiki-Vote.txt     
+Wikipedia voting on promotion to administratorship (till January 2008). Directed edge A->B means user A voted on B becoming Wikipedia administrator.    
+Nodes: 7115 Edges: 103689    
+FromNodeId	ToNodeId    

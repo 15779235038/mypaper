@@ -66,15 +66,15 @@ def Algorithm1(G, SourceList, time_sum, hlist):
         infectList = []
         infectList.append(j)
         G.node[j]['SI'] = 2
-        for time in range(0,5):
+        for time in range(0,10):
              tempinfectList=[]
-             for node in list(set(infectList)):
+             for node in infectList:
                 for height in list(G.neighbors(node)):
                         randnum=random.random()
                         if randnum<0.5:
                             G.node[height]['SI'] = 2
                             tempinfectList.append(height)
-             infectList.clear()
+             # infectList.clear()
              for timeInfectnode in tempinfectList:
                  infectList.append(timeInfectnode)
 
@@ -122,7 +122,7 @@ def contractSource(G, sourceNum, sourceMaxDistance):
                     rumorSourceList.append(random_RumorSource)
                     nehibor = []
                     for j in range(0, 1):
-                        for i in range(0, 3):
+                        for i in range(0, 4):
                             nehibor = list(G.neighbors(random_RumorSource))
                             randomnumber = random.randint(0, len(nehibor) - 1)
                             random_RumorSource = nehibor[randomnumber]
@@ -357,7 +357,38 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
     print('这个感染区域的传播图节点个数')
     print(tempGraph.number_of_nodes())
     Alternativenodeset = list(set(tempGraphNodelist))  # 备选集合。
+    # 求出这个区域最远的路径出来。返回这个区域半径。
+    print('这个感染区域的传播半径')
+    # maxh=nx.radius(tempGraph)
+    '''
+      1  选择边界点。（or所有点）
+      2  选择中心点，以（u，h）去达到最大的覆盖数目。计算这样形成的u和它所有边界点形成的路径成本。
+      3  再以(u1,h1).(u2,h2)去达到这样的覆盖数目，计算这样形成的路径成本之和。（每次增大h，这个子集合的成本都会增大。）
+      '''
+    # 首先第一步，将这个tempGra圆投影到x，y轴。
+    # 让我看看这个图
+    ConvertGToCsvSub(tempGraph, 'tempGraph.csv')
+    # peripheryList=nx.periphery(tempGraph)  #求解图边界list
 
+    # 随机求一些list，待选集合。偏心率<于某些数值，的元素。
+    chooseList = []
+    for node in tempGraph.nodes:
+        randomnum = random.random()
+        if randomnum > 0.95:
+            chooseList.append(node)
+    # centerlist = list(nx.center(tempGraph))
+    # print('感染图的中心为' + str(centerlist))
+    # for center in centerlist:
+    #     chooseList.append(center)    #
+    print('把源点加入进去')
+    for j in trueSourcelist:
+        chooseList.append(j)
+    print('chooseList个元素个数为' + str(len(chooseList)))
+    # maxh=nx.radius(tempGraph)
+    # print ('感染图半径为'+str(maxh))   #把边都加入话，半径都小了。都不是一个好树了，难受
+
+    chooseList = chooseList[-10:]  # 取最后20个。
+    print('chooseList' + '总共有多少元素' + str(len(chooseList)))
     minCoverlist = []
 
     print('在源点在' + str(sourceNumber) + '个数的情况下')
@@ -524,7 +555,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
         #
 
         resultListAll = []
-        for h in range(2, 4):
+        for h in range(7, 11):
             # 随机找两个源，开始
             sourcePartition = []
             randomSource = []
@@ -557,7 +588,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                 lengthlist = []
                 for index1 in range(0, sourceNumber):
                     lengthlist.append([index1, randomSource[index1], node,
-                                       nx.shortest_path_length(tempGraph, source=node, target=randomSource[index1])])
+                                       nx.shortest_path_length(infectionG, source=node, target=randomSource[index1])])
                 resulttemp = sorted(lengthlist, key=lambda x: (x[3]))
                 print('输出关于这个东西的距离集合看看')
                 print(resulttemp)
@@ -570,15 +601,9 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
             result = []
             for singlePartition in sourceBFS:  #对每个分区求jarden  center
                 source1G = nx.Graph()  # 构建新的单源传播圆出来
-                for edge in tempGraph.edges:
+                for edge in infectionG.edges:
                     if edge[0] in singlePartition and edge[1] in singlePartition:
                         source1G.add_edge(edge[0], edge[1])
-
-                egitinum=nx.laplacian_spectrum(source1G)
-                print('特征值是'+str(egitinum))
-                for eg in egitinum:
-                    if eg==0:
-                     print (eg)
 
                 print('传播子图为source1G,它的点数和边数为' + str(source1G.number_of_nodes()) + '-------' + str(
                     source1G.number_of_edges()))
@@ -667,7 +692,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
     elif sourceNumber == 3:
 
         resultListAll = []
-        for h in range(1, 5):
+        for h in range(7, 11):
             # 随机找两个源，开始
             sourcePartition = []
             randomSource = []
@@ -794,7 +819,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
     elif sourceNumber == 4:
 
         resultListAll = []
-        for h in range(2, 5):
+        for h in range(7, 11):
             # 随机找两个源，开始
             sourcePartition = []
             randomSource = []
@@ -990,11 +1015,6 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                                 # print ('并集就是可使用'+str(retD))
                                 retC = list(set(IDdict[heighbour]).union(set(IDdict[node])))
                                 IDdict_dup[node] = list(set(IDdict_dup[node] + retC))  # 先用一个dict把结果装入,然后这个时间过去再加回去。
-
-
-
-
-
 
                     for key, value in IDdict_dup.items():
                         IDdict[key] = IDdict_dup[key]
@@ -1459,7 +1479,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/email-Eu-core.txt', Ginti)
+    G = ContractDict('../data/treenetwork3000.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -1487,7 +1507,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 101):
-        sourceList.append(contractSource(G, 3, 2))
+        sourceList.append(contractSource(G,3, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
