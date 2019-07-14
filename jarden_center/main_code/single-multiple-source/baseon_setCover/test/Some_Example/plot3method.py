@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def plotform():
-    x = range(1, 6)
+    x = range(2, 6)
 
 
     #facebook
@@ -25,16 +25,17 @@ def plotform():
 
 
     #P2p
-    dynamic_age = [2.1,3.3,3.7,3.9,4.2]
-    K_center = [1.9,3.6,3.6,3.7,4.1]
-    Our_method = [1.1,1.4,2.1,2.2,2.6]
+    # dynamic_age = [2.1,3.3,3.7,3.9,4.2]
+    # K_center = [1.9,3.6,3.6,3.7,4.1]
+    differ_time=[1.914,2.141,2.235,2.650]
+    Our_method = [1.484,1.595,1.679,2.040]
 
 
-    plt.xlim(0, 7)  # 限定横轴的范围
-    plt.ylim(0, 6)  # 限定纵轴的范围
+    plt.xlim(1,6)  # 限定横轴的范围
+    plt.ylim(1, 3)  # 限定纵轴的范围
 
-    plt.plot(x, dynamic_age, marker='o', mec='r', mfc='w', label='dynamic_age')
-    plt.plot(x, K_center, marker='*', ms=10, label='K_center')
+    # plt.plot(x, dynamic_age, marker='o', mec='r', mfc='w', label='dynamic_age')
+    plt.plot(x, differ_time, marker='*', ms=10, label='differ_time')
     plt.plot(x, Our_method, marker='.', ms=10, label='Our_method')
     plt.legend()  # 让图例生效
 

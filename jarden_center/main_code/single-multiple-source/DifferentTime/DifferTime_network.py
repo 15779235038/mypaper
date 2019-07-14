@@ -78,15 +78,6 @@ def Algorithm1(G, SourceList, time_sum, hlist):
              for timeInfectnode in tempinfectList:
                  infectList.append(timeInfectnode)
 
-
-        # nodelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).nodes)  # 这包含了这个构建的圆的所有节点。
-        # edgelist = list(nx.bfs_tree(G, source=SourceList[j], depth_limit=3).edges)
-        # print(len(nodelist))
-        # nodelist = random.sample(nodelist, int(float(len(nodelist)) * 0.9))  # 从list中随机获取5个元素，作为一个片断返回
-        # for i in nodelist:
-        #     G.node[i]['SI'] = 2
-        # for k in edgelist:
-        #     G.adj[k[0]][k[1]]['Infection'] = 2
         print('头两个感染社区点数为' + str(len(infectList)))
 
     return G
@@ -258,6 +249,7 @@ def getTuresubinfectionG(infectG, randomInfectionsource):
         if infectG.node[nodes]['SI'] == 2:
             infectionNodeList.append(nodes)
 
+
     return infectionNodeList
 
 
@@ -356,7 +348,8 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
     print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraphNodelist))))
     print('这个感染区域的传播图节点个数')
     print(tempGraph.number_of_nodes())
-    Alternativenodeset = list(set(tempGraphNodelist))  # 备选集合。
+    Alternativenodeset = list(tempGraph.nodes())  # 备选集合。
+    print ('tempgraph的所有点数'+str(len(Alternativenodeset)))
 
     minCoverlist = []
 
@@ -667,13 +660,14 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
     elif sourceNumber == 3:
 
         resultListAll = []
-        for h in range(1, 5):
+        for h in range(2, 5):
             # 随机找两个源，开始
             sourcePartition = []
             randomSource = []
             for number in range(0, sourceNumber):
                 randomSource.append(random.choice(Alternativenodeset))
                 sourcePartition.append([])
+
             for index in range(len(sourcePartition)):
                 sourcePartition[index].append(randomSource[index])
 
@@ -695,22 +689,25 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
 
 
 
-            for node in difSet:   #针对差集重新分配
+            for nodedif in list(set(difSet)):   #针对差集重新分配
                 # 分别计算到两个源的距离。
                 lengthlist = []
                 for index1 in range(0, sourceNumber):
-                    lengthlist.append([index1, randomSource[index1], node,
-                                       nx.shortest_path_length(infectionG, source=node, target=randomSource[index1])])
+                    lengthlist.append([index1, randomSource[index1], nodedif,
+                                       nx.shortest_path_length(infectionG, source=nodedif, target=randomSource[index1])])
                 resulttemp = sorted(lengthlist, key=lambda x: (x[3]))
-                print('输出关于这个东西的距离集合看看')
-                print(resulttemp)
+                # print('输出关于这个东西的距离集合看看')
+                # print(resulttemp)
                 # 加入第一个队列中。
-                sourceBFS[resulttemp[0][0]].append(node)
+                sourceBFS[resulttemp[0][0]].append(nodedif)
 
+            print ('查看每个sourceBFs的每个元素个数')
+
+            print (len(set(listFlatten(sourceBFS))))
             result = []
             for singlePartition in sourceBFS:  #对每个分区求jarden  center
                 source1G = nx.Graph()  # 构建新的单源传播圆出来
-                for edge in tempGraph.edges:
+                for edge in infectionG.edges:
                     if edge[0] in singlePartition and edge[1] in singlePartition:
                         source1G.add_edge(edge[0], edge[1])
 
@@ -721,7 +718,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                 IDdict = {}
                 IDdict_dup = {}
                 # 先赋予初始值。
-                for node in list(source1G.nodes):
+                for node in list(set(source1G.nodes)):
                     # subinfectG.node[node]['ID']=list(node)   #赋予的初始值为list
                     IDdict[node] = [node]
                     IDdict_dup[node] = [node]
@@ -779,6 +776,9 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
             resultListAll.append(result)
             print ('输出resultListAll为多少'+str(resultListAll))
             distance=[]
+
+
+
             if len(resultListAll)>=2:
                     temp_result=resultListAll[-2:]
                     distance.append(nx.shortest_path_length(infectionG,source=temp_result[0][0],target=temp_result[1][0]))
@@ -1147,7 +1147,6 @@ import math
 def multiplePartion(mutiplelist, infectionG, rumorSourceList,sourceNumber):
     # 所有单源list
     allsigleSourceList = []
-    allSigleSourceListNum = [2, 1]
 
     # 将第一个传播区域定下来。
     import datetime
@@ -1487,7 +1486,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 101):
-        sourceList.append(contractSource(G, 3, 2))
+        sourceList.append(contractSource(G, 5, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -1505,7 +1504,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource,3)
+        errordistance = multiplePartion(multipList, infectG, singleSource,5)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         listToTxt(str(datetime.datetime.now()), 'DiffTime.txt')
