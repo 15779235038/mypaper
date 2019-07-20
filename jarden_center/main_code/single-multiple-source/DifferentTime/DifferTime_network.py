@@ -411,110 +411,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
 
 
     elif sourceNumber == 2:
-        # # 两源情况，怎么办。
-        # # 用jaya算法，总的list我们知道了的，但是我们也要知道jaya需要的x1和x2空间，注意我这里是离散型数据，就是x1，x2 是离散型的。非连续，怎么办？
-        # '''
-        #
-        # 1 变种jaya算法，首先生成100个种群大小。
-        # 2  然后，算出每个similir，然后有最坏的那个，还有最好的那个。把最坏的那个拿出来，最好的那个拿出来。
-        # 3 开始计算，让其他98个节点，靠近最好（计算最短距离，然后靠近那个店），远离最坏（计算最短距离，不靠近那个店，随便选个点走。）。
-        #
-        # '''
-        # min = 200
-        # print('多源情况,先考察同时传播传播')
-        # print('源点为' + str(sourceNumber) + '情况')
-        # # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
-        # # combinationList = list(combinations(Alternativenodeset, sourceNumber))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
-        # print('这一步炸了')
-        # combinationList = []  # 样本集合
-        # # 随机产生这些可能性，随机生成种群50大小。
-        # for sampleindex in range(0, 53):
-        #     combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset)])
-        #
-        # sourceAndH = []
-        # hlists = [2, 3]
-        # for htemp in range(2, 5):
-        #     for sourcetmep in combinationList:
-        #         sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
-        # # 从combinationList中寻找100个样本集。
-        # Sampleset = random.sample(sourceAndH, 50)
-        # print('样本集产生完毕，100个，是' + str(Sampleset))
-        # bestsourceNews = []
-        # # 迭代五次
-        # for i in range(1, 4):
-        #     # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
-        #     for sourcesi in range(len(Sampleset)):
-        #         print('当前输入list' + str(Sampleset[sourcesi]))
-        #         mincover = getSimilir(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-        #                               infectionG)
-        #         # 随机更换，看如何让变好
-        #         # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
-        #         length = len(sourceAndH)
-        #         for j in range(1, 4, 1):  # 随机变4次，只要能变好
-        #             lateelement = [[random.choice(Alternativenodeset), random.choice(Alternativenodeset)],random.choice(hlists)]
-        #             print('当前输入的后面list' + str(lateelement))
-        #             latemincover = getSimilir(lateelement[0], lateelement[1], singleRegionList, infectionG)
-        #             if mincover > latemincover:
-        #                 mincover = latemincover  # 有更好地就要替换
-        #                 print("要进行替换了" + str(sourceAndH[sourcesi]) + '被替换成lateelement')
-        #                 Sampleset[sourcesi] = lateelement  # 替换
-        #                 print(Sampleset[sourcesi])
-        #
-        # print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
-        # # 计算样本集的similir，找出最好的。
-        # for sources in Sampleset:
-        #     mincover = getSimilir(sources[0], sources[1], singleRegionList, infectionG)
-        #     if mincover < min:
-        #         min = mincover  # 这一次最好的覆盖误差率
-        #         bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
-        #
-        # print('得到多源点情况最小的覆盖率为' + str(min))
-        # minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
-        # #这时候，我们的minCoverlist有两个min，我们来计算下。当两次的min之差小于某个值，我们认为源点为k。
-        # # Comparisonlist=minCoverlist[-2:]  #取最后两个元素，
-        # # Difference=abs(Comparisonlist[0][2]-Comparisonlist[1][2])
-        # # if Difference ==0:
-        # #     print ('两次覆盖率一样')
-        # #     pass
-        # # elif Difference<0.00001:
-        # #     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNumber - 1))
-        # #     break
-        # flag=0
-        # while flag==0:
-        #
-        #     print('多源情况,先考察同时传播传播')
-        #     print('源点为' + str(sourceNumber) + '情况')
-        #     # 先判断源点个数，从chooseList中随机挑选两点，进行h构建。
-        #     # combinationList = list(combinations(Alternativenodeset, sourceNumber))  # 这是排列组合，再次针对这个排列组合,这是所有的两个
-        #     print('这一步炸了')
-        #     combinationList = []  # 样本集合
-        #     # 随机产生这些可能性，随机生成种群50大小。
-        #     for sampleindex in range(0, 53):
-        #         combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset)])
-        #
-        #     sourceAndH = []
-        #     hlists = [2, 3]
-        #     for htemp in range(1, 5):
-        #         for sourcetmep in combinationList:
-        #             sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
-        #
-        #         #就在每个h下，不断覆盖吧。有个u是maxD（u，u’）的。在每个h下都有这样的点。找出这样的点出来。能让
-        #         #随机指派2个点，让最远的半径最小。可以重叠的。
-        #
-        #
-        #
-        #
-        #
-        #
-        #     # 从combinationList中寻找100个样本集。
-        #     Sampleset = random.sample(sourceAndH, 50)
-        #     print('样本集产生完毕，100个，是' + str(Sampleset))
-        #     '''
-        #      #逐步增大h，让两个覆盖T1和T2让E最大。其实就是让树根作为被找到的点。
-        #         #备选集合为alterList
-        #
-        #     '''
-        #
+
 
         resultListAll = []
         for h in range(2, 4):
@@ -575,6 +472,18 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
 
                 print('传播子图为source1G,它的点数和边数为' + str(source1G.number_of_nodes()) + '-------' + str(
                     source1G.number_of_edges()))
+                #将某些无邻居的点删除。因为根本不是一个连接子图。
+                for  removenode  in  list(source1G.nodes):
+                    if   len(list(source1G.neighbors(removenode)))==0:
+                        source1G.remove_node(removenode)
+
+                print ('移除后顶点个数为'+str(source1G.number_of_nodes()))
+
+
+
+
+
+
                 # 在nodelist找出源点来。
                 times = 40  # 时间刻多点
                 IDdict = {}
@@ -660,65 +569,72 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
     elif sourceNumber == 3:
 
         resultListAll = []
-        for h in range(2, 5):
+        for h in range(2, 4):
             # 随机找两个源，开始
             sourcePartition = []
             randomSource = []
             for number in range(0, sourceNumber):
                 randomSource.append(random.choice(Alternativenodeset))
                 sourcePartition.append([])
-
             for index in range(len(sourcePartition)):
                 sourcePartition[index].append(randomSource[index])
 
             print(sourcePartition)  # 3个区域划分完毕
 
-
-
-            sourceBFS=[]
-            #那么现在根据增大h吧，让我看看结果。增大h，然后构建BFS树。
-            for  source in randomSource:
+            sourceBFS = []
+            # 那么现在根据增大h吧，让我看看结果。增大h，然后构建BFS树。
+            for source in randomSource:
                 sourceBFS.append(list(nx.bfs_tree(tempGraph, source=source, depth_limit=h).nodes))
 
-            #然后这sourceBFS包括所有的这两个点构成h的list了。求个合集，跟总的求差集。把差的重新分配好。
-            unionList=list(set(listFlatten(sourceBFS)))
+            # 然后这sourceBFS包括所有的这两个点构成h的list了。求个合集，跟总的求差集。把差的重新分配好。
+            unionList = list(set(listFlatten(sourceBFS)))
             print('两个BFS的合集的个数为' + str(len(unionList)))
-            difSet=list(set(Alternativenodeset).difference(set( unionList)))
-            print ('两个bfs和整个图差集的个数为'+str(len(difSet)))
+            difSet = list(set(Alternativenodeset).difference(set(unionList)))
+            print('两个bfs和整个图差集的个数为' + str(len(difSet)))
 
-
-
-
-            for nodedif in list(set(difSet)):   #针对差集重新分配
+            for node in difSet:  # 针对差集重新分配
                 # 分别计算到两个源的距离。
                 lengthlist = []
                 for index1 in range(0, sourceNumber):
-                    lengthlist.append([index1, randomSource[index1], nodedif,
-                                       nx.shortest_path_length(infectionG, source=nodedif, target=randomSource[index1])])
+                    lengthlist.append([index1, randomSource[index1], node,
+                                       nx.shortest_path_length(tempGraph, source=node, target=randomSource[index1])])
                 resulttemp = sorted(lengthlist, key=lambda x: (x[3]))
-                # print('输出关于这个东西的距离集合看看')
-                # print(resulttemp)
+                print('输出关于这个东西的距离集合看看')
+                print(resulttemp)
                 # 加入第一个队列中。
-                sourceBFS[resulttemp[0][0]].append(nodedif)
 
-            print ('查看每个sourceBFs的每个元素个数')
+                print('-------------------')
+                print('查看社区数目' + str(len(sourceBFS)))
+                sourceBFS[resulttemp[0][0]].append(node)
 
-            print (len(set(listFlatten(sourceBFS))))
             result = []
-            for singlePartition in sourceBFS:  #对每个分区求jarden  center
+            for singlePartition in sourceBFS:  # 对每个分区求jarden  center
                 source1G = nx.Graph()  # 构建新的单源传播圆出来
-                for edge in infectionG.edges:
+                for edge in tempGraph.edges:
                     if edge[0] in singlePartition and edge[1] in singlePartition:
                         source1G.add_edge(edge[0], edge[1])
 
+                egitinum = nx.laplacian_spectrum(source1G)
+                print('特征值是' + str(egitinum))
+                for eg in egitinum:
+                    if eg == 0:
+                        print(eg)
+
                 print('传播子图为source1G,它的点数和边数为' + str(source1G.number_of_nodes()) + '-------' + str(
                     source1G.number_of_edges()))
+                # 将某些无邻居的点删除。因为根本不是一个连接子图。
+                for removenode in list(source1G.nodes):
+                    if len(list(source1G.neighbors(removenode))) == 0:
+                        source1G.remove_node(removenode)
+
+                print('移除后顶点个数为' + str(source1G.number_of_nodes()))
+
                 # 在nodelist找出源点来。
                 times = 40  # 时间刻多点
                 IDdict = {}
                 IDdict_dup = {}
                 # 先赋予初始值。
-                for node in list(set(source1G.nodes)):
+                for node in list(source1G.nodes):
                     # subinfectG.node[node]['ID']=list(node)   #赋予的初始值为list
                     IDdict[node] = [node]
                     IDdict_dup[node] = [node]
@@ -758,7 +674,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                 print(allnodelist_keylist)
 
                 result_jarden = 0
-                resultlist=[]
+                resultlist = []
                 # 如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
                 if len(allnodelist_keylist) == 1:
                     print('那就是这个源点了')
@@ -772,25 +688,21 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                         resultlist = sorted(jarcenlist, key=lambda x: x[1])
                     result_jarden = resultlist[0][0]
                     print('构建样本路径之后结果为' + str(resultlist[0][0]))
-                result.append( result_jarden )
+                result.append(result_jarden)
             resultListAll.append(result)
-            print ('输出resultListAll为多少'+str(resultListAll))
-            distance=[]
+            print('输出resultListAll为多少' + str(resultListAll))
+            distance = []
+            if len(resultListAll) >= 2:
+                temp_result = resultListAll[-2:]
+                distance.append(nx.shortest_path_length(infectionG, source=temp_result[0][0], target=temp_result[1][0]))
+                distance.append(nx.shortest_path_length(infectionG, source=temp_result[0][1], target=temp_result[1][1]))
 
-
-
-            if len(resultListAll)>=2:
-                    temp_result=resultListAll[-2:]
-                    distance.append(nx.shortest_path_length(infectionG,source=temp_result[0][0],target=temp_result[1][0]))
-                    distance.append(nx.shortest_path_length(infectionG,source=temp_result[0][1],target=temp_result[1][1]))
-                    distance.append(nx.shortest_path_length(infectionG, source=temp_result[0][2], target=temp_result[1][2]))
-                    print ('两者距离之和让我们看看怎么显示'+str(distance))
-                    if  max(distance)<=2:
-                        break
-
-
+                print('两者距离之和让我们看看怎么显示' + str(distance))
+                if max(distance) <= 2:
+                    break
 
         return resultListAll[-1:]
+
     elif sourceNumber == 4:
 
         resultListAll = []
@@ -826,7 +738,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                 lengthlist = []
                 for index1 in range(0, sourceNumber):
                     lengthlist.append([index1, randomSource[index1], node,
-                                       nx.shortest_path_length(infectionG, source=node, target=randomSource[index1])])
+                                       nx.shortest_path_length(tempGraph, source=node, target=randomSource[index1])])
                 resulttemp = sorted(lengthlist, key=lambda x: (x[3]))
                 print('输出关于这个东西的距离集合看看')
                 print(resulttemp)
@@ -924,7 +836,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
 
     elif sourceNumber == 5:
         resultListAll = []
-        for h in range(7, 11):
+        for h in range(3,6):
             # 随机找两个源，开始
             sourcePartition = []
             randomSource = []
@@ -952,7 +864,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                 lengthlist = []
                 for index1 in range(0, sourceNumber):
                     lengthlist.append([index1, randomSource[index1], node,
-                                       nx.shortest_path_length(infectionG, source=node, target=randomSource[index1])])
+                                       nx.shortest_path_length(tempGraph, source=node, target=randomSource[index1])])
                 resulttemp = sorted(lengthlist, key=lambda x: (x[3]))
                 print('输出关于这个东西的距离集合看看')
                 print(resulttemp)
@@ -1199,7 +1111,7 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList,sourceNumber):
 
 
     print('总的用反转算法算出来的结果为' + str(resultSource))
-    listToTxt(resultSource, 'newresult.txt')
+    # listToTxt(resultSource, 'newresult.txt')
 
 
 
@@ -1458,7 +1370,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/facebook_combined.txt', Ginti)
+    G = ContractDict('../data/CA-GrQc.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -1490,7 +1402,7 @@ if __name__ == '__main__':
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
-
+    errorCount=0
     # 对每一个单源点都有这个操作。
     for singleSource in sourceList:
         #  先给全体的Cn、Scn,time的0的赋值。
@@ -1508,7 +1420,8 @@ if __name__ == '__main__':
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         listToTxt(str(datetime.datetime.now()), 'DiffTime.txt')
-        listToTxt('输出每次结果看看', 'DiffTime.txt')
+        errorCount=errorCount+1
+        listToTxt('输出第'+str(errorCount)+'次结果看看', 'DiffTime.txt')
         listToTxt(errordistanceList, 'DiffTime.txt')
         listToTxt('输出平均值' + str(errorSum / len(errordistanceList)), 'DiffTime.txt')
         print('误差集合为' + str(errordistanceList))
