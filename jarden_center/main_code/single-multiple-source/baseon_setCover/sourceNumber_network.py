@@ -2,7 +2,7 @@
 import networkx as nx
 import random
 from networkx.algorithms import community
-
+from munkres import Munkres, print_matrix
 # from Girvan_Newman import GN #引用模块中的函数
 
 # 读取文件中边关系，然后成为一个成熟的图,是有一个有效距离的。这里需要加
@@ -1827,7 +1827,7 @@ this   function  :   to  get  sourcelist fo  everyRegionList  and   caluce  ever
 '''
 
 import math
-
+import  numpy
 
 def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNumber):
     # 所有单源list
@@ -1918,51 +1918,78 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNumber):
 
     # 三种情况
 
+    matrix_temp = numpy.eye(len(rumorSourceList))
 
-    
+    for i in range(0, len(rumorSourceList)):
+        for j in range(0, len(resultSource)):
+            matrix_temp[i][j] = nx.shortest_path_length(infectionG, source=rumorSourceList[i], target=resultSource[j])
+
+    print('输出矩阵看看' + str(matrix_temp))
+
+    allcost = calcuCost(matrix_temp)
+    print('看下总成本' + allcost)
+    return allcost / len(rumorSourceList)
+#
+#
+# if len(resultSource) >= len(rumorSourceList):
+#         for turesourcelist in rumorSourceList:  # 真实源
+#             everydistion = []
+#             for resultsourceindex in resultSource:  # 自己算法找出的源。
+#                 everydistion.append([resultsourceindex,
+#                                      nx.shortest_path_length(infectionG, source=turesourcelist,
+#                                                              target=resultsourceindex)])
+#             everydistion = sorted(everydistion, key=lambda x: (x[1]))
+#             # 结果集匹配到了，最好的结果就要移除这个了。
+#             resultSource.remove(everydistion[0][0])  # 移除最小距离的那个
+#             print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
+#             print(everydistion)
+#             errordistanceFor.append(everydistion[0][1])
+#         multipdistance = 0
+#         for error in errordistanceFor:
+#             multipdistance = multipdistance + error
+#         # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
+#         print('误差距离为' + str(multipdistance))
+#         return multipdistance / len(errordistanceFor)
+#
+#     elif len(resultSource) < len(rumorSourceList):
+#         for resultSourceindex in resultSource:
+#             everydistion = []
+#             for turesourcelist in rumorSourceList:
+#                 everydistion.append([turesourcelist,
+#                                      nx.shortest_path_length(infectionG, source=resultSourceindex,
+#                                                              target=turesourcelist)])
+#             everydistion = sorted(everydistion, key=lambda x: (x[1]))
+#             rumorSourceList.remove(everydistion[0][0])  # 移除最小距离的那个
+#             print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
+#             print(everydistion)
+#             errordistanceFor.append(everydistion[0][1])
+#         multipdistance = 0
+#         for error in errordistanceFor:
+#             multipdistance = multipdistance + error
+#         # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
+#         print('误差距离为' + str(multipdistance))
+#         return multipdistance / len(errordistanceFor)
+#
+#     # do something other
 
 
 
-    if len(resultSource) >= len(rumorSourceList):
-        for turesourcelist in rumorSourceList:  # 真实源
-            everydistion = []
-            for resultsourceindex in resultSource:  # 自己算法找出的源。
-                everydistion.append([resultsourceindex,
-                                     nx.shortest_path_length(infectionG, source=turesourcelist,
-                                                             target=resultsourceindex)])
-            everydistion = sorted(everydistion, key=lambda x: (x[1]))
-            # 结果集匹配到了，最好的结果就要移除这个了。
-            resultSource.remove(everydistion[0][0])  # 移除最小距离的那个
-            print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
-            print(everydistion)
-            errordistanceFor.append(everydistion[0][1])
-        multipdistance = 0
-        for error in errordistanceFor:
-            multipdistance = multipdistance + error
-        # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
-        print('误差距离为' + str(multipdistance))
-        return multipdistance / len(errordistanceFor)
+def  calcuCost(matrix_partim):
 
-    elif len(resultSource) < len(rumorSourceList):
-        for resultSourceindex in resultSource:
-            everydistion = []
-            for turesourcelist in rumorSourceList:
-                everydistion.append([turesourcelist,
-                                     nx.shortest_path_length(infectionG, source=resultSourceindex,
-                                                             target=turesourcelist)])
-            everydistion = sorted(everydistion, key=lambda x: (x[1]))
-            rumorSourceList.remove(everydistion[0][0])  # 移除最小距离的那个
-            print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
-            print(everydistion)
-            errordistanceFor.append(everydistion[0][1])
-        multipdistance = 0
-        for error in errordistanceFor:
-            multipdistance = multipdistance + error
-        # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
-        print('误差距离为' + str(multipdistance))
-        return multipdistance / len(errordistanceFor)
+    m = Munkres()
+    indexes = m.compute(matrix_partim)
+    print_matrix(matrix_partim, msg='Lowest cost through this matrix:')
+    total = 0
+    for row, column in indexes:
+        value = matrix_partim[row][column]
+        total += value
+        print (row,column,total)
+    print (total)
 
-    # do something other
+
+
+
+
 
 
 # 设计反向传播算法，接收参数。u，h，infectG。
