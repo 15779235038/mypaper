@@ -2,7 +2,7 @@
 import networkx as nx
 import random
 from networkx.algorithms import community
-
+from munkres import Munkres, print_matrix
 
 
 # from Girvan_Newman import GN #引用模块中的函数
@@ -36,6 +36,13 @@ import math
 
 
 
+
+
+
+
+
+
+
 def  effectDistance(probily):
     return 1- math.log(probily)
 
@@ -50,7 +57,7 @@ def Normalization(x):
     return [(float(i) - min(x)) / float(max(x) - min(x)) for i in x]
 
 
-def Algorithm1(G, SourceList, time_sum, hlist):
+def Algorithm(G, SourceList, time_sum, hlist):
     '''
     我们认为时间片是有问题的，这个时间片应该就是按照，不能是每隔一个时间片就传染一波。只能说每隔一个时间片就记录
     一线。传播也有有概率的。
@@ -81,6 +88,77 @@ def Algorithm1(G, SourceList, time_sum, hlist):
         print('头两个感染社区点数为' + str(len(infectList)))
 
     return G
+
+
+
+
+
+
+'''
+
+本种传播方式适用于只传播50%节点就可以了
+
+'''
+
+
+
+
+def Algorithm1(G, SourceList, time_sum, hlist):
+    '''
+    我们认为时间片是有问题的，这个时间片应该就是按照，不能是每隔一个时间片就传染一波。只能说每隔一个时间片就记录
+    一线。传播也有有概率的。
+    '''
+    # this  are  two point to  传播
+    # 每个传播节点都需要传播，让我们看看那些节点都需要传播
+    nodelist = []
+    edgelist = []
+    infectionNodelist = []
+
+    print('开始传染的点是' + str(SourceList))
+    infectList=[]
+    for j in SourceList:
+        infectList.append(j)
+        G.node[j]['SI'] = 2
+
+    #   没有具体的时间概念，传播大概到了50%，就停止传播。开始做实验
+    while  1:
+        tempinfectList = []
+        for node in list(set(infectList)):      #infectList表示的是每一个时刻传播到的点
+            for height in list(G.neighbors(node)):
+                randnum = random.random()
+                if randnum < 0.5:
+                    G.node[height]['SI'] = 2
+                    tempinfectList.append(height)
+        infectList=list(set(infectList))
+        for timeInfectnode in tempinfectList:
+            infectList.append(timeInfectnode)
+
+        #每一个时间点过去，判断有没有感染图的50%的点，感染了就可以，否则不行
+        count=0
+        for  nodetemp  in  list(G.nodes):
+            if   G.node[ nodetemp]['SI'] ==2:
+                    count=count+1
+        print ('被感染点为'+str(count)+'个')
+        if  count/G.number_of_nodes()>0.5:
+            print ('超过50%节点了，不用传播啦')
+            break
+
+
+
+
+
+    return G
+
+
+
+
+
+
+
+
+
+
+
 
 
 # 产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
@@ -1142,7 +1220,11 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList,sourceNumber):
     listToTxt(rumorSourceList, 'compare.txt')
     listToTxt(resultSource, 'compare.txt')
 
-    # 三种情况
+    # 构建矩阵
+    
+
+
+
 
     if len(resultSource) >= len(rumorSourceList):
         for turesourcelist in rumorSourceList:  # 真实源
@@ -1183,6 +1265,39 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList,sourceNumber):
         print('误差距离为' + str(multipdistance))
         return multipdistance / len(errordistanceFor)
     # do something other
+
+
+
+
+
+def  calcuCost(matrix_partim):
+
+    m = Munkres()
+    indexes = m.compute(matrix_partim)
+    print_matrix(matrix_partim, msg='Lowest cost through this matrix:')
+    total = 0
+    for row, column in indexes:
+        value = matrix_partim[row][column]
+        total += value
+        print (row,column,total)
+    print (total)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # 设计反向传播算法，接收参数。u，h，infectG。
