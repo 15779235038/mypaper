@@ -1222,7 +1222,7 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList,sourceNumber):
 
     # 构建矩阵
     matrix_temp=numpy.eye(len(rumorSourceList))
-
+    print (matrix_temp)
 
     for  i  in range(0,len(rumorSourceList)):
         for j in range(0,len(resultSource)):
@@ -1293,6 +1293,7 @@ def  calcuCost(matrix_partim):
         total += value
         print (row,column,total)
     print (total)
+    return total
 
 
 

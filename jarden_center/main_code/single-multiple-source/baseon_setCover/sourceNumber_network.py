@@ -972,7 +972,7 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
                     # 随机更换，看如何让变好
                     # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                     length = len(sourceAndH)
-                    for j in range(1, 5, 1):  # 随机变8次，只要能变好
+                    for j in range(1, 8, 1):  # 随机变8次，只要能变好
                         lateelement = [[random.choice(Alternativenodeset), random.choice(Alternativenodeset)],
                                        h]
                         # print('当前输入的后面list' + str(lateelement))
