@@ -972,7 +972,7 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
                     # 随机更换，看如何让变好
                     # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                     length = len(sourceAndH)
-                    for j in range(1, 8, 1):  # 随机变8次，只要能变好
+                    for j in range(1, 4, 1):  # 随机变8次，只要能变好
                         lateelement = [[random.choice(Alternativenodeset), random.choice(Alternativenodeset)],
                                        h]
                         # print('当前输入的后面list' + str(lateelement))
@@ -997,6 +997,19 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
             h=h+1    #这就是每次要变的h。直到覆盖率最小，在每个h下面都会循环一次。
             if  min  <0.15:
                 break
+            else:
+                if  len(minCoverlist)>=2:
+                    Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
+                    Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
+                    if Difference ==0:
+                        print('两次覆盖率一样')
+                        break
+                else:
+                    print ('覆盖率既然没有小，又只有一个，那就重来')
+                    pass
+            # elif Difference<0.001:
+            #     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNumber - 1))
+            #     break
 
 
 
