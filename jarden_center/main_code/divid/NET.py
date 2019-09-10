@@ -23,6 +23,8 @@ def  ContractDict(dir,G):
 
 
 
+
+
 #生成感染图，我们看看感染图是什么样子。
 
 
