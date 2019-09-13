@@ -3,6 +3,7 @@ import networkx as nx
 import random
 from networkx.algorithms import community
 from munkres import Munkres, print_matrix
+
 # from Girvan_Newman import GN #引用模块中的函数
 
 # 读取文件中边关系，然后成为一个成熟的图,是有一个有效距离的。这里需要加
@@ -12,7 +13,6 @@ from munkres import Munkres, print_matrix
 有效距离的定义：度大点的传播距离较远。目前只有一个指标：根据度数的大小。度数越大，与他相连的边的权重越大。
 越不容易传播、越可能在距离比较远的时间传播。以此为方法定义权重。
 '''
-
 
 import numpy as np
 
@@ -50,8 +50,7 @@ def Normalization(x):
     return [(float(i) - min(x)) / float(max(x) - min(x)) for i in x]
 
 
-
-#本方法是按照时间线传播
+# 本方法是按照时间线传播
 def Algorithm(G, SourceList, time_sum, hlist):
     '''
     我们认为时间片是有问题的，这个时间片应该就是按照，不能是每隔一个时间片就传染一波。只能说每隔一个时间片就记录
@@ -64,7 +63,6 @@ def Algorithm(G, SourceList, time_sum, hlist):
     infectionNodelist = []
 
     print('开始传染的点是' + str(SourceList))
-
 
     #   没有具体的时间概念，传播大概到了50%，就停止传播。开始做实验
     for j in SourceList:
@@ -83,22 +81,9 @@ def Algorithm(G, SourceList, time_sum, hlist):
             for timeInfectnode in tempinfectList:
                 infectList.append(timeInfectnode)
 
-
         print('头两个感染社区点数为' + str(len(infectList)))
 
     return G
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 '''
@@ -120,52 +105,35 @@ def Algorithm1(G, SourceList, time_sum, hlist):
     infectionNodelist = []
 
     print('开始传染的点是' + str(SourceList))
-    infectList=[]
+    infectList = []
     for j in SourceList:
         infectList.append(j)
         G.node[j]['SI'] = 2
 
     #   没有具体的时间概念，传播大概到了50%，就停止传播。开始做实验
-    while  1:
+    while 1:
         tempinfectList = []
-        for node in list(set(infectList)):      #infectList表示的是每一个时刻传播到的点
+        for node in list(set(infectList)):  # infectList表示的是每一个时刻传播到的点
             for height in list(G.neighbors(node)):
                 randnum = random.random()
                 if randnum < 0.5:
                     G.node[height]['SI'] = 2
                     tempinfectList.append(height)
-        infectList=list(set(infectList))
+        infectList = list(set(infectList))
         for timeInfectnode in tempinfectList:
             infectList.append(timeInfectnode)
 
-        #每一个时间点过去，判断有没有感染图的50%的点，感染了就可以，否则不行
-        count=0
-        for  nodetemp  in  list(G.nodes):
-            if   G.node[ nodetemp]['SI'] ==2:
-                    count=count+1
-        print ('被感染点为'+str(count)+'个')
-        if  count/G.number_of_nodes()>0.5:
-            print ('超过50%节点了，不用传播啦')
+        # 每一个时间点过去，判断有没有感染图的50%的点，感染了就可以，否则不行
+        count = 0
+        for nodetemp in list(G.nodes):
+            if G.node[nodetemp]['SI'] == 2:
+                count = count + 1
+        print('被感染点为' + str(count) + '个')
+        if count / G.number_of_nodes() > 0.5:
+            print('超过50%节点了，不用传播啦')
             break
 
-
-
-
-
     return G
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # 产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
@@ -300,7 +268,6 @@ def contractSource(G, sourceNum, sourceMaxDistance):
     return rumorSourceList
 
 
-
 import csv
 
 
@@ -405,14 +372,12 @@ def getkey(pos, value):
 
 import matplotlib.pyplot  as plt
 
-
 '''
 本方法使用的是针对全图的误差覆盖率公式，用的similir1
 '''
 
 
-
-def   findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNumber):
+def findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNumber):
     # 首先需要判断是否多源。不断找源点去对这个区域。
     tempGraph = nx.Graph()
     tempGraphNodelist = []
@@ -490,7 +455,7 @@ def   findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNu
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 往后5个位置找一个比它更好地点。只要找更好就行,找不到就返回不变就可以
                 # 当前的下标
                 currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
@@ -540,7 +505,7 @@ def   findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNu
             combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset)])
 
         sourceAndH = []
-        hlists = [5,6,7,8,9]
+        hlists = [5, 6, 7, 8, 9]
         for htemp in range(4, 10):
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
@@ -554,7 +519,7 @@ def   findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNu
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -625,7 +590,7 @@ def   findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNu
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -696,7 +661,7 @@ def   findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNu
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -754,7 +719,7 @@ def   findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNu
 
         sourceAndH = []
         hlists = [3, 4, 5]
-        for htemp in range(2, 7):     #样本初始值
+        for htemp in range(2, 7):  # 样本初始值
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
         # 从combinationList中寻找100个样本集。
@@ -767,7 +732,7 @@ def   findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNu
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -813,15 +778,12 @@ def   findmultiplesource1(singleRegionList, infectionG, trueSourcelist, sourceNu
     return result[0]
 
 
-
-
 '''
 本方法使用的是针对全图的误差覆盖率公式，用的similir1,并且用的是自适应的h。只有覆盖率达到某个值，h才停下来。
 '''
 
 
-
-def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNumber):
+def findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNumber):
     # 首先需要判断是否多源。不断找源点去对这个区域。
     tempGraph = nx.Graph()
     tempGraphNodelist = []
@@ -899,7 +861,7 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 往后5个位置找一个比它更好地点。只要找更好就行,找不到就返回不变就可以
                 # 当前的下标
                 currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
@@ -949,7 +911,7 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
             combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset)])
 
         sourceAndH = []
-        hlists = [5,6,7,8,9]
+        hlists = [5, 6, 7, 8, 9]
         for htemp in range(4, 10):
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
@@ -959,14 +921,14 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
         bestsourceNews = []
         # 迭代五次
 
-        h=4
-        while  1:
+        h = 4
+        while 1:
             for i in range(1, 5):
                 # 我这里根本不是靠近最优的那个嘛。就是随机，那就随机变好吧。每个都更新一遍。每个都更新，只要变好就行。
                 for sourcesi in range(len(Sampleset)):
                     # print('当前输入list' + str(Sampleset[sourcesi]))
                     mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                          infectionG)
+                                           infectionG)
                     # 随机更换，看如何让变好
                     # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                     length = len(sourceAndH)
@@ -983,7 +945,7 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
 
             print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
             # 计算样本集的similir，找出最好的。
-            min=1
+            min = 1
             for sources in Sampleset:
                 mincover = getSimilir1(sources[0], sources[1], singleRegionList, infectionG)
                 if mincover < min:
@@ -992,18 +954,18 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
 
             print('得到多源点情况最小的覆盖率为' + str(min))
             minCoverlist.append([bestsourceNews[0], bestsourceNews[1], min])
-            h=h+1    #这就是每次要变的h。直到覆盖率最小，在每个h下面都会循环一次。
-            if  min  <0.15:
+            h = h + 1  # 这就是每次要变的h。直到覆盖率最小，在每个h下面都会循环一次。
+            if min < 0.15:
                 break
             else:
-                if  len(minCoverlist)>=2:
+                if len(minCoverlist) >= 2:
                     Comparisonlist = minCoverlist[-2:]  # 取最后两个元素，
                     Difference = abs(Comparisonlist[0][2] - Comparisonlist[1][2])
-                    if Difference ==0:
+                    if Difference == 0:
                         print('两次覆盖率一样')
                         break
                 else:
-                    print ('覆盖率既然没有小，又只有一个，那就重来')
+                    print('覆盖率既然没有小，又只有一个，那就重来')
                     pass
             # elif Difference<0.001:
             #     print('跳出for循环，两次覆盖率几乎相等那么预测源点个数为' + str(sourceNumber - 1))
@@ -1066,7 +1028,7 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -1137,7 +1099,7 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -1195,7 +1157,7 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
 
         sourceAndH = []
         hlists = [3, 4, 5]
-        for htemp in range(2, 7):     #样本初始值
+        for htemp in range(2, 7):  # 样本初始值
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
         # 从combinationList中寻找100个样本集。
@@ -1208,7 +1170,7 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir1(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -1254,13 +1216,11 @@ def   findmultiplesource3(singleRegionList, infectionG, trueSourcelist, sourceNu
     return result[0]
 
 
-
 '''
 本方法使用的是针对全图的误差覆盖率公式，用的similir2
 
 
 '''
-
 
 
 def findmultiplesource2(singleRegionList, infectionG, trueSourcelist, sourceNumber):
@@ -1341,7 +1301,7 @@ def findmultiplesource2(singleRegionList, infectionG, trueSourcelist, sourceNumb
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir2(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 往后5个位置找一个比它更好地点。只要找更好就行,找不到就返回不变就可以
                 # 当前的下标
                 currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
@@ -1391,7 +1351,7 @@ def findmultiplesource2(singleRegionList, infectionG, trueSourcelist, sourceNumb
             combinationList.append([random.choice(Alternativenodeset), random.choice(Alternativenodeset)])
 
         sourceAndH = []
-        hlists = [3,4,5]
+        hlists = [3, 4, 5]
         for htemp in range(2, 6):
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
@@ -1405,7 +1365,7 @@ def findmultiplesource2(singleRegionList, infectionG, trueSourcelist, sourceNumb
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir2(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -1476,7 +1436,7 @@ def findmultiplesource2(singleRegionList, infectionG, trueSourcelist, sourceNumb
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir2(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -1547,7 +1507,7 @@ def findmultiplesource2(singleRegionList, infectionG, trueSourcelist, sourceNumb
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir2(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -1605,7 +1565,7 @@ def findmultiplesource2(singleRegionList, infectionG, trueSourcelist, sourceNumb
 
         sourceAndH = []
         hlists = [3, 4, 5]
-        for htemp in range(2, 7):     #样本初始值
+        for htemp in range(2, 7):  # 样本初始值
             for sourcetmep in combinationList:
                 sourceAndH.append([sourcetmep, htemp])  # sourceAndH 是所有的东西，就是[source,h]格式。
         # 从combinationList中寻找100个样本集。
@@ -1618,7 +1578,7 @@ def findmultiplesource2(singleRegionList, infectionG, trueSourcelist, sourceNumb
             for sourcesi in range(len(Sampleset)):
                 # print('当前输入list' + str(Sampleset[sourcesi]))
                 mincover = getSimilir2(Sampleset[sourcesi][0], Sampleset[sourcesi][1], singleRegionList,
-                                      infectionG)
+                                       infectionG)
                 # 随机更换，看如何让变好
                 # currentindex = sourceAndH.index([Sampleset[sourcesi][0], Sampleset[sourcesi][1]])
                 length = len(sourceAndH)
@@ -1664,39 +1624,18 @@ def findmultiplesource2(singleRegionList, infectionG, trueSourcelist, sourceNumb
     return result[0]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def listToTxt(listTo, dir):
-    fileObject = open(dir, 'a',encoding='utf8')
+    fileObject = open(dir, 'a', encoding='utf8')
     fileObject.write(str(listTo))
     fileObject.write('\n')
     fileObject.close()
 
 
-
-
-
-
-
-
-
-
 '''
 适用于公式计算公式       为1-  树并集交感染图/树并集并感染图
 '''
+
+
 def getSimilir1(ulist, hlist, singleRegionList, infectionG):
     '''
     S树-S感染。
@@ -1744,8 +1683,6 @@ def getSimilir1(ulist, hlist, singleRegionList, infectionG):
         # print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
 
         return abs(ratio)
-
-
 
 
 '''
@@ -1801,19 +1738,6 @@ def getSimilir2(ulist, hlist, singleRegionList, infectionG):
         return abs(ratio)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 import sys
 
 
@@ -1838,7 +1762,8 @@ this   function  :   to  get  sourcelist fo  everyRegionList  and   caluce  ever
 '''
 
 import math
-import  numpy
+import numpy
+
 
 def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNumber):
     # 所有单源list
@@ -1853,8 +1778,6 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNumber):
     '''   这个是保留项，我觉得反转算法有点问题，反正（u,h是写完了）,下面这个很好时间'''
     for sigleReionlist in mutiplelist:
         allsigleSourceList.append(findmultiplesource3(sigleReionlist, infectionG, rumorSourceList, sourceNumber))
-
-
 
     # 构建关于这个社区的传播子图
     tempGraph1 = nx.Graph()
@@ -1923,7 +1846,6 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNumber):
 
     errordistanceFor = []
 
-
     # listToTxt(rumorSourceList, 'compare.txt')
     # listToTxt(resultSource, 'compare.txt')
 
@@ -1940,6 +1862,8 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNumber):
     allcost = calcuCost(matrix_temp)
     print('看下总成本' + allcost)
     return allcost / len(rumorSourceList)
+
+
 #
 #
 # if len(resultSource) >= len(rumorSourceList):
@@ -1984,9 +1908,7 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNumber):
 #     # do something other
 
 
-
-def  calcuCost(matrix_partim):
-
+def calcuCost(matrix_partim):
     m = Munkres()
     indexes = m.compute(matrix_partim)
     print_matrix(matrix_partim, msg='Lowest cost through this matrix:')
@@ -1994,13 +1916,8 @@ def  calcuCost(matrix_partim):
     for row, column in indexes:
         value = matrix_partim[row][column]
         total += value
-        print (row,column,total)
-    print (total)
-
-
-
-
-
+        print(row, column, total)
+    print(total)
 
 
 # 设计反向传播算法，接收参数。u，h，infectG。
@@ -2149,7 +2066,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 101):
-        sourceList.append(contractSource(G,2, 2))
+        sourceList.append(contractSource(G, 2, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -2163,7 +2080,7 @@ if __name__ == '__main__':
         for edge in list(G.edges):
             G.add_edge(edge[0], edge[1], Infection=1)
         # 开始之前都要刷新这个图，
-        infectG = Algorithm1(G, singleSource, 5, 6)          #第3个参数是传播步长
+        infectG = Algorithm1(G, singleSource, 5, 6)  # 第3个参数是传播步长
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
@@ -2175,7 +2092,7 @@ if __name__ == '__main__':
         listToTxt('输出每次结果看看', 'our_method_result.txt')
         listToTxt(errordistanceList, 'our_method_result.txt')
         listToTxt('输出平均值' + str(errorSum / len(errordistanceList)), 'our_method_result.txt')
-        print (str(errorSum / len(errordistanceList)))
+        print(str(errorSum / len(errordistanceList)))
     print(errorSum / 100)
 
     # long running
@@ -2183,42 +2100,3 @@ if __name__ == '__main__':
     endtime = datetime.datetime.now()
     print('执行了这么长时间')
     print((endtime - starttime).seconds)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
