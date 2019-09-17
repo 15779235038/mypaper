@@ -914,7 +914,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
 
     elif sourceNumber == 5:
         resultListAll = []
-        for h in range(3,6):
+        for h in range(3, 6):
             # 随机找两个源，开始
             sourcePartition = []
             randomSource = []
@@ -980,11 +980,6 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                                 # print ('并集就是可使用'+str(retD))
                                 retC = list(set(IDdict[heighbour]).union(set(IDdict[node])))
                                 IDdict_dup[node] = list(set(IDdict_dup[node] + retC))  # 先用一个dict把结果装入,然后这个时间过去再加回去。
-
-
-
-
-
 
                     for key, value in IDdict_dup.items():
                         IDdict[key] = IDdict_dup[key]
@@ -1193,107 +1188,32 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList,sourceNumber):
 
 
 
-    # errordistanceFor = []
-    # # 上面这两个，可以干一架了。
-    # for turesourcelist in rumorSourceList:  # 真实源
-    #     everydistion = []
-    #     for resultsourceindex in resultSource:  # 自己算法找出的源。
-    #         everydistion.append([resultsourceindex,
-    #                              nx.shortest_path_length(infectionG, source=turesourcelist, target=resultsourceindex)])
-    #     everydistion = sorted(everydistion, key=lambda x: (x[1]))
-    #     # 结果集匹配到了，最好的结果就要移除这个了。
-    #     resultSource.remove(everydistion[0][0])  # 移除最小距离的那个
-    #     print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
-    #     print(everydistion)
-    #     errordistanceFor.append(everydistion[0][1])
-    # multipdistance = 0
-    # for error in errordistanceFor:
-    #     multipdistance = multipdistance + error
-    # # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
-    # print('误差距离为' + str(multipdistance))
-    # return multipdistance / len(errordistanceFor)
-
-    # 这里首先解决源点不等情况，然后再计算误差。首先要让他们相等。
-    errordistanceFor = []
-    # 上面这两个，可以干一架了。
 
     listToTxt(rumorSourceList, 'compare.txt')
     listToTxt(resultSource, 'compare.txt')
 
-    # 构建矩阵
-    matrix_temp=numpy.eye(len(rumorSourceList))
-    print (matrix_temp)
 
-    for  i  in range(0,len(rumorSourceList)):
-        for j in range(0,len(resultSource)):
-            matrix_temp[i][j]=nx.shortest_path_length(infectionG, source=rumorSourceList[i],target=resultSource[j])
+    lenA = len(rumorSourceList)
+    lenB = len(resultSource)
+    print('真实结果为' + str(rumorSourceList))
+    print('找到的为' + str(resultSource))
+    matrix_temp = []
+    for i in range(0, len(rumorSourceList)):
+        temp = []
+        for j in range(0, len(resultSource)):
+            temp.append(nx.shortest_path_length(infectG, source=rumorSourceList[i],
+                                                target=resultSource[j]))
 
-    print ('输出矩阵看看'+str(matrix_temp))
-
-    allcost=calcuCost(matrix_temp)
-    print ('看下总成本'+allcost)
+        matrix_temp.append(temp)
+    print('看下这个结果是如何' + str(matrix_temp))
+    import numpy as np
+    cost = np.array(matrix_temp)
+    from scipy.optimize import linear_sum_assignment
+    row_ind, col_ind = linear_sum_assignment(cost)
+    allcost = cost[row_ind, col_ind].sum()
+    print('总的代价为' + str(allcost))
     return allcost/len(rumorSourceList)
 
-
-    #
-    #
-    #
-    # if len(resultSource) >= len(rumorSourceList):
-    #     for turesourcelist in rumorSourceList:  # 真实源
-    #         everydistion = []
-    #         for resultsourceindex in resultSource:  # 自己算法找出的源。
-    #             everydistion.append([resultsourceindex,
-    #                                  nx.shortest_path_length(infectionG, source=turesourcelist,
-    #                                                          target=resultsourceindex)])
-    #         everydistion = sorted(everydistion, key=lambda x: (x[1]))
-    #         # 结果集匹配到了，最好的结果就要移除这个了。
-    #         resultSource.remove(everydistion[0][0])  # 移除最小距离的那个
-    #         print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
-    #         print(everydistion)
-    #         errordistanceFor.append(everydistion[0][1])
-    #     multipdistance = 0
-    #     for error in errordistanceFor:
-    #         multipdistance = multipdistance + error
-    #     # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
-    #     print('误差距离为' + str(multipdistance))
-    #     return multipdistance / len(errordistanceFor)
-    #
-    # elif len(resultSource) < len(rumorSourceList):
-    #     for resultSourceindex in resultSource:
-    #         everydistion = []
-    #         for turesourcelist in rumorSourceList:
-    #             everydistion.append([turesourcelist,
-    #                                  nx.shortest_path_length(infectionG, source=resultSourceindex,
-    #                                                          target=turesourcelist)])
-    #         everydistion = sorted(everydistion, key=lambda x: (x[1]))
-    #         rumorSourceList.remove(everydistion[0][0])  # 移除最小距离的那个
-    #         print('输出4个源的时候，每次每个源跟他们计算时候距离的从低到高排序序列。')
-    #         print(everydistion)
-    #         errordistanceFor.append(everydistion[0][1])
-    #     multipdistance = 0
-    #     for error in errordistanceFor:
-    #         multipdistance = multipdistance + error
-    #     # errordistance=nx.shortest_path_length(infectionG,source=resultSource[0],target=rumorSourceList[0])
-    #     print('误差距离为' + str(multipdistance))
-    #     return multipdistance / len(errordistanceFor)
-    # do something other
-
-
-
-
-
-def  calcuCost(matrix_partim):
-
-    m = Munkres()
-    indexes = m.compute(matrix_partim)
-    print_matrix(matrix_partim, msg='Lowest cost through this matrix:')
-    total = 0
-    for row, column in indexes:
-        value = matrix_partim[row][column]
-        total += value
-        print (row,column,total)
-    print (total)
-    return total
 
 
 
@@ -1382,74 +1302,6 @@ def revsitionAlgorithm(u, h, infectG, subinfectG):
         print('构建样本路径之后结果为' + str(resultlist[0][0]))
 
     return result
-    # print (nx.shortest_path_length(subinfectG,result,u))  #0
-    # print (nx.shortest_path_length(subinfectG,125,result) )#  2
-    # print(nx.shortest_path_length(subinfectG, 4022, result))  #  8
-    #
-
-
-#
-#
-#
-# rumorSourceList=contractSource(G,3,5)  #产生源点。图，源点个数，源点差距距离。
-# hlist=[3,2]   #不同传播区域传播深度，
-# infectG=Algorithm1(G,rumorSourceList,5,hlist )  #产生感染图，深度是3
-#
-# #gephi 查看infectG转成csv情况。
-# ConvertGToCsv(infectG,'G.csv')
-# subinfectG=nx.Graph()
-# count=1
-# count1=1
-# for  edge in  infectG.edges:
-#     # print (edge)\
-#     if  infectG.adj[edge[0]][edge[1]]['Infection']==1:
-#        count1 =count1+1
-#     if  infectG.adj[edge[0]][edge[1]]['Infection']==2:
-#         count = count + 1
-#         subinfectG.add_edges_from([(edge[0],edge[1])],weight= 1)
-#
-# print (count)
-# print (count1)
-# # 因为邮件是一个有向图，我们这里构建的是无向图。
-# print('传染子图的顶点个数',  subinfectG.number_of_nodes())
-# print('传染子图的边个数',  subinfectG.number_of_edges())
-#
-#
-# ConvertGToCsvSub(subinfectG,'SubInfectionG.csv')
-# #
-# #检测是否是有相互感染到。
-#
-# print (nx.shortest_path(G, rumorSourceList[0], rumorSourceList[1], weight='weight'))
-# print (nx.shortest_path(subinfectG, rumorSourceList[0], rumorSourceList[1], weight='weight'))  #在子图中有路径，就是感染到了。
-#
-# if nx.has_path(subinfectG,rumorSourceList[1],rumorSourceList[2])==False:
-#     if nx.has_path(subinfectG,rumorSourceList[0],rumorSourceList[2])==False:
-#         print('========================================================================')
-#         print ('这里的第3个点，跟他们都没有路径相连。可以的')
-# else:
-#     print ('========================================================================')
-#     print ('这里的第3个点，不行的，很烦')
-# # print (nx.shortest_path(subinfectG, rumorSourceList[1], rumorSourceList[2], weight='weight'))    #这个报错就是第三个point并没有被感染到的意思。
-#
-# #now  to  practice single-multiple  source Partition.Get  ture  parition
-#
-#
-#
-# # if  769  in list(infectG.nodes):
-# #     print ('明明就在')
-# multipList=getmultipleCommunity(infectG)
-# multiplePartion(multipList, infectG,rumorSourceList)
-#
-#
-#
-# #产生一组模拟两源数据的，然后计算平均值。
-#
-#
-#
-#
-#
-#
-
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -1525,8 +1377,8 @@ if __name__ == '__main__':
 
     # 产生10次，每次都有误差，计算出来。并统计。
 
-    for i in range(1, 101):
-        sourceList.append(contractSource(G, 5, 2))
+    for i in range(1, 11):
+        sourceList.append(contractSource(G, 3, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -1544,7 +1396,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource,5)
+        errordistance = multiplePartion(multipList, infectG, singleSource, 3)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         listToTxt(str(datetime.datetime.now()), 'DiffTime.txt')
@@ -1554,7 +1406,7 @@ if __name__ == '__main__':
         listToTxt('输出平均值' + str(errorSum / len(errordistanceList)), 'DiffTime.txt')
         print('误差集合为' + str(errordistanceList))
         print(str(errorSum / len(errordistanceList)))
-    print(errorSum / 100)
+    print(errorSum / 10)
 
     # long running
 

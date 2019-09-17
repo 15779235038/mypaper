@@ -1929,17 +1929,22 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList, sourceNumber):
 
     # 三种情况
 
-    matrix_temp = numpy.eye(len(rumorSourceList))
-
-    for i in range(0, len(rumorSourceList)):
+    lenA = len(resultSource)
+    matrix_temp = []
+    for i in range(0, len(resultSource)):
+        temp = []
         for j in range(0, len(resultSource)):
-            matrix_temp[i][j] = nx.shortest_path_length(infectionG, source=rumorSourceList[i], target=resultSource[j])
+            temp.append(nx.shortest_path_length(infectG, source=resultSource[i],
+                                                target=rumorSourceList[j]))
 
-    print('输出矩阵看看' + str(matrix_temp))
+        matrix_temp.append(temp)
+    import numpy as np
+    cost = np.array(matrix_temp)
+    from scipy.optimize import linear_sum_assignment
+    row_ind, col_ind = linear_sum_assignment(cost)
+    allcost = cost[row_ind, col_ind].sum()
+    return allcost / lenA
 
-    allcost = calcuCost(matrix_temp)
-    print('看下总成本' + allcost)
-    return allcost / len(rumorSourceList)
 #
 #
 # if len(resultSource) >= len(rumorSourceList):
