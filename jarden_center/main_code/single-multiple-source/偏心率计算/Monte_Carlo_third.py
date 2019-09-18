@@ -4,6 +4,25 @@
 
 #Reference:**********************************************
 
+# @Time    : 2019/9/19 12:42 上午
+
+# @Author  : baozhiqiang
+
+# @File    : Monte_Carlo_third.py
+
+# @User    : bao
+
+# @Software: PyCharm
+
+#Reference:**********************************************
+
+
+# !/usr/bin/python3
+
+# -*-coding:utf-8 -*-
+
+# Reference:**********************************************
+
 # @Time    : 2019/9/18 11:33 上午
 
 # @Author  : baozhiqiang
@@ -14,16 +33,14 @@
 
 # @Software: PyCharm
 
-#Reference:**********************************************
+# Reference:**********************************************
 
 
-
-
-#!/usr/bin/python3
+# !/usr/bin/python3
 
 # -*-coding:utf-8 -*-
 
-#Reference:**********************************************
+# Reference:**********************************************
 
 # @Time    : 2019/9/17 10:00 上午
 
@@ -35,7 +52,7 @@
 
 # @Software: PyCharm
 
-#Reference:**********************************************
+# Reference:**********************************************
 
 
 # !/usr/bin/python3
@@ -66,6 +83,7 @@ from munkres import print_matrix, Munkres
 from collections import defaultdict
 
 from random import sample
+
 '''
 
 
@@ -103,10 +121,9 @@ class FindSource:
         self.first_result_cost_list = None  # 你求得第一个图的比较好距离。
         self.all_result_cost_list = []
         self.findSource_list = []
-        self.singe_source_result = None     #传播子图进行单源定位的结果
-        self.singleRegionList  = None  #传播子图的节点数目
+        self.singe_source_result = None  # 传播子图进行单源定位的结果
+        self.singleRegionList = None  # 传播子图的节点数目
         self.radius = 0
-
 
     def ContractDict(self, dir, G):
         '''
@@ -316,197 +333,195 @@ class FindSource:
             # print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
             return abs(ratio)
 
-
-
-
         # 设计反向传播算法，接收参数。u，h，infectG。
+
     def revsitionAlgorithm_pre(self, infectG):
 
-            # 构建传播子图，
-            singleRegionList = []
-            for node_index in list(infectG.nodes()):
-                if infectG.node[node_index]['SI'] == 2:
-                    singleRegionList.append(node_index)
-            self.singleRegionList = singleRegionList
-            tempGraph = nx.Graph()
-            tempGraphNodelist = []
-            for edge in infectG.edges:
-                # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
-                if edge[0] in singleRegionList and edge[1] in singleRegionList:
-                    tempGraph.add_edges_from([edge], weight=1)
-                    tempGraphNodelist.append(edge[0])
-                    tempGraphNodelist.append(edge[1])
-            self.tempGraph = tempGraph  # 临时图生成
-            source1G =nx.Graph()
-            nodelist = list(tempGraph.nodes)
-            source1G = tempGraph
-            print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraphNodelist))))
-            print('这个感染区域的传播图节点个数')
-            times = 50  # 时间刻多点
-            IDdict = {}
-            IDdict_dup = {}
-            # 先赋予初始值。
-            for node in list(source1G.nodes):
-                # subinfectG.node[node]['ID']=list(node)   #赋予的初始值为list
-                IDdict[node] = [node]
-                IDdict_dup[node] = [node]
-            allnodelist_keylist = []  # 包含所有接受全部节点id的键值对的key
-            for t in range(times):
-                print(
-                    't为' + str(t) + '的时候-----------------------------------------------------------------------------')
-                for node in nodelist:  # 对每一个节点来说
-                    for heighbour in list(source1G.neighbors(node)):  # 对每一个节点的邻居来说
-                        retD = list(
-                            set(IDdict[heighbour]).difference(set(IDdict[node])))  # 如果邻居中有这个node没有的，那就加到这个node中去。
-                        if len(retD) != 0:  # 表示在B中，但不在A.是有的，那就求并集
-                            # 求并集,把并集放进我们的retC中。
-                            # print ('并集就是可使用'+str(retD))
-                            retC = list(set(IDdict[heighbour]).union(set(IDdict[node])))
-                            IDdict_dup[node] = list(set(IDdict_dup[node] + retC))  # 先用一个dict把结果装入,然后这个时间过去再加回去。
+        # 构建传播子图，
+        singleRegionList = []
+        for node_index in list(infectG.nodes()):
+            if infectG.node[node_index]['SI'] == 2:
+                singleRegionList.append(node_index)
+        self.singleRegionList = singleRegionList
+        tempGraph = nx.Graph()
+        tempGraphNodelist = []
+        for edge in infectG.edges:
+            # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
+            if edge[0] in singleRegionList and edge[1] in singleRegionList:
+                tempGraph.add_edges_from([edge], weight=1)
+                tempGraphNodelist.append(edge[0])
+                tempGraphNodelist.append(edge[1])
+        self.tempGraph = tempGraph  # 临时图生成
+        source1G = nx.Graph()
+        nodelist = list(tempGraph.nodes)
+        source1G = tempGraph
+        print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraphNodelist))))
+        print('这个感染区域的传播图节点个数')
+        times = 50  # 时间刻多点
+        IDdict = {}
+        IDdict_dup = {}
+        # 先赋予初始值。
+        for node in list(source1G.nodes):
+            # subinfectG.node[node]['ID']=list(node)   #赋予的初始值为list
+            IDdict[node] = [node]
+            IDdict_dup[node] = [node]
+        allnodelist_keylist = []  # 包含所有接受全部节点id的键值对的key
+        for t in range(times):
+            print(
+                't为' + str(t) + '的时候-----------------------------------------------------------------------------')
+            for node in nodelist:  # 对每一个节点来说
+                for heighbour in list(source1G.neighbors(node)):  # 对每一个节点的邻居来说
+                    retD = list(
+                        set(IDdict[heighbour]).difference(set(IDdict[node])))  # 如果邻居中有这个node没有的，那就加到这个node中去。
+                    if len(retD) != 0:  # 表示在B中，但不在A.是有的，那就求并集
+                        # 求并集,把并集放进我们的retC中。
+                        # print ('并集就是可使用'+str(retD))
+                        retC = list(set(IDdict[heighbour]).union(set(IDdict[node])))
+                        IDdict_dup[node] = list(set(IDdict_dup[node] + retC))  # 先用一个dict把结果装入,然后这个时间过去再加回去。
 
-                for key, value in IDdict_dup.items():
-                    IDdict[key] = IDdict_dup[key]
-                # for key, value in IDdict.items():
-                #     print(key, value)
-                # 在每一个时间刻检查是否有节点满足获得所有的id了。
+            for key, value in IDdict_dup.items():
+                IDdict[key] = IDdict_dup[key]
+            # for key, value in IDdict.items():
+            #     print(key, value)
+            # 在每一个时间刻检查是否有节点满足获得所有的id了。
 
-                flag = 0
-                for key, value in IDdict.items():
-                    # d.iteritems: an iterator over the (key, value) items
-                    if sorted(IDdict[key]) == sorted(nodelist):
-                        print('在t为' + str(t) + '的时间的时候，我们有了接受全部node的ID的人')
-                        print('它的key为' + str(key))
-                        allnodelist_keylist.append(key)
-                        print('有了接受所有的节点了这样的节点了')
-                        flag = 1
+            flag = 0
+            for key, value in IDdict.items():
+                # d.iteritems: an iterator over the (key, value) items
+                if sorted(IDdict[key]) == sorted(nodelist):
+                    print('在t为' + str(t) + '的时间的时候，我们有了接受全部node的ID的人')
+                    print('它的key为' + str(key))
+                    allnodelist_keylist.append(key)
+                    print('有了接受所有的节点了这样的节点了')
+                    flag = 1
 
-                if flag == 1:
-                    break
-            # print (IDdict)
-            print(allnodelist_keylist)
+            if flag == 1:
+                break
+        # print (IDdict)
+        print(allnodelist_keylist)
 
-            result = 0
-            resultlist = []
-            # 如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
-            if len(allnodelist_keylist) == 1:
-                print('那就是这个源点了')
-                result = allnodelist_keylist[0]
-            else:
-                # 构建样本路径
-                print('构建样本路径看看')
-                jarcenlist = []
-                for i in allnodelist_keylist:
-                    jarcenlist.append([i, nx.eccentricity(source1G, i)])  # 按照离心率进行排序,最小离心率的就是源点。
-                    resultlist = sorted(jarcenlist, key=lambda x: x[1])
-                result = resultlist[0][0]
-                print('构建样本路径之后结果为' + str(resultlist[0][0]))
-            print('result单源传播结果',result)
-            self.singe_source_result = result
+        result = 0
+        resultlist = []
+        # 如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
+        if len(allnodelist_keylist) == 1:
+            print('那就是这个源点了')
+            result = allnodelist_keylist[0]
+        else:
+            # 构建样本路径
+            print('构建样本路径看看')
+            jarcenlist = []
+            for i in allnodelist_keylist:
+                jarcenlist.append([i, nx.eccentricity(source1G, i)])  # 按照离心率进行排序,最小离心率的就是源点。
+                resultlist = sorted(jarcenlist, key=lambda x: x[1])
+            result = resultlist[0][0]
+            print('构建样本路径之后结果为' + str(resultlist[0][0]))
+        print('result单源传播结果', result)
+        self.singe_source_result = result
 
-
-    def  cal_reverse_algorithm(self,infectG):
+    def cal_reverse_algorithm(self, infectG):
         resultSource = []
         source = None
-        for  index in range(len(self.single_best_result[0])):
-             source =  self.revsitionAlgorithm(self.single_best_result[0][index], self.single_best_result[1],infectG , self.tempGraph)
-             resultSource.append(source)
+        for index in range(len(self.single_best_result[0])):
+            source = self.revsitionAlgorithm(self.single_best_result[0][index], self.single_best_result[1], infectG,
+                                             self.tempGraph)
+            resultSource.append(source)
         print(resultSource)
         self.findSource_list = resultSource
 
-    def cal_distance(self,infectG):
-        lenA= len(self.true_Source_list)
+    def cal_distance(self, infectG):
+        lenA = len(self.true_Source_list)
         lenB = len(self.findSource_list)
-        print('真实结果为'+str(self.true_Source_list))
-        print('找到的为'+str(self.findSource_list))
+        print('真实结果为' + str(self.true_Source_list))
+        print('找到的为' + str(self.findSource_list))
         matrix_temp = []
         for i in range(0, len(self.true_Source_list)):
             temp = []
             for j in range(0, len(self.findSource_list)):
                 temp.append(nx.shortest_path_length(infectG, source=self.true_Source_list[i],
-                                                      target=self.findSource_list[j]))
+                                                    target=self.findSource_list[j]))
 
             matrix_temp.append(temp)
-        print('看下这个结果是如何'+str(matrix_temp))
+        print('看下这个结果是如何' + str(matrix_temp))
         import numpy as np
         cost = np.array(matrix_temp)
         from scipy.optimize import linear_sum_assignment
         row_ind, col_ind = linear_sum_assignment(cost)
         allcost = cost[row_ind, col_ind].sum()
-        print('总的代价为'+str(allcost))
-        self.first_result_cost_list = [self.true_Source_list,self.findSource_list,allcost / lenA]
+        print('总的代价为' + str(allcost))
+        self.first_result_cost_list = [self.true_Source_list, self.findSource_list, allcost / lenA]
         return allcost / lenA
 
-
         # 设计反向传播算法，接收参数。u，h，infectG。
-    def revsitionAlgorithm(self,u, h, infectG, subinfectG):
-            print('反转算法参数,u和h' + str(u) + '----------' + str(h))
-            nodelist = list(nx.bfs_tree(subinfectG, source=u, depth_limit=h).nodes)
-            source1G = nx.Graph()  # 构建新的单源传播圆出来
-            for edge in subinfectG.edges:
-                if edge[0] in nodelist and edge[1] in nodelist:
-                    source1G.add_edge(edge[0], edge[1])
 
-            print('传播子图为source1G,它的点数和边数为' + str(source1G.number_of_nodes()) + '-------' + str(
-                source1G.number_of_edges()))
-            # 在nodelist找出源点来。
-            times = 50  # 时间刻多点
-            IDdict = {}
-            IDdict_dup = {}
-            # 先赋予初始值。
-            for node in list(source1G.nodes):
-                # subinfectG.node[node]['ID']=list(node)   #赋予的初始值为list
-                IDdict[node] = [node]
-                IDdict_dup[node] = [node]
-            allnodelist_keylist = []  # 包含所有接受全部节点id的键值对的key
-            for t in range(times):
-                print(
-                    't为' + str(t) + '的时候-----------------------------------------------------------------------------')
-                for node in nodelist:  # 对每一个节点来说
-                    for heighbour in list(source1G.neighbors(node)):  # 对每一个节点的邻居来说
-                        retD = list(
-                            set(IDdict[heighbour]).difference(set(IDdict[node])))  # 如果邻居中有这个node没有的，那就加到这个node中去。
-                        if len(retD) != 0:  # 表示在B中，但不在A.是有的，那就求并集
-                            # 求并集,把并集放进我们的retC中。
-                            # print ('并集就是可使用'+str(retD))
-                            retC = list(set(IDdict[heighbour]).union(set(IDdict[node])))
-                            IDdict_dup[node] = list(set(IDdict_dup[node] + retC))  # 先用一个dict把结果装入,然后这个时间过去再加回去。
+    def revsitionAlgorithm(self, u, h, infectG, subinfectG):
+        print('反转算法参数,u和h' + str(u) + '----------' + str(h))
+        nodelist = list(nx.bfs_tree(subinfectG, source=u, depth_limit=h).nodes)
+        source1G = nx.Graph()  # 构建新的单源传播圆出来
+        for edge in subinfectG.edges:
+            if edge[0] in nodelist and edge[1] in nodelist:
+                source1G.add_edge(edge[0], edge[1])
 
-                for key, value in IDdict_dup.items():
-                    IDdict[key] = IDdict_dup[key]
-                # for key, value in IDdict.items():
-                #     print(key, value)
-                # 在每一个时间刻检查是否有节点满足获得所有的id了。
+        print('传播子图为source1G,它的点数和边数为' + str(source1G.number_of_nodes()) + '-------' + str(
+            source1G.number_of_edges()))
+        # 在nodelist找出源点来。
+        times = 50  # 时间刻多点
+        IDdict = {}
+        IDdict_dup = {}
+        # 先赋予初始值。
+        for node in list(source1G.nodes):
+            # subinfectG.node[node]['ID']=list(node)   #赋予的初始值为list
+            IDdict[node] = [node]
+            IDdict_dup[node] = [node]
+        allnodelist_keylist = []  # 包含所有接受全部节点id的键值对的key
+        for t in range(times):
+            print(
+                't为' + str(t) + '的时候-----------------------------------------------------------------------------')
+            for node in nodelist:  # 对每一个节点来说
+                for heighbour in list(source1G.neighbors(node)):  # 对每一个节点的邻居来说
+                    retD = list(
+                        set(IDdict[heighbour]).difference(set(IDdict[node])))  # 如果邻居中有这个node没有的，那就加到这个node中去。
+                    if len(retD) != 0:  # 表示在B中，但不在A.是有的，那就求并集
+                        # 求并集,把并集放进我们的retC中。
+                        # print ('并集就是可使用'+str(retD))
+                        retC = list(set(IDdict[heighbour]).union(set(IDdict[node])))
+                        IDdict_dup[node] = list(set(IDdict_dup[node] + retC))  # 先用一个dict把结果装入,然后这个时间过去再加回去。
 
-                flag = 0
-                for key, value in IDdict.items():
-                    # d.iteritems: an iterator over the (key, value) items
-                    if sorted(IDdict[key]) == sorted(nodelist):
-                        print('在t为' + str(t) + '的时间的时候，我们有了接受全部node的ID的人')
-                        print('它的key为' + str(key))
-                        allnodelist_keylist.append(key)
-                        print('有了接受所有的节点了这样的节点了')
-                        flag = 1
+            for key, value in IDdict_dup.items():
+                IDdict[key] = IDdict_dup[key]
+            # for key, value in IDdict.items():
+            #     print(key, value)
+            # 在每一个时间刻检查是否有节点满足获得所有的id了。
 
-                if flag == 1:
-                    break
-            # print (IDdict)
-            print(allnodelist_keylist)
-            result = 0
-            resultlist = []
-            # 如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
-            if len(allnodelist_keylist) == 1:
-                print('那就是这个源点了')
-                result = allnodelist_keylist[0]
-            else:
-                # 构建样本路径
-                print('构建样本路径看看')
-                jarcenlist = []
-                for i in allnodelist_keylist:
-                    jarcenlist.append([i, nx.eccentricity(source1G, i)])  # 按照离心率进行排序,最小离心率的就是源点。
-                    resultlist = sorted(jarcenlist, key=lambda x: x[1])
-                result = resultlist[0][0]
-                print('构建样本路径之后结果为' + str(resultlist[0][0]))
-            return result
+            flag = 0
+            for key, value in IDdict.items():
+                # d.iteritems: an iterator over the (key, value) items
+                if sorted(IDdict[key]) == sorted(nodelist):
+                    print('在t为' + str(t) + '的时间的时候，我们有了接受全部node的ID的人')
+                    print('它的key为' + str(key))
+                    allnodelist_keylist.append(key)
+                    print('有了接受所有的节点了这样的节点了')
+                    flag = 1
+
+            if flag == 1:
+                break
+        # print (IDdict)
+        print(allnodelist_keylist)
+        result = 0
+        resultlist = []
+        # 如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
+        if len(allnodelist_keylist) == 1:
+            print('那就是这个源点了')
+            result = allnodelist_keylist[0]
+        else:
+            # 构建样本路径
+            print('构建样本路径看看')
+            jarcenlist = []
+            for i in allnodelist_keylist:
+                jarcenlist.append([i, nx.eccentricity(source1G, i)])  # 按照离心率进行排序,最小离心率的就是源点。
+                resultlist = sorted(jarcenlist, key=lambda x: x[1])
+            result = resultlist[0][0]
+            print('构建样本路径之后结果为' + str(resultlist[0][0]))
+        return result
 
     from collections import defaultdict
 
@@ -514,8 +529,8 @@ class FindSource:
     返回一个源点进行BFS每一层的节点，以键值对形式返回。层数：节点。
     '''
 
-    def test_BFS_node(self,G, source_node, depth=3):
-        print('source_node',source_node)
+    def test_BFS_node(self, G, source_node, depth=3):
+        print('source_node', source_node)
 
         dfs_successor = nx.dfs_successors(G, source=source_node, depth_limit=depth)
         print(dfs_successor)
@@ -539,7 +554,7 @@ class FindSource:
 
     from random import sample
     '''
-    
+
     1   针对单源点，进行BFS
     2   获取每层节点，然后进行抽样就可以了。
     '''
@@ -550,24 +565,24 @@ class FindSource:
         tempGraph = self.tempGraph
         print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraph.nodes))))
         print('这个感染区域的传播图节点个数')
-        dfs_result_dict =self.test_BFS_node(tempGraph, source_node=self.singe_source_result)
+        dfs_result_dict = self.test_BFS_node(tempGraph, source_node=self.singe_source_result)
         sort_dfs_result_dict = sorted(dfs_result_dict.items(), key=lambda x: x[0])
-        print('sort_dfs_result_dict',sort_dfs_result_dict)
+        print('sort_dfs_result_dict', sort_dfs_result_dict)
         '''
         这里我们只知道中心点的BFS点，还不能确定H。我们可以以传播子图的半径为最大h。进行
         '''
 
         singleRegionList = self.singleRegionList
-        #计算半径。
+        # 计算半径。
         # radius_graph= nx.radius(tempGraph)
         # radius_graph = 40
-        radius_graph =self.radius
+        radius_graph = self.radius
         print('图半径为', radius_graph)
         best_h = 0
         best_h_node = []
         min_cover = 100  # 某一层的覆盖率，肯定会比这个小。
-        for h  in range(radius_graph// 2, radius_graph, 1):
-            for  k ,node_list in sort_dfs_result_dict:
+        for h in range(radius_graph // 2, radius_graph, 1):
+            for k, node_list in sort_dfs_result_dict:
                 print('how to that')
                 # print(eccentric, node_list)
                 # M_dis = max_eccentric - eccentric  # 最好的bFS树半径。
@@ -579,10 +594,10 @@ class FindSource:
                     if len(node_list) > 20:
                         itemNumber = int(len(node_list) / 10)  # 层数越大，节点越多，应该采样越多才能逼近近似值。
                     else:
-                        itemNumber = 2      #这是树的情况，每一层节点太少了
+                        itemNumber = 2  # 这是树的情况，每一层节点太少了
                     for frequency in range(itemNumber):  # 抽取10次,这里有问题，有些层数目多，怎么抽取会好点？按照层数抽取相应的次数会比较好点，公平。
                         slice = random.sample(node_list, self.fix_number_source)
-                        temp_cover = self.getSimilir1(slice, h,singleRegionList, tempGraph)
+                        temp_cover = self.getSimilir1(slice, h, singleRegionList, tempGraph)
                         temp_all_cover += temp_cover
                     if temp_all_cover != 0:
                         temp_ave_cover = temp_all_cover / itemNumber  # 求出平均覆盖率。
@@ -641,36 +656,28 @@ class FindSource:
         result = sorted(minCoverlist, key=lambda x: (x[2]))
         self.single_best_result = result[0]
 
-
-
-
-
-
-
-
     '''
-    1  先对整个传播子图图进行单源定位(样本路径），找出一个源点。这步可以替换成其他中心度。
+    1  先对整个传播子图图某些中心点，找出一个中心点。
     2然后进行BFS，扩大层数
     3在每一层上蒙特卡洛模拟，求出最优秀的那一层。
     4按照前面方法的套路来。
     '''
+
     def main(self):
         '''
         :return:
         '''
         # filename= 'treenetwork3000.txt' #半径为40
-        #对于树图，以及普通图。参数可能设置不一样，h变换不一样。需要手动调整。
+        # 对于树图，以及普通图。参数可能设置不一样，h变换不一样。需要手动调整。
         filename = 'CA-GrQc.txt'
         self.radius = 6
         self.get_networkByFile(fileName='../data/CA-GrQc.txt')  # 获取图，
         self.product_sourceList()  # 生成源点
         self.constract_Infection_netWork()  # 开始传染
         self.revsitionAlgorithm_pre(self.infectG)  # 找到反转算法后的生成答案点
-        self.cal_BFS_monte_Carlo()                           #找到结果后构建BFS树，进行采样判断覆盖率。
+        self.cal_BFS_monte_Carlo()  # 找到结果后构建BFS树，进行采样判断覆盖率。
         self.cal_reverse_algorithm(self.infectG)  # 找到反转算法后的生成答案点
         self.cal_distance(self.infectG)
-
-
 
 
 test = FindSource()

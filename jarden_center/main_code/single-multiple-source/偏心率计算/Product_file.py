@@ -134,18 +134,25 @@ def test_BFS_node(G,source_node= 686,depth= 3,):
     return dfs_result
 
 
+import csv
 
 
 
+def  get_data_form_csv(dir):
+    f = open(dir, 'r')
+    csvreader = csv.reader(f)
+
+    final_list = list(csvreader)
 
 
 
 
 pre = '../data/'
 last = '.txt'
+filename = 'CA-GrQc'
 # filename = 'facebook_combined'
 # filename = 'email-Eu-core'
-filename = 'treenetwork3000'
+# filename = 'treenetwork3000'
 initG = get_networkByFile(pre+filename+last)
-test_BFS_node(initG)
-# ConvertGToCsv(initG, filename+'.csv')
+# test_BFS_node(initG)
+ConvertGToCsv(initG, './data_center/'+filename+'.csv')
