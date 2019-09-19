@@ -124,6 +124,7 @@ class FindSource:
         self.singe_source_result = None  # 传播子图进行单源定位的结果
         self.singleRegionList = None  # 传播子图的节点数目
         self.radius = 0
+        self.center =  None  #中心点统计
 
     def ContractDict(self, dir, G):
         '''
@@ -333,90 +334,7 @@ class FindSource:
             # print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
             return abs(ratio)
 
-        # 设计反向传播算法，接收参数。u，h，infectG。
 
-    def revsitionAlgorithm_pre(self, infectG):
-
-        # 构建传播子图，
-        singleRegionList = []
-        for node_index in list(infectG.nodes()):
-            if infectG.node[node_index]['SI'] == 2:
-                singleRegionList.append(node_index)
-        self.singleRegionList = singleRegionList
-        tempGraph = nx.Graph()
-        tempGraphNodelist = []
-        for edge in infectG.edges:
-            # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
-            if edge[0] in singleRegionList and edge[1] in singleRegionList:
-                tempGraph.add_edges_from([edge], weight=1)
-                tempGraphNodelist.append(edge[0])
-                tempGraphNodelist.append(edge[1])
-        self.tempGraph = tempGraph  # 临时图生成
-        source1G = nx.Graph()
-        nodelist = list(tempGraph.nodes)
-        source1G = tempGraph
-        print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraphNodelist))))
-        print('这个感染区域的传播图节点个数')
-        times = 50  # 时间刻多点
-        IDdict = {}
-        IDdict_dup = {}
-        # 先赋予初始值。
-        for node in list(source1G.nodes):
-            # subinfectG.node[node]['ID']=list(node)   #赋予的初始值为list
-            IDdict[node] = [node]
-            IDdict_dup[node] = [node]
-        allnodelist_keylist = []  # 包含所有接受全部节点id的键值对的key
-        for t in range(times):
-            print(
-                't为' + str(t) + '的时候-----------------------------------------------------------------------------')
-            for node in nodelist:  # 对每一个节点来说
-                for heighbour in list(source1G.neighbors(node)):  # 对每一个节点的邻居来说
-                    retD = list(
-                        set(IDdict[heighbour]).difference(set(IDdict[node])))  # 如果邻居中有这个node没有的，那就加到这个node中去。
-                    if len(retD) != 0:  # 表示在B中，但不在A.是有的，那就求并集
-                        # 求并集,把并集放进我们的retC中。
-                        # print ('并集就是可使用'+str(retD))
-                        retC = list(set(IDdict[heighbour]).union(set(IDdict[node])))
-                        IDdict_dup[node] = list(set(IDdict_dup[node] + retC))  # 先用一个dict把结果装入,然后这个时间过去再加回去。
-
-            for key, value in IDdict_dup.items():
-                IDdict[key] = IDdict_dup[key]
-            # for key, value in IDdict.items():
-            #     print(key, value)
-            # 在每一个时间刻检查是否有节点满足获得所有的id了。
-
-            flag = 0
-            for key, value in IDdict.items():
-                # d.iteritems: an iterator over the (key, value) items
-                if sorted(IDdict[key]) == sorted(nodelist):
-                    print('在t为' + str(t) + '的时间的时候，我们有了接受全部node的ID的人')
-                    print('它的key为' + str(key))
-                    allnodelist_keylist.append(key)
-                    print('有了接受所有的节点了这样的节点了')
-                    flag = 1
-
-            if flag == 1:
-                break
-        # print (IDdict)
-        print(allnodelist_keylist)
-
-        result = 0
-        resultlist = []
-        # 如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
-        if len(allnodelist_keylist) == 1:
-            print('那就是这个源点了')
-            result = allnodelist_keylist[0]
-        else:
-            # 构建样本路径
-            print('构建样本路径看看')
-            jarcenlist = []
-            for i in allnodelist_keylist:
-                jarcenlist.append([i, nx.eccentricity(source1G, i)])  # 按照离心率进行排序,最小离心率的就是源点。
-                resultlist = sorted(jarcenlist, key=lambda x: x[1])
-            result = resultlist[0][0]
-            print('构建样本路径之后结果为' + str(resultlist[0][0]))
-        print('result单源传播结果', result)
-        self.singe_source_result = result
 
     def cal_reverse_algorithm(self, infectG):
         resultSource = []
@@ -559,20 +477,38 @@ class FindSource:
     2   获取每层节点，然后进行抽样就可以了。
     '''
 
-    def cal_BFS_monte_Carlo(self):
+    def cal_BFS_monte_Carlo(self,dir):
 
+        # 构建传播子图，
+        singleRegionList = []
+        for node_index in list(self.infectG.nodes()):
+            if self.infectG.node[node_index]['SI'] == 2:
+                singleRegionList.append(node_index)
         tempGraph = nx.Graph()
-        tempGraph = self.tempGraph
+        tempGraphNodelist = []
+        for edge in self.infectG.edges:
+            # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
+            if edge[0] in singleRegionList and edge[1] in singleRegionList:
+                tempGraph.add_edges_from([edge], weight=1)
+                tempGraphNodelist.append(edge[0])
+                tempGraphNodelist.append(edge[1])
+        self.tempGraph = tempGraph  # 临时图生成
+
+
+        #真实的改进代码部分。
+        self.get_data(dir)
+        center = self.center
+        # tempGraph = nx.Graph()
+        # tempGraph = self.tempGraph
         print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraph.nodes))))
         print('这个感染区域的传播图节点个数')
-        dfs_result_dict = self.test_BFS_node(tempGraph, source_node=self.singe_source_result)
+        dfs_result_dict = self.test_BFS_node(tempGraph, source_node=center)
         sort_dfs_result_dict = sorted(dfs_result_dict.items(), key=lambda x: x[0])
         print('sort_dfs_result_dict', sort_dfs_result_dict)
         '''
         这里我们只知道中心点的BFS点，还不能确定H。我们可以以传播子图的半径为最大h。进行
         '''
-
-        singleRegionList = self.singleRegionList
+        self.singleRegionList =singleRegionList
         # 计算半径。
         # radius_graph= nx.radius(tempGraph)
         # radius_graph = 40
@@ -656,6 +592,23 @@ class FindSource:
         result = sorted(minCoverlist, key=lambda x: (x[2]))
         self.single_best_result = result[0]
 
+
+
+
+
+    '''
+    从txt中获取每个数据集的中心点依次做实验
+    '''
+
+    def get_data(self,dir):
+        a = open(dir)
+        lines = a.readlines()
+        lists = []  # 直接用一个数组存起来就好了
+        for line in lines:
+            lists.append(int(line))
+        print(lists)
+        self.center = lists[0]
+
     '''
     1  先对整个传播子图图某些中心点，找出一个中心点。
     2然后进行BFS，扩大层数
@@ -670,15 +623,15 @@ class FindSource:
         # filename= 'treenetwork3000.txt' #半径为40
         # 对于树图，以及普通图。参数可能设置不一样，h变换不一样。需要手动调整。
         filename = 'CA-GrQc.txt'
-        self.radius = 6
+        dir = './data_center/CA-GrQc.txt'
+        self.radius = 6         #CA-GRQC半径。
         self.get_networkByFile(fileName='../data/CA-GrQc.txt')  # 获取图，
         self.product_sourceList()  # 生成源点
         self.constract_Infection_netWork()  # 开始传染
-        self.revsitionAlgorithm_pre(self.infectG)  # 找到反转算法后的生成答案点
-        self.cal_BFS_monte_Carlo()  # 找到结果后构建BFS树，进行采样判断覆盖率。
+        # self.revsitionAlgorithm_pre(self.infectG)  # 找到反转算法后的生成答案点
+        self.cal_BFS_monte_Carlo(dir)  # 找到结果后构建BFS树，进行采样判断覆盖率。
         self.cal_reverse_algorithm(self.infectG)  # 找到反转算法后的生成答案点
         self.cal_distance(self.infectG)
-
 
 test = FindSource()
 test.main()

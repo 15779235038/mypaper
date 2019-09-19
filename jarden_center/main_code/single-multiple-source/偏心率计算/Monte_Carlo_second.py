@@ -662,7 +662,7 @@ class FindSource:
         #对于树图，以及普通图。参数可能设置不一样，h变换不一样。需要手动调整。
         filename = 'CA-GrQc.txt'
         self.radius = 6
-        self.get_networkByFile(fileName='../data/CA-GrQc.txt')  # 获取图，
+        self.get_networkByFile(fileName='../data/facebook_combined.txt')  # 获取图，
         self.product_sourceList()  # 生成源点
         self.constract_Infection_netWork()  # 开始传染
         self.revsitionAlgorithm_pre(self.infectG)  # 找到反转算法后的生成答案点

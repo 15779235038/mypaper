@@ -86,19 +86,11 @@ def ConvertGToCsv(G, dir):
         sort_degree_centrality =sorted(degree_centrality.items(), key= lambda x:x[1],reverse=True)
         print('sort_degree_centrality', sort_degree_centrality)
 
-
-
-
-
-
-
-        with open(dir, "w", newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(sort_eccentricity_dict)
-            writer.writerow(sort_colse_centrality_dict)
-            writer.writerow(sort_degree_centrality)
-
-
+        with open(dir, "w") as f:
+            # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
+            f.write(str(sort_eccentricity_dict[0][0])+'\n')
+            f.write(str(sort_colse_centrality_dict[0][0])+'\n')
+            f.write(str(sort_degree_centrality[0][0])+'\n')
 
 
 
@@ -134,17 +126,15 @@ def test_BFS_node(G,source_node= 686,depth= 3,):
     return dfs_result
 
 
-import csv
 
 
-
-def  get_data_form_csv(dir):
-    f = open(dir, 'r')
-    csvreader = csv.reader(f)
-
-    final_list = list(csvreader)
-
-
+def get_data(dir):
+    a = open(dir)
+    lines = a.readlines()
+    lists = []  # 直接用一个数组存起来就好了
+    for line in lines:
+        lists.append(int(line))
+    print(lists)
 
 
 pre = '../data/'
@@ -154,5 +144,6 @@ filename = 'CA-GrQc'
 # filename = 'email-Eu-core'
 # filename = 'treenetwork3000'
 initG = get_networkByFile(pre+filename+last)
-# test_BFS_node(initG)
-ConvertGToCsv(initG, './data_center/'+filename+'.csv')
+# # test_BFS_node(initG)
+ConvertGToCsv(initG, './data_center/'+filename+'.txt')
+# get_data('./data_center/'+filename+'.txt')
