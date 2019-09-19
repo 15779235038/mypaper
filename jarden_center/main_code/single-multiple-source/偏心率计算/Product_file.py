@@ -139,10 +139,10 @@ def get_data(dir):
 
 pre = '../data/'
 last = '.txt'
-filename = 'CA-GrQc'
+# filename = 'CA-GrQc'
 # filename = 'facebook_combined'
 # filename = 'email-Eu-core'
-# filename = 'treenetwork3000'
+filename = 'treenetwork3000'
 initG = get_networkByFile(pre+filename+last)
 # # test_BFS_node(initG)
 ConvertGToCsv(initG, './data_center/'+filename+'.txt')

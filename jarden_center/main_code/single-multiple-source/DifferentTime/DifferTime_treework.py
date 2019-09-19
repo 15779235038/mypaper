@@ -567,8 +567,6 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                     if  max(distance)<= 2:
                         break
 
-
-
         return resultListAll[-1:]
 
     elif sourceNumber == 3:
@@ -1075,7 +1073,6 @@ def multiplePartion(mutiplelist, infectionG, rumorSourceList,sourceNumber):
             print ('算出来的结果为')
             resultSource.clear()
             resultSource.append(sigleRegionSource[0])
-
         elif len(sigleRegionSource[0]) == 2:
             resultSource.clear()
             for  source in sigleRegionSource[0]:

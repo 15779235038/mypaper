@@ -82,6 +82,7 @@ class FindSource:
         self.first_result_cost_list = None  # 你求得第一个图的比较好距离。
         self.all_result_cost_list = []
         self.findSource_list = []
+        self.distance_error = None
 
     def ContractDict(self, dir, G):
         '''
@@ -182,16 +183,106 @@ class FindSource:
                     else:
                         pass
 
+
             elif sourceNum == 4:
-                templist = list(nx.all_simple_paths(G, source=174, target=2419))
-                print(templist)
-                max = 0
-                result = []
-                for temp in templist:
-                    if len(temp) > max:
-                        max = len(temp)
-                        result = temp
-                print(result)
+
+                flag = 0
+
+                flag1 = 0
+
+                while flag == 0:
+
+                    random_RumorSource = random.choice(sumlist)
+
+                    flag1 = 0
+
+                    while flag1 == 0:
+
+                        print('随机产生的点为' + str(random_RumorSource))
+
+                        rumorSourceList = []
+
+                        rumorSourceList.append(random_RumorSource)
+
+                        nehibor = []
+
+                        for j in range(0, 3):
+
+                            for i in range(0, 4):
+                                nehibor = list(G.neighbors(random_RumorSource))
+
+                                randomnumber = random.randint(0, len(nehibor) - 1)
+
+                                random_RumorSource = nehibor[randomnumber]
+
+                            rumorSourceList.append(random_RumorSource)
+
+                        if len(rumorSourceList) == 4 and len(rumorSourceList) == len(
+
+                                set(rumorSourceList)):  # 重复或者数目达不到要求:
+
+                            print('找到了4个点')
+
+                            flag1 = 1
+
+                            flag = 1
+
+
+                        elif len(rumorSourceList) == 4 and len(rumorSourceList) != len(set(rumorSourceList)):
+
+                            print('是四个点，但是却有重复，只能够重新选择新的开始点')
+
+                            flag1 = 1
+
+            elif sourceNum == 5:
+
+                flag = 0
+
+                flag1 = 0
+
+                while flag == 0:
+
+                    random_RumorSource = random.choice(sumlist)
+
+                    flag1 = 0
+
+                    while flag1 == 0:
+
+                        print('随机产生的点为' + str(random_RumorSource))
+
+                        rumorSourceList = []
+
+                        rumorSourceList.append(random_RumorSource)
+
+                        nehibor = []
+
+                        for j in range(0, 4):
+
+                            for i in range(0, 4):
+                                nehibor = list(G.neighbors(random_RumorSource))
+
+                                randomnumber = random.randint(0, len(nehibor) - 1)
+
+                                random_RumorSource = nehibor[randomnumber]
+
+                            rumorSourceList.append(random_RumorSource)
+
+                        if len(rumorSourceList) == 5 and len(rumorSourceList) == len(
+
+                                set(rumorSourceList)):  # 重复或者数目达不到要求:
+
+                            print('找到了5个点')
+
+                            flag1 = 1
+
+                            flag = 1
+
+
+                        elif len(rumorSourceList) == 5 and len(rumorSourceList) != len(set(rumorSourceList)):
+
+                            print('是5个点，但是却有重复，只能够重新选择新的开始点')
+
+                            flag1 = 1
 
         # 查看产生随机源点的个数2，并且他们距离为3.
         print('源点个数' + str(len(rumorSourceList)) + '以及产生的两源点是' + str(rumorSourceList))
@@ -287,6 +378,7 @@ class FindSource:
         M_dis = 0
         best_h_node = []
         min_cover = 100  # 某一层的覆盖率，肯定会比这个小。
+        tempGraph =self.infectG         #采用不同的感染图
 
         for eccentric, node_list in sort_eccentricity_dict:
             print('how to that')
@@ -314,8 +406,6 @@ class FindSource:
                     min_cover = temp_ave_cover
                     best_h_node = node_list
                     best_h = M_dis
-
-
         print('输出表现优异同学,看看'+str(best_h_node),str(best_h))
         #得到最优层数解，再大量进行选择，使用jaya算法。构建大量样本。在固定h下的寻找最合适的节点。
 
@@ -340,7 +430,7 @@ class FindSource:
                 # 随机更换，看如何让变好
                 for j in range(1, 4, 1):  # 随机变4次，只要能变好
                     lateelement = [random.choice(best_h_node), random.choice(best_h_node),
-                                    random.choice(best_h_node)]
+                                    random.choice(best_h_node),random.choice(best_h_node)]
                     # print('当前输入的后面list' + str(lateelement))
                     latemincover = self.getSimilir1(lateelement, best_h, singleRegionList, tempGraph)
                     if mincover > latemincover:
@@ -355,7 +445,7 @@ class FindSource:
                 if mincover < min:
                     min = mincover  # 这一次最好的覆盖误差率
                     bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
-            print('得到多源点情况最小的覆盖率为' + str(min))
+            print('得到多源点情况最小的覆盖率为' +str(bestsourceNews)+ str(min))
             minCoverlist.append([bestsourceNews, best_h, min])
         print(minCoverlist)
         result = sorted(minCoverlist, key=lambda x: (x[2]))
@@ -519,13 +609,17 @@ class FindSource:
         allcost = cost[row_ind, col_ind].sum()
         print('总的代价为'+str(allcost))
         self.first_result_cost_list = [self.true_Source_list,self.findSource_list,allcost / lenA]
+        self.distance_error = allcost/lenA
         return allcost / lenA
-    def main(self):
+    def main(self,dir):
         '''
         走来不要那么难，先搞定树吧。才能继续搞定图。
         :return:
         '''
-        self.get_networkByFile(fileName='../data/CA-GrQc.txt')  # 获取图，
+        pre = '../data/'
+        last = '.txt'
+        # filename = ''
+        self.get_networkByFile(fileName=pre+dir+last)  # 获取图，
         self.product_sourceList()  # 生成源点
         self.constract_Infection_netWork()  # 开始传染
         self.cal_ecctity()      #找到最好的覆盖率结果。
@@ -533,13 +627,39 @@ class FindSource:
         self.cal_distance(self.infectG)
 
 
+    '''
+    计算误差100次。
+    
+    '''
+    def cal_distanceError(self,dir):
+        self.fix_number_source = 2
+        distance = 0
+        for i in range(100):
+            self.main(dir)
+            distance += self.distance_error
+        result =distance/100
+        # 导入time模块
+        import time
+        # 打印时间戳
+        # print(time.time())
+        pre = './result/'
+        last = '.txt'
+        with open(pre+dir+last, 'w') as f:
+            f.write(str(time.time())+'\n')
+            f.write(str(100)+str(result))
+        print(distance/100)
 
 
 
 
 
-test = FindSource()
-test.main()
+
+
+test  = FindSource()
+filename = 'CA-GrQc'
+test.cal_distanceError(filename)
+
+
 
 
 

@@ -116,32 +116,46 @@ def Algorithm1(G, SourceList, time_sum, hlist):
 
     print('开始传染的点是' + str(SourceList))
     infectList=[]
+    stack = []
     for j in SourceList:
-        infectList.append(j)
+        # infectList.append(j)
+        stack.append(j)
         G.node[j]['SI'] = 2
 
     #   没有具体的时间概念，传播大概到了50%，就停止传播。开始做实验
+
+    count_number  =0
+    fix_probli = 0.5
     while  1:
         tempinfectList = []
-        for node in list(set(infectList)):      #infectList表示的是每一个时刻传播到的点
-            for height in list(G.neighbors(node)):
+        print('stack',stack)
+        for node_index in range(len(set(stack))):      #infectList表示的是每一个时刻传播到的点
+            for height in list(G.neighbors(stack[node_index])):
                 randnum = random.random()
-                if randnum < 0.5:
+                if randnum < 0.8:
                     G.node[height]['SI'] = 2
                     tempinfectList.append(height)
-        infectList=list(set(infectList))
-        for timeInfectnode in tempinfectList:
-            infectList.append(timeInfectnode)
+                    # print('G.neghbors(nodes)', list(G.neighbors(stack[node_index])))
+        print('tempinfecLis',tempinfectList)
+        # infectList=list(infectList)
 
+        stack.extend(tempinfectList)
+        stack = list(set(stack))
         #每一个时间点过去，判断有没有感染图的50%的点，感染了就可以，否则不行
         count=0
-        for  nodetemp  in  list(G.nodes):
-            if   G.node[ nodetemp]['SI'] ==2:
+        for nodetemp  in  list(G.nodes):
+            if G.node[ nodetemp]['SI'] ==2:
+                    infectList.append(nodetemp)
                     count=count+1
         print ('被感染点为'+str(count)+'个')
-        if  count/G.number_of_nodes()>0.5:
+
+        count_number  += 1
+        if count_number  ==10:
+            fix_probli = 1
+        if  count/G.number_of_nodes() > 0.5:
             print ('超过50%节点了，不用传播啦')
             break
+
 
 
 
@@ -191,7 +205,7 @@ def contractSource(G, sourceNum, sourceMaxDistance):
                     rumorSourceList.append(random_RumorSource)
                     nehibor = []
                     for j in range(0, 1):
-                        for i in range(0, 3):
+                        for i in range(0, 5):
                             nehibor = list(G.neighbors(random_RumorSource))
                             randomnumber = random.randint(0, len(nehibor) - 1)
                             random_RumorSource = nehibor[randomnumber]
@@ -1378,7 +1392,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
 
     for i in range(1, 11):
-        sourceList.append(contractSource(G, 3, 2))
+        sourceList.append(contractSource(G, 2, 2))
 
     errordistanceList = []  # 误差集合。
     errorSum = 0
@@ -1396,7 +1410,7 @@ if __name__ == '__main__':
         print('源点传播成功')
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectG)
-        errordistance = multiplePartion(multipList, infectG, singleSource, 3)
+        errordistance = multiplePartion(multipList, infectG, singleSource, 2)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         listToTxt(str(datetime.datetime.now()), 'DiffTime.txt')
