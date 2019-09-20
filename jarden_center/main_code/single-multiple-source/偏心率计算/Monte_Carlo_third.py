@@ -660,14 +660,17 @@ class FindSource:
         mincover = None
         bestsourceNews = None
         minCoverlist = []
-        for iter_number in range(10):
+        for iter_number in range(5):
             for sample_index in range(len(Sampleset)):
                 mincover = self.getSimilir1(Sampleset[sample_index], best_h, singleRegionList,
                                             tempGraph)
                 # 随机更换，看如何让变好
                 for j in range(1, 4, 1):  # 随机变4次，只要能变好
-                    lateelement = [random.choice(best_h_node), random.choice(best_h_node),
-                                   random.choice(best_h_node)]
+                    # lateelement = [random.choice(best_h_node), random.choice(best_h_node),
+                    #                random.choice(best_h_node)]
+                    #
+                    lateelement = [random.choice(best_h_node) for i in range(self.fix_number_source)]
+
                     # print('当前输入的后面list' + str(lateelement))
                     latemincover = self.getSimilir1(lateelement, best_h, singleRegionList, tempGraph)
                     if mincover > latemincover:
@@ -739,10 +742,10 @@ class FindSource:
     def cal_distanceError(self, dir):
         self.fix_number_source = 2
         distance = 0
-        for i in range(100):
+        for i in range(5):
             self.main(dir)
             distance += self.distance_error
-        result = distance / 100
+        result = distance / 5
         # 导入time模块
         import time
         # 打印时间戳
@@ -751,8 +754,8 @@ class FindSource:
         last = '.txt'
         with open(pre + dir + last, 'w') as f:
             f.write(str(time.time()) + '\n')
-            f.write(str(100) + str(result))
-        print(distance / 100)
+            f.write(str(5) + str(result))
+        print(distance / 5)
 
 
 
