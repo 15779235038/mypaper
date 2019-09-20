@@ -16,22 +16,24 @@
 # @Software: PyCharm
 
 #Reference:**********************************************
-
-
-
-def  csv(dir):
-        import csv
-
-        import pandas as pd
-        df = pd.read_csv(dir, index_col=0)
-
-        final_list = df.tolist()
-        print(final_list)
-
-
-
-
-
-
-dir = './data_center/CA-GrQc.csv'
-csv(dir)
+#
+#
+#
+# def  csv(dir):
+#         import csv
+#
+#         import pandas as pd
+#         df = pd.read_csv(dir, index_col=0)
+#
+#         final_list = df.tolist()
+#         print(final_list)
+#
+#
+#
+#
+#
+#
+# dir = './data_center/CA-GrQc.csv'
+# csv(dir)
+import  random
+data = random

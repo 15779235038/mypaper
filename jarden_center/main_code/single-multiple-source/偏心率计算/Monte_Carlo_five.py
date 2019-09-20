@@ -222,8 +222,7 @@ class FindSource:
                 rumorSourceList.append(random_RumorSource)
                 flag = 1
             elif sourceNum == 2:
-                random_Rumo = random.sample(sumlist, 1)
-                random_RumorSource = random_Rumo[0]
+                random_RumorSource = random.choice(sumlist)
                 # 在剩下的节点找到我们的第二个点。
                 for node in list(G.nodes):
                     if nx.has_path(G, node, random_RumorSource) == True:
@@ -239,8 +238,7 @@ class FindSource:
                 threeNumberFLAG = 0
                 while threeNumberFLAG == 0:
                     # 先随机找一个点。
-                    random_Rumo = random.sample(sumlist, 1)
-                    random_RumorSource = random_Rumo[0]
+                    random_RumorSource = random.choice(sumlist)
                     # 找第二、三个点。
                     for index in range(len(sumlist) - 2):
                         if nx.has_path(G, sumlist[index], random_RumorSource) == True and nx.has_path(G, sumlist[
@@ -692,7 +690,7 @@ class FindSource:
         '''
         fix_number_sourcetemp = self.fix_number_source
         Sampleset = []
-        for i in range(100):
+        for i in range(50):
             Sampleset.append(random.sample(best_h_node, self.fix_number_source))
         infectG = self.infectG
         min_cover = 1
@@ -782,10 +780,10 @@ class FindSource:
     def cal_distanceError(self, dir):
         self.fix_number_source = 2
         distance = 0
-        for i in range(5):
+        for i in range(10):
             self.main(dir)
             distance += self.distance_error
-        result = distance / 5
+        result = distance / 10
         # 导入time模块
         import time
         # 打印时间戳

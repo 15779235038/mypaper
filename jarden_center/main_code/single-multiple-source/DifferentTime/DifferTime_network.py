@@ -1377,7 +1377,7 @@ if __name__ == '__main__':
 
     # 产生10次，每次都有误差，计算出来。并统计。
 
-    for i in range(1, 6):
+    for i in range(1, 11):
         sourceList.append(contractSource(G, 2, 2))
 
     errordistanceList = []  # 误差集合。
@@ -1406,7 +1406,7 @@ if __name__ == '__main__':
         listToTxt('输出平均值' + str(errorSum / len(errordistanceList)), 'DiffTime.txt')
         print('误差集合为' + str(errordistanceList))
         print(str(errorSum / len(errordistanceList)))
-    print(errorSum / 5)
+    print(errorSum / 10)
 
     # long running
 
