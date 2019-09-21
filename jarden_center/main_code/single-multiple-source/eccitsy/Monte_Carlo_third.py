@@ -4,26 +4,6 @@
 
 #Reference:**********************************************
 
-# @Time    : 2019/9/20 1:40 下午
-
-# @Author  : baozhiqiang
-
-# @File    : Monte_Carlo_four.py
-
-# @User    : bao
-
-# @Software: PyCharm
-
-#Reference:**********************************************
-
-
-
-#!/usr/bin/python3
-
-# -*-coding:utf-8 -*-
-
-#Reference:**********************************************
-
 # @Time    : 2019/9/19 12:42 上午
 
 # @Author  : baozhiqiang
@@ -202,6 +182,7 @@ class FindSource:
                 rumorSourceList.append(random_RumorSource)
                 flag = 1
             elif sourceNum == 2:
+
                 random_RumorSource = random.choice(sumlist)
                 # 在剩下的节点找到我们的第二个点。
                 for node in list(G.nodes):
@@ -560,8 +541,10 @@ class FindSource:
     def test_BFS_node(self, G, source_node, depth=3):
         print('source_node', source_node)
 
-        dfs_successor = nx.dfs_successors(G, source=source_node, depth_limit=depth)
+        dfs_successor = nx.bfs_successors(G, source=source_node, depth_limit=depth)
         print(dfs_successor)
+        dfs_successor = dict(dfs_successor)
+        # bfs_s
         stack = []
         dfs_result = defaultdict(list)
         depth = 0
@@ -721,7 +704,7 @@ class FindSource:
         for line in lines:
             lists.append(int(line))
         print(lists)
-        self.center = lists[1]
+        self.center = lists[0]
 
     '''
     1  先对整个传播子图图某些中心点，找出一个中心点。
@@ -760,10 +743,10 @@ class FindSource:
     def cal_distanceError(self, dir):
         self.fix_number_source = 2
         distance = 0
-        for i in range(5):
+        for i in range(10):
             self.main(dir)
             distance += self.distance_error
-        result = distance / 5
+        result = distance / 10
         # 导入time模块
         import time
         # 打印时间戳
@@ -781,6 +764,7 @@ class FindSource:
 test = FindSource()
 filename = 'CA-GrQc'
 test.cal_distanceError(filename)
+
 
 
 
