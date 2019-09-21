@@ -47,7 +47,7 @@ class Satisfaction:
     def  main(self):
         initG = commons.get_networkByFile('../../data/CA-GrQc.txt')
         source_list = commons.product_sourceList(initG, commons.fix_number_source)
-        infectG = commons.constract_Infection_netWork(initG, source_list)
+        infectG = commons.propagation1(initG, source_list)
         subinfectG = commons.get_subGraph(infectG)
         #求解中心性
         pre = '../data_center/'
@@ -69,7 +69,6 @@ class Satisfaction:
                         temp.append([center, source, depth])
             result.append(temp)
         print(result)
-
         variance_list = []
         #使用方差计算。
         for every_ecc in result:
@@ -77,26 +76,28 @@ class Satisfaction:
              # 求标准差
              arr_std = np.std(distemp, ddof=1)
              variance_list.append(arr_std)
-        print(variance_list)
+        print('variancelist，每次的结果',variance_list)
+        with open('result.txt', "a") as f:
+            # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
+            f.write(str(variance_list) + '\n')
         return variance_list
 
     '''
     
-    跑100次，看下方差平均差。评判那种中心性好
-    
+    跑50次，看下方差平均差。评判那种中心性好
     '''
     def   practice(self):
 
         distance =[ ]
-        for i in range(50):
+        for i in range(100):
             temp = self.main()
             distance.append(temp)
-
         distance1 = [i[0] for i  in distance]
         distance2 = [i[1] for i  in distance]
         distance3 = [i[2] for i  in distance]
-
-
+        print('distance1',distance1)
+        print('distance2',distance2)
+        print('distance3',distance3)
         print('first', np.mean(distance1))
         print('second', np.mean(distance2))
         print('third', np.mean(distance3))

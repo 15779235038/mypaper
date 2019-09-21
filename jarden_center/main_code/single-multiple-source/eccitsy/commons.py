@@ -255,12 +255,7 @@ def constract_Infection_netWork(G,SourceList):
     :param infect_ratio:
     :return:  按照感染比例感染的图
     '''
-    '''
-        我们认为时间片是有问题的，这个时间片应该就是按照，不能是每隔一个时间片就传染一波。只能说每隔一个时间片就记录
-        一线。传播也有有概率的。
-    '''
     print('开始传染的点是' + str(SourceList))
-
     infectList = []
     for j in SourceList:
         infectList.append(j)
@@ -293,8 +288,132 @@ def constract_Infection_netWork(G,SourceList):
 
 
 
-def  get_subGraph(infectG):
 
+
+
+'''
+用队列重写SI传播过程，propagation会传播并且还会
+
+传播方案1：从源点开始往外面传播，按照队列传播形式
+'''
+def   propagation(G,SourceList):
+    '''
+    :param G:
+    :param SourceList:
+    :return:
+    '''
+    y_list =[]
+    queue = []
+    for source in SourceList:
+        G.node[source]['SI'] = 2
+        queue.append(source)
+    while 1:
+            propagation_layer_list = [] #传播的BFS某一层
+            while len(queue) > 0:
+                propagation_layer_list.append(queue.pop(0))  #总是删除第一个
+            print('第几层为'+str(propagation_layer_list))
+            for source in propagation_layer_list:
+                for height in list(G.neighbors(source)):
+                    randnum = random.random()
+                    if randnum < 0.5:
+                        G.node[height]['SI'] = 2
+                        #如果被传播，那就将邻接节点放入队列中。
+                        queue.append(height)
+            propagation_layer_list.clear()
+            count = 0
+            for nodetemp in list(G.nodes):
+                if G.node[nodetemp]['SI'] == 2:
+                    count = count + 1
+            y_list.append(count)
+            print('被感染点为' + str(count) + '个')
+            if count / G.number_of_nodes() > 0.5:
+                print('超过50%节点了，不用传播啦')
+                break
+
+            # 数据进去图，看看
+    # x_list = [i for i in range(len(y_list))]
+    # plot(x_list, y_list, 'pro')
+    return G
+
+
+
+
+
+
+
+
+'''
+用队列重写SI传播过程，propagation会传播并且还会
+
+传播方案2：从源点开始往外面传播，按照队列传播形式。每次所有感染的点都试图感染身边的点。而不是一层一层来
+'''
+def   propagation1(G,SourceList):
+
+    y_list =[]
+    '''
+    :param G:
+    :param SourceList:
+    :return:
+    '''
+    queue = set()
+    for source in SourceList:
+        G.node[source]['SI'] = 2
+        queue.add(source)
+
+    while 1:
+            propagation_layer_list = [] #传播的BFS某一层
+            propagation_layer_list.extend(list(queue)) #总是删除第一个。这里不删除
+            print('第几层为'+str(len(propagation_layer_list)))
+            for source in propagation_layer_list:
+                for height in list(G.neighbors(source)):
+                    randnum = random.random()
+                    if randnum < 0.5:
+                        G.node[height]['SI'] = 2
+                        #如果被传播，那就将邻接节点放入队列中。
+                        queue.add(height)
+            propagation_layer_list.clear()
+            # queue_set = list(set(queue))
+            count = 0
+            for nodetemp in list(G.nodes):
+                if G.node[nodetemp]['SI'] == 2:
+                    count = count + 1
+            y_list.append(count)
+            print('被感染点为' + str(count) + '个')
+            if count / G.number_of_nodes() > 0.4:
+                print('超过50%节点了，不用传播啦')
+                break
+    #数据进去图，看看
+    x_list= [i for i in  range(len(y_list))]
+
+    # plot(x_list,y_list,'pro1')
+    return G
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+'''
+画图
+'''
+def plot(x_list,y_list,propagation1):
+    # x = [0, 1]
+    # y = [0, 1]
+    plt.figure()
+    plt.plot(x_list, y_list)
+    plt.savefig(str(propagation1) + ".png")
+    plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+def  get_subGraph(infectG):
    #构建传播子图，
         singleRegionList = []
         for node_index in list(infectG.nodes()):
@@ -390,6 +509,31 @@ def  get_center_list(subinfectG):
     center_list.append(sort_degree_centrality[0][0])
     return center_list
 
+
+
+
+'''
+1 对数据集进行判断。从有几个连通子图，每个数目。我们最关心在最大的连通子图产生源点。
+
+'''
+
+def  judge_data(initG):
+    '''
+
+    :param initG:
+    :return:  #返回最大子图的源点数据集
+    '''
+
+
+
+
+
+if __name__ == '__main__':
+    initG = get_networkByFile('.././data/CA-GrQc.txt')
+    source_list =product_sourceList(initG, 2)
+    # infectG =propagation(initG, source_list)
+    infectG =propagation1(initG, source_list)
+    #画图
 
 
 
