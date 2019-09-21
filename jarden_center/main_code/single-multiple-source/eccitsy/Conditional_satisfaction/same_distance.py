@@ -42,11 +42,12 @@ class Satisfaction:
     def __init__(self):
        pass
 
-
-
     def  main(self):
         initG = commons.get_networkByFile('../../data/CA-GrQc.txt')
-        source_list = commons.product_sourceList(initG, commons.fix_number_source)
+        max_sub_graph = commons.judge_data(initG)
+        # source_list = product_sourceList(max_sub_graph, 2)
+
+        source_list = commons.product_sourceList(max_sub_graph, commons.fix_number_source)
         infectG = commons.propagation1(initG, source_list)
         subinfectG = commons.get_subGraph(infectG)
         #求解中心性

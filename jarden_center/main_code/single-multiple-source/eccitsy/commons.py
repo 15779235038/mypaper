@@ -80,6 +80,7 @@ def get_networkByFile( fileName='../data/facebook_combined.txt'):
 def product_sourceList(G,sourceNum):
     # 产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
     sumlist = list(G.nodes)
+    print('最大子图个数为',len(sumlist))
     flag = 0
     flag1 = 0
     rumorSourceList = []
@@ -341,15 +342,18 @@ def   propagation(G,SourceList):
 
 
 
+import copy
 
 '''
 用队列重写SI传播过程，propagation会传播并且还会
 
 传播方案2：从源点开始往外面传播，按照队列传播形式。每次所有感染的点都试图感染身边的点。而不是一层一层来
 '''
-def   propagation1(G,SourceList):
+def   propagation1(G,SourceList,number =1):
 
     y_list =[]
+    G_temp = nx.Graph()
+    G_temp = copy.deepcopy(G)
     '''
     :param G:
     :param SourceList:
@@ -365,28 +369,29 @@ def   propagation1(G,SourceList):
             propagation_layer_list.extend(list(queue)) #总是删除第一个。这里不删除
             print('第几层为'+str(len(propagation_layer_list)))
             for source in propagation_layer_list:
-                for height in list(G.neighbors(source)):
+                for height in list(G_temp.neighbors(source)):
                     randnum = random.random()
                     if randnum < 0.5:
-                        G.node[height]['SI'] = 2
+                        G_temp.node[height]['SI'] = 2
                         #如果被传播，那就将邻接节点放入队列中。
                         queue.add(height)
             propagation_layer_list.clear()
             # queue_set = list(set(queue))
             count = 0
             for nodetemp in list(G.nodes):
-                if G.node[nodetemp]['SI'] == 2:
+                if G_temp.node[nodetemp]['SI'] == 2:
                     count = count + 1
             y_list.append(count)
             print('被感染点为' + str(count) + '个')
-            if count / G.number_of_nodes() > 0.4:
+            if count / G_temp.number_of_nodes() > 0.4:
                 print('超过50%节点了，不用传播啦')
                 break
     #数据进去图，看看
     x_list= [i for i in  range(len(y_list))]
 
-    # plot(x_list,y_list,'pro1')
-    return G
+    # plot(x_list,y_list,'pro'+str(number))
+    # G_temp = G
+    return G_temp
 
 
 import numpy as np
@@ -395,12 +400,11 @@ import matplotlib.pyplot as plt
 画图
 '''
 def plot(x_list,y_list,propagation1):
-    # x = [0, 1]
-    # y = [0, 1]
+
     plt.figure()
     plt.plot(x_list, y_list)
-    plt.savefig(str(propagation1) + ".png")
-    plt.show()
+    # plt.savefig('./Conditional_satisfaction/plot/'+str(propagation1) + ".png")
+    # plt.show()
 
 
 
@@ -519,10 +523,16 @@ def  get_center_list(subinfectG):
 
 def  judge_data(initG):
     '''
-
     :param initG:
     :return:  #返回最大子图的源点数据集
     '''
+    Gc = nx.Graph()
+    Gc = max(nx.connected_component_subgraphs(initG), key=len)
+    # for sub_graph in sorted(nx.connected_component_subgraphs(initG), key=len, reverse=True):
+    #     print(type(sub_graph))
+
+    return  Gc
+
 
 
 
@@ -530,11 +540,9 @@ def  judge_data(initG):
 
 if __name__ == '__main__':
     initG = get_networkByFile('.././data/CA-GrQc.txt')
-    source_list =product_sourceList(initG, 2)
-    # infectG =propagation(initG, source_list)
-    infectG =propagation1(initG, source_list)
-    #画图
-
+    max_sub_graph = judge_data(initG)
+    source_list =product_sourceList(max_sub_graph, 2)
+    judge_data(initG)
 
 
 
