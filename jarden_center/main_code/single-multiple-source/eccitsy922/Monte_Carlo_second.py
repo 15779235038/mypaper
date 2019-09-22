@@ -105,250 +105,6 @@ class FindSource:
         self.distance_error = None
 
 
-    def ContractDict(self, dir, G):
-        '''
-        :param dir:
-        :param G:    从文件中拿点
-        :return:
-        '''
-        with open(dir, 'r') as f:
-            for line in f:
-                line1 = line.split()
-                G.add_edge(int(line1[0]), int(line1[1]))
-        for edge in G.edges:
-            G.add_edge(edge[0], edge[1], weight=1)
-            # G.add_edge(edge[0],edge[1],weight=effectDistance(randomnum))
-        print(len(list(G.nodes)))
-        # G.remove_node(0)
-        print(len(list(G.nodes)))
-        return G
-
-    def get_networkByFile(self, fileName='../data/facebook_combined.txt'):
-        #  制造这个图
-        Ginti = nx.Graph()
-        # 构建图，这个图是有有效距离的。
-        G = self.ContractDict(fileName, Ginti)
-        # 因为邮件是一个有向图，我们这里构建的是无向图。
-        print('一开始图的顶点个数', G.number_of_nodes())
-        print('一开始图的边个数', G.number_of_edges())
-        #  先给全体的Cn、Scn,time的0的赋值。
-        for node in list(G.nodes):
-            G.add_node(node, SI=1)
-        # 初始化所有边是否感染。Infection
-        for edge in list(G.edges):
-            G.add_edge(edge[0], edge[1], isDel=0)
-        print('这个图产生完毕')
-        self.initG = G
-
-        # pass
-
-    def product_sourceList(self):
-        # 产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
-        sumlist = list(self.initG.nodes)
-
-        G = self.initG
-        sourceNum = self.fix_number_source
-        flag = 0
-        flag1 = 0
-        rumorSourceList = []
-        # 先随机找个点，然后找到距离它为>6,小于10的吧。
-        while (flag == 0):
-            if sourceNum == 1:
-                # random_RumorSource = random.randint(0, 7000)
-                random_Rumo = random.sample(sumlist, 1)
-                random_RumorSource = random_Rumo[0]
-                rumorSourceList.append(random_RumorSource)
-                flag = 1
-            elif sourceNum == 2:
-                # random_Rumo = random.sample(sumlist, 1)
-                # random_RumorSource = random_Rumo[0]
-
-                random_RumorSource = random.choice(sumlist)
-                # 在剩下的节点找到我们的第二个点。
-                for node in list(G.nodes):
-                    if nx.has_path(G, node, random_RumorSource) == True:
-                        if nx.shortest_path_length(G, node, random_RumorSource) > 4 and nx.shortest_path_length(G,
-                                                                                                                node,
-                                                                                                                random_RumorSource) < 6:
-                            rumorSourceList.append(node)
-                            rumorSourceList.append(random_RumorSource)
-                            flag = 1
-                            break
-            elif sourceNum == 3:
-                print('3源点情况。')
-                threeNumberFLAG = 0
-                while threeNumberFLAG == 0:
-                    # 先随机找一个点。
-                    # random_Rumo = random.sample(sumlist, 1)
-                    # random_RumorSource = random_Rumo[0]
-
-                    random_RumorSource = random.choice(sumlist)
-                    # 找第二、三个点。
-                    for index in range(len(sumlist) - 2):
-                        if nx.has_path(G, sumlist[index], random_RumorSource) == True and nx.has_path(G, sumlist[
-                            index + 1], random_RumorSource) == True:
-                            if nx.shortest_path_length(G, source=sumlist[index],
-                                                       target=random_RumorSource) > 4 and nx.shortest_path_length(G,
-                                                                                                                  source=
-                                                                                                                  sumlist[
-                                                                                                                      index],
-                                                                                                                  target=random_RumorSource) < 6 and nx.shortest_path_length(
-                                G, source=sumlist[index + 1],
-                                target=random_RumorSource) > 4 and nx.shortest_path_length(G, source=sumlist[
-                                index + 1], target=random_RumorSource) < 6:
-                                rumorSourceList.append(random_RumorSource)
-                                rumorSourceList.append(sumlist[index])
-                                rumorSourceList.append(sumlist[index + 1])
-                                print('找到了3源点了。')
-                                break
-                    if len(rumorSourceList) == 3:
-                        print('找到了3个点')
-                        threeNumberFLAG = 1
-                        flag = 1
-                    else:
-                        pass
-
-
-            elif sourceNum == 4:
-
-                flag = 0
-
-                flag1 = 0
-
-                while flag == 0:
-
-                    random_RumorSource = random.choice(sumlist)
-
-                    flag1 = 0
-
-                    while flag1 == 0:
-
-                        print('随机产生的点为' + str(random_RumorSource))
-
-                        rumorSourceList = []
-
-                        rumorSourceList.append(random_RumorSource)
-
-                        nehibor = []
-
-                        for j in range(0, 3):
-
-                            for i in range(0, 4):
-                                nehibor = list(G.neighbors(random_RumorSource))
-
-                                randomnumber = random.randint(0, len(nehibor) - 1)
-
-                                random_RumorSource = nehibor[randomnumber]
-
-                            rumorSourceList.append(random_RumorSource)
-
-                        if len(rumorSourceList) == 4 and len(rumorSourceList) == len(
-                                set(rumorSourceList)):  # 重复或者数目达不到要求:
-
-                            print('找到了4个点')
-
-                            flag1 = 1
-
-                            flag = 1
-
-                        elif len(rumorSourceList) == 4 and len(rumorSourceList) != len(set(rumorSourceList)):
-
-                            print('是四个点，但是却有重复，只能够重新选择新的开始点')
-
-                            flag1 = 1
-            elif sourceNum == 5:
-
-                flag = 0
-
-                flag1 = 0
-
-                while flag == 0:
-
-                    random_RumorSource = random.choice(sumlist)
-
-                    flag1 = 0
-                    while flag1 == 0:
-                        print('随机产生的点为' + str(random_RumorSource))
-                        rumorSourceList = []
-
-                        rumorSourceList.append(random_RumorSource)
-
-                        nehibor = []
-
-                        for j in range(0, 4):
-
-                            for i in range(0, 4):
-                                nehibor = list(G.neighbors(random_RumorSource))
-
-                                randomnumber = random.randint(0, len(nehibor) - 1)
-
-                                random_RumorSource = nehibor[randomnumber]
-
-                            rumorSourceList.append(random_RumorSource)
-
-                        if len(rumorSourceList) == 5 and len(rumorSourceList) == len(
-                                set(rumorSourceList)):  # 重复或者数目达不到要求:
-
-                            print('找到了5个点')
-
-                            flag1 = 1
-
-                            flag = 1
-
-                        elif len(rumorSourceList) == 5 and len(rumorSourceList) != len(set(rumorSourceList)):
-
-                            print('是5个点，但是却有重复，只能够重新选择新的开始点')
-
-                            flag1 = 1
-
-        # 查看产生随机源点的个数2，并且他们距离为3.
-        print('源点个数' + str(len(rumorSourceList)) + '以及产生的两源点是' + str(rumorSourceList))
-        # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 95
-        print('真实两源感染是' + str(rumorSourceList))
-        self.true_Source_list = rumorSourceList
-
-
-    def constract_Infection_netWork(self):
-        '''
-        :param G:
-        :param infect_ratio:
-        :return:  按照感染比例感染的图
-        '''
-        '''
-            我们认为时间片是有问题的，这个时间片应该就是按照，不能是每隔一个时间片就传染一波。只能说每隔一个时间片就记录
-            一线。传播也有有概率的。
-        '''
-        print('开始传染的点是' + str(self.true_Source_list))
-        G = self.initG
-        SourceList = self.true_Source_list
-        infectList = []
-        for j in SourceList:
-            infectList.append(j)
-            G.node[j]['SI'] = 2
-        #   没有具体的时间概念，传播大概到了50%，就停止传播。开始做实验
-        while 1:
-            tempinfectList = []
-            for node in list(set(infectList)):  # infectList表示的是每一个时刻传播到的点
-                for height in list(G.neighbors(node)):
-                    randnum = random.random()
-                    if randnum < 0.5:
-                        G.node[height]['SI'] = 2
-                        tempinfectList.append(height)
-            infectList = list(set(infectList))
-            # infectList.clear()
-            for timeInfectnode in tempinfectList:
-                infectList.append(timeInfectnode)
-            # 每一个时间点过去，判断有没有感染图的50%的点，感染了就可以，否则不行
-            count = 0
-            for nodetemp in list(G.nodes):
-                if G.node[nodetemp]['SI'] == 2:
-                    count = count + 1
-            print('被感染点为' + str(count) + '个')
-            if count / G.number_of_nodes() > 0.3:
-                print('超过50%节点了，不用传播啦')
-                break
-        self.infectG = G
-        # return G
 
 
 
@@ -447,59 +203,9 @@ class FindSource:
         print(resultSource)
         self.findSource_list = resultSource
 
-    def cal_distance(self,infectG):
-        lenA= len(self.true_Source_list)
-        lenB = len(self.findSource_list)
-        print('真实结果为'+str(self.true_Source_list))
-        print('找到的为'+str(self.findSource_list))
-        matrix_temp = []
-        for i in range(0, len(self.true_Source_list)):
-            temp = []
-            for j in range(0, len(self.findSource_list)):
-                temp.append(nx.shortest_path_length(infectG, source=self.true_Source_list[i],
-                                                      target=self.findSource_list[j]))
-
-            matrix_temp.append(temp)
-        print('看下这个结果是如何'+str(matrix_temp))
-        import numpy as np
-        cost = np.array(matrix_temp)
-        from scipy.optimize import linear_sum_assignment
-        row_ind, col_ind = linear_sum_assignment(cost)
-        allcost = cost[row_ind, col_ind].sum()
-        print('总的代价为'+str(allcost))
-        self.first_result_cost_list = [self.true_Source_list,self.findSource_list,allcost / lenA]
-        self.distance_error = allcost / lenA
-        return allcost / lenA
-
 
     from collections import defaultdict
 
-    '''
-    返回一个源点进行BFS每一层的节点，以键值对形式返回。层数：节点。
-    '''
-
-    def test_BFS_node(self,G, source_node, depth=3):
-        print('source_node',source_node)
-
-        dfs_successor = nx.dfs_successors(G, source=source_node, depth_limit=depth)
-        print(dfs_successor)
-        stack = []
-        dfs_result = defaultdict(list)
-        depth = 0
-        stack.append(source_node)
-        while len(stack) > 0:
-            node_list = stack
-            temp = []
-            for i in list(node_list):
-                if i in dfs_successor.keys():
-                    for neighbour in dfs_successor[i]:
-                        temp.append(neighbour)
-                        dfs_result[depth].append(neighbour)
-            depth += 1
-            stack = temp
-
-        print(dfs_result)
-        return dfs_result
 
     from random import sample
     '''
@@ -514,7 +220,7 @@ class FindSource:
         tempGraph = self.tempGraph
         print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraph.nodes))))
         print('这个感染区域的传播图节点个数')
-        dfs_result_dict =self.test_BFS_node(tempGraph, source_node=self.singe_source_result)
+        dfs_result_dict =commons.test_BFS_node(tempGraph, source_node=self.singe_source_result)
         sort_dfs_result_dict = sorted(dfs_result_dict.items(), key=lambda x: x[0])
         print('sort_dfs_result_dict',sort_dfs_result_dict)
         '''
@@ -636,18 +342,17 @@ class FindSource:
         pre = '../data/'
         last = '.txt'
         # filename = ''
-        self.get_networkByFile(fileName=pre + dir + last)  # 获取图，
+        self.initG = commons.get_networkByFile(fileName=pre + dir + last)  # 获取图，
         max_sub_graph = commons.judge_data(self.initG)
         source_list = commons.product_sourceList(max_sub_graph, self.fix_number_source)
         self.true_Source_list = source_list
-
-
-
-        self.constract_Infection_netWork()  # 开始传染
+        self.infectG = commons.propagation1(self.initG, self.true_Source_list)  # 开始传染
         self.revsitionAlgorithm_pre(self.infectG)  # 找到反转算法后的生成答案点
-        self.cal_BFS_monte_Carlo()                           #找到结果后构建BFS树，进行采样判断覆盖率。
+        self.cal_BFS_monte_Carlo()  # 找到最好的覆盖率结果。
         self.cal_reverse_algorithm(self.infectG)  # 找到反转算法后的生成答案点
-        self.cal_distance(self.infectG)
+        self.distance_error = commons.cal_distance(self.infectG, self.true_Source_list, self.findSource_list)
+
+        # return commons.cal_distance(self.infectG, self.true_Source_list, self.findSource_list)
 
     '''
     计算误差100次。
@@ -667,7 +372,7 @@ class FindSource:
         # print(time.time())
         pre = './result/'
         last = '.txt'
-        with open(pre + dir + last, 'w') as f:
+        with open(pre + dir +'second'+ last, 'a') as f:
             f.write(str(time.time()) + '\n')
             f.write(str(10) + '    ' + str(result))
         print(distance / 10)

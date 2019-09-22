@@ -670,6 +670,35 @@ def revsitionAlgorithm(u, h, infectG, subinfectG):
 
 
 
+'''
+
+
+在一个图中计算两个K点之间距离点匈牙利算法。
+'''
+
+def cal_distance(infectG,true_Source_list,findSource_list):
+        lenA= len(true_Source_list)
+        lenB = len(findSource_list)
+        print('真实结果为'+str(true_Source_list))
+        print('找到的为'+str(findSource_list))
+        matrix_temp = []
+        for i in range(0, len(true_Source_list)):
+            temp = []
+            for j in range(0, len(findSource_list)):
+                temp.append(nx.shortest_path_length(infectG, source=true_Source_list[i],
+                                                      target=findSource_list[j]))
+
+            matrix_temp.append(temp)
+        print('看下这个结果是如何'+str(matrix_temp))
+        import numpy as np
+        cost = np.array(matrix_temp)
+        from scipy.optimize import linear_sum_assignment
+        row_ind, col_ind = linear_sum_assignment(cost)
+        allcost = cost[row_ind, col_ind].sum()
+        print('总的代价为'+str(allcost))
+        first_result_cost_list = [true_Source_list,findSource_list,allcost / lenA]
+        distance_error = allcost/lenA
+        return allcost / lenA
 
 
 
