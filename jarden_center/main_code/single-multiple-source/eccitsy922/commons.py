@@ -507,10 +507,33 @@ def  get_center_list(subinfectG):
     degree_centrality = nx.degree_centrality(subinfectG)
     sort_degree_centrality = sorted(degree_centrality.items(), key=lambda x: x[1], reverse=True)
     print('sort_degree_centrality', sort_degree_centrality)
+
+    #特征向量中心性。
+    centrality = nx.eigenvector_centrality(subinfectG)
+    sort_eigener_centrality = sorted(centrality.items(), key=lambda x: x[1], reverse=True)
+    print('eigenvector_centrality', sort_eigener_centrality)
+    # self.center = sort_eigener_centrality[0][0]
+
+    import math
+    #Kaza中心性
+    # G = nx.path_graph(4)
+    maxnumber = max(nx.adjacency_spectrum(subinfectG))
+    print(maxnumber)
+    phi = (1 + math.sqrt(5)) / 2.0  # largest eigenvalue of adj matrix
+    centrality = nx.katz_centrality(subinfectG, 1/ maxnumber -0.01)
+    katz_centrality = sorted(centrality.items(), key=lambda x: x[1], reverse=True)
+    print('katz_centrality',katz_centrality)
+
+
+
     center_list = []
     center_list.append(sort_eccentricity_dict[0][0])
     center_list.append(sort_colse_centrality_dict[0][0])
     center_list.append(sort_degree_centrality[0][0])
+    center_list.append(sort_eigener_centrality[0][0])
+    center_list.append(katz_centrality[0][0])
+
+
     return center_list
 
 

@@ -24,8 +24,9 @@ import numpy
 from munkres import print_matrix, Munkres
 from collections import defaultdict
 from random import sample
-
 import sys
+sys.path.append('mypaper/mypaper/jarden_center/main_code/single-multiple-source/eccitsy922/commons.py')
+print(sys.path)
 import  commons
 print(commons)
 
@@ -73,7 +74,7 @@ class Satisfaction:
         variance_list = []
         #使用方差计算。
         for every_ecc in result:
-             distemp =[ i[2] for i in every_ecc]  #收集每种中心性的方差，方差越小越好。
+             distemp =[i[2] for i in every_ecc]  #收集每种中心性的方差，方差越小越好。
              # 求标准差
              arr_std = np.std(distemp, ddof=1)
              variance_list.append(arr_std)

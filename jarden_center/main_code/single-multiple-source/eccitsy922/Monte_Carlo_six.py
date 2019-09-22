@@ -4,6 +4,26 @@
 
 #Reference:**********************************************
 
+# @Time    : 2019/9/22 10:59 上午
+
+# @Author  : baozhiqiang
+
+# @File    : Monte_Carlo_six.py
+
+# @User    : bao
+
+# @Software: PyCharm
+
+#Reference:**********************************************
+
+
+
+#!/usr/bin/python3
+
+# -*-coding:utf-8 -*-
+
+#Reference:**********************************************
+
 # @Time    : 2019/9/20 1:40 下午
 
 # @Author  : baozhiqiang
@@ -210,7 +230,6 @@ class FindSource:
         #真实的改进代码部分。
         self.get_center(tempGraph)
         center = self.center
-        print('图度中心是',center)
         # tempGraph = nx.Graph()
         # tempGraph = self.tempGraph
         print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraph.nodes))))
@@ -241,7 +260,7 @@ class FindSource:
                 temp_all_cover = 0
                 temp_cover = 0
                 temp_ave_cover = 0
-                if len(node_list) > self.fix_number_source * 10:  # 这一层只有大于3个点才可以。
+                if len(node_list) > self.fix_number_source * 2:  # 这一层只有大于3个点才可以。
                     if len(node_list) > 20:
                         itemNumber = int(len(node_list) / 10)  # 层数越大，节点越多，应该采样越多才能逼近近似值。
                     else:
@@ -319,12 +338,11 @@ class FindSource:
 
     def get_center(self,tempGraph):
 
-        #   度中心性
-        degree_centrality = nx.degree_centrality(tempGraph)
-        sort_degree_centrality = sorted(degree_centrality.items(), key=lambda x: x[1], reverse=True)
-        print('sort_degree_centrality', sort_degree_centrality)
-
-        self.center = sort_degree_centrality[0][0]
+        #特征向量中心性
+        centrality = nx.eigenvector_centrality(tempGraph)
+        sort_eigener_centrality = sorted(centrality.items(), key=lambda x: x[1], reverse=True)
+        print('eigenvector_centrality',sort_eigener_centrality)
+        self.center = sort_eigener_centrality[0][0]
 
     '''
     1  先对整个传播子图图某些中心点，找出一个中心点。
@@ -379,12 +397,10 @@ class FindSource:
         # print(time.time())
         pre = './result/'
         last = '.txt'
-        with open(pre + dir +'five'+ last, 'a') as f:
+        with open(pre + dir +'six'+ last, 'a') as f:
             f.write(str(time.asctime( time.localtime(time.time()) )) + '\n')
             f.write(str(10) + '    ' + str(result))
         print(distance / 10)
-
-
 
 
 test = FindSource()
