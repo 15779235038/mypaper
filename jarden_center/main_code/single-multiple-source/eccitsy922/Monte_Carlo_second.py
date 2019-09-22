@@ -232,7 +232,7 @@ class FindSource:
         # radius_graph= nx.radius(tempGraph)
         # radius_graph = 40
 
-        tempGraph =self.infectG         #采用不同的感染图
+        # tempGraph =self.infectG         #采用不同的感染图
 
         radius_graph =self.radius
         print('图半径为', radius_graph)
@@ -355,12 +355,12 @@ class FindSource:
         # return commons.cal_distance(self.infectG, self.true_Source_list, self.findSource_list)
 
     '''
-    计算误差100次。
+    计算误差10次。
 
     '''
 
     def cal_distanceError(self, dir):
-        self.fix_number_source = 2
+        self.fix_number_source = 3
         distance = 0
         for i in range(10):
             self.main(dir)

@@ -25,7 +25,7 @@ from collections import defaultdict
 from random import sample
 
 
-fix_number_source = 4
+fix_number_source = 3
 
 
 '''
@@ -461,7 +461,7 @@ def get_data(dir):
     返回一个源点进行BFS每一层的节点，以键值对形式返回。层数：节点。
     目前固定5层。
     '''
-def test_BFS_node( G, source_node, depth=5):
+def test_BFS_node( G, source_node, depth = 5):
         print('source_node', source_node)
         dfs_successor = nx.bfs_successors(G, source=source_node)
         dfs_successor =dict(dfs_successor)
@@ -689,6 +689,70 @@ def revsitionAlgorithm(u, h, infectG, subinfectG):
 
 
 
+
+
+
+'''
+抽象jaya算法出来，需要的参数是感染子图，所有个体数据集，固定源点个数。固定h或者listh
+返回最好的样本就行了
+
+'''
+def  jaya(tempGraph, best_h_node,fix_number_source,best_h,singleRegionList):
+    '''
+        默认种群大小50，迭代4次，每次都随机更新种群大小。
+    :param infectG:
+    :param best_h_node:
+    :param fix_number_source:
+    :param best_h:
+    :return:
+    '''
+    fix_number_sourcetemp = fix_number_source
+    Sampleset = []
+    for i in range(100):
+        Sampleset.append(random.sample(best_h_node, fix_number_source))
+    # infectG =infectG
+    min_cover = 1
+    min = 1
+    mincover = None
+    bestsourceNews = None
+    minCoverlist = []
+    for iter_number in range(4):
+        for sample_index in range(len(Sampleset)):
+            mincover = getSimilir1(Sampleset[sample_index], best_h, singleRegionList,
+                                           tempGraph)
+            # 随机更换，看如何让变好
+            for j in range(1, 4, 1):  # 随机变4次，只要能变好
+                # lateelement = [random.choice(best_h_node), random.choice(best_h_node),
+                #                 random.choice(best_h_node),random.choice(best_h_node)]
+
+                lateelement = [random.choice(best_h_node) for i in range(fix_number_source)]
+                # print('当前输入的后面list' + str(lateelement))
+                latemincover = getSimilir1(lateelement, best_h, singleRegionList, tempGraph)
+                if mincover > latemincover:
+                    mincover = latemincover  # 有更好地就要替换
+                    # print("要进行替换了" + str(Sampleset[sample_index]) + '被替换成lateelement')
+                    Sampleset[sample_index] = lateelement  # 替换
+                    # print(Sampleset[sample_index])
+        # print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
+        # 计算样本集的similir，找出最好的。
+        for sources in Sampleset:
+            mincover = getSimilir1(sources, best_h, singleRegionList, tempGraph)
+            if mincover < min:
+                min = mincover  # 这一次最好的覆盖误差率
+                bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
+        print('得到多源点情况最小的覆盖率为' + str(bestsourceNews) + str(min))
+        minCoverlist.append([bestsourceNews, best_h, min])
+    print(minCoverlist)
+    result = sorted(minCoverlist, key=lambda x: (x[2]))
+    return result[0]
+
+
+
+'''
+抽取函数分层，有两个函数，一个是知道h，一个是不知道h
+参数：分层的dict，以及h。
+返回最好的候选集合，以及H。
+'''
 
 
 

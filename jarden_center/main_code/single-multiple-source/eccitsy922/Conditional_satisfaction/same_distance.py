@@ -90,7 +90,7 @@ class Satisfaction:
     '''
     def   practice(self):
         distance =[ ]
-        for i in range(100):
+        for i in range(50):
             temp = self.main()
 
     def getdata(self):
@@ -107,12 +107,18 @@ class Satisfaction:
         distance1 = [i[0] for i in result]
         distance2 = [i[1] for i in result]
         distance3 = [i[2] for i in result]
+        distance4 = [i[3] for i in result]
+        distance5 = [i[4] for i in result]
         print('distance1', distance1)
         print('distance2', distance2)
         print('distance3', distance3)
+
         print('first', np.mean(distance1))
         print('second', np.mean(distance2))
         print('third', np.mean(distance3))
+        print('four', np.mean(distance4))
+        print('five', np.mean(distance5))
+
         # print(result)
 
 
@@ -121,5 +127,5 @@ class Satisfaction:
 if __name__ == '__main__':
 
     test = Satisfaction()
-    # test.getdata()
-    test.practice()
+    test.getdata() #判断是否公平
+    # test.practice()   #跑实验

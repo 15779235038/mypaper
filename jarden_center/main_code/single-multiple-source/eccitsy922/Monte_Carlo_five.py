@@ -367,7 +367,7 @@ class FindSource:
      '''
 
     def cal_distanceError(self, dir):
-        self.fix_number_source = 2
+        self.fix_number_source = 3
         distance = 0
         for i in range(10):
             self.main(dir)

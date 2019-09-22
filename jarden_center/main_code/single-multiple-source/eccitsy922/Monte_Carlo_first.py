@@ -125,14 +125,14 @@ class FindSource:
         #从偏心率大的考虑，先保存最大偏心度。
         sort_eccentricity_dict = sorted(eccentri_dict.items(),key= lambda x:x[0],reverse=True)
         max_eccentric = sort_eccentricity_dict[0][0]
+        min_eccentric = sort_eccentricity_dict[-1][0]
         print('输出最大的就是那个偏心率'+str(max_eccentric))
         from random import sample
         best_h = 0
         M_dis = 0
         best_h_node = []
         min_cover = 100  # 某一层的覆盖率，肯定会比这个小。
-        tempGraph =self.infectG         #采用不同的感染图
-
+        # tempGraph =self.infectG         #采用不同的感染图
         for eccentric, node_list in sort_eccentricity_dict:
             print('how to that')
             print(eccentric,node_list)
@@ -141,7 +141,7 @@ class FindSource:
             temp_all_cover = 0
             temp_cover = 0
             temp_ave_cover = 0
-            if len(node_list) > self.fix_number_source*2: #这一层只有大于3个点才可以。
+            if len(node_list) > self.fix_number_source*2  : #这一层只有大于3个点才可以。
                 itemNumber =  int(len(node_list)/10)   #层数越大，节点越多，应该采样越多才能逼近近似值。
                 for frequency  in range(itemNumber): #抽取10次,这里有问题，有些层数目多，怎么抽取会好点？按照层数抽取相应的次数会比较好点，公平。
                     slice = random.sample(node_list, self.fix_number_source)
@@ -161,52 +161,11 @@ class FindSource:
                     best_h = M_dis
         print('输出表现优异同学,看看'+str(best_h_node),str(best_h))
         #得到最优层数解，再大量进行选择，使用jaya算法。构建大量样本。在固定h下的寻找最合适的节点。
-
         '''
         1 构建种群样本下
         2 在固定h下更新
         '''
-        fix_number_sourcetemp = self.fix_number_source
-        Sampleset =  [ ]
-        for i  in range(50):
-            Sampleset.append(random.sample(best_h_node, self.fix_number_source))
-        infectG= self.infectG
-        min_cover = 1
-        min = 1
-        mincover = None
-        bestsourceNews = None
-        minCoverlist = []
-        for  iter_number in range(4):
-            for sample_index in range(len(Sampleset)):
-                mincover = commons.getSimilir1(Sampleset[sample_index], best_h, singleRegionList,
-                                        tempGraph)
-                # 随机更换，看如何让变好
-                for j in range(1, 4, 1):  # 随机变4次，只要能变好
-                    # lateelement = [random.choice(best_h_node), random.choice(best_h_node),
-                    #                 random.choice(best_h_node),random.choice(best_h_node)]
-
-                    lateelement = [random.choice(best_h_node) for i in range(self.fix_number_source)]
-                    # print('当前输入的后面list' + str(lateelement))
-                    latemincover = commons.getSimilir1(lateelement, best_h, singleRegionList, tempGraph)
-                    if mincover > latemincover:
-                        mincover = latemincover  # 有更好地就要替换
-                        # print("要进行替换了" + str(Sampleset[sample_index]) + '被替换成lateelement')
-                        Sampleset[sample_index] = lateelement  # 替换
-                        # print(Sampleset[sample_index])
-            # print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
-            # 计算样本集的similir，找出最好的。
-            for sources in Sampleset:
-                mincover = commons.getSimilir1(sources, best_h, singleRegionList, tempGraph)
-                if mincover < min:
-                    min = mincover  # 这一次最好的覆盖误差率
-                    bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
-            print('得到多源点情况最小的覆盖率为' +str(bestsourceNews)+ str(min))
-            minCoverlist.append([bestsourceNews, best_h, min])
-        print(minCoverlist)
-        result = sorted(minCoverlist, key=lambda x: (x[2]))
-        self.single_best_result = result[0]
-
-
+        self.single_best_result = commons.jaya(tempGraph, best_h_node, self.fix_number_source, best_h, singleRegionList)
 
 
     def  cal_reverse_algorithm(self,infectG):
@@ -230,7 +189,7 @@ class FindSource:
         max_sub_graph = commons.judge_data( self.initG)
         source_list = commons.product_sourceList(max_sub_graph, self.fix_number_source)
         self.true_Source_list = source_list
-        self.infectG=commons.propagation1(self.initG,self.true_Source_list)  # 开始传染
+        self.infectG = commons.propagation1(max_sub_graph,self.true_Source_list)  # 开始传染
         self.cal_ecctity()      #找到最好的覆盖率结果。
         self.cal_reverse_algorithm(self.infectG)  # 找到反转算法后的生成答案点
         self.distance_error = commons.cal_distance(self.infectG, self.true_Source_list, self.findSource_list)

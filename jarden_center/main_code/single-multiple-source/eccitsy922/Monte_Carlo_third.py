@@ -217,7 +217,7 @@ class FindSource:
         # radius_graph= nx.radius(tempGraph)
         # radius_graph = 40
 
-        tempGraph =self.infectG         #采用不同的感染图
+        # tempGraph =self.infectG         #采用不同的感染图
         radius_graph = self.radius
         print('图半径为', radius_graph)
         best_h = 0
@@ -356,10 +356,10 @@ class FindSource:
     def cal_distanceError(self, dir):
         self.fix_number_source = 2
         distance = 0
-        for i in range(10):
+        for i in range(5):
             self.main(dir)
             distance += self.distance_error
-        result = distance / 10
+        result = distance / 5
         # 导入time模块
         import time
         # 打印时间戳
@@ -368,8 +368,10 @@ class FindSource:
         last = '.txt'
         with open(pre + dir +'third'+ last, 'a') as f:
             f.write(str(time.asctime( time.localtime(time.time()) )) + '\n')
-            f.write(str(10) + '    ' + str(result))
-        print(distance / 10)
+            f.write(str(5) + '    ' + str(result))
+        print(distance / 5)
+
+
 
 
 
