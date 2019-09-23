@@ -162,6 +162,8 @@ class FindSource:
         # print('输出表现优异同学,看看'+str(best_h_node),str(best_h))
 
 
+        tempGraph = self.infectG
+
         for  node_list_index in range(len(sort_eccentricity_dict)-1):
             print('how to that')
             print(sort_eccentricity_dict[node_list_index][1])
@@ -193,11 +195,6 @@ class FindSource:
                     best_h_node = sort_eccentricity_dict[node_list_index][1]
                     best_h = M_dis
         print('输出表现优异同学,看看' + str(best_h_node), str(best_h))
-
-
-
-
-
         #得到最优层数解，再大量进行选择，使用jaya算法。构建大量样本。在固定h下的寻找最合适的节点。
         '''
         1 构建种群样本下

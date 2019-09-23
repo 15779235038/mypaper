@@ -28,7 +28,7 @@ import sys
 sys.path.append('mypaper/mypaper/jarden_center/main_code/single-multiple-source/eccitsy922/commons.py')
 print(sys.path)
 import  commons
-print(commons)
+# print(commons)
 
 '''
 思路：

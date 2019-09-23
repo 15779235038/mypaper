@@ -25,7 +25,7 @@ from collections import defaultdict
 from random import sample
 
 
-fix_number_source = 3
+fix_number_source = 4
 
 
 '''
@@ -80,8 +80,6 @@ def get_networkByFile( fileName='../data/facebook_combined.txt'):
 
 产生源点：
 方案1：就是下面这种，
-
-
 
 '''
 def product_sourceList(G,sourceNum):
@@ -262,42 +260,6 @@ def product_sourceList(G,sourceNum):
 
 
 
-'''
-产生源点：
-方案2
-
-使用DFS寻找长度为k的环。随机取环中距离为m的两点即可。
-
-'''
-
-def product_sourceList_circle(G,sourceNum):
-    # 产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
-    sumlist = list(G.nodes)
-    print('最大子图个数为',len(sumlist))
-    random_RumorSource = random.choice(sumlist)
-    rumorSourceList = []
-    print('random_RumorSource',random_RumorSource)
-    result = nx.cycle_basis(G, random_RumorSource)   #找出图中所有的环。
-    # print(result[1:100])
-    for every in result:
-        if len(every) > 18:
-            print(every)
-            print(nx.shortest_path_length(G,source=every[0],target=every[3]))
-            print(nx.shortest_path_length(G,source=every[3],target=every[6]))
-            print(nx.shortest_path_length(G,source=every[0],target=every[6]))
-
-    # print(list(nx.simple_cycles(G)))
-
-
-
-
-    # 查看产生随机源点的个数2，并且他们距离为3.
-    print('源点个数' + str(len(rumorSourceList)) + '以及产生的两源点是' + str(rumorSourceList))
-    # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 95
-    print('真实两源感染是' + str(rumorSourceList))
-
-    return rumorSourceList
-
 
 
 
@@ -416,7 +378,7 @@ def   propagation1(G,SourceList,number =1):
     for source in SourceList:
         G.node[source]['SI'] = 2
         queue.add(source)
-
+    # progation_number = 0
     while 1:
             propagation_layer_list = [] #传播的BFS某一层
             propagation_layer_list.extend(list(queue)) #总是删除第一个。这里不删除
@@ -436,14 +398,13 @@ def   propagation1(G,SourceList,number =1):
                     count = count + 1
             y_list.append(count)
             print('被感染点为' + str(count) + '个')
+            # progation_number += 1
             if count / G_temp.number_of_nodes() > 0.4:
                 print('超过50%节点了，不用传播啦')
                 break
     #数据进去图，看看
-    x_list= [i for i in  range(len(y_list))]
 
-    # plot(x_list,y_list,'pro'+str(number))
-    # G_temp = G
+
     return G_temp
 
 
@@ -516,9 +477,9 @@ def get_data(dir):
     '''
 def test_BFS_node( G, source_node, depth = 5):
         print('source_node', source_node)
-        dfs_successor = nx.bfs_successors(G, source=source_node)
+        dfs_successor = nx.bfs_successors(G, source=source_node,depth_limit=depth)
         dfs_successor =dict(dfs_successor)
-        print('dfs_successor', dfs_successor)
+        # print('dfs_successor', dfs_successor)
         stack = []
         dfs_result = defaultdict(list)
         depth = 1
@@ -534,7 +495,7 @@ def test_BFS_node( G, source_node, depth = 5):
                         dfs_result[depth].append(neighbour)
             depth += 1
             stack = temp
-        print(dfs_result)
+        # print(dfs_result)
         return dfs_result
 
 
@@ -801,8 +762,16 @@ def  jaya(tempGraph, best_h_node,fix_number_source,best_h,singleRegionList):
 
 
 
+
+
+
+
+
+
+
+
 '''
-抽取函数分层，有两个函数，一个是知道h，一个是不知道h
+抽取函数分层，有两个函数，一个是知道h，一个是不知道h,但是有hlist
 参数：分层的dict，以及h。
 返回最好的候选集合，以及H。
 '''
@@ -845,7 +814,7 @@ def cal_distance(infectG,true_Source_list,findSource_list):
 if __name__ == '__main__':
     initG = get_networkByFile('.././data/CA-GrQc.txt')
     max_sub_graph = judge_data(initG)
-    source_list =product_sourceList_circle(max_sub_graph, 2)
+    # source_list =product_sourceList_circle(max_sub_graph, 2)
     # judge_data(initG)
 
 

@@ -3,7 +3,8 @@ import networkx as nx
 import random
 from networkx.algorithms import community
 
-
+import  commons
+# print(commons)
 
 # from Girvan_Newman import GN #引用模块中的函数
 
