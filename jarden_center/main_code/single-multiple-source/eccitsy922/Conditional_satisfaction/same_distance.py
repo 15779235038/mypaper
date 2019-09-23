@@ -127,5 +127,5 @@ class Satisfaction:
 if __name__ == '__main__':
 
     test = Satisfaction()
-    test.getdata() #判断是否公平
-    # test.practice()   #跑实验
+    # test.getdata() #判断是否公平
+    test.practice()   #跑实验

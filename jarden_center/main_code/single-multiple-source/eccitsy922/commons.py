@@ -76,7 +76,14 @@ def get_networkByFile( fileName='../data/facebook_combined.txt'):
 
     # pass
 
+'''
 
+产生源点：
+方案1：就是下面这种，
+
+
+
+'''
 def product_sourceList(G,sourceNum):
     # 产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
     sumlist = list(G.nodes)
@@ -250,6 +257,52 @@ def product_sourceList(G,sourceNum):
     return rumorSourceList
 
 
+
+
+
+
+
+'''
+产生源点：
+方案2
+
+使用DFS寻找长度为k的环。随机取环中距离为m的两点即可。
+
+'''
+
+def product_sourceList_circle(G,sourceNum):
+    # 产生指定感染节点，需要参数节点个数。他们距离的最大值。图G
+    sumlist = list(G.nodes)
+    print('最大子图个数为',len(sumlist))
+    random_RumorSource = random.choice(sumlist)
+    rumorSourceList = []
+    print('random_RumorSource',random_RumorSource)
+    result = nx.cycle_basis(G, random_RumorSource)   #找出图中所有的环。
+    # print(result[1:100])
+    for every in result:
+        if len(every) > 18:
+            print(every)
+            print(nx.shortest_path_length(G,source=every[0],target=every[3]))
+            print(nx.shortest_path_length(G,source=every[3],target=every[6]))
+            print(nx.shortest_path_length(G,source=every[0],target=every[6]))
+
+    # print(list(nx.simple_cycles(G)))
+
+
+
+
+    # 查看产生随机源点的个数2，并且他们距离为3.
+    print('源点个数' + str(len(rumorSourceList)) + '以及产生的两源点是' + str(rumorSourceList))
+    # rumorSourceList=[125,4022]   #需要经过5个空。这两个源点。796, 806, 686, 698, 3437, 1085, 1494, 95
+    print('真实两源感染是' + str(rumorSourceList))
+
+    return rumorSourceList
+
+
+
+
+
+
 def constract_Infection_netWork(G,SourceList):
     '''
     :param G:
@@ -347,7 +400,7 @@ import copy
 '''
 用队列重写SI传播过程，propagation会传播并且还会
 
-传播方案2：从源点开始往外面传播，按照队列传播形式。每次所有感染的点都试图感染身边的点。而不是一层一层来
+传播方案2：从源点开始往外面传播，按照队列传播形式。每一个时间刻度，每次所有感染的点都试图感染身边的点。而不是一层一层来
 '''
 def   propagation1(G,SourceList,number =1):
 
@@ -792,8 +845,8 @@ def cal_distance(infectG,true_Source_list,findSource_list):
 if __name__ == '__main__':
     initG = get_networkByFile('.././data/CA-GrQc.txt')
     max_sub_graph = judge_data(initG)
-    source_list =product_sourceList(max_sub_graph, 2)
-    judge_data(initG)
+    source_list =product_sourceList_circle(max_sub_graph, 2)
+    # judge_data(initG)
 
 
 

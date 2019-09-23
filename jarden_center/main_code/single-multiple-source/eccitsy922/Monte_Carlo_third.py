@@ -262,46 +262,8 @@ class FindSource:
         1 构建种群样本下
         2 在固定h下更新
         '''
-        fix_number_sourcetemp = self.fix_number_source
-        Sampleset = []
-        for i in range(50):
-            Sampleset.append(random.sample(best_h_node, self.fix_number_source))
-        infectG = self.infectG
-        min_cover = 1
-        min = 1
-        mincover = None
-        bestsourceNews = None
-        minCoverlist = []
-        for iter_number in range(5):
-            for sample_index in range(len(Sampleset)):
-                mincover = commons.getSimilir1(Sampleset[sample_index], best_h, singleRegionList,
-                                            tempGraph)
-                # 随机更换，看如何让变好
-                for j in range(1, 4, 1):  # 随机变4次，只要能变好
-                    # lateelement = [random.choice(best_h_node), random.choice(best_h_node),
-                    #                random.choice(best_h_node)]
-                    #
-                    lateelement = [random.choice(best_h_node) for i in range(self.fix_number_source)]
+        self.single_best_result = commons.jaya(tempGraph, best_h_node, self.fix_number_source, best_h, singleRegionList)
 
-                    # print('当前输入的后面list' + str(lateelement))
-                    latemincover = commons.getSimilir1(lateelement, best_h, singleRegionList, tempGraph)
-                    if mincover > latemincover:
-                        mincover = latemincover  # 有更好地就要替换
-                        # print("要进行替换了" + str(Sampleset[sample_index]) + '被替换成lateelement')
-                        Sampleset[sample_index] = lateelement  # 替换
-                        # print(Sampleset[sample_index])
-            # print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
-            # 计算样本集的similir，找出最好的。
-            for sources in Sampleset:
-                mincover = commons.getSimilir1(sources, best_h, singleRegionList, tempGraph)
-                if mincover < min:
-                    min = mincover  # 这一次最好的覆盖误差率
-                    bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
-            print('得到多源点情况最小的覆盖率为' + str(min))
-            minCoverlist.append([bestsourceNews, best_h, min])
-        print(minCoverlist)
-        result = sorted(minCoverlist, key=lambda x: (x[2]))
-        self.single_best_result = result[0]
     '''
     从txt中获取每个数据集的中心点依次做实验
     '''
