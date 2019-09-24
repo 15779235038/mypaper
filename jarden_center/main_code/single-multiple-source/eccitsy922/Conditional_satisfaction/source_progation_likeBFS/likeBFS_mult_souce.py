@@ -8,7 +8,7 @@
 
 # @Author  : baozhiqiang
 
-# @File    : likeBFS.py
+# @File    : likeBFS_mult_souce.py
 
 # @User    : bao
 

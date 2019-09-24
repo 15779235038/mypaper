@@ -8,7 +8,7 @@
 
 # @Author  : baozhiqiang
 
-# @File    : likeBFS.py
+# @File    : likeBFS_mult_souce.py
 
 # @User    : bao
 
@@ -79,8 +79,6 @@ class  LikeBFS:
         :param SourceList:
         :return:
         '''
-
-
         queue = set()
         for source in SourceList:
             G.node[source]['SI'] = 2
@@ -122,27 +120,50 @@ class  LikeBFS:
     画图
     '''
 
-    def plot(self,x_list, y_list, propagation1):
+    def plot(self,x_list, y_list, propagation1,Probability):
         plt.figure()
         plt.plot(x_list, y_list)
+        plt.title('increase number of people for evert t  at'+str(Probability))
+
         plt.savefig('result/'+str(propagation1) + ".png")
         # plt.show()
+        plt.close()
 
 
-    def plot_plus(self,x_list,y_list1,y_list2,propagation1):
+    def plot_plus(self,x_list,y_list1,y_list2,propagation1,Probability):
 
         # label = 'y2'
         plt.plot(x_list, y_list1, 'g', label = 'progation')
         plt.plot(x_list, y_list2, 'r--', label='BFS')
         plt.legend()
-        plt.xlabel('t')
+        plt.title('increase number of people for evert t  at'+str(Probability))
 
         plt.ylabel('Increased number of infected people for every t')
         plt.savefig('result/'+str(propagation1) + ".png")
-
+        plt.close()
 
         # pass
 
+    def  plot_sum_increase(self,x_list,y_list1,y_list2,filename,Probability):
+        temp1 = 0
+        temp2 = 0
+        new_list1 =[]
+        new_list2 = []
+        for  y1, y2  in zip(y_list1, y_list2):
+            temp1  +=y1
+            new_list1.append(temp1)
+            temp2 += y2
+            new_list2.append(temp2)
+
+        plt.plot(x_list, new_list1, 'g', label='progation')
+        plt.plot(x_list, new_list2, 'r--', label='BFS')
+        plt.legend()
+        plt.title('sum number of people for evert t at'+str(Probability))
+        plt.xlabel('t')
+        plt.ylabel('sum of infected people for every t')
+        plt.savefig('result/' + str(filename) + ".png")
+        plt.close()
+    # pass
     def  get_best_BFScenter(self,subinfectG,fix_number_souce,progation_number,source_list):
         '''
 
@@ -189,24 +210,25 @@ class  LikeBFS:
 
 
 
-
     def main(self):
         initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+
+        # initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
+
         max_sub_graph = commons.judge_data(initG)
         source_list = commons.product_sourceList(max_sub_graph, 1)
         infectG, progration_number, y_list1 = self.get_paogration(max_sub_graph, source_list)
-        print('progration_number',progration_number)
-        print('len(y_list1)',len(y_list1))
+        # print('progration_number',progration_number)
+        # print('len(y_list1)',len(y_list1))
         y_list2 = self.get_BFS(max_sub_graph,source_list[0],progration_number)
-
-
         print(len(y_list2))
         print(len(y_list1))
-        self.plot(range(len(y_list1)),y_list1,'progration')
-        self.plot(range(len(y_list2)),y_list2,'bfs')
-        self.plot_plus(range(len(y_list2)),y_list1,y_list2,'all')
-
-
+        Probability = 0.5
+        self.plot(range(len(y_list1)),y_list1,'progration',Probability)
+        self.plot(range(len(y_list1)),y_list2,'bfs',Probability)
+        self.plot_plus(range(len(y_list2)),y_list1,y_list2,'every_t',Probability)
+        self.plot_sum_increase(range(len(y_list2)),y_list1,y_list2,'sum',Probability)
+        #重新画一个图，记录增长总数变化。
 
 
 

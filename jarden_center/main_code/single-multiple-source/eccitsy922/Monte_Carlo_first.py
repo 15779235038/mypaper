@@ -132,34 +132,6 @@ class FindSource:
         M_dis = 0
         best_h_node = []
         min_cover = 100  # 某一层的覆盖率，肯定会比这个小。
-        # tempGraph =self.infectG         #采用不同的感染图
-        # for eccentric, node_list in sort_eccentricity_dict[0:len(sort_eccentricity_dict)-1:1]:
-        #     print('how to that')
-        #     print(eccentric, node_list)
-        #     M_dis =  max_eccentric - eccentric  #最好的bFS树半径。
-        #     #随机挑选k个点固定次数。
-        #     temp_all_cover = 0
-        #     temp_cover = 0
-        #     temp_ave_cover = 0
-        #     if len(node_list) > self.fix_number_source*2  : #这一层只有大于3个点才可以。
-        #         itemNumber =  int(len(node_list)/10)   #层数越大，节点越多，应该采样越多才能逼近近似值。
-        #         for frequency  in range(itemNumber): #抽取10次,这里有问题，有些层数目多，怎么抽取会好点？按照层数抽取相应的次数会比较好点，公平。
-        #             slice = random.sample(node_list, self.fix_number_source)
-        #             temp_cover =commons.getSimilir1(slice, M_dis, singleRegionList, tempGraph)
-        #             temp_all_cover += temp_cover
-        #         if temp_all_cover != 0:
-        #             temp_ave_cover = temp_all_cover/itemNumber  #求出平均覆盖率。
-        #             print('temp_ave_cover',temp_ave_cover)
-        #         else:
-        #             temp_ave_cover = 0.1
-        #         if temp_ave_cover <= min_cover:
-        #             #这一层表现优异，记下h，以及这一层的所有节点。
-        #             print('每次平均的覆盖率是'+str(min_cover))
-        #             print('temp_ave_cover',temp_ave_cover)
-        #             min_cover = temp_ave_cover
-        #             best_h_node = node_list
-        #             best_h = M_dis
-        # print('输出表现优异同学,看看'+str(best_h_node),str(best_h))
 
 
         tempGraph = self.infectG
@@ -170,7 +142,6 @@ class FindSource:
             print(sort_eccentricity_dict[node_list_index][0])
             sort_eccentricity_dict[node_list_index][1].extend(sort_eccentricity_dict[node_list_index + 1][1])
             print(sort_eccentricity_dict[node_list_index][1])
-
             M_dis = max_eccentric - sort_eccentricity_dict[node_list_index][0] +1 # 最好的bFS树半径。
             # 随机挑选k个点固定次数。
             temp_all_cover = 0
@@ -237,7 +208,7 @@ class FindSource:
     
     '''
     def cal_distanceError(self,dir):
-        self.fix_number_source = 3
+        self.fix_number_source = 1
         distance = 0
         for i in range(5):
             self.main(dir)
@@ -250,7 +221,7 @@ class FindSource:
         pre = './result/'
         last = '.txt'
         with open(pre+dir+'first'+last, 'a') as f:
-            f.write(str(time.asctime( time.localtime(time.time()) ))+'\n')
+            f.write(str(time.asctime(time.localtime(time.time()) ))+'\n')
             f.write(str(5)+'    '+str(result))
         print(distance/5)
 
