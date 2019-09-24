@@ -59,6 +59,7 @@ class  LikeBFS:
         sort_BFS_dict = sorted(dict.items(),key= lambda x: x[0])
         y_list = []
         for everyLevel, node_list in sort_BFS_dict:
+            print('len(node_list)',len(node_list))
             y_list.append(len(node_list))
         return y_list[1:]
         # pass
@@ -110,7 +111,7 @@ class  LikeBFS:
 
             print('被感染点为' + str(count) + '个')
             progation_number += 1
-            if count / G_temp.number_of_nodes() > 0.4:
+            if count / G_temp.number_of_nodes() > 0.9:
                 print('超过50%节点了，不用传播啦')
                 break
         # 数据进去图，看看
@@ -129,11 +130,18 @@ class  LikeBFS:
 
 
     def plot_plus(self,x_list,y_list1,y_list2,propagation1):
-        plt.plot(x_list, y_list1, 'g')
-        plt.plot(x_list, y_list2, 'r--')
+
+        # label = 'y2'
+        plt.plot(x_list, y_list1, 'g', label = 'progation')
+        plt.plot(x_list, y_list2, 'r--', label='BFS')
+        plt.legend()
+        plt.xlabel('t')
+
+        plt.ylabel('Increased number of infected people for every t')
         plt.savefig('result/'+str(propagation1) + ".png")
 
-        pass
+
+        # pass
 
     def  get_best_BFScenter(self,subinfectG,fix_number_souce,progation_number,source_list):
         '''
@@ -186,10 +194,10 @@ class  LikeBFS:
         initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
         max_sub_graph = commons.judge_data(initG)
         source_list = commons.product_sourceList(max_sub_graph, 1)
-        infectG,progration_number, y_list1 = self.get_paogration(initG, source_list)
+        infectG, progration_number, y_list1 = self.get_paogration(max_sub_graph, source_list)
         print('progration_number',progration_number)
         print('len(y_list1)',len(y_list1))
-        y_list2 = self.get_BFS(infectG,source_list[0],progration_number)
+        y_list2 = self.get_BFS(max_sub_graph,source_list[0],progration_number)
 
 
         print(len(y_list2))
