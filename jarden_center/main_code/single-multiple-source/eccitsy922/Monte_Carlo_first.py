@@ -205,10 +205,9 @@ class FindSource:
 
     '''
     计算误差100次。
-    
     '''
     def cal_distanceError(self,dir):
-        self.fix_number_source = 3
+        self.fix_number_source = 4
         distance = 0
         for i in range(20):
             self.main(dir)
@@ -222,7 +221,7 @@ class FindSource:
         last = '.txt'
         with open(pre+dir+'first'+last, 'a') as f:
             f.write(str(time.asctime(time.localtime(time.time()) ))+'\n')
-            f.write(str(20)+'    '+str(result))
+            f.write(str(20)+'     '+str(dir)+'    '+str(result))
         print(distance/20)
 
 

@@ -123,9 +123,9 @@ class  LikeBFS:
     def plot(self,x_list, y_list, propagation1,Probability):
         plt.figure()
         plt.plot(x_list, y_list)
-        plt.title('increase number of people for evert t  at'+str(Probability))
+        plt.title('increase number of people for evert t  at Probability'+str(Probability)+'(one  source)')
 
-        plt.savefig('result/result_oneSource/'+str(propagation1) + ".png")
+        plt.savefig('result/result_oneSource/'+str(propagation1)+'(one  source)' + ".png")
         # plt.show()
         plt.close()
 
@@ -136,10 +136,10 @@ class  LikeBFS:
         plt.plot(x_list, y_list1, 'g', label = 'progation')
         plt.plot(x_list, y_list2, 'r--', label='BFS')
         plt.legend()
-        plt.title('increase number of people for evert t  at'+str(Probability))
+        plt.title('increase number of people for evert t  at Probability  '+str(Probability)+'(one  source)')
 
         plt.ylabel('Increased number of infected people for every t')
-        plt.savefig('result/result_oneSource/'+str(propagation1) + ".png")
+        plt.savefig('result/result_oneSource/'+str(propagation1) +'(one  source)'+ ".png")
         plt.close()
 
         # pass
@@ -158,10 +158,10 @@ class  LikeBFS:
         plt.plot(x_list, new_list1, 'g', label='progation')
         plt.plot(x_list, new_list2, 'r--', label='BFS')
         plt.legend()
-        plt.title('sum number of people for evert t at'+str(Probability))
+        plt.title('sum number of nodes for evert t at Probability '+str(Probability)+'(one  source)')
         plt.xlabel('t')
-        plt.ylabel('sum of infected people for every t')
-        plt.savefig('result/result_oneSource/' + str(filename) + ".png")
+        plt.ylabel('sum of infected nodes for every t ')
+        plt.savefig('result/result_oneSource/' + str(filename)+'(one  source )' + ".png")
         plt.close()
     # pass
     def  get_best_BFScenter(self,subinfectG,fix_number_souce,progation_number,source_list):
@@ -211,9 +211,9 @@ class  LikeBFS:
 
 
     def main(self):
-        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
 
-        # initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
+        initG = commons.get_networkByFile('../../../data/Wiki-Vote.txt')
 
         max_sub_graph = commons.judge_data(initG)
         source_list = commons.product_sourceList(max_sub_graph, 1)

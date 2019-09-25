@@ -63,7 +63,7 @@ class LikeBFS:
             print('len(node_list)', len(node_list))
             node_list_temp.append(node_list)
             y_list.append(len(node_list))
-        return y_list[1:],node_list_temp[1:]
+        return y_list,node_list_temp
         # pass
 
     '''
@@ -86,6 +86,7 @@ class LikeBFS:
         for source in SourceList:
             G.node[source]['SI'] = 2
             queue.add(source)
+        y_list.append(len(SourceList))
         progation_number = 0
         while 1:
             propagation_layer_list = []  # 传播的BFS某一层
@@ -126,9 +127,9 @@ class LikeBFS:
     def plot(self, x_list, y_list, propagation1, Probability):
         plt.figure()
         plt.plot(x_list, y_list)
-        plt.title('increase number of people for evert t  at' + str(Probability))
+        plt.title('increase number of node for evert t  at Probability' + str(Probability)+'(three source )')
 
-        plt.savefig('result/result_mulSource/' + str(propagation1) + ".png")
+        plt.savefig('result/result_mulSource/' + str(propagation1) +'(three source )'+ ".png")
         # plt.show()
         plt.close()
 
@@ -138,10 +139,9 @@ class LikeBFS:
         plt.plot(x_list, y_list1, 'g', label='progation')
         plt.plot(x_list, y_list2, 'r--', label='BFS')
         plt.legend()
-        plt.title('increase number of people for evert t  at' + str(Probability))
-
-        plt.ylabel('Increased number of infected people for every t')
-        plt.savefig('result/result_mulSource/' + str(propagation1) + ".png")
+        plt.title('increase number of node for evert t  at Probability' + str(Probability)+'(three source )')
+        plt.ylabel('Increased number of infected node for every t')
+        plt.savefig('result/result_mulSource/' + str(propagation1)+'(three source )' + ".png")
         plt.close()
 
         # pass
@@ -160,10 +160,10 @@ class LikeBFS:
         plt.plot(x_list, new_list1, 'g', label='progation')
         plt.plot(x_list, new_list2, 'r--', label='BFS')
         plt.legend()
-        plt.title('sum number of people for evert t at' + str(Probability))
+        plt.title('sum number of people for evert t at Probability' + str(Probability)+'(three source )')
         plt.xlabel('t')
         plt.ylabel('sum of infected people for every t')
-        plt.savefig('result/result_mulSource/' + str(filename) + ".png")
+        plt.savefig('result/result_mulSource/' + str(filename) +'(three source )'+ ".png")
         plt.close()
 
     '''
@@ -171,25 +171,36 @@ class LikeBFS:
     画出多个源点的增长曲线，进而分析其数据增长。但是明显是交叉的。
     '''
     def main(self):
-        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        initG = commons.get_networkByFile('../../../data/Wiki-Vote.txt')
+
+
         max_sub_graph = commons.judge_data(initG)
         source_list = commons.product_sourceList(max_sub_graph, 3)
         infectG, progration_number, y_list1 = self.get_paogration(max_sub_graph, source_list)
-        y_list2 =[0 for  i  in range(progration_number)]
-        y_list2node = [[] for  i  in range(progration_number)]
+        y_list2 =[0 for  i  in range(progration_number+1)]
+        y_list2node = [[] for  i  in range(progration_number+1)]
         for source_index  in range(len(source_list)):
             temp,node_list_temp = self.get_BFS(max_sub_graph, source_list[source_index], progration_number)
             # print('temp', temp)
             for index in range(len(node_list_temp)):
                 y_list2node[index].extend(node_list_temp[index])
 
-        for  i  in range(len(y_list2node)):
-            y_list2[i] = len(set(y_list2node[i]))
+        # y_list2node这个list中每一项可能有重复感染的，需要求差级。
+        temp_all = []
+        temp_all.extend(y_list2node[0])
+        y_list2[0] = len(set(temp_all))
+        print(y_list2[0])
+        for  i  in range(1,len(y_list2node)):
+            # ist(set(t) - set(s))
+            c = list(set(y_list2node[i]) - set(temp_all))  # 求差集（项在t中，但不在s中
+            y_list2[i] = len(set(c))
+            temp_all.extend(y_list2node[i])
 
+        print(y_list2)
 
-
-        print(len(y_list2))
-        print(len(y_list1))
+        # print(len(y_list2))
+        # print(len(y_list1))
         Probability = 0.5
         self.plot(range(len(y_list1)), y_list1, 'progration', Probability)
         self.plot(range(len(y_list1)), y_list2, 'bfs', Probability)

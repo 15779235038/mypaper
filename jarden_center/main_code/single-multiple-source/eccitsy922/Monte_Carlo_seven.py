@@ -384,7 +384,7 @@ class FindSource:
         last = '.txt'
         with open(pre + dir +'seven'+ last, 'a') as f:
             f.write(str(time.asctime( time.localtime(time.time()) )) + '\n')
-            f.write(str(10) + '    ' + str(result))
+            f.write(str(20)+'     '+str(dir)+'    '+str(result))
         print(distance / 10)
 
 

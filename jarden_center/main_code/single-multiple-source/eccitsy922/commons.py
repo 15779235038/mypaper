@@ -408,6 +408,88 @@ def   propagation1(G,SourceList,number =1):
     return G_temp
 
 
+
+
+
+
+
+# import copy
+
+'''
+用队列重写SI传播过程，propagation会传播并且还会
+
+传播方案2：从源点开始往外面传播，按照队列传播形式。每一个时间刻度，每次所有感染的点都试图感染身边的点。而不是一层一层来
+'''
+def   BFS_coverage(G,SourceList,number =1):
+
+    y_list =[]
+    G_temp = nx.Graph()
+    G_temp = copy.deepcopy(G)
+    '''
+    :param G:
+    :param SourceList:
+    :return:
+    '''
+    queue = set()
+    for source in SourceList:
+        G.node[source]['SI'] = 2
+        queue.add(source)
+    # progation_number = 0
+
+
+
+    while 1:
+            propagation_layer_list = [] #传播的BFS某一层
+            propagation_layer_list.extend(list(queue)) #总是删除第一个。这里不删除
+            print('第几层为'+str(len(propagation_layer_list)))
+            for source in propagation_layer_list:
+                for height in list(G_temp.neighbors(source)):
+                        randnum = random.random()
+                    # if randnum < 0.5:
+                        G_temp.node[height]['SI'] = 2
+                        #如果被传播，那就将邻接节点放入队列中。
+                        queue.add(height)
+            propagation_layer_list.clear()
+            # queue_set = list(set(queue))
+            count = 0
+            for nodetemp in list(G.nodes):
+                if G_temp.node[nodetemp]['SI'] == 2:
+                    count = count + 1
+            y_list.append(count)
+            print('被感染点为' + str(count) + '个')
+            # progation_number += 1
+            if count / G_temp.number_of_nodes() > 0.4:
+                print('超过50%节点了，不用传播啦')
+                break
+    #数据进去图，看看
+
+
+
+    return G_temp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 '''

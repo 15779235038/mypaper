@@ -1353,7 +1353,9 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/CA-GrQc.txt', Ginti)
+    # G = ContractDict('../data/CA-GrQc.txt', Ginti)
+
+    G = ContractDict('../data/Wiki-Vote.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -1381,7 +1383,7 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
     max_sub_graph = commons.judge_data(G)
     for i in range(1, 21):
-        source_list = commons.product_sourceList(max_sub_graph, 5)
+        source_list = commons.product_sourceList(max_sub_graph, 2)
         sourceList.append(source_list)
 
 
@@ -1408,7 +1410,7 @@ if __name__ == '__main__':
         infectGs = commons.propagation1(max_sub_graph, singleSource)  # 开始传染
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectGs)
-        errordistance = multiplePartion(multipList, infectGs, singleSource, 5)
+        errordistance = multiplePartion(multipList, infectGs, singleSource, 2)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         listToTxt(str(datetime.datetime.now()), 'DiffTime.txt')

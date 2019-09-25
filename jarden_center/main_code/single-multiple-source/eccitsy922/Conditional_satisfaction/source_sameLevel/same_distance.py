@@ -37,7 +37,7 @@ import  commons
   3 判断真实源点是否集中于BFS的某一层。
 
 '''
-
+import  time
 
 class Satisfaction:
     def __init__(self):
@@ -49,7 +49,7 @@ class Satisfaction:
         # source_list = product_sourceList(max_sub_graph, 2)
 
         source_list = commons.product_sourceList(max_sub_graph, commons.fix_number_source)
-        infectG = commons.propagation1(initG, source_list)
+        infectG = commons.BFS_coverage(max_sub_graph, source_list)
         subinfectG = commons.get_subGraph(infectG)
         #求解中心性
         pre = '../data_center/'
@@ -63,7 +63,7 @@ class Satisfaction:
         for center in center_list:
             temp = []
             # commons.test_BFS_node(subinfectG, source = center,)
-            dfs_result_dict = commons.test_BFS_node(subinfectG, source_node=center, depth = 4)
+            dfs_result_dict = commons.test_BFS_node(subinfectG, source_node=center, depth = 7)
             print('dfs_result_dict', dfs_result_dict)
             for source in source_list:
                 for depth, depth_list in dfs_result_dict.items():
@@ -79,8 +79,9 @@ class Satisfaction:
              arr_std = np.std(distemp, ddof=1)
              variance_list.append(arr_std)
         print('variancelist，每次的结果',variance_list)
-        with open('result.txt', "a") as f:
+        with open('result_bfs.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
+            f.write(str(time.asctime(time.localtime(time.time()) ))+'\n')
             f.write(str(variance_list).replace('[','').replace(']','') + '\n')
         return variance_list
 
@@ -96,13 +97,14 @@ class Satisfaction:
     def getdata(self):
         import sys
         result = []
-        with open('result.txt', 'r') as f:
-            for line in f:
-                temp = []
-                line = line.replace('[','').replace(']','').replace(' ','')
-                for i in list(line.strip('\n').split(',')):
-                    temp.append(float(i))
-                result.append(temp)
+        with open('result_bfs.txt', 'r') as f:
+            for index,line in enumerate(f):
+                if index %2 ==0:
+                    temp = []
+                    line = line.replace('[','').replace(']','').replace(' ','')
+                    for i in list(line.strip('\n').split(',')):
+                        temp.append(float(i))
+                    result.append(temp)
 
         distance1 = [i[0] for i in result]
         distance2 = [i[1] for i in result]
@@ -127,5 +129,5 @@ class Satisfaction:
 if __name__ == '__main__':
 
     test = Satisfaction()
-    # test.getdata() #判断是否公平
-    test.practice()   #跑实验
+    test.getdata() #判断是否公平
+    # test.practice()   #跑实验
