@@ -208,12 +208,12 @@ class FindSource:
     
     '''
     def cal_distanceError(self,dir):
-        self.fix_number_source = 1
+        self.fix_number_source = 3
         distance = 0
-        for i in range(5):
+        for i in range(20):
             self.main(dir)
             distance += self.distance_error
-        result =distance/5
+        result =distance/20
         # 导入time模块
         import time
         # 打印时间戳
@@ -222,8 +222,8 @@ class FindSource:
         last = '.txt'
         with open(pre+dir+'first'+last, 'a') as f:
             f.write(str(time.asctime(time.localtime(time.time()) ))+'\n')
-            f.write(str(5)+'    '+str(result))
-        print(distance/5)
+            f.write(str(20)+'    '+str(result))
+        print(distance/20)
 
 
 

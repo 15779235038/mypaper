@@ -125,7 +125,7 @@ class  LikeBFS:
         plt.plot(x_list, y_list)
         plt.title('increase number of people for evert t  at'+str(Probability))
 
-        plt.savefig('result/'+str(propagation1) + ".png")
+        plt.savefig('result/result_oneSource/'+str(propagation1) + ".png")
         # plt.show()
         plt.close()
 
@@ -139,7 +139,7 @@ class  LikeBFS:
         plt.title('increase number of people for evert t  at'+str(Probability))
 
         plt.ylabel('Increased number of infected people for every t')
-        plt.savefig('result/'+str(propagation1) + ".png")
+        plt.savefig('result/result_oneSource/'+str(propagation1) + ".png")
         plt.close()
 
         # pass
@@ -161,7 +161,7 @@ class  LikeBFS:
         plt.title('sum number of people for evert t at'+str(Probability))
         plt.xlabel('t')
         plt.ylabel('sum of infected people for every t')
-        plt.savefig('result/' + str(filename) + ".png")
+        plt.savefig('result/result_oneSource/' + str(filename) + ".png")
         plt.close()
     # pass
     def  get_best_BFScenter(self,subinfectG,fix_number_souce,progation_number,source_list):
