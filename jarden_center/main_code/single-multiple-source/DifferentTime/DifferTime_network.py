@@ -1383,10 +1383,8 @@ if __name__ == '__main__':
     # 产生10次，每次都有误差，计算出来。并统计。
     max_sub_graph = commons.judge_data(G)
     for i in range(1, 21):
-        source_list = commons.product_sourceList(max_sub_graph, 2)
+        source_list = commons.product_sourceList(max_sub_graph, 3)
         sourceList.append(source_list)
-
-
 
 
     errordistanceList = []  # 误差集合。
@@ -1410,7 +1408,7 @@ if __name__ == '__main__':
         infectGs = commons.propagation1(max_sub_graph, singleSource)  # 开始传染
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectGs)
-        errordistance = multiplePartion(multipList, infectGs, singleSource, 2)
+        errordistance = multiplePartion(multipList, infectGs, singleSource, 3)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         listToTxt(str(datetime.datetime.now()), 'DiffTime.txt')

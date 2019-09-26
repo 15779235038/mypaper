@@ -444,7 +444,7 @@ def   BFS_coverage(G,SourceList,number =1):
             print('第几层为'+str(len(propagation_layer_list)))
             for source in propagation_layer_list:
                 for height in list(G_temp.neighbors(source)):
-                        randnum = random.random()
+                    # randnum = random.random()
                     # if randnum < 0.5:
                         G_temp.node[height]['SI'] = 2
                         #如果被传播，那就将邻接节点放入队列中。

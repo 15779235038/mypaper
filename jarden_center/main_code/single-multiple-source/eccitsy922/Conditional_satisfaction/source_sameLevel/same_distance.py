@@ -17,6 +17,8 @@
 #Reference:**********************************************
 
 import numpy as np
+import matplotlib.pyplot as plt
+
 import random
 import math
 import networkx  as nx
@@ -79,12 +81,19 @@ class Satisfaction:
              arr_std = np.std(distemp, ddof=1)
              variance_list.append(arr_std)
         print('variancelist，每次的结果',variance_list)
-        with open('result_bfs.txt', "a") as f:
+        with open('./result_bfs.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()) ))+'\n')
             f.write(str(variance_list).replace('[','').replace(']','') + '\n')
         return variance_list
 
+    def plot(self, x_list, y_list, ):
+        plt.figure()
+        plt.plot(x_list, y_list)
+        plt.title('Multiple central measures')
+        plt.savefig('first'+".png")
+        # plt.show()
+        plt.close()
     '''
     
     跑50次，看下方差平均差。评判那种中心性好
@@ -97,9 +106,9 @@ class Satisfaction:
     def getdata(self):
         import sys
         result = []
-        with open('result_bfs.txt', 'r') as f:
+        with open('./result_bfs.txt', 'r') as f:
             for index,line in enumerate(f):
-                if index %2 ==0:
+                if index %2 !=0:
                     temp = []
                     line = line.replace('[','').replace(']','').replace(' ','')
                     for i in list(line.strip('\n').split(',')):
@@ -114,12 +123,20 @@ class Satisfaction:
         print('distance1', distance1)
         print('distance2', distance2)
         print('distance3', distance3)
-
+        x_list = ['Median centrality','proximity centrality','degree centrality','feature vector centrality']
+        y_list = []
         print('first', np.mean(distance1))
+        y_list.append(np.mean(distance1))
+
         print('second', np.mean(distance2))
+        y_list.append(np.mean(distance2))
         print('third', np.mean(distance3))
+        y_list.append(np.mean(distance3))
         print('four', np.mean(distance4))
-        print('five', np.mean(distance5))
+        y_list.append(np.mean(distance4))
+        # print('five', np.mean(distance5))
+
+        self.plot(x_list,y_list)
 
         # print(result)
 

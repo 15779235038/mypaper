@@ -83,6 +83,7 @@ class FindSource:
         self.all_result_cost_list = []
         self.findSource_list = []
         self.distance_error = None
+        self.radius_graph =6
 
 
 
@@ -137,34 +138,35 @@ class FindSource:
         tempGraph = self.infectG
 
         for  node_list_index in range(len(sort_eccentricity_dict)-1):
-            print('how to that')
-            print(sort_eccentricity_dict[node_list_index][1])
-            print(sort_eccentricity_dict[node_list_index][0])
-            sort_eccentricity_dict[node_list_index][1].extend(sort_eccentricity_dict[node_list_index + 1][1])
-            print(sort_eccentricity_dict[node_list_index][1])
-            M_dis = max_eccentric - sort_eccentricity_dict[node_list_index][0] +1 # 最好的bFS树半径。
-            # 随机挑选k个点固定次数。
-            temp_all_cover = 0
-            temp_cover = 0
-            temp_ave_cover = 0
-            if len(sort_eccentricity_dict[node_list_index][1]) > self.fix_number_source * 2:  # 这一层只有大于3个点才可以。
-                itemNumber = int(len(sort_eccentricity_dict[node_list_index][1]) / 10)  # 层数越大，节点越多，应该采样越多才能逼近近似值。
-                for frequency in range(itemNumber):  # 抽取10次,这里有问题，有些层数目多，怎么抽取会好点？按照层数抽取相应的次数会比较好点，公平。
-                    slice = random.sample(sort_eccentricity_dict[node_list_index][1], self.fix_number_source)
-                    temp_cover = commons.getSimilir1(slice, M_dis, singleRegionList, tempGraph)
-                    temp_all_cover += temp_cover
-                if temp_all_cover != 0:
-                    temp_ave_cover = temp_all_cover / itemNumber  # 求出平均覆盖率。
-                    print('temp_ave_cover', temp_ave_cover)
-                else:
-                    temp_ave_cover = 0.1
-                if temp_ave_cover <= min_cover:
-                    # 这一层表现优异，记下h，以及这一层的所有节点。
-                    print('每次平均的覆盖率是' + str(min_cover))
-                    print('temp_ave_cover', temp_ave_cover)
-                    min_cover = temp_ave_cover
-                    best_h_node = sort_eccentricity_dict[node_list_index][1]
-                    best_h = M_dis
+            for h in range(self.radius_graph // 2, self.radius_graph, 1):
+                # print('how to that')
+                # print(sort_eccentricity_dict[node_list_index][1])
+                # print(sort_eccentricity_dict[node_list_index][0])
+                sort_eccentricity_dict[node_list_index][1].extend(sort_eccentricity_dict[node_list_index + 1][1])
+                # print(sort_eccentricity_dict[node_list_index][1])
+                M_dis = max_eccentric - sort_eccentricity_dict[node_list_index][0]  # 最好的bFS树半径。
+                # 随机挑选k个点固定次数。
+                temp_all_cover = 0
+                temp_cover = 0
+                temp_ave_cover = 0
+                if len(sort_eccentricity_dict[node_list_index][1]) > self.fix_number_source * 2:  # 这一层只有大于3个点才可以。
+                    itemNumber = int(len(sort_eccentricity_dict[node_list_index][1]) / 10)  # 层数越大，节点越多，应该采样越多才能逼近近似值。
+                    for frequency in range(itemNumber):  # 抽取10次,这里有问题，有些层数目多，怎么抽取会好点？按照层数抽取相应的次数会比较好点，公平。
+                        slice = random.sample(sort_eccentricity_dict[node_list_index][1], self.fix_number_source)
+                        temp_cover = commons.getSimilir1(slice, h, singleRegionList, tempGraph)
+                        temp_all_cover += temp_cover
+                    if temp_all_cover != 0:
+                        temp_ave_cover = temp_all_cover / itemNumber  # 求出平均覆盖率。
+                        print('temp_ave_cover', temp_ave_cover)
+                    else:
+                        temp_ave_cover = 0.1
+                    if temp_ave_cover <= min_cover:
+                        # 这一层表现优异，记下h，以及这一层的所有节点。
+                        print('每次平均的覆盖率是' + str(min_cover))
+                        print('temp_ave_cover', temp_ave_cover)
+                        min_cover = temp_ave_cover
+                        best_h_node = sort_eccentricity_dict[node_list_index][1]
+                        best_h = h
         print('输出表现优异同学,看看' + str(best_h_node), str(best_h))
         #得到最优层数解，再大量进行选择，使用jaya算法。构建大量样本。在固定h下的寻找最合适的节点。
         '''
@@ -207,7 +209,7 @@ class FindSource:
     计算误差100次。
     '''
     def cal_distanceError(self,dir):
-        self.fix_number_source = 4
+        self.fix_number_source = 5
         distance = 0
         for i in range(20):
             self.main(dir)
@@ -223,8 +225,6 @@ class FindSource:
             f.write(str(time.asctime(time.localtime(time.time()) ))+'\n')
             f.write(str(20)+'     '+str(dir)+'    '+str(result))
         print(distance/20)
-
-
 
 test  = FindSource()
 filename = 'CA-GrQc'
