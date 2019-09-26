@@ -804,7 +804,7 @@ def  jaya(tempGraph, best_h_node,fix_number_source,best_h,singleRegionList):
     '''
     fix_number_sourcetemp = fix_number_source
     Sampleset = []
-    for i in range(100):
+    for i in range(50):
         Sampleset.append(random.sample(best_h_node, fix_number_source))
     # infectG =infectG
     min_cover = 1

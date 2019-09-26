@@ -4,6 +4,25 @@
 
 #Reference:**********************************************
 
+# @Time    : 2019/9/26 10:52 上午
+
+# @Author  : baozhiqiang
+
+# @File    : Monte_Carlo_first_fast.py
+
+# @User    : bao
+
+# @Software: PyCharm
+
+#Reference:**********************************************
+
+
+#!/usr/bin/python3
+
+# -*-coding:utf-8 -*-
+
+#Reference:**********************************************
+
 # @Time    : 2019/9/17 10:00 上午
 
 # @Author  : baozhiqiang
@@ -97,7 +116,7 @@ class FindSource:
    4   直到确定某一级别的覆盖率普遍低，可以通过求和方式求。在根据这一层进行jaya算法。样本为【k个点】，h就是m。
    5  找出最合适的k个点，进行单源定位。
     '''
-    def  cal_ecctity(self):
+    def  cal_ecctity(self,source_list):
         #构建传播子图，
         singleRegionList = []
         for node_index in list(self.infectG.nodes()):
@@ -122,10 +141,9 @@ class FindSource:
         eccentri_dict = defaultdict(list)
         for node_id, eccentric in eccentricity_dict.items():
             eccentri_dict[eccentric].append(node_id)
-        # print(eccentri_dict)
+        print(eccentri_dict)
         #从偏心率大的考虑，先保存最大偏心度。
         sort_eccentricity_dict = sorted(eccentri_dict.items(),key= lambda x:x[0],reverse=True)
-        print(sort_eccentricity_dict)
         max_eccentric = sort_eccentricity_dict[0][0]
         min_eccentric = sort_eccentricity_dict[-1][0]
         print('输出最大的就是那个偏心率'+str(max_eccentric))
@@ -134,9 +152,9 @@ class FindSource:
         M_dis = 0
         best_h_node = []
         min_cover = 100  # 某一层的覆盖率，肯定会比这个小。
-
-
         tempGraph = self.infectG
+
+        self.test_coverage(source_list,6,tempGraph,singleRegionList)
 
         for  node_list_index in range(len(sort_eccentricity_dict)-1):
             for h in range(self.radius_graph // 2, self.radius_graph, 1):
@@ -151,7 +169,7 @@ class FindSource:
                 temp_cover = 0
                 temp_ave_cover = 0
                 if len(sort_eccentricity_dict[node_list_index][1]) > self.fix_number_source * 2:  # 这一层只有大于3个点才可以。
-                    itemNumber = int(len(sort_eccentricity_dict[node_list_index][1]) / 10)  # 层数越大，节点越多，应该采样越多才能逼近近似值。
+                    itemNumber = int(len(sort_eccentricity_dict[node_list_index][1]) / 20)  # 层数越大，节点越多，应该采样越多才能逼近近似值。
                     for frequency in range(itemNumber):  # 抽取10次,这里有问题，有些层数目多，怎么抽取会好点？按照层数抽取相应的次数会比较好点，公平。
                         slice = random.sample(sort_eccentricity_dict[node_list_index][1], self.fix_number_source)
                         temp_cover = commons.getSimilir1(slice, h, singleRegionList, tempGraph)
@@ -175,6 +193,24 @@ class FindSource:
         2 在固定h下更新
         '''
         self.single_best_result = commons.jaya(tempGraph, best_h_node, self.fix_number_source, best_h, singleRegionList)
+        return best_h,singleRegionList,tempGraph
+
+
+    '''
+    1 实验覆盖率是不是真的有那么好，以找到最好的h和真实的的源点。和感染图
+    
+    
+    '''
+    def  test_coverage(self,sourcelist,h,infectG,singleregionList):
+        print('查看真实源点的覆盖率以及真实h，看看我们的算法是不是那么智能。找到好的覆盖率')
+        mins= 10
+        h = 0
+        for   h_temp  in range(2,11,1):
+            sim=commons.getSimilir1(sourcelist,h_temp,singleregionList,infectG)
+            if sim< mins:
+                mins =sim
+                h =h_temp
+        print('最好的覆盖率以及h',str(sim)+'   '+str(h))
 
 
     def  cal_reverse_algorithm(self,infectG):
@@ -199,7 +235,8 @@ class FindSource:
         source_list = commons.product_sourceList(max_sub_graph, self.fix_number_source)
         self.true_Source_list = source_list
         self.infectG = commons.propagation1(max_sub_graph,self.true_Source_list)  # 开始传染
-        self.cal_ecctity()      #找到最好的覆盖率结果。
+        best_h,singleRegionList,tempGraph =self.cal_ecctity(source_list)      #找到最好的覆盖率结果。
+        # self.test_coverage(source_list,best_h,tempGraph,singleRegionList)
         self.cal_reverse_algorithm(self.infectG)  # 找到反转算法后的生成答案点
         self.distance_error = commons.cal_distance(self.infectG, self.true_Source_list, self.findSource_list)
 
@@ -210,12 +247,15 @@ class FindSource:
     计算误差100次。
     '''
     def cal_distanceError(self,dir):
-        self.fix_number_source = 5
+        self.fix_number_source = 4
         distance = 0
-        for i in range(20):
+        count = 0
+        for i in range(10):
             self.main(dir)
             distance += self.distance_error
-        result =distance/20
+            count += 1
+            print('distance/次数',distance/count)
+        result =distance/10
         # 导入time模块
         import time
         # 打印时间戳
@@ -224,11 +264,11 @@ class FindSource:
         last = '.txt'
         with open(pre+dir+'first'+last, 'a') as f:
             f.write(str(time.asctime(time.localtime(time.time()) ))+'\n')
-            f.write(str(20)+'     '+str(dir)+'    '+str(result))
-        print(distance/20)
+            f.write(str(10)+'     '+str(dir)+'    '+str(result))
+        print(distance/10)
 
 test  = FindSource()
-filename = 'Wiki-Vote'
+filename = 'facebook_combined'
 test.cal_distanceError(filename)
 
 

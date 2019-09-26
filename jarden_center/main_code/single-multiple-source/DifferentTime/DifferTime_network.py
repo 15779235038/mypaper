@@ -1355,7 +1355,8 @@ if __name__ == '__main__':
     # 构建图，这个图是有有效距离的。
     # G = ContractDict('../data/CA-GrQc.txt', Ginti)
 
-    G = ContractDict('../data/Wiki-Vote.txt', Ginti)
+    G = ContractDict('../data/facebook_combined.txt', Ginti)
+
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
@@ -1382,8 +1383,8 @@ if __name__ == '__main__':
 
     # 产生10次，每次都有误差，计算出来。并统计。
     max_sub_graph = commons.judge_data(G)
-    for i in range(1, 21):
-        source_list = commons.product_sourceList(max_sub_graph, 3)
+    for i in range(1, 11):
+        source_list = commons.product_sourceList(max_sub_graph, 5)
         sourceList.append(source_list)
 
 
@@ -1408,7 +1409,7 @@ if __name__ == '__main__':
         infectGs = commons.propagation1(max_sub_graph, singleSource)  # 开始传染
         #  找社区，按照代理，只能找到一个社区的。
         multipList = getmultipleCommunity(infectGs)
-        errordistance = multiplePartion(multipList, infectGs, singleSource, 3)
+        errordistance = multiplePartion(multipList, infectGs, singleSource, 5)
         errorSum = errorSum + errordistance
         errordistanceList.append(errordistance)
         listToTxt(str(datetime.datetime.now()), 'DiffTime.txt')
@@ -1418,7 +1419,7 @@ if __name__ == '__main__':
         listToTxt('输出平均值' + str(errorSum / len(errordistanceList)), 'DiffTime.txt')
         print('误差集合为' + str(errordistanceList))
         print(str(errorSum / len(errordistanceList)))
-    print(errorSum / 20)
+    print(errorSum / 10)
     # long running
     endtime = datetime.datetime.now()
     print('执行了这么长时间')

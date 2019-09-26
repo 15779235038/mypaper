@@ -232,7 +232,7 @@ class FindSource:
         # radius_graph= nx.radius(tempGraph)
         # radius_graph = 40
 
-        # tempGraph =self.infectG         #采用不同的感染图
+        tempGraph =self.infectG         #采用不同的感染图
 
         radius_graph =self.radius
         print('图半径为', radius_graph)
@@ -250,7 +250,7 @@ class FindSource:
                 temp_ave_cover = 0
                 if len(node_list) > self.fix_number_source * 2:  # 这一层只有大于3个点才可以。
                     if len(node_list) > 20:
-                        itemNumber = int(len(node_list) / 2)  # 层数越大，节点越多，应该采样越多才能逼近近似值。
+                        itemNumber = int(len(node_list) / 10)  # 层数越大，节点越多，应该采样越多才能逼近近似值。
                     else:
                         itemNumber = 2      #这是树的情况，每一层节点太少了
                     for frequency in range(itemNumber):  # 抽取10次,这里有问题，有些层数目多，怎么抽取会好点？按照层数抽取相应的次数会比较好点，公平。

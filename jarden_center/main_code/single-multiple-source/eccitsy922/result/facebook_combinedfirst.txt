@@ -1,0 +1,3 @@
+Thu Sep 26 14:18:18 2019
+10     facebook_combined    1.7399999999999998Thu Sep 26 18:51:34 2019
+10     facebook_combined    1.55
