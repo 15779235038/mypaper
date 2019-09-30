@@ -210,7 +210,7 @@ class FindSource:
     计算误差100次。
     '''
     def cal_distanceError(self,dir):
-        self.fix_number_source = 5
+        self.fix_number_source = 1
         distance = 0
         for i in range(20):
             self.main(dir)
@@ -228,7 +228,7 @@ class FindSource:
         print(distance/20)
 
 test  = FindSource()
-filename = 'Wiki-Vote'
+filename = 'CA-GrQc'
 test.cal_distanceError(filename)
 
 
