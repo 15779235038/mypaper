@@ -68,6 +68,7 @@ def get_networkByFile( fileName='../data/facebook_combined.txt'):
     #  先给全体的Cn、Scn,time的0的赋值。
     for node in list(G.nodes):
         G.add_node(node, SI=1)
+        G.add_node(node, SIDIF=1)
     # 初始化所有边是否感染。Infection
     for edge in list(G.edges):
         G.add_edge(edge[0], edge[1], isDel=0)
@@ -406,6 +407,66 @@ def   propagation1(G,SourceList,number =1):
 
 
     return G_temp
+
+
+
+
+import copy
+
+'''
+用队列重写SI传播过程，
+
+传播方案3：不同源点传播有唯一标示性，我们就是看看是否覆盖率真的好。
+'''
+def   propagation_dif_sigl(G,source,DIF):
+
+    y_list =[]
+    G_temp = nx.Graph()
+    G_temp = copy.deepcopy(G)
+    '''
+    '''
+    queue = set()
+    G.node[source]['SI'] = 2
+    queue.add(source)
+    G.node[source]['SIDIF']  =DIF
+    # progation_number = 0
+    while 1:
+            propagation_layer_list = [] #传播的BFS某一层
+            propagation_layer_list.extend(list(queue)) #总是删除第一个。这里不删除
+            print('第几层为'+str(len(propagation_layer_list)))
+            for source in propagation_layer_list:
+                for height in list(G_temp.neighbors(source)):
+                    randnum = random.random()
+                    if randnum < 0.5:
+                        G_temp.node[height]['SI'] = 2
+
+                        if DIF== 4: #这是第二个感染区域了了。加上都要判断一下。
+                            if  G_temp.node[height]['SIDIF'] == 3:
+                                G_temp.node[height]['SIDIF'] = 5
+                            else:
+                                G_temp.node[height]['SIDIF'] = DIF
+                        #如果被传播，那就将邻接节点放入队列中。
+                        queue.add(height)
+            propagation_layer_list.clear()
+            # queue_set = list(set(queue))
+            count = 0
+            for nodetemp in list(G.nodes):
+                if G_temp.node[nodetemp]['SI'] == 2:
+                    count = count + 1
+            y_list.append(count)
+            print('被感染点为' + str(count) + '个')
+            # progation_number += 1
+            if count / G_temp.number_of_nodes() > 0.2:
+                print('超过50%节点了，不用传播啦')
+                break
+    #数据进去图，看看
+
+
+    return G_temp
+
+
+
+
 
 
 
@@ -852,23 +913,23 @@ def revsitionAlgorithm_singlueSource(subinfectG):
                 print('那就是这个源点了')
                 result = allnodelist_keylist
             else:
-                # '''
-                # 之前只返回某一个节点的
-                # '''
-                # # 构建样本路径
-                # print('构建样本路径看看')
-                # jarcenlist = []
-                # for i in allnodelist_keylist:
-                #     jarcenlist.append([i, nx.eccentricity(source1G, i)])  # 按照离心率进行排序,最小离心率的就是源点。
-                #     resultlist = sorted(jarcenlist, key=lambda x: x[1])
-                # result = [resultlist[0][0]]
-                # print('构建样本路径之后结果为' + str(resultlist[0][0]))
+                '''
+                之前只返回某一个节点的
+                '''
+                # 构建样本路径
+                print('构建样本路径看看')
+                jarcenlist = []
+                for i in allnodelist_keylist:
+                    jarcenlist.append([i, nx.eccentricity(source1G, i)])  # 按照离心率进行排序,最小离心率的就是源点。
+                    resultlist = sorted(jarcenlist, key=lambda x: x[1])
+                result = [resultlist[0][0]]
+                print('构建样本路径之后结果为' + str(resultlist[0][0]))
 
 
                 '''
                 现在返回所有能接收到所有源点的。
                 '''
-                result = allnodelist_keylist
+                # result = allnodelist_keylist
 
             return result   #只返回最好的node
 
@@ -888,6 +949,7 @@ def revsitionAlgorithm_get_goodnode(subinfectG):
             # print('反转算法参数,u和h' + str(u) + '----------' + str(h))
             nodelist = list(subinfectG.nodes)
             nodelist_half_len = len(nodelist) / 2
+            print('nodelist_half_len',nodelist_half_len)
             source1G = nx.Graph()  # 构建新的单源传播圆出来
             source1G = subinfectG
             print('传播子图为source1G,它的点数和边数为' + str(source1G.number_of_nodes()) + '-------' + str(
@@ -903,6 +965,8 @@ def revsitionAlgorithm_get_goodnode(subinfectG):
                 IDdict[node] = [node]
                 IDdict_dup[node] = [node]
             allnodelist_keylist = []  # 包含所有接受全部节点id的键值对的key
+
+            t_scope = 0
             for t in range(times):
                 print(
                     't为' + str(t) + '的时候-----------------------------------------------------------------------------')
@@ -932,39 +996,23 @@ def revsitionAlgorithm_get_goodnode(subinfectG):
                         print('有了接受所有的节点了这样的节点了')
                         flag = 1
                     else:
-                            if len(IDdict[key]) >nodelist_half_len:
+                            if len(set(IDdict[key])) > nodelist_half_len:
                                 best_node_list.append(key)
+
+
+                print('计算增长曲线',len(set(best_node_list)))
+                if len(set(best_node_list))> 0  :
+                    t_scope += 1
+
+                if t_scope == 1:
+                 break  #相邻两个t内的得到节点
 
                 if flag == 1:
                     break
-            # print (IDdict)
-            print(allnodelist_keylist)
-
-            result = 0
-            resultlist = []
-            # 如果在一个t的时候只有一个点。那就认为是节点，否则认为是多个节点。就要排序了
-            if len(allnodelist_keylist) == 1:
-                print('那就是这个源点了')
-                result = allnodelist_keylist
-            else:
-                '''
-                之前只返回某一个节点的
-                '''
-                # 构建样本路径
-                print('构建样本路径看看')
-                jarcenlist = []
-                for i in allnodelist_keylist:
-                    jarcenlist.append([i, nx.eccentricity(source1G, i)])  # 按照离心率进行排序,最小离心率的就是源点。
-                    resultlist = sorted(jarcenlist, key=lambda x: x[1])
-                result = [resultlist[0][0]]
-                print('构建样本路径之后结果为' + str(resultlist[0][0]))
-
-                #
-                # '''
                 # 现在返回所有能接收到所有源点的。
                 # '''
                 # result = allnodelist_keylist
-            print('len(best_node_list',len(best_node_list))
+            print('len(best_node_list', len(set(best_node_list)))
             return list(set(best_node_list))
 
 
@@ -978,7 +1026,6 @@ def revsitionAlgorithm_get_goodnode(subinfectG):
 '''
 抽象jaya算法出来，需要的参数是感染子图，所有个体数据集，固定源点个数。固定h或者listh
 返回最好的样本就行了
-
 '''
 def  jaya(tempGraph, best_h_node,fix_number_source,best_h,singleRegionList):
     '''
@@ -1030,6 +1077,64 @@ def  jaya(tempGraph, best_h_node,fix_number_source,best_h,singleRegionList):
     return result[0]
 
 
+
+
+
+
+'''
+抽象jaya算法动态h出来出来，需要的参数是感染子图，所有个体数据集，固定源点个数。固定h或者listh
+返回最好的样本就行了
+'''
+def  jayawith_dynami_H(tempGraph, best_h_node,fix_number_source,best_h_list,singleRegionList):
+    '''
+        默认种群大小50，迭代4次，每次都随机更新种群大小。
+    :param infectG:
+    :param best_h_node:
+    :param fix_number_source:
+    :param best_h:
+    :return:
+    '''
+    fix_number_sourcetemp = fix_number_source
+    Sampleset = []
+    for i in range(50):
+        Sampleset.append(random.sample(best_h_node, fix_number_source))
+    # infectG =infectG
+    min_cover = 1
+    min = 1
+    mincover = None
+    bestsourceNews = None
+    minCoverlist = []
+
+    for best_h  in best_h_list:
+        for iter_number in range(4):
+            for sample_index in range(len(Sampleset)):
+                mincover = getSimilir1(Sampleset[sample_index], best_h, singleRegionList,
+                                               tempGraph)
+                # 随机更换，看如何让变好
+                for j in range(1, 4, 1):  # 随机变4次，只要能变好
+                    # lateelement = [random.choice(best_h_node), random.choice(best_h_node),
+                    #                 random.choice(best_h_node),random.choice(best_h_node)]
+
+                    lateelement = [random.choice(best_h_node) for i in range(fix_number_source)]
+                    # print('当前输入的后面list' + str(lateelement))
+                    latemincover = getSimilir1(lateelement, best_h, singleRegionList, tempGraph)
+                    if mincover > latemincover:
+                        mincover = latemincover  # 有更好地就要替换
+                        # print("要进行替换了" + str(Sampleset[sample_index]) + '被替换成lateelement')
+                        Sampleset[sample_index] = lateelement  # 替换
+                        # print(Sampleset[sample_index])
+            # print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
+            # 计算样本集的similir，找出最好的。
+            for sources in Sampleset:
+                mincover = getSimilir1(sources, best_h, singleRegionList, tempGraph)
+                if mincover < min:
+                    min = mincover  # 这一次最好的覆盖误差率
+                    bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
+            print('得到多源点情况最小的覆盖率为' + str(bestsourceNews) + str(min))
+            minCoverlist.append([bestsourceNews, best_h, min])
+        print(minCoverlist)
+    result = sorted(minCoverlist, key=lambda x: (x[2]))
+    return result[0]
 
 
 
