@@ -61,7 +61,7 @@ class Satisfaction:
         # source_list = product_sourceList(max_sub_graph, 2)
 
         source_list = commons.product_sourceList(max_sub_graph, 2)
-
+        print('两个节点的距离',nx.shortest_path_length(max_sub_graph,source= source_list[0],target=source_list[1]))
         #看下分区效果行不行，传播两次，就好了，
         # 一个是SI为2，一个是SI为3。交叉区域为4。
         infectG = commons.propagation_dif_sigl(max_sub_graph, source_list[0], 3)    #3表示一个源点。
@@ -79,7 +79,7 @@ class Satisfaction:
                 node_list4.append(nodes)
             elif infectG_other.node[nodes]['SIDIF']==5:
                 node_list5.append(nodes)
-        node_list3.extend( node_list5)
+        node_list3.extend(node_list5)
         node_list4.extend(node_list5)
 
         print('first——node_list3',len(node_list3))
@@ -91,15 +91,56 @@ class Satisfaction:
         '''
         singleRegionList = list(subinfectG.nodes)
         #进行覆盖率走，并进行jaya算法。
-        results = commons.jayawith_dynami_H(infectG, singleRegionList, 1, [4, 5, 6], singleRegionList)
+        results = commons.jayawith_dynami_H(infectG, singleRegionList, 2, [4, 5, 6], singleRegionList)
         print(results)
 
+        node_coverage1 = []
+        node_coverage2 = []
+
+        # #计算两个传播区域的重合区域。
+
+        node_coverage1.extend(list(nx.bfs_tree(infectG, source=results[0][0], depth_limit=results[1])))
+        node_coverage2.extend(list(nx.bfs_tree(infectG, source=results[0][1], depth_limit=results[1])))
+
+        #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
+        lengtha =nx.shortest_path_length(infectG, source=results[0][0],target=source_list[0])
+        lengthb = nx.shortest_path_length(infectG, source=results[0][1],target=source_list[0])
+        print('length1',lengtha)
+        print('lengthb',lengthb)
+        if  lengtha >  lengthb:
+            a= [x for x in node_list3 if x in node_coverage2]
+            print('len(a)', len(a))
+            print(len(a)/len(node_list3))
+
+            b = [x for x in node_list4 if x in node_coverage1]
+            print('len(b)',len(b))
+            print(len(b)/len(node_list4))
+
+            print('失败匹配')
+            c = [x for x in node_list3 if x in node_coverage1]
+            print('len(c)', len(c))
+            print(len(c) / len(node_list3))
+            d = [x for x in node_list4 if x in node_coverage2]
+            print('len(c)', len(d))
+            print(len(d) / len(node_list4))
+
+        else:
+            a = [x for x in node_list3 if x in node_coverage1]
+            print('len(a)', a)
+            print(len(a) / len(node_list3))
+            b = [x for x in node_list4 if x in node_coverage2]
+            print('len(b)', b)
+            print(len(b) / len(node_list4))
+
+            print('失败匹配')
+            c = [x for x in node_list3 if x in node_coverage2]
+            print('len(c)', len(c))
+            print(len(c) / len(node_list3))
+            d = [x for x in node_list4 if x in node_coverage1]
+            print('len(c)', len(d))
+            print(len(d) / len(node_list4))
 
 
-
-
-        #计算两个传播区域的重合区域。
-        for   source  in results[0]:
 
 
         #测试下覆盖率是否真实。

@@ -439,26 +439,37 @@ def   propagation_dif_sigl(G,source,DIF):
                     randnum = random.random()
                     if randnum < 0.5:
                         G_temp.node[height]['SI'] = 2
-
-                        if DIF== 4: #这是第二个感染区域了了。加上都要判断一下。
+                        if DIF == 4: #这是第二个感染区域了了。加上都要判断一下。
                             if  G_temp.node[height]['SIDIF'] == 3:
                                 G_temp.node[height]['SIDIF'] = 5
                             else:
                                 G_temp.node[height]['SIDIF'] = DIF
+                        else:
+                            G_temp.node[height]['SIDIF'] = DIF
                         #如果被传播，那就将邻接节点放入队列中。
                         queue.add(height)
             propagation_layer_list.clear()
             # queue_set = list(set(queue))
             count = 0
+            count1 = 0
             for nodetemp in list(G.nodes):
-                if G_temp.node[nodetemp]['SI'] == 2:
+                if G_temp.node[nodetemp]['SIDIF'] == 3 or  G_temp.node[nodetemp]['SIDIF'] == 5:
                     count = count + 1
-            y_list.append(count)
+                elif G_temp.node[nodetemp]['SIDIF'] == 4  or  G_temp.node[nodetemp]['SIDIF'] == 5:
+                    count1 += 1
+            # y_list.append(count)
             print('被感染点为' + str(count) + '个')
             # progation_number += 1
-            if count / G_temp.number_of_nodes() > 0.2:
-                print('超过50%节点了，不用传播啦')
-                break
+
+            if DIF == 4:
+                if count1 / G_temp.number_of_nodes() > 0.2:
+                    print('超过50%节点了，不用传播啦')
+                    break
+            else:
+                if count / G_temp.number_of_nodes() > 0.2:
+                    print('超过50%节点了，不用传播啦')
+                    break
+
     #数据进去图，看看
 
 
