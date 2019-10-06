@@ -89,7 +89,7 @@ class Satisfaction:
         # singleRegionList = list(subinfectG.nodes)
         #进行覆盖率走，并进行jaya算法。
         test_source_list = commons.revsitionAlgorithm_singlueSource(subinfectG)
-        print('souce       target',[source_list[0],test_source_list])
+        print('souce     target', [source_list[0],test_source_list])
         print('result',nx.shortest_path_length(infectG,source=test_source_list[0],target=source_list[0]))
         return nx.shortest_path_length(infectG,source=source_list[0],target=test_source_list[0])
 

@@ -47,9 +47,9 @@ class findk_core:
             print('max-core',data_sort[0][1])
             core_number1 = 0
             #看下源点在那一层。
-            for  node,core_number in data_sort:
+            for  node, core_number in data_sort:
                 if node in source_list:
-                    print('node,core_number',[node,core_number])
+                    print('node,core_number', [node,core_number])
                     core_number1 = core_number
             return core_number1
 

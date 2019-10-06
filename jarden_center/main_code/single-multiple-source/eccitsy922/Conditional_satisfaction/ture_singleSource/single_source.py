@@ -70,11 +70,12 @@ class Satisfaction:
                 min = distance
         print('最小距离是', min)
         print('variancelist，每次的结果', min)
-        with open('result_bfs.txt', "a") as f:
-            # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
-            f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
-            f.write(str(min).replace('[', '').replace(']', '') + '\n')
         return min
+        # with open('result_bfs.txt', "a") as f:
+        #     # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
+        #     f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
+        #     f.write(str(min).replace('[', '').replace(']', '') + '\n')
+        # return min
 
     def plot(self, x_list, y_list, ):
         plt.figure()
@@ -98,7 +99,7 @@ class Satisfaction:
         with open('result_bfs.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
-            f.write('总结果'+str(distance_all/10) + '\n')
+            f.write('总结果'+str(distance_all/30) + '\n')
         return distance_all
         # self.plot(x_list, y_list)
         # print(result)

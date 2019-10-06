@@ -731,7 +731,7 @@ def  judge_data(initG):
 
 
 '''
-      适用于公式计算公式       为1-  树并集交感染图/树并集并感染图
+      适用于公式计算公式       为1-  树交集交感染图/树并集并感染图
 '''
 
 def getSimilir1( ulist, hlist, singleRegionList, infectionG):
@@ -767,9 +767,14 @@ def getSimilir1( ulist, hlist, singleRegionList, infectionG):
             for u in ulist:
                 circleNodesList.extend(list(nx.bfs_tree(infectionG, source=u, depth_limit=hlist).nodes))
             circleNodesListnew = list(set(circleNodesList))
+            # print('len(circleNodesListnew',len(circleNodesListnew))
+            # print('circleNodesListnew',len(circleNodesListnew) )
+            # print('len(singleRegionList)',len(singleRegionList))
             # count
             Intersection = list(set(circleNodesListnew).intersection(set(singleRegionList)))  # 交集
+            # print('Intersection',len(Intersection))
             Union = list(set(circleNodesList).union(set(singleRegionList)))  # 并集
+            # print('Union', len(Union))
             count = 0
             for i in Intersection:
                 if i in Union:
@@ -1097,6 +1102,65 @@ def  jaya(tempGraph, best_h_node,fix_number_source,best_h,singleRegionList):
 返回最好的样本就行了
 '''
 def  jayawith_dynami_H(tempGraph, best_h_node,fix_number_source,best_h_list,singleRegionList):
+    '''
+        默认种群大小50，迭代4次，每次都随机更新种群大小。
+    :param infectG:
+    :param best_h_node:
+    :param fix_number_source:
+    :param best_h:
+    :return:
+    '''
+    fix_number_sourcetemp = fix_number_source
+    Sampleset = []
+    for i in range(50):
+        Sampleset.append(random.sample(best_h_node, fix_number_source))
+    # infectG =infectG
+    min_cover = 1
+    min = 1
+    mincover = None
+    bestsourceNews = None
+    minCoverlist = []
+
+    for best_h  in best_h_list:
+        for iter_number in range(4):
+            for sample_index in range(len(Sampleset)):
+                mincover = getSimilir1(Sampleset[sample_index], best_h, singleRegionList,
+                                               tempGraph)
+                # 随机更换，看如何让变好
+                for j in range(1, 4, 1):  # 随机变4次，只要能变好
+                    # lateelement = [random.choice(best_h_node), random.choice(best_h_node),
+                    #                 random.choice(best_h_node),random.choice(best_h_node)]
+
+                    lateelement = [random.choice(best_h_node) for i in range(fix_number_source)]
+                    # print('当前输入的后面list' + str(lateelement))
+                    latemincover = getSimilir1(lateelement, best_h, singleRegionList, tempGraph)
+                    if mincover > latemincover:
+                        mincover = latemincover  # 有更好地就要替换
+                        # print("要进行替换了" + str(Sampleset[sample_index]) + '被替换成lateelement')
+                        Sampleset[sample_index] = lateelement  # 替换
+                        # print(Sampleset[sample_index])
+            # print('经过5次迭代之后的sample的list为多少呢？' + str(Sampleset))
+            # 计算样本集的similir，找出最好的。
+            for sources in Sampleset:
+                mincover = getSimilir1(sources, best_h, singleRegionList, tempGraph)
+                if mincover < min:
+                    min = mincover  # 这一次最好的覆盖误差率
+                    bestsourceNews = sources  # 最好的覆盖误差率对应的最好的那个解。
+            print('得到多源点情况最小的覆盖率为' + str(bestsourceNews) + str(min))
+            minCoverlist.append([bestsourceNews, best_h, min])
+        print(minCoverlist)
+    result = sorted(minCoverlist, key=lambda x: (x[2]))
+    return result[0]
+
+
+
+
+
+
+'''
+真实源点(一个或者多个），动态h，仅仅找到最好的h，以及覆盖率就可以了
+'''
+def  jayawith_dynami_H_TrueSource(tempGraph, best_h_node,fix_number_source,best_h_list,singleRegionList):
     '''
         默认种群大小50，迭代4次，每次都随机更新种群大小。
     :param infectG:

@@ -87,7 +87,7 @@ class Satisfaction:
 
         subinfectG = commons.get_subGraph(infectG_other) #只取感染点，为2表示
         '''
-        思路，单源定位，看看单源定位和覆盖率效果。
+        思路，单源定位，覆盖率效果较好的是不是真的拟合了传播子图。
         '''
         singleRegionList = list(subinfectG.nodes)
         #进行覆盖率走，并进行jaya算法。
@@ -103,8 +103,8 @@ class Satisfaction:
         node_coverage2.extend(list(nx.bfs_tree(infectG, source=results[0][1], depth_limit=results[1])))
 
         #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
-        lengtha =nx.shortest_path_length(infectG, source=results[0][0],target=source_list[0])
-        lengthb = nx.shortest_path_length(infectG, source=results[0][1],target=source_list[0])
+        lengtha =nx.shortest_path_length(infectG, source=results[0][0], target=source_list[0])
+        lengthb = nx.shortest_path_length(infectG, source=results[0][1], target=source_list[0])
         print('length1',lengtha)
         print('lengthb',lengthb)
         if  lengtha >  lengthb:

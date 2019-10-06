@@ -63,15 +63,30 @@ class Satisfaction:
         # print('distance',nx.shortest_path_length(max_sub_graph,source=source_list[0],target=source_list[1]))
         infectG = commons.propagation1(max_sub_graph, source_list)
         subinfectG = commons.get_subGraph(infectG)
+
+        singleRegionList = list(subinfectG.nodes)
         '''
         思路，单源定位，看看单源定位和覆盖率效果。
         '''
-        singleRegionList = list(subinfectG.nodes)
+        # 再从真实源点看，真实源点的覆盖率是多少？
+        TrueCoverage = commons.jayawith_dynami_H_TrueSource(infectG, source_list, 1, [4,5, 6,7,8,9,10], singleRegionList)
+        print('True_Source_Coverage', TrueCoverage)
         #进行覆盖率走，并进行jaya算法。
-        results=commons.jayawith_dynami_H(infectG, singleRegionList, 1, [3,4,5,6,7], singleRegionList)
-        print('souce       target',[source_list[0],results[0][0]])
-        print('result',nx.shortest_path_length(infectG,source=source_list[0],target=results[0][0]))
-        return nx.shortest_path_length(infectG,source=source_list[0],target=results[0][0])
+        results = commons.jayawith_dynami_H(infectG, singleRegionList, 1, [4, 5, 6], singleRegionList)
+        print('good_coverage_soucre',results)
+
+        with open('result_coverage_compare.txt', "a") as f:
+            # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
+            f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
+            f.write('覆盖率比较结果，真实源点'+str(TrueCoverage[2]) + '\n')
+            f.write('覆盖率比较结果，找到的覆盖率比较好的点'+str(results[2]) + '\n')
+            f.write('两者距离   ' + str(nx.shortest_path_length(infectG, source=source_list[0], target=results[0][0])) + '\n')
+
+        # print('souce       target',[source_list[0], results[0][0]])
+        # print('result',nx.shortest_path_length(infectG,source=source_list[0],target=results[0][0]))
+        # return nx.shortest_path_length(infectG, source=source_list[0], target=results[0][0])
+
+
 
 
 
@@ -93,14 +108,14 @@ class Satisfaction:
 
     def practice(self):
         distance_all = 0
-        for i in range(30):
+        for i in range(10):
             temp = self.main()
-            distance_all += temp
-        with open('result_coverage.txt', "a") as f:
-            # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
-            f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
-            f.write('总结果'+str(distance_all/30) + '\n')
-        return distance_all
+            # distance_all += temp
+        # with open('result_coverage.txt', "a") as f:
+        #     # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
+        #     f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
+        #     f.write('总结果'+str(distance_all/30) + '\n')
+        # return distance_all
         # self.plot(x_list, y_list)
         # print(result)
 
