@@ -6,7 +6,7 @@ def listToTxt(listTo, dir):
     fileObject.close()
 
 def ContractDict(dir, G):
-    with open(dir, 'r') as f:
+    with open(dir, 'a') as f:
         for line in f:
             line1 = line.split()
             G.add_edge(int(line1[0]), int(line1[1]))
@@ -19,21 +19,26 @@ def ContractDict(dir, G):
     return G
 
 
-G=nx.random_tree(3000)
+
+# G=nx.random_tree(3000)
 #生成1000个节点树图
 
+G= nx.random_regular_graph(2,1000)
 
 print (len(list(G.nodes)))
 print (len(list(G.edges)))
 
 
 for  edge  in list(G.edges):
-    listToTxt(edge,'treenetwork3000.txt')
+    listToTxt(edge,'2regular_tree1000.txt')
+#
+# #读取生成图
+# G=nx.Graph()
+# Ginit=ContractDict('3regular_tree1000.txt',G)
+# print (list(Ginit.edges))
+#
+#
 
-#读取生成图
-G=nx.Graph()
-Ginit=ContractDict('treenetwork3000.txt',G)
-print (list(Ginit.edges))
 
 
 
