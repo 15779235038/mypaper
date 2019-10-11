@@ -33,12 +33,6 @@ fix_number_source = 4
 
 '''
 共有的工具类，参数，所有固定跑实验的东西都在这个里面了。
-
-
-
-
-
-
 '''
 
 def ContractDict(dir, G):
@@ -75,6 +69,7 @@ def get_networkByFile( fileName='../data/facebook_combined.txt'):
     # 初始化所有边是否感染。Infection
     for edge in list(G.edges):
         G.add_edge(edge[0], edge[1], isDel=0)
+        G.add_edge(edge[0], edge[1], isInfect =0)
     print('这个图产生完毕')
     return G
 
@@ -392,6 +387,7 @@ def   propagation1(G,SourceList,number =1):
                     randnum = random.random()
                     if randnum < 0.5:
                         G_temp.node[height]['SI'] = 2
+                        G.add_edge(source, height, isInfect= 1)
                         #如果被传播，那就将邻接节点放入队列中。
                         queue.add(height)
             propagation_layer_list.clear()
@@ -589,7 +585,7 @@ def plot(x_list,y_list,propagation1):
 
 
 def  get_subGraph(infectG):
-   #构建传播子图，
+        #构建传播子图，
         singleRegionList = []
         for node_index in list(infectG.nodes()):
             if infectG.node[node_index]['SI'] == 2:

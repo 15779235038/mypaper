@@ -11,49 +11,140 @@ from collections import defaultdict
 from random import sample
 import sys
 
-sys.path.append('mypaper/mypaper/jarden_center/main_code/single-multiple-source/eccitsy922/commons.py')
-print(sys.path)
+# sys.path.append('mypaper/mypaper/jarden_center/main_code/single-multiple-source/eccitsy922/commons.py')
+# print(sys.path)
 import commons
 
+import copy
 
-
-'''
-思路：
-  1 生成传播子图，
-  2 使用多种传播子图中心点，进行BFS。
-  3 判断真实源点是否集中于BFS的某一层。
-
-'''
 import time
 
-
+from  collections import  defaultdict
 class Satisfaction:
     def __init__(self):
         pass
 
+    #抽取子图的第一种方法
+    '''
+        首先给所有节点按照它邻接节点的被感染率排序。从邻居节点被感染率大的集合开始，
+     分层往下走，如果第一层的节点直接跟第二层的节点都有边相连。就连接起来。一层一层来。
+    '''
 
+
+
+    def take_subgraph(self,infectG):
+        G_temp = nx.Graph()
+
+        subGraph = nx.Graph()
+        G_temp = copy.deepcopy(infectG)
+        # 获取我们所有的图。
+        #拿到所有的感染点,并且统计他们感染率。
+        node_scale =[]
+        infect_listNode = []
+        for  nodes in list(G_temp.nodes):
+            if G_temp.node[nodes]['SI'] == 2:
+                    neighbor_list =list(G_temp.neighbors(nodes))
+                    count = len([x for x in neighbor_list if G_temp.node[x]['SI']==2])
+                    neighbor_list_len = len(neighbor_list)
+                    node_scale.append([nodes, count / neighbor_list_len])
+        #先做个简单分类。按照从大到小排序.分10档次吧。 #真的可以考虑时间，来分档次。
+        sort_dict = defaultdict(list)
+        for  node_and_scale in node_scale:
+            Ten_digits =  node_and_scale[1] *100 //10
+            sort_dict[Ten_digits].append(node_and_scale[0])
+        print(sort_dict)
+        sort_list = sorted(sort_dict.items(), key= lambda x:x[0], reverse=True )
+        print(sort_list)
+        #将每两层之间节点进行连接就好。
+        for index in range(len(sort_list)-1 ):
+            for first_node in sort_list[index][1]:
+                for second_node in sort_list[index+1][1]:
+                    if  not subGraph.has_edge(first_node, second_node) and G_temp.has_edge(first_node,second_node):
+                        subGraph.add_edge(first_node,second_node)
+
+
+        print('node_subGraph', subGraph.number_of_nodes())
+        print('edge_subGraph',subGraph.number_of_edges())
+
+
+        return subGraph
+
+
+
+    #本函数用来衡量，是否能够将传播结构很好的反应出来。如何验证呢?
+    '''
+    分别从下面几个方面验证。
+    
+    
+    
+    
+    
+    
+    '''
+
+    def verification(self,infectG,subinfecG):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    '''
+    1 获得传播子图后，你的评价标准是是什么？
+    当然是和真实的数据进行比对
+    
+    '''
     def main(self):
-        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        # initG = commons.get_networkByFile('../../../data/3_regular_tree_2000_data.txt')
         # initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
+
+        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
 
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
 
         source_list = commons.product_sourceList(max_sub_graph, 1)
-
         # print('查看两源距离')
         # print('distance',nx.shortest_path_length(max_sub_graph,source=source_list[0],target=source_list[1]))
         infectG = commons.propagation1(max_sub_graph, source_list)
-        subinfectG = commons.get_subGraph(infectG)
-        '''
-        思路，单源定位，看看单源定位和覆盖率效果。
-        '''
-        # singleRegionList = list(subinfectG.nodes)
-        #进行覆盖率走，并进行jaya算法。
-        test_source_list = commons.revsitionAlgorithm_singlueSource(subinfectG)
-        print('souce     target', [source_list[0],test_source_list])
-        print('result',nx.shortest_path_length(infectG,source=test_source_list[0],target=source_list[0]))
-        return nx.shortest_path_length(infectG,source=source_list[0],target=test_source_list[0])
+        subinfectG = self.take_subgraph(infectG)
+
+
+
+
+
+
 
 
 
