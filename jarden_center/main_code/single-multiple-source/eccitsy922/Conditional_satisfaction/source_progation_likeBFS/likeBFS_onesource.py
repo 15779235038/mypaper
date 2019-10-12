@@ -220,6 +220,8 @@ class  LikeBFS:
         infectG, progration_number, y_list1 = self.get_paogration(max_sub_graph, source_list)
         # print('progration_number',progration_number)
         # print('len(y_list1)',len(y_list1))
+
+        print('y_list1',y_list1)
         y_list2 = self.get_BFS(max_sub_graph,source_list[0],progration_number)
         print(len(y_list2))
         print(len(y_list1))

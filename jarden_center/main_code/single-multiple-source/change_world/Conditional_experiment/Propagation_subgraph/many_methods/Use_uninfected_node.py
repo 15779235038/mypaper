@@ -24,14 +24,97 @@ class Satisfaction:
     def __init__(self):
         pass
 
+    import copy
+
+    '''
+    用队列重写SI传播过程，propagation会传播并且还会
+
+    传播方案2：从源点开始往外面传播，按照队列传播形式。每一个时间刻度，每次所有感染的点都试图感染身边的点。而不是一层一层来
+    '''
+
+    def propagation1(self,G, SourceList, number=1):
+
+        progration_node_list =[ ]
+        progration_edge_list = [ ]
+        G_temp = nx.Graph()
+        G_temp = copy.deepcopy(G)
+        '''
+        :param G:
+        :param SourceList:
+        :return:
+        '''
+        queue = set() #每个t向外传播的点
+        layers = set()    #每层新感染点
+        for source in SourceList:
+            G.node[source]['SI'] = 2
+            queue.add(source)
+            # layers.add(source)
+            # progation_number = 0
+        progration_node_list.append([source])
+        propagation_sum_edge_set  = set()
+        propagation_layer_edge_set = set()
+        while 1:
+            layers.clear()
+            propagation_layer_list = []  # 传播的BFS某一层
+            #传播的边某一层
+            propagation_layer_list.extend(list(queue))  # 总是删除第一个。这里不删除
+            propagation_sum_edge_set = propagation_sum_edge_set.union(propagation_layer_edge_set)  #并集
+            propagation_layer_edge_set.clear()
+            queue_temp = copy.deepcopy(queue)
+            print('第几层为' + str(len(propagation_layer_list)))
+            for source in propagation_layer_list:
+                for height in list(G_temp.neighbors(source)):
+                    randnum = random.random()
+                    if randnum < 0.5:
+                        G_temp.node[height]['SI'] = 2
+                        G_temp.add_edge(source, height, isInfect=1)
+                        # 如果被传播，那就将邻接节点放入队列中。
+                        propagation_layer_edge_set.add((source, height))
+                        queue.add(height)
+                        layers.add(height)
+            # print(queue)
+            # print(layers)
+            layers.difference_update(queue_temp)  #移除layers中扎起queue_temp中元素
+            #对这一层的layers进行只能新加的点和边
+            propagation_layer_edge_set.difference_update(propagation_sum_edge_set)
+            progration_node_list.append(list(layers))   #这一层所加的节点，要保证每一层节点不一样。只
+            #记录第一次被感染的时间t
+            progration_edge_list.append(list(propagation_layer_edge_set))
+            propagation_layer_list.clear()
+            # queue_set = list(set(queue))
+            count = 0
+            for nodetemp in list(G.nodes):
+                if G_temp.node[nodetemp]['SI'] == 2:
+                    count = count + 1
+
+            print('被感染点为' + str(count) + '个')
+            # progation_number += 1
+            if count / G_temp.number_of_nodes() > 0.4:
+                print('超过50%节点了，不用传播啦')
+                break
+        # 数据进去图，看看
+
+
+        print('progration_node_list',progration_node_list)
+        print('progration_dege_lsit',progration_edge_list)
+        return G_temp,progration_node_list,progration_edge_list
+
+
+
+
+
+
+
+
+
+
+
+
     #抽取子图的第一种方法
     '''
         首先给所有节点按照它邻接节点的被感染率排序。从邻居节点被感染率大的集合开始，
      分层往下走，如果第一层的节点直接跟第二层的节点都有边相连。就连接起来。一层一层来。
     '''
-
-
-
     def take_subgraph(self,infectG):
         G_temp = nx.Graph()
         subGraph = nx.Graph()
@@ -112,7 +195,9 @@ class Satisfaction:
         '''
 
 
-        
+        #获取传播序列，
+
+
 
 
 
@@ -157,7 +242,6 @@ class Satisfaction:
     '''
     1 获得传播子图后，你的评价标准是是什么？
     当然是和真实的数据进行比对
-    
     '''
     def main(self):
         initG = commons.get_networkByFile('../../../data/3_regular_tree_2000_data.txt')
@@ -171,7 +255,19 @@ class Satisfaction:
         source_list = commons.product_sourceList(max_sub_graph, 1)
         # print('查看两源距离')
         # print('distance',nx.shortest_path_length(max_sub_graph,source=source_list[0],target=source_list[1]))
-        infectG = commons.propagation1(max_sub_graph, source_list)
+        infectG,node_list, edge_list = self.propagation1(max_sub_graph, source_list)
+
+        with open('node_list', 'a') as f:
+            for i in node_list:
+                f.write(str(i) + '\n')
+        with open('edge_list', 'a') as f:
+            for i in edge_list:
+                f.write(str(i) + '\n')
+
+
+
+
+
         subinfectG = self.take_subgraph(infectG)
         self.verification(infectG,subinfectG)
 
