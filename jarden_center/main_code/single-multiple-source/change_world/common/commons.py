@@ -387,7 +387,7 @@ def   propagation1(G,SourceList,number =1):
                     randnum = random.random()
                     if randnum < 0.5:
                         G_temp.node[height]['SI'] = 2
-                        G.add_edge(source, height, isInfect= 1)
+                        G_temp.add_edge(source, height, isInfect = 1)
                         #如果被传播，那就将邻接节点放入队列中。
                         queue.add(height)
             propagation_layer_list.clear()
@@ -722,6 +722,10 @@ def  judge_data(initG):
     #     print(type(sub_graph))
 
     return  Gc
+
+
+
+
 
 
 
