@@ -38,11 +38,6 @@ class Satisfaction:
         progration_edge_list = [ ]
         G_temp = nx.Graph()
         G_temp = copy.deepcopy(G)
-        '''
-        :param G:
-        :param SourceList:
-        :return:
-        '''
         queue = set() #每个t向外传播的点
         layers = set()    #每层新感染点
         for source in SourceList:
@@ -86,14 +81,12 @@ class Satisfaction:
             for nodetemp in list(G.nodes):
                 if G_temp.node[nodetemp]['SI'] == 2:
                     count = count + 1
-
             print('被感染点为' + str(count) + '个')
             # progation_number += 1
             if count / G_temp.number_of_nodes() > 0.4:
                 print('超过50%节点了，不用传播啦')
                 break
         # 数据进去图，看看
-
 
         print('progration_node_list',progration_node_list)
         print('progration_dege_lsit',progration_edge_list)
@@ -153,9 +146,9 @@ class Satisfaction:
         2 而在3-regular树却有非常多的分支，多达66.我们的算法也许需要在同层之间也要加上边了。  
         '''
 
-        judge_data= self.judge_data(subGraph)
+        max_subGraph= self.judge_data(subGraph)
 
-        return subGraph
+        return max_subGraph
 
 
 
@@ -186,16 +179,52 @@ class Satisfaction:
         print('len(subinfecG)', subinfecG.number_of_nodes())
         print('edge_subGraph', subinfecG.number_of_edges())
 
+        # 将edge_list中的图画出来，
+        # 这是真实的传播情况，我们可能需要将颜色以及传播时间加入。
+
+        G = nx.Graph()
+        result = []
+        with open('edge_list.txt', 'r') as f:
+            for line in f:
+                l = line.replace('[', '').replace(']', '').replace(',', '').replace('(', '').replace(')', '')
+
+                ll = l.split()
+                n = []
+                for i in ll:
+                    j = int(i)
+                    n.append(j)
+                # print(n)
+                for i in range(0, len(n), 2):
+                    s1 = n[i]
+                    s2 = n[i + 1]
+                    G.add_edge(s1, s2)
+        nx.draw(G, node_size=2, edge_color='r')
+        plt.show()
 
 
 
 
         '''
-        1  先将原有的传播形式画出来，后将我们的图画出来。
+        1  抽取子图拿出来。形成传播子图看看
         '''
 
+        #获取传播序列，再把抽取子图拿出来。看看效果。
+        nx.draw(subinfecG, node_size=2, edge_color='r')
+        plt.show()
 
-        #获取传播序列，
+
+        #验证抽取子图是否好，因为我们是不断抽取边，但是
+
+        #先试试这个传播图的中心性看看。
+
+
+
+
+
+
+
+
+
 
 
 
@@ -223,18 +252,16 @@ class Satisfaction:
         '''
         Gc = nx.Graph()
         Gc = max(nx.connected_component_subgraphs(initG), key=len)
-        sum = 0
-        count = 0
-        for sub_graph in sorted(nx.connected_component_subgraphs(initG), key=len, reverse=True):
-            # print(type(sub_graph))
-            # print(sub_graph.number_of_nodes())
-            sum += sub_graph.number_of_nodes()
-            count += 1
-        print('count', count)
-        print('sum', sum)
-
-
-        # return Gc
+        # sum = 0
+        # count = 0
+        # for sub_graph in sorted(nx.connected_component_subgraphs(initG), key=len, reverse=True):
+        #     # print(type(sub_graph))
+        #     # print(sub_graph.number_of_nodes())
+        #     sum += sub_graph.number_of_nodes()
+        #     count += 1
+        # print('count', count)
+        # print('sum', sum)
+        return Gc
 
 
 
@@ -244,10 +271,10 @@ class Satisfaction:
     当然是和真实的数据进行比对
     '''
     def main(self):
-        initG = commons.get_networkByFile('../../../data/3_regular_tree_2000_data.txt')
+        # initG = commons.get_networkByFile('../../../data/3_regular_tree_2000_data.txt')
         # initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
 
-        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
 
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
@@ -255,21 +282,22 @@ class Satisfaction:
         source_list = commons.product_sourceList(max_sub_graph, 1)
         # print('查看两源距离')
         # print('distance',nx.shortest_path_length(max_sub_graph,source=source_list[0],target=source_list[1]))
-        infectG,node_list, edge_list = self.propagation1(max_sub_graph, source_list)
+        infectG, node_list, edge_list = self.propagation1(max_sub_graph, source_list)
 
-        with open('node_list', 'a') as f:
+        with open('node_list.txt', 'w') as f:
             for i in node_list:
                 f.write(str(i) + '\n')
-        with open('edge_list', 'a') as f:
+        with open('edge_list.txt', 'w') as f:
             for i in edge_list:
                 f.write(str(i) + '\n')
-
-
-
-
-
+        #这是我们抽取的子图。
         subinfectG = self.take_subgraph(infectG)
-        self.verification(infectG,subinfectG)
+        self.verification(infectG, subinfectG)
+
+
+        #实验一下子图好不好。看看单源传播方法以及一些中心性。
+
+        
 
 
 

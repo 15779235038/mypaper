@@ -92,7 +92,6 @@ def plot_graph(porgration_node_list,porgration_edge_list):
     :param porgration_list:  #只需要传播节点以及边的list就可以了
     :return:
     '''
-
     G = nx.cubical_graph()
     pos = nx.spring_layout(G)  # positions for all nodes
     '''
