@@ -195,11 +195,6 @@ class Satisfaction:
         # eccentricity_dict = nx.eccentricity(tempGraph)
 
         # return tempGraph  # 临时图生成
-
-
-
-
-
         #划分图区域，进行删除计划。
         G_temp = nx.Graph()
         G_temp = copy.deepcopy(tempGraph)
@@ -216,7 +211,7 @@ class Satisfaction:
         # 先做个简单分类。按照从大到小排序.分10档次吧。 #真的可以考虑时间，来分档次。
         sort_dict = defaultdict(list)
         for node_and_scale in node_scale:
-            Ten_digits = node_and_scale[1] * 100 // 10 //2
+            Ten_digits = node_and_scale[1] * 100 // 10 // 2
             sort_dict[Ten_digits].append(node_and_scale[0])
         print(sort_dict)
         sort_list = sorted(sort_dict.items(), key=lambda x: x[0], reverse=True)
@@ -235,10 +230,6 @@ class Satisfaction:
         print('node_subGraph', subGraph.number_of_nodes())
         print('edge_subGraph',subGraph.number_of_edges())
         #判断是否是连通图,
-        '''
-        1 为什么一般图总有一个巨分支？
-        2 而在3-regular树却有非常多的分支，多达66.我们的算法也许需要在同层之间也要加上边了。  
-        '''
 
 
 
@@ -337,7 +328,7 @@ class Satisfaction:
     def draw_picture(self,G,filename):
         nx.draw(G, node_size=2, edge_color='r')
         plt.savefig(filename+".png")
-        pass
+        plt.close()
 
 
 
@@ -384,12 +375,11 @@ class Satisfaction:
     def main(self):
         # initG = commons.get_networkByFile('../../../data/3_regular_tree_2000_data.txt')
         # initG = commons.get_networkByFile('../../../data/4_regular_tree_2000_data.txt')
-
-        initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+        # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
 
         # initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
 
-        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
 
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
@@ -413,15 +403,10 @@ class Satisfaction:
         #我们抽取子图
         center_list = commons.revsitionAlgorithm_singlueSource(subinfectG)
 
-
-
         #实验一般的用的图。
 
         tmep_graph = commons.get_subGraph(infectG)
         center_list2 = commons.revsitionAlgorithm_singlueSource(tmep_graph)
-
-
-
 
         #真实感染图
         center_list1 = commons.revsitionAlgorithm_singlueSource(zhengchang_G)
@@ -439,7 +424,9 @@ class Satisfaction:
 
         print('我们抽取子图边数目', subinfectG.number_of_edges())
         print('一般实验图边数目', tmep_graph.number_of_edges())
+        print('一般实验图点数目',tmep_graph.number_of_nodes())
         print('真实感染图边数目',zhengchang_G.number_of_edges())
+        print('真实感染图    点数目', zhengchang_G.number_of_nodes())
 
         for center  in center_list:
             print('distan抽取子图',nx.shortest_path_length(max_sub_graph,source=center,target=source_list[0]))

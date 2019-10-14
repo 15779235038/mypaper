@@ -103,7 +103,7 @@ def plot_graph(porgration_node_list,porgration_edge_list):
     #根据node_list长度确定时间t。
         #
     for t in range(len(porgration_node_list)):
-
+        pass
 
 
 
