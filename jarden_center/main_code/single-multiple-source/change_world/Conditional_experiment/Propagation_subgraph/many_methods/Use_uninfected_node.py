@@ -34,6 +34,10 @@ class Satisfaction:
 
     def propagation1(self,G, SourceList, number=1):
 
+
+        #正常的感染图是？
+        zhengchang_G = nx.Graph()
+
         progration_node_list =[ ]
         progration_edge_list = [ ]
         G_temp = nx.Graph()
@@ -67,6 +71,8 @@ class Satisfaction:
                         propagation_layer_edge_set.add((source, height))
                         queue.add(height)
                         layers.add(height)
+
+                        zhengchang_G.add_edge(source, height)
             # print(queue)
             # print(layers)
             layers.difference_update(queue_temp)  #移除layers中扎起queue_temp中元素
@@ -90,7 +96,7 @@ class Satisfaction:
 
         print('progration_node_list',progration_node_list)
         print('progration_dege_lsit',progration_edge_list)
-        return G_temp,progration_node_list,progration_edge_list
+        return G_temp,progration_node_list,progration_edge_list,zhengchang_G
 
 
 
@@ -125,7 +131,7 @@ class Satisfaction:
         #先做个简单分类。按照从大到小排序.分10档次吧。 #真的可以考虑时间，来分档次。
         sort_dict = defaultdict(list)
         for  node_and_scale in node_scale:
-            Ten_digits =  node_and_scale[1] *100 //10
+            Ten_digits =  node_and_scale[1] *100 // 10
             sort_dict[Ten_digits].append(node_and_scale[0])
         print(sort_dict)
         sort_list = sorted(sort_dict.items(), key= lambda x:x[0], reverse=True )
@@ -137,6 +143,15 @@ class Satisfaction:
                     if  G_temp.has_edge(first_node,second_node)  :
                         subGraph.add_edge(first_node,second_node)
 
+        #
+        #
+        # #每一层的节点也相互连接把。
+        # for  single_layer_node_list in sort_list:
+        #      for i  in single_layer_node_list[1]:
+        #          for j in  [x for  x in single_layer_node_list[1] if x != i]:
+        #              # print('i,j',i)
+        #              if G_temp.has_edge(i, j):
+        #                  subGraph.add_edge(i, j)
 
         print('node_subGraph', subGraph.number_of_nodes())
         print('edge_subGraph',subGraph.number_of_edges())
@@ -145,6 +160,96 @@ class Satisfaction:
         1 为什么一般图总有一个巨分支？
         2 而在3-regular树却有非常多的分支，多达66.我们的算法也许需要在同层之间也要加上边了。  
         '''
+
+        max_subGraph= self.judge_data(subGraph)
+
+        return max_subGraph
+
+
+
+
+
+
+
+    #抽取子图的第2种方法
+    '''
+        首先给所有节点按照它邻接节点的被感染率排序。从邻居节点被感染率大的集合开始，
+     分层往下走，只让倒数几层节点断，其他不断。
+    '''
+    def take_subgraph_last(self,infectG):
+        # 构建传播子图，
+        singleRegionList = []
+        for node_index in list(infectG.nodes()):
+            if infectG.node[node_index]['SI'] == 2:
+                singleRegionList.append(node_index)
+        tempGraph = nx.Graph()
+        tempGraphNodelist = []
+        for edge in infectG.edges:
+            # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
+            if edge[0] in singleRegionList and edge[1] in singleRegionList:
+                tempGraph.add_edges_from([edge], weight=1)
+                tempGraphNodelist.append(edge[0])
+                tempGraphNodelist.append(edge[1])
+        print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraphNodelist))))
+        print('这个感染区域的传播图节点个数')
+        # eccentricity_dict = nx.eccentricity(tempGraph)
+
+        # return tempGraph  # 临时图生成
+
+
+
+
+
+        #划分图区域，进行删除计划。
+        G_temp = nx.Graph()
+        G_temp = copy.deepcopy(tempGraph)
+        # 获取我们所有的图。
+        # 拿到所有的感染点,并且统计他们感染率。
+        node_scale = []
+        infect_listNode = []
+        for nodes in list(G_temp.nodes):
+             # if infectG.node[nodes]['SI'] == 2:
+                neighbor_list = list(infectG.neighbors(nodes))
+                count = len([x for x in neighbor_list if infectG.node[x]['SI'] == 2])
+                neighbor_list_len = len(neighbor_list)
+                node_scale.append([nodes, count / neighbor_list_len])
+        # 先做个简单分类。按照从大到小排序.分10档次吧。 #真的可以考虑时间，来分档次。
+        sort_dict = defaultdict(list)
+        for node_and_scale in node_scale:
+            Ten_digits = node_and_scale[1] * 100 // 10 //2
+            sort_dict[Ten_digits].append(node_and_scale[0])
+        print(sort_dict)
+        sort_list = sorted(sort_dict.items(), key=lambda x: x[0], reverse=True)
+        print(sort_list)
+
+
+
+        #删除最后一些点。
+
+        for index in range(1 ,len(sort_list)):
+            print('sort_list[index][1',sort_list[index][1])
+            G_temp.remove_nodes_from(sort_list[index][1])
+
+        subGraph = copy.deepcopy(G_temp)
+
+        print('node_subGraph', subGraph.number_of_nodes())
+        print('edge_subGraph',subGraph.number_of_edges())
+        #判断是否是连通图,
+        '''
+        1 为什么一般图总有一个巨分支？
+        2 而在3-regular树却有非常多的分支，多达66.我们的算法也许需要在同层之间也要加上边了。  
+        '''
+
+
+
+
+
+
+        #第二种抽取方案。
+
+
+
+
 
         max_subGraph= self.judge_data(subGraph)
 
@@ -172,12 +277,12 @@ class Satisfaction:
         1 第一个节点数目的比较。
         2  第二个就是画图进行比较。
         '''
-        print('len(infectG and SI ==2)', len([x for x in list(infectG.nodes) if infectG.node[x]['SI'] ==2]))
-
-        print('len(inifecG edge)',len([x for x in list(infectG.edges) if infectG.edges[x[0], x[1]]['isInfect'] == 1 ]))
-
-        print('len(subinfecG)', subinfecG.number_of_nodes())
-        print('edge_subGraph', subinfecG.number_of_edges())
+        # print('len(infectG and SI ==2)', len([x for x in list(infectG.nodes) if infectG.node[x]['SI'] ==2]))
+        #
+        # print('len(inifecG edge)',len([x for x in list(infectG.edges) if infectG.edges[x[0], x[1]]['isInfect'] == 1 ]))
+        #
+        # print('len(subinfecG)', subinfecG.number_of_nodes())
+        # print('edge_subGraph', subinfecG.number_of_edges())
 
         # 将edge_list中的图画出来，
         # 这是真实的传播情况，我们可能需要将颜色以及传播时间加入。
@@ -199,7 +304,7 @@ class Satisfaction:
                     s2 = n[i + 1]
                     G.add_edge(s1, s2)
         nx.draw(G, node_size=2, edge_color='r')
-        plt.show()
+        # plt.show()
 
 
 
@@ -210,7 +315,7 @@ class Satisfaction:
 
         #获取传播序列，再把抽取子图拿出来。看看效果。
         nx.draw(subinfecG, node_size=2, edge_color='r')
-        plt.show()
+        # plt.show()
 
 
         #验证抽取子图是否好，因为我们是不断抽取边，但是
@@ -225,8 +330,14 @@ class Satisfaction:
 
 
 
-
-
+    '''
+    画图
+    
+    '''
+    def draw_picture(self,G,filename):
+        nx.draw(G, node_size=2, edge_color='r')
+        plt.savefig(filename+".png")
+        pass
 
 
 
@@ -272,9 +383,13 @@ class Satisfaction:
     '''
     def main(self):
         # initG = commons.get_networkByFile('../../../data/3_regular_tree_2000_data.txt')
+        # initG = commons.get_networkByFile('../../../data/4_regular_tree_2000_data.txt')
+
+        initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+
         # initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
 
-        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
 
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
@@ -282,7 +397,7 @@ class Satisfaction:
         source_list = commons.product_sourceList(max_sub_graph, 1)
         # print('查看两源距离')
         # print('distance',nx.shortest_path_length(max_sub_graph,source=source_list[0],target=source_list[1]))
-        infectG, node_list, edge_list = self.propagation1(max_sub_graph, source_list)
+        infectG, node_list, edge_list,zhengchang_G = self.propagation1(max_sub_graph, source_list)
 
         with open('node_list.txt', 'w') as f:
             for i in node_list:
@@ -291,13 +406,50 @@ class Satisfaction:
             for i in edge_list:
                 f.write(str(i) + '\n')
         #这是我们抽取的子图。
-        subinfectG = self.take_subgraph(infectG)
-        self.verification(infectG, subinfectG)
+        subinfectG = self.take_subgraph_last(infectG)
+        # self.verification(infectG, subinfectG)
 
 
-        #实验一下子图好不好。看看单源传播方法以及一些中心性。
+        #我们抽取子图
+        center_list = commons.revsitionAlgorithm_singlueSource(subinfectG)
 
-        
+
+
+        #实验一般的用的图。
+
+        tmep_graph = commons.get_subGraph(infectG)
+        center_list2 = commons.revsitionAlgorithm_singlueSource(tmep_graph)
+
+
+
+
+        #真实感染图
+        center_list1 = commons.revsitionAlgorithm_singlueSource(zhengchang_G)
+
+
+
+        #将3个图都画出来。并保存
+        self.draw_picture(subinfectG, 'chouqu')
+        self.draw_picture(tmep_graph,'common')
+        self.draw_picture(zhengchang_G , 'true')
+
+
+
+
+
+        print('我们抽取子图边数目', subinfectG.number_of_edges())
+        print('一般实验图边数目', tmep_graph.number_of_edges())
+        print('真实感染图边数目',zhengchang_G.number_of_edges())
+
+        for center  in center_list:
+            print('distan抽取子图',nx.shortest_path_length(max_sub_graph,source=center,target=source_list[0]))
+        for center1  in center_list1:
+            print('distance真实感染图',nx.shortest_path_length(max_sub_graph,source=center1,target=source_list[0]))
+
+        for center2 in center_list2:
+            print('distance一般实验用图', nx.shortest_path_length(max_sub_graph, source=center2, target=source_list[0]))
+
+
 
 
 
