@@ -37,7 +37,6 @@ class Satisfaction:
 
         #正常的感染图是？
         zhengchang_G = nx.Graph()
-
         progration_node_list =[ ]
         progration_edge_list = [ ]
         G_temp = nx.Graph()
@@ -219,7 +218,7 @@ class Satisfaction:
 
 
 
-        #删除最后一些点。
+        #删除一些覆盖率低的点。
 
         for index in range(1 ,len(sort_list)):
             print('sort_list[index][1',sort_list[index][1])
@@ -325,12 +324,21 @@ class Satisfaction:
     画图
     
     '''
-    def draw_picture(self,G,filename):
-        nx.draw(G, node_size=2, edge_color='r')
+    def draw_picture(self, G, filename):
+        nx.draw(G, node_size=1, edge_color='r')
         plt.savefig(filename+".png")
         plt.close()
 
 
+    def output_txt(self, G,filename):
+
+        with open(filename+'.txt', "w") as f:
+            # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
+            for edge in G.edges:
+                f.write(str(edge[0]) +'  '+str(edge[1]) + '\n')
+
+
+        # f.close()
 
 
 
@@ -384,7 +392,7 @@ class Satisfaction:
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
 
-        source_list = commons.product_sourceList(max_sub_graph, 1)
+        source_list = commons.product_sourceList(max_sub_graph, 2)
         # print('查看两源距离')
         # print('distance',nx.shortest_path_length(max_sub_graph,source=source_list[0],target=source_list[1]))
         infectG, node_list, edge_list,zhengchang_G = self.propagation1(max_sub_graph, source_list)
@@ -414,9 +422,9 @@ class Satisfaction:
 
 
         #将3个图都画出来。并保存
-        self.draw_picture(subinfectG, 'chouqu')
-        self.draw_picture(tmep_graph,'common')
-        self.draw_picture(zhengchang_G , 'true')
+        self.draw_picture(subinfectG, 'result/chouqu')
+        self.draw_picture(tmep_graph,'result/common')
+        self.draw_picture(zhengchang_G , 'result/true')
 
 
 
@@ -426,13 +434,27 @@ class Satisfaction:
         print('一般实验图边数目', tmep_graph.number_of_edges())
         print('一般实验图点数目',tmep_graph.number_of_nodes())
         print('真实感染图边数目',zhengchang_G.number_of_edges())
-        print('真实感染图    点数目', zhengchang_G.number_of_nodes())
+        print('真实感染图点数目', zhengchang_G.number_of_nodes())
+
+
+
+        #将图中点保存在文件之中。
+
+
+        self.output_txt(subinfectG,'result/chouqu')
+        self.output_txt(tmep_graph, 'result/common')
+        self.output_txt(zhengchang_G, 'result/true_')
+
+
+
+
+
+
 
         for center  in center_list:
             print('distan抽取子图',nx.shortest_path_length(max_sub_graph,source=center,target=source_list[0]))
         for center1  in center_list1:
             print('distance真实感染图',nx.shortest_path_length(max_sub_graph,source=center1,target=source_list[0]))
-
         for center2 in center_list2:
             print('distance一般实验用图', nx.shortest_path_length(max_sub_graph, source=center2, target=source_list[0]))
 
