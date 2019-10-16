@@ -29,10 +29,11 @@ class Partion_graph:
         return subGraph
 
     '''
-    本类用来划分传播区域,先做好两源的。
-    第一种方案，就是利用BFS传播分区的。老老实实分区。
+   第一种方案，利用K-center,k距离支配集合。
+   
+    随机选择两点，使得
     '''
-    def Partion_graph(self, G, source_number_=2):
+    def Partion_graph_K_center(self, G, source_number_=2):
         #开始分区，输出每个区域的点和边。当前是两源的。
 
 
@@ -54,10 +55,37 @@ class Partion_graph:
 
 
 
+
+
         pass
+
+
+
+
+
+
+
+
+
+
+
     def verification(self,node_list,edge_list):
         #用真实的例子中的每个分区的list和边的list。进行比较就好了啊。
         pass
+
+
+    def judge_connect(self,subinfecG):
+        count = 0
+        for sub_graph in sorted(nx.connected_component_subgraphs(subinfecG), key=len, reverse=True):
+            print(sub_graph)
+            count +=1
+        if count ==1:
+            print('传播子图是连通')
+            return subinfecG
+        else:
+            print('传播子图不连通,返回最大子图')
+            return  max(nx.connected_component_subgraphs(subinfecG), key=len)
+
 
 
     '''
@@ -102,7 +130,10 @@ class Partion_graph:
         print('second——node_list4',len(node_list4))
 
         subinfectG = commons.get_subGraph(infectG_other) #只取感染点，为2表示
+        #然后将感染点之间所有边都相连接起来。
 
+
+        #首先进行
 
 
         '''
@@ -110,9 +141,16 @@ class Partion_graph:
         
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
-        singleRegionList = list(subinfectG.nodes)
+
         #进行覆盖率走，并进行jaya算法。
-        results = commons.jayawith_dynami_H(infectG, singleRegionList, 2, [4, 5, 6], singleRegionList)
+
+        print('传播图的点个数为',subinfectG.number_of_nodes())
+        print('传播图的边个数为', subinfectG.number_of_edges())
+
+        print('传播子图是否连通？',)
+        sub_connect_infect =self.judge_connect(subinfectG)
+        singleRegionList = list(sub_connect_infect.nodes)
+        results = commons.jayawith_dynami_H(infectG_other, singleRegionList, 2, [4, 5, 6,7], singleRegionList)
         print(results)
 
         node_coverage1 = []
@@ -132,6 +170,7 @@ class Partion_graph:
         print('length1',lengtha)
         print('lengthb',lengthb)
         if  lengtha >  lengthb:
+            print('成功匹配。')
             a= [x for x in node_list3 if x in node_coverage2]
             print('len(a)', len(a))
             print(len(a)/len(node_list3))
@@ -149,6 +188,7 @@ class Partion_graph:
             print(len(d) / len(node_list4))
 
         else:
+            print('成功匹配。')
             a = [x for x in node_list3 if x in node_coverage1]
             print('len(a)', a)
             print(len(a) / len(node_list3))

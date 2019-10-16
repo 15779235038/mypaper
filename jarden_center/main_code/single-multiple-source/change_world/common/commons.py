@@ -438,6 +438,7 @@ def   propagation_dif_sigl(G,source,DIF):
                     randnum = random.random()
                     if randnum < 0.5:
                         G_temp.node[height]['SI'] = 2
+                        G_temp.add_edge(source, height, isInfect=1)
                         if DIF == 4: #这是第二个感染区域了了。加上都要判断一下。
                             if  G_temp.node[height]['SIDIF'] == 3:
                                 G_temp.node[height]['SIDIF'] = 5
@@ -462,11 +463,11 @@ def   propagation_dif_sigl(G,source,DIF):
 
             if DIF == 4:
                 if count1 / G_temp.number_of_nodes() > 0.2:
-                    print('超过50%节点了，不用传播啦')
+                    print('超过20%节点了，不用传播啦')
                     break
             else:
                 if count / G_temp.number_of_nodes() > 0.2:
-                    print('超过50%节点了，不用传播啦')
+                    print('超过20%节点了，不用传播啦')
                     break
 
     #数据进去图，看看
@@ -583,7 +584,10 @@ def plot(x_list,y_list,propagation1):
 
 
 
+'''
+这是最一般的拿到传播子图的方式
 
+'''
 def  get_subGraph(infectG):
         #构建传播子图，
         singleRegionList = []
@@ -603,6 +607,43 @@ def  get_subGraph(infectG):
         # eccentricity_dict = nx.eccentricity(tempGraph)
 
         return tempGraph   # 临时图生成
+
+
+
+
+'''
+这是拿到真实传播子图的方式,是为了衡量我们的分区方式好不好。
+'''
+def  get_subGraph_true(infectG):
+        #构建传播子图，
+        singleRegionList = []
+        for node_index in list(infectG.nodes()):
+            if infectG.node[node_index]['SI'] == 2:
+                singleRegionList.append(node_index)
+        tempGraph = nx.Graph()
+        tempGraphNodelist = []
+        for edge in infectG.edges:
+            # if infectG.adj[edge[0]][edge[1]]['Infection']==2:      #作为保留项。
+            if infectG.edges[edge[0], edge[1]]['isInfect'] ==1:
+                if edge[0] in singleRegionList and edge[1] in singleRegionList:
+                    tempGraph.add_edges_from([edge], weight=1)
+                    tempGraphNodelist.append(edge[0])
+                    tempGraphNodelist.append(edge[1])
+        print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraphNodelist))))
+        print('这个感染区域的传播图节点个数')
+        # eccentricity_dict = nx.eccentricity(tempGraph)
+        return tempGraph   # 临时图生成
+
+
+
+
+
+
+
+
+
+
+
 
 
 
