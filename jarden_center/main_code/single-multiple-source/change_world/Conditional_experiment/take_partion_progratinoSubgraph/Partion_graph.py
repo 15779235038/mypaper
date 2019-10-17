@@ -29,17 +29,55 @@ class Partion_graph:
         return subGraph
 
     '''
-   第一种方案，k-center，先分层。
+   第一种方案，k-center，先分层。注意传入的得是原始图。
    然后从内层随机选择两点，这两点将内层的全部加入他们，
    外层的节点根据距离加入他们。每个点只需要算一次迪杰斯特拉就可以了。
    
+   怎么重新调整呢？不断更新就是为了缩小某一个目标函数，让选中的点距离不同类别
+   的点距离之和最小。。
+   
     随机选择两点，使得
     '''
-    def Partion_graph_K_center(self, G, source_number_=2):
+    def Partion_graph_K_center(self, G,true_source_list ,source_number_=2):
         #开始分区，输出每个区域的点和边。当前是两源的。
 
-        sort_list = commons.partion_layer(G,10)  #分层
+        sort_list = commons.partion_layer(G, 10)  #分层
         first_layer = [x for x in sort_list[0][1]]  #用第一层的节点。
+        #先验证源点在不在第一层。
+        b = set(true_source_list)
+        print('源点在不在第一层呢？',b.issubset(first_layer))
+        subinfectG = commons.get_subGraph_true(G)  # 获取真实的传播图
+        two_source = random.sample(first_layer, 2)  # 从list中随机获取2个元素，作为一个片断返回
+        flag = 1
+        while flag:
+            #对这两个点进行Djstra，计算所有点到他们的距离。
+            print('two_source',two_source)
+            lengthA_dict = nx.single_source_bellman_ford_path_length(subinfectG,two_source[0],weight='weight')
+            lengthB_dict = nx.single_source_bellman_ford_path_length(subinfectG,two_source[1],weight='weight')
+            #初始化两个集合，用来保存两个类别节点集合。
+            node_twolist = [[], []]   #保存两个类别节点集合
+            node_diff_twolist = [[],[]] #保存不同点
+            for node in list(subinfectG.nodes):
+                if lengthA_dict[node] >lengthB_dict[node]: #这个点离b近一些。
+                    node_twolist[1].append(node)
+                    node_diff_twolist[1].append(node)
+                elif lengthA_dict[node] < lengthB_dict[node]:
+                    node_twolist[0].append(node)
+                    node_diff_twolist[0].append(node)
+                else:
+                    node_twolist[0].append(node)
+                    node_twolist[1].append(node)
+            print('node_twolist',len(node_twolist[1]))
+            #在两个list中找到中心位置，有几种中心性可以度量的。或者进行快速算法。
+            #判断这次找的两个中心好不好。
+            
+
+
+            flag =0
+
+
+
+
 
 
 
@@ -146,6 +184,8 @@ class Partion_graph:
         '''
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
+
+        self.Partion_graph_K_center(infectG_other,source_list,2)
 
         #进行覆盖率走，并进行jaya算法。
 

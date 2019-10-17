@@ -458,7 +458,8 @@ def   propagation_dif_sigl(G,source,DIF):
                 elif G_temp.node[nodetemp]['SIDIF'] == 4  or  G_temp.node[nodetemp]['SIDIF'] == 5:
                     count1 += 1
             # y_list.append(count)
-            print('被感染点为' + str(count) + '个')
+            print('第一次被感染点为' + str(count) + '个')
+            print('被感染点为' + str(count1) + '个')
             # progation_number += 1
 
             if DIF == 4:
