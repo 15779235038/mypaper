@@ -30,11 +30,12 @@ class Partion_graph:
 
     '''
    第一种方案，k-center，先分层。注意传入的得是原始图。
-   然后从内层随机选择两点，这两点将内层的全部加入他们，
+  1  然后从第一层随机选择两点，，
    外层的节点根据距离加入他们。每个点只需要算一次迪杰斯特拉就可以了。
    
-   怎么重新调整呢？不断更新就是为了缩小某一个目标函数，让选中的点距离不同类别
-   的点距离之和最小。。
+   2 选择新的结果。
+   不断更新就是为了缩小某一个目标函数，让选中的点距离自己不同类别
+   的点距离之和最小。   分别将多个相加起来。
    
     随机选择两点，使得
     '''
@@ -100,12 +101,7 @@ class Partion_graph:
         return [[good_two_result[0],best_node_two_result[0]],[good_two_result[1],best_node_two_result[1]]]
 
 
-
-
-
-
     def   jaya_add_coverage(self,infectG):
-
             subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
 
             print('传播图的点个数为', subinfectG.number_of_nodes())
@@ -116,20 +112,16 @@ class Partion_graph:
             singleRegionList = list(sub_connect_infect.nodes)
             results = commons.jayawith_dynami_H(infectG, singleRegionList, 2, [4, 5, 6, 7], singleRegionList)
             print(results)
-
             node_coverage1 = []
             node_coverage2 = []
-
             # #计算两个传播区域的重合区域。
             node_coverage1.extend(list(nx.bfs_tree(infectG, source=results[0][0], depth_limit=results[1])))
             node_coverage2.extend(list(nx.bfs_tree(infectG, source=results[0][1], depth_limit=results[1])))
-
             return [[results[0][0],node_coverage1],[results[0][1],node_coverage2]]
 
     def verification(self,node_list,edge_list):
         #用真实的例子中的每个分区的list和边的list。进行比较就好了啊。
         pass
-
 
     def judge_connect(self,subinfecG):
         count = 0
@@ -142,7 +134,6 @@ class Partion_graph:
         else:
             print('传播子图不连通,返回最大子图')
             return  max(nx.connected_component_subgraphs(subinfecG), key=len)
-
 
 
     '''
@@ -193,17 +184,14 @@ class Partion_graph:
 
 
         #首先进行
-
-
         '''
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
-
-        # twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
-
+        #第一种方法。
+        twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
         #进行覆盖率走，并进行jaya算法。
 
-        twosource_node_list=self.jaya_add_coverage(infectG_other)
+        # twosource_node_list=self.jaya_add_coverage(infectG_other)
 
         node_coverage1 = twosource_node_list[0][1]
         node_coverage2 = twosource_node_list[1][1]
@@ -218,10 +206,14 @@ class Partion_graph:
             print('len(a)', len(a))
             print(len(a)/len(node_list3))
 
+            A_ratio = len(a) / len(node_list3)
+
             b = [x for x in node_list4 if x in node_coverage1]
             print('len(b)',len(b))
             print(len(b)/len(node_list4))
 
+
+            B_ratio =  len(b)/len(node_list4)
             print('失败匹配')
             c = [x for x in node_list3 if x in node_coverage1]
             print('len(c)', len(c))
@@ -229,6 +221,9 @@ class Partion_graph:
             d = [x for x in node_list4 if x in node_coverage2]
             print('len(c)', len(d))
             print(len(d) / len(node_list4))
+
+
+            return   (A_ratio+B_ratio)/2
 
         else:
             print('成功匹配。')
@@ -238,7 +233,8 @@ class Partion_graph:
             b = [x for x in node_list4 if x in node_coverage2]
             print('len(b)', b)
             print(len(b) / len(node_list4))
-
+            A_ratio = len(a) / len(node_list3)
+            B_ratio = len(b) / len(node_list4)
             print('失败匹配')
             c = [x for x in node_list3 if x in node_coverage2]
             print('len(c)', len(c))
@@ -246,23 +242,19 @@ class Partion_graph:
             d = [x for x in node_list4 if x in node_coverage1]
             print('len(c)', len(d))
             print(len(d) / len(node_list4))
-
-
-
-
-
-
-
-
-
+            return (A_ratio + B_ratio) / 2
 '''
 
 
 '''
 if __name__ == '__main__':
     test = Partion_graph()
+    sum =0
+    for i  in range(0,20):
+        sum +=test.main()   #跑实验
 
-    test.main()   #跑实验
+    print('result',sum/20)
+    print(sum/20)
 
 
 
