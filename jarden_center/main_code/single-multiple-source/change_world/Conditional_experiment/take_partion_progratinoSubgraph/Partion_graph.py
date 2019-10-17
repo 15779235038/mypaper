@@ -49,7 +49,11 @@ class Partion_graph:
         subinfectG = commons.get_subGraph_true(G)  # 获取真实的传播图
         two_source = random.sample(first_layer, 2)  # 从list中随机获取2个元素，作为一个片断返回
         flag = 1
-        while flag:
+
+        lengthA_B = 100000
+        good_two_result = []
+        best_node_two_result = None
+        for iter  in range(0,100):
             #对这两个点进行Djstra，计算所有点到他们的距离。
             print('two_source',two_source)
             lengthA_dict = nx.single_source_bellman_ford_path_length(subinfectG,two_source[0],weight='weight')
@@ -70,47 +74,57 @@ class Partion_graph:
             print('node_twolist',len(node_twolist[1]))
             #在两个list中找到中心位置，有几种中心性可以度量的。或者进行快速算法。
             #判断这次找的两个中心好不好。
-            
 
+            lengthA_sum = 0  #a这个不同点，
+            lengthB_sum = 0
+            for i in node_diff_twolist[0]:  #距离a近，第一个源点近的点。统计它跟第二个区域点的距离之和
+                lengthA_sum += lengthB_dict[i]
+            for j in node_diff_twolist[1]:  # 距离b近，第二个源点近的点。统计它跟第二个区域点的距离之和
+                lengthB_sum += lengthA_dict[j]
 
-            flag =0
+            sums = lengthA_sum + lengthB_sum
+            if sums <lengthA_B:
+               print('sums',sums)
+                #是比原来好的的两个源。
+               lengthA_B = sums
+               good_two_result=two_source
+               best_node_two_result = node_twolist
 
+            else:
+                #重新长生两个源吧。这里还是可以做优化的，选择的方向问题。
+                two_source = random.sample(first_layer, 2)
 
+        print('good_two_result', good_two_result)
+        print('good_node_two_result', best_node_two_result)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        pass
+        return [[good_two_result[0],best_node_two_result[0]],[good_two_result[1],best_node_two_result[1]]]
 
 
 
 
 
 
+    def   jaya_add_coverage(self,infectG):
 
+            subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
 
+            print('传播图的点个数为', subinfectG.number_of_nodes())
+            print('传播图的边个数为', subinfectG.number_of_edges())
 
+            print('传播子图是否连通？', )
+            sub_connect_infect = self.judge_connect(subinfectG)
+            singleRegionList = list(sub_connect_infect.nodes)
+            results = commons.jayawith_dynami_H(infectG, singleRegionList, 2, [4, 5, 6, 7], singleRegionList)
+            print(results)
 
+            node_coverage1 = []
+            node_coverage2 = []
+
+            # #计算两个传播区域的重合区域。
+            node_coverage1.extend(list(nx.bfs_tree(infectG, source=results[0][0], depth_limit=results[1])))
+            node_coverage2.extend(list(nx.bfs_tree(infectG, source=results[0][1], depth_limit=results[1])))
+
+            return [[results[0][0],node_coverage1],[results[0][1],node_coverage2]]
 
     def verification(self,node_list,edge_list):
         #用真实的例子中的每个分区的list和边的list。进行比较就好了啊。
@@ -185,33 +199,17 @@ class Partion_graph:
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
 
-        self.Partion_graph_K_center(infectG_other,source_list,2)
+        # twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
 
         #进行覆盖率走，并进行jaya算法。
 
-        print('传播图的点个数为',subinfectG.number_of_nodes())
-        print('传播图的边个数为', subinfectG.number_of_edges())
+        twosource_node_list=self.jaya_add_coverage(infectG_other)
 
-        print('传播子图是否连通？',)
-        sub_connect_infect =self.judge_connect(subinfectG)
-        singleRegionList = list(sub_connect_infect.nodes)
-        results = commons.jayawith_dynami_H(infectG_other, singleRegionList, 2, [4, 5, 6,7], singleRegionList)
-        print(results)
-
-        node_coverage1 = []
-        node_coverage2 = []
-
-
-        # #计算两个传播区域的重合区域。
-        node_coverage1.extend(list(nx.bfs_tree(infectG, source=results[0][0], depth_limit=results[1])))
-        node_coverage2.extend(list(nx.bfs_tree(infectG, source=results[0][1], depth_limit=results[1])))
-
-
-
-
+        node_coverage1 = twosource_node_list[0][1]
+        node_coverage2 = twosource_node_list[1][1]
         #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
-        lengtha =nx.shortest_path_length(infectG, source=results[0][0], target=source_list[0])
-        lengthb = nx.shortest_path_length(infectG, source=results[0][1], target=source_list[0])
+        lengtha =nx.shortest_path_length(infectG, source=twosource_node_list[0][0], target=source_list[0])
+        lengthb = nx.shortest_path_length(infectG, source=twosource_node_list[1][0], target=source_list[0])
         print('length1',lengtha)
         print('lengthb',lengthb)
         if  lengtha >  lengthb:
