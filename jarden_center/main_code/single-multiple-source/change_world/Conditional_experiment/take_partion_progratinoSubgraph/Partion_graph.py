@@ -13,7 +13,7 @@ from munkres import print_matrix, Munkres
 from collections import defaultdict
 from random import sample
 import sys
-
+import  Partion_common
 import commons
 class Partion_graph:
     def __init__(self):
@@ -30,7 +30,7 @@ class Partion_graph:
 
     '''
    第一种方案，k-center，先分层。注意传入的得是原始图。
-  1  然后从第一层随机选择两点，，
+   1  然后从第一层随机选择两点，，
    外层的节点根据距离加入他们。每个点只需要算一次迪杰斯特拉就可以了。
    
    2 选择新的结果。
@@ -50,7 +50,6 @@ class Partion_graph:
         subinfectG = commons.get_subGraph_true(G)  # 获取真实的传播图
         two_source = random.sample(first_layer, 2)  # 从list中随机获取2个元素，作为一个片断返回
         flag = 1
-
         lengthA_B = 100000
         good_two_result = []
         best_node_two_result = None
@@ -101,6 +100,15 @@ class Partion_graph:
         return [[good_two_result[0],best_node_two_result[0]],[good_two_result[1],best_node_two_result[1]]]
 
 
+
+
+    '''
+    
+    使用jaya有参数的操作。
+    
+    
+    '''
+
     def   jaya_add_coverage(self,infectG):
             subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
 
@@ -118,6 +126,36 @@ class Partion_graph:
             node_coverage1.extend(list(nx.bfs_tree(infectG, source=results[0][0], depth_limit=results[1])))
             node_coverage2.extend(list(nx.bfs_tree(infectG, source=results[0][1], depth_limit=results[1])))
             return [[results[0][0],node_coverage1],[results[0][1],node_coverage2]]
+
+
+
+
+
+
+    '''
+    3 删除高中介性节点，分批次删除。直到图不连通
+    传入的还是原图，有感染和未感染点的。
+    '''
+    def delete_high_betweenness_centrality(self,infectG):
+        subinfectG = commons.get_subGraph_true(infectG)
+        #根据中介性分层然后删除。
+
+
+
+
+    '''
+       4  删除高中介性边，分批次删除。直到图不连通
+       传入的还是原图，有感染和未感染点的。
+       '''
+
+    def delete_high_betweenness_edge_centrality(self, infectG):
+        subinfectG = commons.get_subGraph_true(infectG)
+        # 根据中介性分层然后删除。
+        sort_list = Partion_common.get_layer_edge_between(subinfectG)
+
+        for  i  in range(0,10):  #
+
+
 
     def verification(self,node_list,edge_list):
         #用真实的例子中的每个分区的list和边的list。进行比较就好了啊。
@@ -178,21 +216,17 @@ class Partion_graph:
         print('second——node_list4',len(node_list4))
 
         subinfectG = commons.get_subGraph_true(infectG_other) #只取感染点，为2表示,真实的感染图。
-
-
         #然后将感染点之间所有边都相连接起来。
 
-
-        #首先进行
         '''
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
         #第一种方法。
-        twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
+        # twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
         #进行覆盖率走，并进行jaya算法。
-
         # twosource_node_list=self.jaya_add_coverage(infectG_other)
-
+        #进行删除边操作。
+        twosource_node_list = self.delete_high_betweenness_edge_centrality(infectG_other)
         node_coverage1 = twosource_node_list[0][1]
         node_coverage2 = twosource_node_list[1][1]
         #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
@@ -211,8 +245,6 @@ class Partion_graph:
             b = [x for x in node_list4 if x in node_coverage1]
             print('len(b)',len(b))
             print(len(b)/len(node_list4))
-
-
             B_ratio =  len(b)/len(node_list4)
             print('失败匹配')
             c = [x for x in node_list3 if x in node_coverage1]
