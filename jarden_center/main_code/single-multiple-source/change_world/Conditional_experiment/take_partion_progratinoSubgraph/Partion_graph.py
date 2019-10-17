@@ -29,12 +29,17 @@ class Partion_graph:
         return subGraph
 
     '''
-   第一种方案，利用K-center,k距离支配集合。
+   第一种方案，k-center，先分层。
+   然后从内层随机选择两点，这两点将内层的全部加入他们，
+   外层的节点根据距离加入他们。每个点只需要算一次迪杰斯特拉就可以了。
    
     随机选择两点，使得
     '''
     def Partion_graph_K_center(self, G, source_number_=2):
         #开始分区，输出每个区域的点和边。当前是两源的。
+
+        sort_list = commons.partion_layer(G,10)  #分层
+        first_layer = [x for x in sort_list[0][1]]  #用第一层的节点。
 
 
 
@@ -129,7 +134,9 @@ class Partion_graph:
         print('first——node_list3',len(node_list3))
         print('second——node_list4',len(node_list4))
 
-        subinfectG = commons.get_subGraph(infectG_other) #只取感染点，为2表示
+        subinfectG = commons.get_subGraph_true(infectG_other) #只取感染点，为2表示,真实的感染图。
+
+
         #然后将感染点之间所有边都相连接起来。
 
 
@@ -137,8 +144,6 @@ class Partion_graph:
 
 
         '''
-        
-        
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
 
