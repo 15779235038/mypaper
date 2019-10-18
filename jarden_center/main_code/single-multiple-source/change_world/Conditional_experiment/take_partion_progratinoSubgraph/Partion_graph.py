@@ -139,10 +139,6 @@ class Partion_graph:
     def delete_high_betweenness_centrality(self,infectG):
         subinfectG = commons.get_subGraph_true(infectG)
         #根据中介性分层然后删除。
-
-
-
-
     '''
        4  删除高中介性边，分批次删除。直到图不连通
        传入的还是原图，有感染和未感染点的。
@@ -153,7 +149,7 @@ class Partion_graph:
         # 根据中介性分层然后删除。
         sort_list = Partion_common.get_layer_edge_between(subinfectG)
 
-        for  i  in range(0,10):  #
+        for  i  in range(0, 10):  #
 
 
 
