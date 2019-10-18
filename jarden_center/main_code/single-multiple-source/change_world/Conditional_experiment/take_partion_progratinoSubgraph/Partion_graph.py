@@ -246,19 +246,21 @@ class Partion_graph:
         while flag:
                 sort_list = Partion_common.get_layer_edge_between(subinfectG)
                 print('sort_list', sort_list)
-                subinfectG.remove_edge(sort_list[0][0], sort_list[0][1])
-                commons_node_list.append(sort_list[0][0])
-                commons_node_list.append(sort_list[0][1])
+                print('sort_list[0][0][0]',sort_list[0][0][0])
+                subinfectG.remove_edge(sort_list[0][0][0], sort_list[0][0][1])
+                commons_node_list.append(sort_list[0][0][0])
+                commons_node_list.append(sort_list[0][0][1])
                 # 重新计算一下那个中介
-                one_subgraph_nodelist, two_subgraph_nodelist = self.judge_two_subgraph(subinfectG)
+                one_subgraph_nodelist, two_subgraph_nodelist = self.judge_two_subgraph2(subinfectG)
                 print('one_subgraph', one_subgraph_nodelist)
                 if one_subgraph_nodelist and two_subgraph_nodelist:
                     one_subgraph_nodelist, two_subgraph_nodelist = one_subgraph_nodelist, two_subgraph_nodelist
+                    commons_node_list_copy = copy.deepcopy(commons_node_list)
+                    # print('commons_node_liost', commons_node_list.extend(one_subgraph_nodelist))
+                    commons_node_list.extend(one_subgraph_nodelist)
+                    commons_node_list_copy.extend(two_subgraph_nodelist)
                     break
-                commons_node_list_copy = copy.deepcopy(commons_node_list)
-                # print('commons_node_liost', commons_node_list.extend(one_subgraph_nodelist))
-                commons_node_list.extend(one_subgraph_nodelist)
-                commons_node_list_copy.extend(two_subgraph_nodelist)
+
         return [commons_node_list, commons_node_list_copy]
 
     def  judge_two_subgraph(self,subinfecG):
@@ -280,7 +282,10 @@ class Partion_graph:
             return [1],[2]
 
 
-
+    '''
+    只判断是否有两个子图的函数。有就返回
+    
+    '''
     def  judge_two_subgraph2(self,subinfecG):
         mutiple_graph = sorted(nx.connected_component_subgraphs(subinfecG), key=len, reverse=True)
         # print('mutiple_graph',mutiple_graph[0])

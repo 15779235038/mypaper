@@ -48,7 +48,7 @@ def get_layer_edge_between(G):
     #先均匀分成10份，然后传回去。
     # sort_result = div_list(sort_list,10)
 
-
+    print('sort_list[0][0',sort_list[0][0])
     return sort_list
 
 
