@@ -140,8 +140,8 @@ class Partion_graph:
         subinfectG = commons.get_subGraph_true(infectG)
         sort_list= Partion_common.get_layer_node_between(subinfectG)
         #根据中介性分层然后删除。
-        print('sort_list',sort_list)
-        for every_node in sort_list:
+        print('sort_list',sort_list)  #先验证高中介性节点是否在中间。
+        # for every_node in sort_list:
 
 
 
