@@ -27,9 +27,13 @@ def div_list(ls, n):
 
 #获取根据中介性分层的点。
 def  get_layer_node_between(G):
-
-
-    pass
+    sort_dict = nx.betweenness_centrality(G)
+    print(sort_dict)
+    sort_list = sorted(sort_dict.items(), key=lambda x: x[1], reverse=True)
+    # 先均匀分成10份，然后传回去。
+    sort_result = div_list(sort_list,10)
+    return sort_result
+    # pass
 
 
 #获取根据中介性分层的边。
@@ -39,10 +43,12 @@ def get_layer_edge_between(G):
     sort_list = sorted(sort_dict.items(), key=lambda x: x[1], reverse=True)
     # print(sort_list)
     # print(len(sort_list))
-    #先均匀分成10份，然后传回去。
-    sort_result = div_list(sort_list,10)
-    # print(len(sort_result[0]))
 
-    return sort_result
+
+    #先均匀分成10份，然后传回去。
+    # sort_result = div_list(sort_list,10)
+
+
+    return sort_list
 
 

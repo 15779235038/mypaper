@@ -13,6 +13,7 @@ from munkres import print_matrix, Munkres
 from collections import defaultdict
 from random import sample
 import sys
+import  copy
 import  Partion_common
 import commons
 class Partion_graph:
@@ -133,29 +134,99 @@ class Partion_graph:
 
 
     '''
-    3 删除高中介性节点，分批次删除。直到图不连通
-    传入的还是原图，有感染和未感染点的。
+    3 找出高中介性节点，然后直接判断
     '''
     def delete_high_betweenness_centrality(self,infectG):
         subinfectG = commons.get_subGraph_true(infectG)
+        sort_list= Partion_common.get_layer_node_between(subinfectG)
         #根据中介性分层然后删除。
+        print('sort_list',sort_list)
+        for every_node in sort_list:
+
+
+
+
+
+
+
+
     '''
        4  删除高中介性边，分批次删除。直到图不连通
        传入的还是原图，有感染和未感染点的。
        '''
 
+
+
+
     def delete_high_betweenness_edge_centrality(self, infectG):
         subinfectG = commons.get_subGraph_true(infectG)
         # 根据中介性分层然后删除。
         sort_list = Partion_common.get_layer_edge_between(subinfectG)
+        print('sort_list',sort_list)
 
-        for  i  in range(0, 10):  #
+        commons_node_list = []
+        one_subgraph = None
+        two_subgraph = None
+        for  edge,between  in sort_list:  #
+                    print(edge,between)
+                    subinfectG.remove_edge(edge[0],edge[1])
+                    commons_node_list.append(edge[0])
+                    commons_node_list.append(edge[1])
+                    one_subgraph_nodelist,two_subgraph_nodelist = self.judge_two_subgraph(subinfectG)
+                    print('one_subgraph',one_subgraph_nodelist)
+                    if len(one_subgraph_nodelist) > 1:
+                        print('true')
+                        one_subgraph_nodelist,two_subgraph_nodelist = one_subgraph_nodelist,two_subgraph_nodelist
+                        break
+        commons_node_list_copy =copy.deepcopy(commons_node_list)
+        print('commons_node_liost',commons_node_list.extend(one_subgraph_nodelist))
+        commons_node_list.extend(one_subgraph_nodelist)
+        commons_node_list_copy.extend(two_subgraph_nodelist)
+        return [commons_node_list,commons_node_list_copy]
+
+    def  judge_two_subgraph(self,subinfecG):
+        mutiple_graph = sorted(nx.connected_component_subgraphs(subinfecG), key=len, reverse=True)
+        # print('mutiple_graph',mutiple_graph[0])
+        print(len(mutiple_graph))
+        if len(mutiple_graph) >= 2:
+            print('mutiple1', mutiple_graph[0].number_of_nodes())
+            print('mutiple2', mutiple_graph[1].number_of_nodes())
+            print('list', list(mutiple_graph[0].nodes()))
+            if mutiple_graph[0].number_of_nodes() - mutiple_graph[1].number_of_nodes() <200:
+                print('---------------')
+                print(list(mutiple_graph[0].nodes()), list(mutiple_graph[1].nodes()))
+                return list(mutiple_graph[0].nodes()), list(mutiple_graph[1].nodes())
+
+            else:
+                return  [1],[2]
+        else:
+            return [1],[2]
 
 
 
-    def verification(self,node_list,edge_list):
+
+
+
+
+    '''
+    用来验证两个node_list之间的对不对。取比较大的那个。
+    
+    '''
+    def verification(self,node_list,true_list):
         #用真实的例子中的每个分区的list和边的list。进行比较就好了啊。
-        pass
+
+
+        a1=len([x for x in node_list[0] if x in true_list[0]])/len(true_list[0])
+        b1 = len([x for x in node_list[1] if x in true_list[1]]) / len(true_list[1])
+        a2 = len([x for x in node_list[0] if x in true_list[1]]) / len(true_list[1])
+        b2 = len([x for x in node_list[1] if x in true_list[0]]) / len(true_list[0])
+        if a1+b1 > a2+b2:
+            print('输出看看',(a1+b1)/2)
+            return (a1+b1)/2
+        else:
+            print('输出看看', (a2 + b2) / 2)
+            return (a2 + b2) / 2
+
 
     def judge_connect(self,subinfecG):
         count = 0
@@ -179,11 +250,15 @@ class Partion_graph:
     '''
     def  main(self):
 
-         # #拿到图
-         # subGraph=self.get_Graph('../Propagation_subgraph/many_methods/result/chouqu.txt')
+        # #拿到图
+        # subGraph=self.get_Graph('../Propagation_subgraph/many_methods/result/chouqu.txt')
 
 
         initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
+        # initG = commons.get_networkByFile('../../../data/4_regular_tree_2000_data.txt')
+        # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
         source_list = commons.product_sourceList(max_sub_graph, 2)
@@ -210,6 +285,7 @@ class Partion_graph:
 
         print('first——node_list3',len(node_list3))
         print('second——node_list4',len(node_list4))
+        print('common_node_list',len(node_list5))
 
         subinfectG = commons.get_subGraph_true(infectG_other) #只取感染点，为2表示,真实的感染图。
         #然后将感染点之间所有边都相连接起来。
@@ -222,55 +298,62 @@ class Partion_graph:
         #进行覆盖率走，并进行jaya算法。
         # twosource_node_list=self.jaya_add_coverage(infectG_other)
         #进行删除边操作。
-        twosource_node_list = self.delete_high_betweenness_edge_centrality(infectG_other)
-        node_coverage1 = twosource_node_list[0][1]
-        node_coverage2 = twosource_node_list[1][1]
-        #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
-        lengtha =nx.shortest_path_length(infectG, source=twosource_node_list[0][0], target=source_list[0])
-        lengthb = nx.shortest_path_length(infectG, source=twosource_node_list[1][0], target=source_list[0])
-        print('length1',lengtha)
-        print('lengthb',lengthb)
-        if  lengtha >  lengthb:
-            print('成功匹配。')
-            a= [x for x in node_list3 if x in node_coverage2]
-            print('len(a)', len(a))
-            print(len(a)/len(node_list3))
+        # twosource_node_list = self.delete_high_betweenness_edge_centrality(infectG_other)
+        # print(twosource_node_list)
 
-            A_ratio = len(a) / len(node_list3)
+        # return self.verification(twosource_node_list,[node_list3,node_list4])
 
-            b = [x for x in node_list4 if x in node_coverage1]
-            print('len(b)',len(b))
-            print(len(b)/len(node_list4))
-            B_ratio =  len(b)/len(node_list4)
-            print('失败匹配')
-            c = [x for x in node_list3 if x in node_coverage1]
-            print('len(c)', len(c))
-            print(len(c) / len(node_list3))
-            d = [x for x in node_list4 if x in node_coverage2]
-            print('len(c)', len(d))
-            print(len(d) / len(node_list4))
+        #第四种，进行判断高中介性点为中间点。判断比例
+        self.delete_high_betweenness_centrality(infectG_other)
 
-
-            return   (A_ratio+B_ratio)/2
-
-        else:
-            print('成功匹配。')
-            a = [x for x in node_list3 if x in node_coverage1]
-            print('len(a)', a)
-            print(len(a) / len(node_list3))
-            b = [x for x in node_list4 if x in node_coverage2]
-            print('len(b)', b)
-            print(len(b) / len(node_list4))
-            A_ratio = len(a) / len(node_list3)
-            B_ratio = len(b) / len(node_list4)
-            print('失败匹配')
-            c = [x for x in node_list3 if x in node_coverage2]
-            print('len(c)', len(c))
-            print(len(c) / len(node_list3))
-            d = [x for x in node_list4 if x in node_coverage1]
-            print('len(c)', len(d))
-            print(len(d) / len(node_list4))
-            return (A_ratio + B_ratio) / 2
+        # node_coverage1 = twosource_node_list[0][1]
+        # node_coverage2 = twosource_node_list[1][1]
+        # #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
+        # lengtha =nx.shortest_path_length(infectG, source=twosource_node_list[0][0], target=source_list[0])
+        # lengthb = nx.shortest_path_length(infectG, source=twosource_node_list[1][0], target=source_list[0])
+        # print('length1',lengtha)
+        # print('lengthb',lengthb)
+        # if  lengtha >  lengthb:
+        #     print('成功匹配。')
+        #     a= [x for x in node_list3 if x in node_coverage2]
+        #     print('len(a)', len(a))
+        #     print(len(a)/len(node_list3))
+        #
+        #     A_ratio = len(a) / len(node_list3)
+        #
+        #     b = [x for x in node_list4 if x in node_coverage1]
+        #     print('len(b)',len(b))
+        #     print(len(b)/len(node_list4))
+        #     B_ratio =  len(b)/len(node_list4)
+        #     print('失败匹配')
+        #     c = [x for x in node_list3 if x in node_coverage1]
+        #     print('len(c)', len(c))
+        #     print(len(c) / len(node_list3))
+        #     d = [x for x in node_list4 if x in node_coverage2]
+        #     print('len(c)', len(d))
+        #     print(len(d) / len(node_list4))
+        #
+        #
+        #     return   (A_ratio+B_ratio)/2
+        #
+        # else:
+        #     print('成功匹配。')
+        #     a = [x for x in node_list3 if x in node_coverage1]
+        #     print('len(a)', a)
+        #     print(len(a) / len(node_list3))
+        #     b = [x for x in node_list4 if x in node_coverage2]
+        #     print('len(b)', b)
+        #     print(len(b) / len(node_list4))
+        #     A_ratio = len(a) / len(node_list3)
+        #     B_ratio = len(b) / len(node_list4)
+        #     print('失败匹配')
+        #     c = [x for x in node_list3 if x in node_coverage2]
+        #     print('len(c)', len(c))
+        #     print(len(c) / len(node_list3))
+        #     d = [x for x in node_list4 if x in node_coverage1]
+        #     print('len(c)', len(d))
+        #     print(len(d) / len(node_list4))
+        #     return (A_ratio + B_ratio) / 2
 '''
 
 
