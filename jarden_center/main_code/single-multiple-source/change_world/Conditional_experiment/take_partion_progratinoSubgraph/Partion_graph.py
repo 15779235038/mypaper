@@ -294,21 +294,67 @@ class Partion_graph:
            6.5 重复3，4.直到只有两个群组。
           '''
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     '''
               7标签传播的方法
               7.1 每个节点初始化两个标签，因为是2源
               7.2 不断迭代，直到两个节点的标签属于度比较大。
               
-              
-              
-              
-              
-              
-              
-              
-              
+            #注意传入的就是一个感染图，只有感染节点。
               '''
 
+    def  label_progration_community(self, G,label_number =2):
+        #初始化给每个结点加一个就好了啊。
+        #每个节点的标签就是一个list把。[[1,1/2],[2,2/3]]
+        for node in list(G.nodes):
+            G.add_node(node, labels=[[node, 1], [node,1]])
+        for iter in range(0,10):
+            for node in list(G.nodes):
+                #用两个字典。一个字典是某元素出现次数，一个是该标签
+                #隶属度
+                temp_dict_number  = defaultdict(int )
+                temp_dict = defaultdict(int )
+                # print('G.neighbors(node',list(G.neighbors(node)))
+                for neight in list(G.neighbors(node)):
+                    for label,belong_value  in G.node[neight]['labels']:
+                        temp_dict_number[label] +=1
+                        temp_dict[label] += belong_value
+                #取平均值。
+                # for label,number in temp_dict_number.items():
+                #     temp_dict[label] = temp_dict[label]
+                # print('temp_dict',temp_dict)
+
+                #排序，
+                temp_list = sorted(temp_dict.items(), key=lambda  x:x[1], reverse=True)
+                # print('temp_list', temp_list)
+                lens= len( G.node[node]['labels'])
+                #将前两项给给这个节点标签。
+                if lens >1 and len(temp_list) >1:
+                    G.node[node]['labels']=[temp_list[0],temp_list[1]]
+                else:
+                    G.node[node]['labels'][1] = temp_list[0]
+
+            #终止条件是？两个社区数量变化不大。
+
+
+        for node in list(G.nodes):
+            print(G.node[node]['labels'])
+        pass
 
 
 
@@ -428,9 +474,9 @@ class Partion_graph:
         # subGraph=self.get_Graph('../Propagation_subgraph/many_methods/result/chouqu.txt')
 
 
-        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
         # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
-        # initG = commons.get_networkByFile('../../../data/4_regular_tree_2000_data.txt')
+        initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
         # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
 
         max_sub_graph = commons.judge_data(initG)
@@ -472,15 +518,37 @@ class Partion_graph:
         #进行覆盖率走，并进行jaya算法。
         # twosource_node_list=self.jaya_add_coverage(infectG_other)
         #进行删除边操作。
-        twosource_node_list = self.delete_high_betweenness_edge_centrality_second(infectG_other)
-        print(twosource_node_list)
+        # twosource_node_list = self.delete_high_betweenness_edge_centrality_second(infectG_other)
+        # print(twosource_node_list)
+        # return self.verification(twosource_node_list, [node_list3, node_list4])
 
+
+
+        # 第7种方法。
+
+        twosource_node_list = self.label_progration_community(subinfectG)
+        print(twosource_node_list)
         return self.verification(twosource_node_list,[node_list3,node_list4])
 
         # #第四种，进行判断高中介性点为中间点。判断比例
         # twosource_node_list= self.delete_high_betweenness_centrality(infectG_other)
         #
         #
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         # node_coverage1 = twosource_node_list[0][1]
         # node_coverage2 = twosource_node_list[1][1]
         # #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
