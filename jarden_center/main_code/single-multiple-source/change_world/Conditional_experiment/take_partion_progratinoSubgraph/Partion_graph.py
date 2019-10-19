@@ -396,11 +396,11 @@ class Partion_graph:
 
         subinfectG = commons.get_subGraph_true(infectG_other) #只取感染点，为2表示,真实的感染图。
         #然后将感染点之间所有边都相连接起来。
+        #第一种方法。
 
         '''
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
-        #第一种方法。
         # twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
         #进行覆盖率走，并进行jaya算法。
         # twosource_node_list=self.jaya_add_coverage(infectG_other)
@@ -466,12 +466,17 @@ class Partion_graph:
 
 
 '''
+import  time
 if __name__ == '__main__':
     test = Partion_graph()
     sum =0
     for i  in range(0,20):
-        sum +=test.main()   #跑实验
-
+        tempresult =test.main()
+        sum += tempresult #跑实验
+        with open('result_samplePath.txt', "a") as f:
+            # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
+            f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
+            f.write('每一步的结果'+str(tempresult) + '\n')
     print('result',sum/20)
     print(sum/20)
 
