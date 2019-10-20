@@ -49,6 +49,10 @@ class Partion_graph:
         b = set(true_source_list)
         print('源点在不在第一层呢？',b.issubset(first_layer))
         subinfectG = commons.get_subGraph_true(G)  # 获取真实的传播图
+
+        #判断是否连通看看。
+        self.judge_connect(subinfectG)
+        print('如果不连通，这个方法就会出问题，一定要是连连通的。')
         two_source = random.sample(first_layer, 2)  # 从list中随机获取2个元素，作为一个片断返回
         flag = 1
         lengthA_B = 100000
@@ -72,7 +76,9 @@ class Partion_graph:
                 else:
                     node_twolist[0].append(node)
                     node_twolist[1].append(node)
-            print('node_twolist',len(node_twolist[1]))
+            print('node_twolist1 ',len(node_twolist[1]))
+            print('node_twolist2 ', len(node_twolist[0]))
+
             #在两个list中找到中心位置，有几种中心性可以度量的。或者进行快速算法。
             #判断这次找的两个中心好不好。
 

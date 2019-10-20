@@ -59,12 +59,17 @@ class Mutiple_source:
 
         # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
         # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
-        initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
+        initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+
+
+        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
         # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+
+        # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
-        source_list = commons.product_sourceList(max_sub_graph, 1)
+        source_list = commons.product_sourceList(max_sub_graph, 2)
         # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
         infectG = commons.propagation1(max_sub_graph, source_list)
 
@@ -91,6 +96,12 @@ class Mutiple_source:
         single_Source_detection_object = single_Source_detection.Single_source()
         print('result',result)
             #对每一个感染的点建图，用真实的建成一个传播子图
+        result_source_list = []
+
+        '''
+
+            3  针对2传回来的多个区域，开始定位源点。
+         '''
         for community_node ,community in  result:
             subsubinfectG= nx.Graph()
             for edge in list(subinfectG.edges()):
@@ -99,8 +110,11 @@ class Mutiple_source:
             #看下图连通吗。
             maxsubsubinfectG= self.judge_data(subsubinfectG)
             #开始单源定位了。
+
             source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
-            
+            result_source_list.append(source_node[0])
+
+        distance = commons.cal_distance(max_sub_graph,source_list,result_source_list)
 
 
 
@@ -108,11 +122,7 @@ class Mutiple_source:
 
 
 
-
-
-
-
-        pass
+        return distance
 
 
 import time
@@ -122,7 +132,7 @@ if __name__ == '__main__':
     for i in range(0, 20):
         tempresult = test.main()
         sum += tempresult  # 跑实验
-        with open('result_samplePath.txt', "a") as f:
+        with open('result.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
             f.write('每一步的结果' + str(tempresult) + '\n')

@@ -399,7 +399,7 @@ def   propagation1(G,SourceList,number =1):
             y_list.append(count)
             print('被感染点为' + str(count) + '个')
             # progation_number += 1
-            if count / G_temp.number_of_nodes() > 0.4:
+            if count / G_temp.number_of_nodes() > 0.5:
                 print('超过50%节点了，不用传播啦')
                 break
     #数据进去图，看看
@@ -951,7 +951,7 @@ def revsitionAlgorithm_singlueSource(subinfectG):
             print('传播子图为source1G,它的点数和边数为' + str(source1G.number_of_nodes()) + '-------' + str(
                 source1G.number_of_edges()))
             # 在nodelist找出源点来。
-            times = 50  # 时间刻多点
+            times = 80  # 时间刻多点
             IDdict = {}
 
             IDdict_dup = {}

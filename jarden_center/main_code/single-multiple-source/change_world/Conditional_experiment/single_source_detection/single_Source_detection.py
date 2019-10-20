@@ -130,8 +130,8 @@ class Single_source:
 
         # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
         # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
-        initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
-        # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+        # initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
+        initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
 
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
@@ -144,7 +144,9 @@ class Single_source:
 
         result_node= self.revsitionAlgorithm_singlueSource(subinfectG)
 
-
+        distance= nx.shortest_path_length(subinfectG,source=source_list[0],target=result_node[0])
+        print('结果是',distance)
+        return distance
 
 
 
