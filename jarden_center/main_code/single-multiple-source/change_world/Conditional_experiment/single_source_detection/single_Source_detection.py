@@ -13,7 +13,7 @@ import sys
 import  copy
 import  Partion_common
 import commons
-class Partion_graph:
+class Single_source:
     def __init__(self):
         pass
 
@@ -155,7 +155,7 @@ class Partion_graph:
 import time
 
 if __name__ == '__main__':
-    test = Partion_graph()
+    test = Single_source()
     sum = 0
     for i in range(0, 20):
         tempresult = test.main()

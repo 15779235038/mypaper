@@ -40,7 +40,7 @@ class Partion_graph:
    
     随机选择两点，使得
     '''
-    def Partion_graph_K_center(self, G,true_source_list ,source_number_=2):
+    def Partion_graph_K_center(self, G, true_source_list ,source_number_=2):
         #开始分区，输出每个区域的点和边。当前是两源的。
 
         sort_list = commons.partion_layer(G, 10)  #分层
