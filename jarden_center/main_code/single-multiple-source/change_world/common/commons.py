@@ -1291,6 +1291,38 @@ def  jayawith_dynami_H_TrueSource(tempGraph, best_h_node,fix_number_source,best_
 
 
 
+'''
+1  生成真实传播图，真实的点，真实的边。
+2 用来测试单源的方法，
+
+
+'''
+def  product_progration_file(sourceNumber =1):
+    # #拿到图
+    # subGraph=self.get_Graph('../Propagation_subgraph/many_methods/result/chouqu.txt')
+
+    # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+    # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
+    initG =get_networkByFile('../../../data/treenetwork3000.txt')
+    # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+
+    max_sub_graph = judge_data(initG)
+    # source_list = product_sourceList(max_sub_graph, 2)
+    source_list = product_sourceList(max_sub_graph, 1)
+    # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
+    infectG = propagation1(max_sub_graph, source_list)
+
+    subinfectG = get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
+    # 将在这里进行单源测试。
+
+
+    #生成一个单源传播图。到文件中
+    with open('subinfectG.txt', "a") as f:
+        for edge in list(subinfectG.edges()):
+            f.write(str(edge[0])+'  ' +str(edge[1])+ '\n')
+    pass
+
+
 
 
 '''

@@ -356,36 +356,14 @@ class Partion_graph:
             print(G.node[node]['labels'])
         pass
 
+    '''
+                 8马尔科夫链过程。
+                  '''
+
+    def Markov_Chain(self, G, label_number=2):
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+       pass
 
 
 
