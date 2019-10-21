@@ -127,11 +127,9 @@ class Single_source:
 
         # #拿到图
         # subGraph=self.get_Graph('../Propagation_subgraph/many_methods/result/chouqu.txt')
-
-        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
         # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
-        # initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
-        initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+        # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
 
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
