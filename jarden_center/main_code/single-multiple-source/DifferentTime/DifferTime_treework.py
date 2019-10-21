@@ -90,7 +90,6 @@ def Algorithm1(G, SourceList, time_sum, hlist):
         if count / G.number_of_nodes() > 0.5:
             print('超过50%节点了，不用传播啦')
             break
-
     return G
 
 
@@ -497,7 +496,10 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist,sourceNumber
                 print('传播子图为source1G,它的点数和边数为' + str(source1G.number_of_nodes()) + '-------' + str(
                     source1G.number_of_edges()))
                 # 在nodelist找出源点来。
-                times = 100  # 时间刻多点
+
+                #判断是否连通，
+                commons.judge_connect(source1G)
+                times = 150  # 时间刻多点
                 IDdict = {}
                 IDdict_dup = {}
                 # 先赋予初始值。

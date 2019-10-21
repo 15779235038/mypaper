@@ -11,7 +11,7 @@ from networkx.algorithms import community
 有效距离的定义：度大点的传播距离较远。目前只有一个指标：根据度数的大小。度数越大，与他相连的边的权重越大。
 越不容易传播、越可能在距离比较远的时间传播。以此为方法定义权重。
 '''
-from sklearn import preprocessing
+# from sklearn import preprocessing
 
 import numpy as np
 
@@ -404,7 +404,7 @@ def findmultiplesource(singleRegionList, infectionG, trueSourcelist, sourceNum):
                 sourcePartition.append([])
             for index in range(len(sourcePartition)):
                 sourcePartition[index].append(randomSource[index])
-                Alternativenodeset.remove(randomSource[index])
+                # Alternativenodeset.remove(randomSource[index])
             print (sourcePartition)  # 3个区域划分完毕
 
             for node in Alternativenodeset:
@@ -587,55 +587,6 @@ def listToTxt(listTo, dir):
     fileObject.close()
 
 
-def getSimilir(ulist, hlist, singleRegionList, infectionG):
-    '''
-    S树-S感染。
-
-
-    :param ulist:
-    :param hlist:
-    :param singleRegionList:
-    :param infectionG:
-    :return:
-    '''
-    if isinstance(ulist, int):
-        circleNodesList = list(nx.bfs_tree(infectionG, source=ulist, depth_limit=hlist).nodes)  # 这包含了这个构建的圆的所有节点。
-        # 计算列表相似度试试看
-        # print ('感染源的h节点集合为'+str(circleNodesList))
-        count = 0
-        for i in circleNodesList:
-            if i in singleRegionList:
-                count = count + 1
-        Intersection = list(set(circleNodesList).intersection(set(singleRegionList)))  # 交集
-        Union = list(set(circleNodesList).union(set(singleRegionList)))
-        ratios = len(Intersection) / len(Union)
-        ratio = 1.0 - ratios
-        print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
-        return abs(ratio)
-
-
-
-    else:
-        # 多源点,获得多源点的覆盖率
-        circleNodesList = []
-        for u in ulist:
-            circleNodesList.extend(list(nx.bfs_tree(infectionG, source=u, depth_limit=hlist).nodes))
-        circleNodesListnew = list(set(circleNodesList))
-        count = 0
-        for i in circleNodesList:
-            if i in singleRegionList:
-                count = count + 1
-        # count
-        Intersection = list(set(circleNodesList).intersection(set(singleRegionList)))  # 交集
-        Union = list(set(circleNodesList).union(set(singleRegionList)))  # 并集
-        ratios = len(Intersection) / len(Union)
-        ratio = 1.0 - ratios
-        print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
-
-        return abs(ratio)
-
-
-import sys
 
 
 def getListfortxt(rootdir):
@@ -767,7 +718,7 @@ if __name__ == '__main__':
     #     Ginti.add_node(index)
 
     # 构建图，这个图是有有效距离的。
-    G = ContractDict('../data/CA-GrQc.txt', Ginti)
+    G = ContractDict('../data/4_regular_graph_3000_data.txt', Ginti)
 
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())

@@ -797,6 +797,18 @@ def  judge_data(initG):
 
 
 
+def judge_connect(subinfecG):
+    count = 0
+    for sub_graph in sorted(nx.connected_component_subgraphs(subinfecG), key=len, reverse=True):
+        print(sub_graph)
+        count +=1
+    if count ==1:
+        print('传播子图是连通')
+        return subinfecG
+    else:
+        print('传播子图不连通,返回最大子图')
+        return  max(nx.connected_component_subgraphs(subinfecG), key=len)
+
 
 
 
