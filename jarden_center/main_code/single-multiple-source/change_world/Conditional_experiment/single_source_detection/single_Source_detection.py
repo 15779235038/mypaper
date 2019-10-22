@@ -109,8 +109,7 @@ class Single_source:
     思路：从每个点计算一次djstra方法，统计距离。
     传入的是原始图
     
-    补充： 还得单独做一个基于距离的计算方法。不要脱离论文啊
-    DMP，还有rumor，center都要做实验的。
+  
     
     '''
 
@@ -177,10 +176,13 @@ class Single_source:
         #
         # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
         # ''' 第二种，就是coverage/distance'''
-        result_node= self.single_source_bydistance_coverage(infectG,subinfectG)
+        # result_node= self.single_source_bydistance_coverage(infectG,subinfectG)
+
+        '''  第3种，距离中心'''
+        result_node = self.single_source_bydistance( subinfectG)
 
         distance= nx.shortest_path_length(subinfectG,source=source_list[0],target=result_node[0])
-        print('结果是',distance)
+        print('结果是', distance)
         return distance
 
 
@@ -199,14 +201,21 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
 
     # initG = commons.get_networkByFile(filename)
-    # filname = '../../../data/4_regular_graph_3000_data.txt'
+    filname = '../../../data/4_regular_graph_3000_data.txt'
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    filname = '../../data/CA-GrQc.txt'
-    method ='distan+ covage'
+    # filname = '../../data/CA-GrQc.txt'
 
+
+
+    # method ='distan+ covage'
     # method = 'jardan_center'
+    method ='distance'
+
+
+
+    
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
@@ -214,7 +223,7 @@ if __name__ == '__main__':
         with open('result.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
-            f.write('每一步的结果是   '+str(tempresult)+'      数据集'+str(method) + str(filname) +   '\n')
+            f.write('每一步的结果是   '+str(tempresult)+'      数据集'+'方法'+str(method) + str(filname) +   '\n')
     with open('result.txt', "a") as f:
         f.write('数据集' + str(filname)+'方法' +str(method)+ '总结果   ' + str(sum / 20) + '\n')
         f.write('\n')

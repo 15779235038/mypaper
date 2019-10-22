@@ -280,4 +280,39 @@ Tue Oct 22 11:50:38 2019
 每一步的结果数据集../../../data/CA-GrQc.txt2.5
 方法，真实子图+ distance+coverage +Tue Oct 22 11:52:20 2019
 每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 11:53:04 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 11:53:41 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ distance+coverage +Tue Oct 22 11:54:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 11:55:32 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 11:56:17 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 11:57:02 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 11:57:52 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ distance+coverage +Tue Oct 22 11:58:48 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 11:59:26 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 12:00:01 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 12:00:37 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 12:01:32 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 12:02:17 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 12:03:23 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 12:04:32 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 12:05:34 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 12:06:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ distance+coverage +数据集../../../data/CA-GrQc.txt总结果2.975
 方法，真实子图+ distance+coverage +
