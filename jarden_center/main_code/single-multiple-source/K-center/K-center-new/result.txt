@@ -74,3 +74,9 @@ Mon Oct 21 23:14:28 2019
 数据集../../data/CA-GrQc.txt每一步的结果2.5
 数据集../../data/CA-GrQc.txt总结果3.175
 
+Tue Oct 22 09:44:25 2019
+数据集../../data/CA-GrQc.txt每一步的结果3.5
+Tue Oct 22 09:48:33 2019
+数据集../../data/CA-GrQc.txt每一步的结果2.5
+Tue Oct 22 09:51:34 2019
+数据集../../data/CA-GrQc.txt每一步的结果2.5

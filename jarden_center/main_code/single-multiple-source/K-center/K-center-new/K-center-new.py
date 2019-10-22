@@ -153,50 +153,55 @@ class Mutiple_source:
 
 
         elif sourceNum == 2:
-
-            resultList = []
-
-            # 随机找两个源，开始
-            sourcePartition = []
-            randomSource = []
-            for number in range(0, sourceNum):
-                randomSource.append(random.choice(Alternativenodeset))  # 随机选择k个源。
-                sourcePartition.append([])
-            for index in range(len(sourcePartition)):
-                sourcePartition[index].append(randomSource[index])
-                # Alternativenodeset.remove(randomSource[index])
-            print(sourcePartition)  # 3个区域划分完毕
-
-            for node in Alternativenodeset:
-                # 分别计算到两个源的距离。
-                lengthlist = []
-                for index1 in range(0, sourceNum):
-                    lengthlist.append([index1, randomSource[index1], node,
-                                       nx.shortest_path_length(infectionG, source=node, target=randomSource[index1])])
-                resulttemp = sorted(lengthlist, key=lambda x: (x[3]))
-                print('输出关于这个东西的距离集合看看')
-                print(resulttemp)
-                # 加入第一个队列中。
-                sourcePartition[resulttemp[0][0]].append(node)
-
             result = []
-            for singlePartition in sourcePartition:
-                # ok,接下来已经分割完毕了。sourcePartion1，2就是我们的结果了.在这两个分区中寻找新的点，让目标函数成立。
-                # 第一个分区
-                nodeAnddistance = []
-                for partion1node in singlePartition:  # 计算他们跟其他的距离。
-                    nodedistanceSum = 0
-                    for targetPartion1node in singlePartition:
-                        if partion1node != targetPartion1node:
-                            length = nx.shortest_path_length(infectionG, source=partion1node, target=targetPartion1node)
-                            nodedistanceSum = nodedistanceSum + length
-                    nodeAnddistance.append([partion1node, nodedistanceSum])
-                    print(str([partion1node, nodedistanceSum]))
-                result1 = sorted(nodeAnddistance, key=lambda x: (x[1]))  # 这就是这个源的结果，看看源是多少来着。
-                print('结果看看' + str(result1[0]))
-                result.append(result1[0][0])
-            print(result)
+            resultList = []
+            for l in range(0, 4):
+                # 随机找两个源，开始
+                sourcePartition = []
+                randomSource = []
+                for number in range(0, sourceNum):
+                    randomSource.append(random.choice(Alternativenodeset))  # 随机选择k个源。
+                    sourcePartition.append([])
+                for index in range(len(sourcePartition)):
+                    sourcePartition[index].append(randomSource[index])
+                    # Alternativenodeset.remove(randomSource[index])
+                print(sourcePartition)  # 3个区域划分完毕
+
+                for node in Alternativenodeset:
+                    # 分别计算到两个源的距离。
+                    lengthlist = []
+                    for index1 in range(0, sourceNum):
+                        lengthlist.append([index1, randomSource[index1], node,
+                                           nx.shortest_path_length(infectionG, source=node, target=randomSource[index1])])
+                    resulttemp = sorted(lengthlist, key=lambda x: (x[3]))
+                    print('输出关于这个东西的距离集合看看')
+                    print(resulttemp)
+                    # 加入第一个队列中。
+                    sourcePartition[resulttemp[0][0]].append(node)
+
+
+                for singlePartition in sourcePartition:
+                    # ok,接下来已经分割完毕了。sourcePartion1，2就是我们的结果了.在这两个分区中寻找新的点，让目标函数成立。
+                    # 第一个分区
+                    nodeAnddistance = []
+                    for partion1node in singlePartition:  # 计算他们跟其他的距离。
+                        nodedistanceSum = 0
+                        for targetPartion1node in singlePartition:
+                            if partion1node != targetPartion1node:
+                                length = nx.shortest_path_length(infectionG, source=partion1node, target=targetPartion1node)
+                                nodedistanceSum = nodedistanceSum + length
+                        nodeAnddistance.append([partion1node, nodedistanceSum])
+                        print(str([partion1node, nodedistanceSum]))
+                    result1 = sorted(nodeAnddistance, key=lambda x: (x[1]))  # 这就是这个源的结果，看看源是多少来着。
+                    print('结果看看' + str(result1[0]))
+                    result.append(result1[0][0])
+                print(result)
             return result
+
+
+
+
+
         elif sourceNum == 3:
             resultList = []
             for l in range(0, 4):

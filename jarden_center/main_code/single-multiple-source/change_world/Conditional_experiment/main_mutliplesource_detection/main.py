@@ -138,7 +138,7 @@ if __name__ == '__main__':
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    filname = '../../data/CA-GrQc.txt'
+    filname = '../../../data/4_regular_graph_3000_data.txt'
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
