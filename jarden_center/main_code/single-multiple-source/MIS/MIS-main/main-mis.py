@@ -102,19 +102,34 @@ class Mutiple_source:
 
         #基于k-means的方法。
         if sourceNum == 2:
+            partion_region =[]
 
             #选择距离最远的点。
             distance_iter=nx.shortest_path_length(subinfectG)
             everynode_distance = []
             for node,node_distance  in distance_iter:
-                print(node_distance)
+                # print(node_distance)
                 sort_list = sorted(node_distance.items(), key=lambda x: x[1], reverse=True)
-                print('sort_list',sort_list)
+                # print('sort_list',sort_list)
                 everynode_distance.append([node,sort_list[0][0],sort_list[0][1]])
-            print('everynode_idstance',everynode_distance)
+            # print('everynode_idstance',everynode_distance)
             sort_every_distance =sorted(everynode_distance,key = lambda  x:x[2],reverse=True)
-            print(sort_every_distance)
-            pass
+            # print(sort_every_distance)
+            node_twolist = [[],[]]
+            lengthA_dict = nx.single_source_bellman_ford_path_length(subinfectG, sort_every_distance[0][0], weight='weight')
+            lengthB_dict = nx.single_source_bellman_ford_path_length(subinfectG, sort_every_distance[0][1], weight='weight')
+            for node in list(subinfectG.nodes):
+                if lengthA_dict[node] > lengthB_dict[node]:  # 这个点离b近一些。
+                    node_twolist[1].append(node)
+                elif lengthA_dict[node] < lengthB_dict[node]:
+                    node_twolist[0].append(node)
+                else:
+                    node_twolist[0].append(node)
+                    node_twolist[1].append(node)
+            print('len(node_twolist[0]',len(node_twolist[0]))
+            print('len(node_twolist[1]',len(node_twolist[1]))
+            return node_twolist
+
 
 
 
@@ -146,6 +161,7 @@ class Mutiple_source:
         infectG = commons.propagation1(max_sub_graph, source_list)
 
         subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
+        single_Source_detection_object = single_Source_detection.Single_source()
 
         '''
         底下将是所有的步骤组合操作。目前是2源的。
@@ -161,8 +177,23 @@ class Mutiple_source:
 
         result=self.findmultiplesource(infectG,subinfectG,sourceNumber=2)
 
+        result_source_list =[]
+        for  community in result:
+            subsubinfectG = nx.Graph()
+            for edge in list(subinfectG.edges()):
+                if edge[0] in community and (edge[1] in community):
+                    subsubinfectG.add_edge(edge[0], edge[1])
+            # 看下图连通吗。
+            maxsubsubinfectG = self.judge_data(subsubinfectG)
+            # 开始单源定位了。
+            '''jar center'''
+            # source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+            source_node = single_Source_detection_object.single_source_bydistance_coverage(infectG, maxsubsubinfectG)
 
-        distance = commons.cal_distance(max_sub_graph, source_list, result)
+            result_source_list.append(source_node[0])
+
+        distance = commons.cal_distance(max_sub_graph, source_list, result_source_list)
+
 
         return distance
 
@@ -182,14 +213,17 @@ if __name__ == '__main__':
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    filname = '../../data/4_regular_graph_3000_data.txt'
+    # filname = '../../data/4_regular_graph_3000_data.txt'
+    filname = '../../data/CA-GrQc.txt'
+
+    method = 'mis'
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
         with open('result.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
-            f.write('数据集'+str(filname)+'每一步的结果' + str(tempresult) + '\n')
+            f.write('数据集'+str(filname)+'方法'+method+'每一步的结果' + str(tempresult) + '\n')
     with open('result.txt', "a") as f:
         f.write('数据集'+str(filname) + '总结果' + str(sum / 20) + '\n')
         f.write('\n')
