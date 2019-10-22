@@ -62,7 +62,7 @@ class Partion_graph:
 
         averageA = 1
         averageB = 1
-        for iter  in range(0,100):
+        for iter  in range(0,200):
             #对这两个点进行Djstra，计算所有点到他们的距离。
             print('two_source',two_source)
             lengthA_dict = nx.single_source_bellman_ford_path_length(subinfectG,two_source[0],weight='weight')
@@ -102,8 +102,8 @@ class Partion_graph:
                 lengthB_sum += lengthA_dict[j]
 
             print('平均距离计算')
-            average_lengthA = lengthB_sum/len(node_diff_twolist[0])
-            average_lengthB = lengthA_sum /len(node_diff_twolist[1])
+            average_lengthA = lengthA_sum/len(node_diff_twolist[0])
+            average_lengthB = lengthB_sum /len(node_diff_twolist[1])
 
             sums = lengthA_sum + lengthB_sum
             print(lengthA_B)
@@ -483,15 +483,13 @@ class Partion_graph:
       3 多个数据集测试。
 
     '''
-    def  main(self):
+    def  main(self,filename):
 
         # #拿到图
         # subGraph=self.get_Graph('../Propagation_subgraph/many_methods/result/chouqu.txt')
-
-
-        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
         # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
-        # initG = commons.get_networkByFile('../../data/4_regular_tree_3000_data.txt')
+        initG = commons.get_networkByFile(filename)
         # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
 
         max_sub_graph = commons.judge_data(initG)
@@ -610,14 +608,27 @@ class Partion_graph:
 import  time
 if __name__ == '__main__':
     test = Partion_graph()
-    sum =0
-    for i  in range(0,2):
-        tempresult =test.main()
+    sum =  0
+    # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+    # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
+    # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
+
+    # initG = commons.get_networkByFile(filename)
+    # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+
+    # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
+
+    filname = '../../data/CA-GrQc.txt'
+    for i  in range(0,20):
+        tempresult =test.main(filname)
         sum += tempresult #跑实验
         with open('result_samplePath.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
             f.write('每一步的结果'+str(tempresult) + '\n')
+    with open('result.txt', "a") as f:
+        f.write('数据集' + str(filname) + '总结果' + str(sum /20) + '\n')
+        f.write('\n')
     print('result',sum/20)
     print(sum/20)
 
