@@ -676,6 +676,29 @@ def partion_layer(G,number_layer= 10):
 
 
 
+'''
+
+1 分层算法，输入原感染图。注意要包含感染和未感染点，还有分层的层数参数
+返回键值对
+'''
+
+def partion_layer_dict(G,number_layer= 10):
+    G_temp = nx.Graph()
+    subGraph = nx.Graph()
+    G_temp = copy.deepcopy(G)
+    # 获取我们所有的图。
+    # 拿到所有的感染点,并且统计他们感染率。
+    node_dict=dict()
+    infect_listNode = []
+
+    for nodes in list(G_temp.nodes):
+        if G_temp.node[nodes]['SI'] == 2:
+            neighbor_list = list(G_temp.neighbors(nodes))
+            count = len([x for x in neighbor_list if G_temp.node[x]['SI'] == 2])
+            neighbor_list_len = len(neighbor_list)
+            node_dict[nodes]=count / neighbor_list_len
+    return node_dict
+
 
 
 

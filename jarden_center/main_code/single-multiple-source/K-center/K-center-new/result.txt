@@ -150,3 +150,25 @@ Tue Oct 22 11:08:16 2019
 数据集../../data/CA-GrQc.txt每一步的结果5.0
 Tue Oct 22 11:09:32 2019
 数据集../../data/CA-GrQc.txt每一步的结果3.5
+Tue Oct 22 11:10:32 2019
+数据集../../data/CA-GrQc.txt每一步的结果3.5
+Tue Oct 22 11:11:36 2019
+数据集../../data/CA-GrQc.txt每一步的结果2.0
+Tue Oct 22 11:12:45 2019
+数据集../../data/CA-GrQc.txt每一步的结果2.5
+Tue Oct 22 11:13:39 2019
+数据集../../data/CA-GrQc.txt每一步的结果3.0
+Tue Oct 22 11:15:10 2019
+数据集../../data/CA-GrQc.txt每一步的结果3.0
+Tue Oct 22 11:16:28 2019
+数据集../../data/CA-GrQc.txt每一步的结果3.0
+Tue Oct 22 11:17:48 2019
+数据集../../data/CA-GrQc.txt每一步的结果2.5
+Tue Oct 22 11:18:22 2019
+数据集../../data/CA-GrQc.txt每一步的结果2.0
+Tue Oct 22 11:19:32 2019
+数据集../../data/CA-GrQc.txt每一步的结果4.0
+Tue Oct 22 11:20:10 2019
+数据集../../data/CA-GrQc.txt每一步的结果3.0
+数据集../../data/CA-GrQc.txt总结果3.15
+

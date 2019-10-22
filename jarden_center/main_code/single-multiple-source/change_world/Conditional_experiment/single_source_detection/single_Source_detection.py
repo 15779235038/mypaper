@@ -103,13 +103,51 @@ class Single_source:
     
     第二种单源定位方法。
     我们提出一种新的单源定位方法，基于覆盖率计算的。
+    统计每个点对于整个感染图的每个点计算公式，包括距离中心和覆盖率中心的综合计算方式。
+    公式等于覆盖率/距离,越大越好。
+    
+    思路：从每个点计算一次djstra方法，统计距离。
+    传入的是原始图
+    
+    补充： 还得单独做一个基于距离的计算方法。不要脱离论文啊
+    DMP，还有rumor，center都要做实验的。
     
     '''
 
+    def  single_source_bydistance_coverage(self,infectG,subinfectG):
+        sort_dict = commons.partion_layer_dict(infectG, 10)  # 分层
+        print('sort_list', sort_dict)
+        node_cal = []
+        for node in subinfectG:
+            node_import = 0
+            length_dict = nx.single_source_bellman_ford_path_length(subinfectG, node, weight='weight')
+            for othernode,ditance in length_dict.items():
+                node_import += sort_dict[othernode] / (ditance+1)
+            node_cal.append([node,node_import])
+        sort_list = sorted(node_cal, key=lambda x: x[1], reverse=True)
+        print(sort_list)
+        return  sort_list[0]
 
 
 
 
+
+    '''
+    第3种单源定位方法。距离中心
+    就是每个点距离其他点最近的距离中心。就是了的。
+
+    '''
+    def  single_source_bydistance(self,subinfectG):
+        node_cal = []
+        for node in subinfectG:
+            node_import = 0
+            length_dict = nx.single_source_bellman_ford_path_length(subinfectG, node, weight='weight')
+            for othernode,ditance in length_dict.items():
+                node_import += ditance
+            node_cal.append([node,node_import])
+        sort_list = sorted(node_cal, key=lambda x: x[1])
+        print(sort_list)
+        return  sort_list[0]
 
 
 
@@ -135,8 +173,11 @@ class Single_source:
 
         subinfectG = commons.get_subGraph_true( infectG)  # 只取感染点，为2表示,真实的感染图。
         #将在这里进行单源测试。
-
-        result_node= self.revsitionAlgorithm_singlueSource(subinfectG)
+        '''   第一种，就是jarden center '''
+        #
+        # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
+        # ''' 第二种，就是coverage/distance'''
+        result_node= self.single_source_bydistance_coverage(infectG,subinfectG)
 
         distance= nx.shortest_path_length(subinfectG,source=source_list[0],target=result_node[0])
         print('结果是',distance)
@@ -158,20 +199,24 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
 
     # initG = commons.get_networkByFile(filename)
-    # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+    # filname = '../../../data/4_regular_graph_3000_data.txt'
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     filname = '../../data/CA-GrQc.txt'
+    method ='distan+ covage'
+
+    # method = 'jardan_center'
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
+
         with open('result.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
-            f.write('每一步的结果' + str(tempresult) + '\n')
+            f.write('每一步的结果是   '+str(tempresult)+'      数据集'+str(method) + str(filname) +   '\n')
     with open('result.txt', "a") as f:
-        f.write('数据集' + str(filname) + '总结果' + str(sum / 20) + '\n')
+        f.write('数据集' + str(filname)+'方法' +str(method)+ '总结果   ' + str(sum / 20) + '\n')
         f.write('\n')
     print('result', sum / 20)
     print(sum / 20)

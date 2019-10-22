@@ -110,8 +110,11 @@ class Mutiple_source:
             #看下图连通吗。
             maxsubsubinfectG= self.judge_data(subsubinfectG)
             #开始单源定位了。
+            '''jar center'''
+            # source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+            source_node =  single_Source_detection_object.single_source_bydistance_coverage(infectG,maxsubsubinfectG)
 
-            source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+
             result_source_list.append(source_node[0])
 
         distance = commons.cal_distance(max_sub_graph,source_list,result_source_list)
@@ -139,6 +142,7 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     # filname = '../../../data/4_regular_graph_3000_data.txt'
+    method ='方法，真实子图+ distance+coverage +'
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
@@ -146,8 +150,10 @@ if __name__ == '__main__':
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
             f.write('每一步的结果数据集' + str(filname) + str(tempresult) + '\n')
+            f.write( method)
     with open('result.txt', "a") as f:
         f.write('数据集' + str(filname) + '总结果' + str(sum / 20) + '\n')
+        f.write( method)
         f.write('\n')
     print('result', sum / 20)
     print(sum / 20)
