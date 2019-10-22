@@ -52,9 +52,9 @@ class Mutiple_source:
                 G.add_edge(int(line1[0]), int(line1[1]))
 
         for edge in G.edges:
-            # G.add_edge(edge[0], edge[1], weight=1)
-            randomnum = random.random()
-            G.add_edge(edge[0], edge[1], weight=self.effectDistance(randomnum))
+            G.add_edge(edge[0], edge[1], weight=1)
+            # randomnum = random.random()
+            # G.add_edge(edge[0], edge[1], weight=self.effectDistance(randomnum))
 
         return G
 

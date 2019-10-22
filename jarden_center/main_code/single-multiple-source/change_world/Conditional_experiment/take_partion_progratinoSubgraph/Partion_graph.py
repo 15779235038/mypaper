@@ -48,24 +48,36 @@ class Partion_graph:
         #先验证源点在不在第一层。
         b = set(true_source_list)
         print('源点在不在第一层呢？',b.issubset(first_layer))
+        print('第一层节点个数',len(first_layer))
         subinfectG = commons.get_subGraph_true(G)  # 获取真实的传播图
 
         #判断是否连通看看。
         self.judge_connect(subinfectG)
         print('如果不连通，这个方法就会出问题，一定要是连连通的。')
         two_source = random.sample(first_layer, 2)  # 从list中随机获取2个元素，作为一个片断返回
+
         flag = 1
-        lengthA_B = 100000
+        lengthA_B = 10000
         good_two_result = []
         best_node_two_result = None
+
+        averageA = 1
+        averageB = 1
         for iter  in range(0,100):
             #对这两个点进行Djstra，计算所有点到他们的距离。
             print('two_source',two_source)
             lengthA_dict = nx.single_source_bellman_ford_path_length(subinfectG,two_source[0],weight='weight')
             lengthB_dict = nx.single_source_bellman_ford_path_length(subinfectG,two_source[1],weight='weight')
+            #统计两者距离相等的点个数
+            count =0
+            for node,distance in lengthB_dict.items():
+                if lengthA_dict[node] == lengthB_dict[node]:
+                    count += 1
+            print('两者距离相等的点个数为',count)
             #初始化两个集合，用来保存两个类别节点集合。
             node_twolist = [[], []]   #保存两个类别节点集合
             node_diff_twolist = [[],[]] #保存不同点
+            count  =0
             for node in list(subinfectG.nodes):
                 if lengthA_dict[node] >lengthB_dict[node]: #这个点离b近一些。
                     node_twolist[1].append(node)
@@ -76,9 +88,10 @@ class Partion_graph:
                 else:
                     node_twolist[0].append(node)
                     node_twolist[1].append(node)
+                    count += 1
             print('node_twolist1 ',len(node_twolist[1]))
             print('node_twolist2 ', len(node_twolist[0]))
-
+            print('count是公共节点数目',count)
             #在两个list中找到中心位置，有几种中心性可以度量的。或者进行快速算法。
             #判断这次找的两个中心好不好。
 
@@ -89,10 +102,22 @@ class Partion_graph:
             for j in node_diff_twolist[1]:  # 距离b近，第二个源点近的点。统计它跟第二个区域点的距离之和
                 lengthB_sum += lengthA_dict[j]
 
+            print('平均距离计算')
+            average_lengthA = lengthB_sum/len(node_diff_twolist[0])
+            average_lengthB = lengthA_sum /len(node_diff_twolist[1])
+
             sums = lengthA_sum + lengthB_sum
-            if sums <lengthA_B:
+            print(lengthA_B)
+            print('平均距离有增大就可以了。')
+            if average_lengthA >averageA and average_lengthB >averageB:
+
+               averageA = average_lengthA
+               averageB =average_lengthB
                print('sums',sums)
                 #是比原来好的的两个源。
+               print('node_diff_twolist', len(node_diff_twolist[0]))
+               print('node_diff_twolist', len(node_diff_twolist[1]))
+               print('更行sums',sums)
                lengthA_B = sums
                good_two_result=two_source
                best_node_two_result = node_twolist
@@ -100,8 +125,15 @@ class Partion_graph:
             else:
                 #重新长生两个源吧。这里还是可以做优化的，选择的方向问题。
                 two_source = random.sample(first_layer, 2)
+                print('新生成两个源是',two_source)
+        print('传播子图所有节点个数', len(list(subinfectG.nodes())))
+        print('len(good_two_result[0]',len(best_node_two_result[0]))
+        print('len(good_two_result[0]', len(best_node_two_result[1]))
 
+        print('分开的两个区域的点的交集大小。')
+        print('LEN',len([x for x in best_node_two_result[0] if x in best_node_two_result[1]]))
         print('good_two_result', good_two_result)
+        print('short_length',nx.shortest_path_length(subinfectG,source=good_two_result[0],target=good_two_result[1]))
         print('good_node_two_result', best_node_two_result)
 
         return [[good_two_result[0],best_node_two_result[0]],[good_two_result[1],best_node_two_result[1]]]
@@ -458,9 +490,9 @@ class Partion_graph:
         # subGraph=self.get_Graph('../Propagation_subgraph/many_methods/result/chouqu.txt')
 
 
-        # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
         # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
-        initG = commons.get_networkByFile('../../../data/treenetwork3000.txt')
+        # initG = commons.get_networkByFile('../../data/4_regular_tree_3000_data.txt')
         # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
 
         max_sub_graph = commons.judge_data(initG)
@@ -491,6 +523,8 @@ class Partion_graph:
         print('second——node_list4',len(node_list4))
         print('common_node_list',len(node_list5))
 
+
+
         subinfectG = commons.get_subGraph_true(infectG_other) #只取感染点，为2表示,真实的感染图。
         #然后将感染点之间所有边都相连接起来。
         #第一种方法。
@@ -498,7 +532,7 @@ class Partion_graph:
         '''
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
-        # twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
+        twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
         #进行覆盖率走，并进行jaya算法。
         # twosource_node_list=self.jaya_add_coverage(infectG_other)
         #进行删除边操作。
@@ -507,80 +541,69 @@ class Partion_graph:
         # return self.verification(twosource_node_list, [node_list3, node_list4])
 
 
-
-        # 第7种方法。
-
-        twosource_node_list = self.label_progration_community(subinfectG)
-        print(twosource_node_list)
-        return self.verification(twosource_node_list,[node_list3,node_list4])
-
-        # #第四种，进行判断高中介性点为中间点。判断比例
-        # twosource_node_list= self.delete_high_betweenness_centrality(infectG_other)
         #
+        # # 第7种方法。
+        #
+        # twosource_node_list = self.label_progration_community(subinfectG)
+        # print(twosource_node_list)
+        # return self.verification(twosource_node_list,[node_list3,node_list4])
+        #
+        # # #第四种，进行判断高中介性点为中间点。判断比例
+        # # twosource_node_list= self.delete_high_betweenness_centrality(infectG_other)
+        # #
         #
 
+        print('真实的情况第一个社区first——node_list3', len(node_list3))
+        print('真实的情况第一个社区second——node_list4', len(node_list4))
+        print('common_node_list', len(node_list5))
+        node_coverage1 = twosource_node_list[0][1]
+        node_coverage2 = twosource_node_list[1][1]
+        #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
+        lengtha =nx.shortest_path_length(infectG, source=twosource_node_list[0][0], target=source_list[0])
+        lengthb = nx.shortest_path_length(infectG, source=twosource_node_list[1][0], target=source_list[0])
+        print('length1',lengtha)
+        print('lengthb',lengthb)
+        if  lengtha >  lengthb:
+            print('成功匹配。')
+            a= [x for x in node_list3 if x in node_coverage2]
+            print('len(a)', len(a))
+            print(len(a)/len(node_list3))
+
+            A_ratio = len(a) / len(node_list3)
+
+            b = [x for x in node_list4 if x in node_coverage1]
+            print('len(b)',len(b))
+            print(len(b)/len(node_list4))
+            B_ratio =  len(b)/len(node_list4)
+            print('失败匹配')
+            c = [x for x in node_list3 if x in node_coverage1]
+            print('len(c)', len(c))
+            print(len(c) / len(node_list3))
+            d = [x for x in node_list4 if x in node_coverage2]
+            print('len(c)', len(d))
+            print(len(d) / len(node_list4))
 
 
+            return   (A_ratio+B_ratio)/2
 
-
-
-
-
-
-
-
-
-
-
-
-        # node_coverage1 = twosource_node_list[0][1]
-        # node_coverage2 = twosource_node_list[1][1]
-        # #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
-        # lengtha =nx.shortest_path_length(infectG, source=twosource_node_list[0][0], target=source_list[0])
-        # lengthb = nx.shortest_path_length(infectG, source=twosource_node_list[1][0], target=source_list[0])
-        # print('length1',lengtha)
-        # print('lengthb',lengthb)
-        # if  lengtha >  lengthb:
-        #     print('成功匹配。')
-        #     a= [x for x in node_list3 if x in node_coverage2]
-        #     print('len(a)', len(a))
-        #     print(len(a)/len(node_list3))
-        #
-        #     A_ratio = len(a) / len(node_list3)
-        #
-        #     b = [x for x in node_list4 if x in node_coverage1]
-        #     print('len(b)',len(b))
-        #     print(len(b)/len(node_list4))
-        #     B_ratio =  len(b)/len(node_list4)
-        #     print('失败匹配')
-        #     c = [x for x in node_list3 if x in node_coverage1]
-        #     print('len(c)', len(c))
-        #     print(len(c) / len(node_list3))
-        #     d = [x for x in node_list4 if x in node_coverage2]
-        #     print('len(c)', len(d))
-        #     print(len(d) / len(node_list4))
-        #
-        #
-        #     return   (A_ratio+B_ratio)/2
-        #
-        # else:
-        #     print('成功匹配。')
-        #     a = [x for x in node_list3 if x in node_coverage1]
-        #     print('len(a)', a)
-        #     print(len(a) / len(node_list3))
-        #     b = [x for x in node_list4 if x in node_coverage2]
-        #     print('len(b)', b)
-        #     print(len(b) / len(node_list4))
-        #     A_ratio = len(a) / len(node_list3)
-        #     B_ratio = len(b) / len(node_list4)
-        #     print('失败匹配')
-        #     c = [x for x in node_list3 if x in node_coverage2]
-        #     print('len(c)', len(c))
-        #     print(len(c) / len(node_list3))
-        #     d = [x for x in node_list4 if x in node_coverage1]
-        #     print('len(c)', len(d))
-        #     print(len(d) / len(node_list4))
-        #     return (A_ratio + B_ratio) / 2
+        else:
+            print('成功匹配。')
+            a = [x for x in node_list3 if x in node_coverage1]
+            print('len(a)', a)
+            print(len(a) / len(node_list3))
+            b = [x for x in node_list4 if x in node_coverage2]
+            print('len(b)', b)
+            print(len(b) / len(node_list4))
+            A_ratio = len(a) / len(node_list3)
+            B_ratio = len(b) / len(node_list4)
+            print('失败匹配')
+            c = [x for x in node_list3 if x in node_coverage2]
+            print('len(c)', len(c))
+            print(len(c) / len(node_list3))
+            d = [x for x in node_list4 if x in node_coverage1]
+            print('len(c)', len(d))
+            print(len(d) / len(node_list4))
+            return (A_ratio + B_ratio) / 2
 '''
 
 
@@ -589,7 +612,7 @@ import  time
 if __name__ == '__main__':
     test = Partion_graph()
     sum =0
-    for i  in range(0,20):
+    for i  in range(0,2):
         tempresult =test.main()
         sum += tempresult #跑实验
         with open('result_samplePath.txt', "a") as f:

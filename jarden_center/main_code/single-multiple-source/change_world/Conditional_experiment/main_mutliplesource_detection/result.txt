@@ -4,3 +4,73 @@ Mon Oct 21 21:54:26 2019
 每一步的结果数据集../../data/CA-GrQc.txt4.0
 Mon Oct 21 21:55:28 2019
 每一步的结果数据集../../data/CA-GrQc.txt4.0
+Mon Oct 21 21:55:59 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Mon Oct 21 21:56:22 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Mon Oct 21 21:57:12 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Mon Oct 21 21:57:49 2019
+每一步的结果数据集../../data/CA-GrQc.txt4.5
+Mon Oct 21 21:58:20 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.5
+Mon Oct 21 21:58:43 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Mon Oct 21 21:59:24 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.5
+Mon Oct 21 22:01:35 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.0
+Mon Oct 21 22:02:03 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Mon Oct 21 22:02:46 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Mon Oct 21 22:03:13 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Mon Oct 21 22:03:38 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Mon Oct 21 22:04:24 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Mon Oct 21 22:04:43 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.5
+Mon Oct 21 22:05:16 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Mon Oct 21 22:06:00 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Mon Oct 21 22:06:36 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Mon Oct 21 22:07:25 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Mon Oct 21 22:07:52 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Mon Oct 21 22:08:27 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.5
+Mon Oct 21 22:08:47 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.0
+Mon Oct 21 22:09:15 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Mon Oct 21 22:09:48 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Mon Oct 21 22:10:14 2019
+每一步的结果数据集../../data/CA-GrQc.txt1.5
+Mon Oct 21 22:10:48 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Mon Oct 21 22:11:30 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.5
+Mon Oct 21 22:11:51 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+数据集../../data/CA-GrQc.txt总结果2.725
+
+Tue Oct 22 09:33:52 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Tue Oct 22 09:34:15 2019
+每一步的结果数据集../../data/CA-GrQc.txt4.0
+Tue Oct 22 09:34:30 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.0
+Tue Oct 22 09:34:47 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Tue Oct 22 09:35:07 2019
+每一步的结果数据集../../data/CA-GrQc.txt3.0
+Tue Oct 22 09:35:28 2019
+每一步的结果数据集../../data/CA-GrQc.txt2.5
+Tue Oct 22 09:36:01 2019
+每一步的结果数据集../../data/CA-GrQc.txt4.5

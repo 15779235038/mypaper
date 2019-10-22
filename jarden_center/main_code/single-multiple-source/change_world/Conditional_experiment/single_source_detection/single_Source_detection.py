@@ -123,14 +123,10 @@ class Single_source:
       #设计本类用来做单源定位。
     '''
 
-    def main(self):
+    def main(self,filename):
 
         # #拿到图
-        # subGraph=self.get_Graph('../Propagation_subgraph/many_methods/result/chouqu.txt')
-        initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
-        # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
-        # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
-
+        initG = commons.get_networkByFile(filename)
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
         source_list = commons.product_sourceList(max_sub_graph, 1)
@@ -157,13 +153,26 @@ import time
 if __name__ == '__main__':
     test = Single_source()
     sum = 0
+    # initG = commons.get_networkByFile('../../../data/CA-GrQc.txt')
+    # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
+    # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
+
+    # initG = commons.get_networkByFile(filename)
+    # initG = commons.get_networkByFile('../../../data/4_regular_graph_3000_data.txt')
+
+    # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
+
+    filname = '../../data/CA-GrQc.txt'  
     for i in range(0, 20):
-        tempresult = test.main()
+        tempresult = test.main(filname)
         sum += tempresult  # 跑实验
         with open('result_samplePath.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
             f.write('每一步的结果' + str(tempresult) + '\n')
+    with open('result.txt', "a") as f:
+        f.write('数据集' + str(filname) + '总结果' + str(sum / 20) + '\n')
+        f.write('\n')
     print('result', sum / 20)
     print(sum / 20)
 

@@ -661,6 +661,7 @@ def partion_layer(G,number_layer= 10):
             node_scale.append([nodes, count / neighbor_list_len])
     # 先做个简单分类。按照从大到小排序.分10档次吧。 #真的可以考虑时间，来分档次。
     sort_dict = defaultdict(list)
+
     for node_and_scale in node_scale:
         Ten_digits = node_and_scale[1] * 100 // 10
         sort_dict[Ten_digits].append(node_and_scale[0])
