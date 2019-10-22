@@ -102,9 +102,19 @@ class Mutiple_source:
 
         #基于k-means的方法。
         if sourceNum == 2:
-            
+
             #选择距离最远的点。
-         pass
+            distance_iter=nx.shortest_path_length(subinfectG)
+            everynode_distance = []
+            for node,node_distance  in distance_iter:
+                print(node_distance)
+                sort_list = sorted(node_distance.items(), key=lambda x: x[1], reverse=True)
+                print('sort_list',sort_list)
+                everynode_distance.append([node,sort_list[0][0],sort_list[0][1]])
+            print('everynode_idstance',everynode_distance)
+            sort_every_distance =sorted(everynode_distance,key = lambda  x:x[2],reverse=True)
+            print(sort_every_distance)
+            pass
 
 
 
@@ -172,7 +182,7 @@ if __name__ == '__main__':
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    filname = '../../data/CA-GrQc.txt'
+    filname = '../../data/4_regular_graph_3000_data.txt'
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
