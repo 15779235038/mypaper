@@ -175,11 +175,11 @@ class Single_source:
         '''   第一种，就是jarden center '''
         #
         # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
-        # ''' 第二种，就是coverage/distance'''
-        # result_node= self.single_source_bydistance_coverage(infectG,subinfectG)
+        ''' 第二种，就是coverage/distance'''
+        result_node= self.single_source_bydistance_coverage(infectG,subinfectG)
 
-        '''  第3种，距离中心'''
-        result_node = self.single_source_bydistance( subinfectG)
+        # '''  第3种，距离中心'''
+        # result_node = self.single_source_bydistance( subinfectG)
 
         distance= nx.shortest_path_length(subinfectG,source=source_list[0],target=result_node[0])
         print('结果是', distance)
@@ -209,13 +209,13 @@ if __name__ == '__main__':
 
 
 
-    # method ='distan+ covage'
+    method ='distan+ covage'
     # method = 'jardan_center'
-    method ='distance'
+    # method ='distance'
 
 
 
-    
+
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
