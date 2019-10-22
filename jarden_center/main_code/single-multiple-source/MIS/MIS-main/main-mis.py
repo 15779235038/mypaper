@@ -103,7 +103,6 @@ class Mutiple_source:
         #基于k-means的方法。
         if sourceNum == 2:
             partion_region =[]
-
             #选择距离最远的点。
             distance_iter=nx.shortest_path_length(subinfectG)
             everynode_distance = []
@@ -213,8 +212,9 @@ if __name__ == '__main__':
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    # filname = '../../data/4_regular_graph_3000_data.txt'
-    filname = '../../data/CA-GrQc.txt'
+    filname = '../../data/4_regular_graph_3000_data.txt'
+    # filname = '../../data/CA-GrQc.txt'
+    # filname = '../../data/facebook_combined.txt'
 
     method = 'mis'
     for i in range(0, 20):

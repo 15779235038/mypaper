@@ -111,8 +111,8 @@ class Mutiple_source:
             maxsubsubinfectG= self.judge_data(subsubinfectG)
             #开始单源定位了。
             '''jar center'''
-            # source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
-            source_node =  single_Source_detection_object.single_source_bydistance_coverage(infectG,maxsubsubinfectG)
+            source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+            # source_node =  single_Source_detection_object.single_source_bydistance_coverage(infectG,maxsubsubinfectG)
 
 
             result_source_list.append(source_node[0])
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     # filname = '../../../data/4_regular_graph_3000_data.txt'
-    method ='方法，真实子图+ distance+coverage +'
+    method ='方法，真实子图+ jarcenter +'
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验

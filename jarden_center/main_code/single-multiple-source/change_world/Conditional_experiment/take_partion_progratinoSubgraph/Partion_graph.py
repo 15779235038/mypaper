@@ -29,6 +29,62 @@ class Partion_graph:
         #开始分区，输出每个区域的点和边。当前是两源的。
         return subGraph
 
+    def other_k_center(self ,subinfectG, sourceNumber=2):
+        # 首先需要判断是否多源。不断找源点去对这个区域。
+        tempGraph = nx.Graph()
+        tempGraph = subinfectG
+        tempGraphNodelist = []
+        for node in list(tempGraph.nodes):
+            tempGraphNodelist.append(node)
+        print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraphNodelist))))
+        print('这个感染区域的传播图节点个数')
+        print(tempGraph.number_of_nodes())
+        Alternativenodeset = list(tempGraph.nodes())  # 备选集合。
+        print('tempgraph的所有点数' + str(len(Alternativenodeset)))
+        minCoverlist = []
+        print('在源点在' + str(sourceNumber) + '个数的情况下')
+        # print('在h为' + str(h) + '的情况下')
+        # 计算图的拉普拉斯
+        k = 1
+        sourceNum = 2
+        # while 1:
+        minCoverlist = []
+        print('在源点在' + str(sourceNum) + '个数的情况下')
+        # print('在h为' + str(h) + '的情况下')
+
+        # 基于k-means的方法。
+        if sourceNum == 2:
+            partion_region = []
+            # 选择距离最远的点。
+            distance_iter = nx.shortest_path_length(subinfectG)
+            everynode_distance = []
+            for node, node_distance in distance_iter:
+                # print(node_distance)
+                sort_list = sorted(node_distance.items(), key=lambda x: x[1], reverse=True)
+                # print('sort_list',sort_list)
+                everynode_distance.append([node, sort_list[0][0], sort_list[0][1]])
+            # print('everynode_idstance',everynode_distance)
+            sort_every_distance = sorted(everynode_distance, key=lambda x: x[2], reverse=True)
+            # print(sort_every_distance)
+            node_twolist = [[], []]
+            lengthA_dict = nx.single_source_bellman_ford_path_length(subinfectG, sort_every_distance[0][0],
+                                                                     weight='weight')
+            lengthB_dict = nx.single_source_bellman_ford_path_length(subinfectG, sort_every_distance[0][1],
+                                                                     weight='weight')
+            for node in list(subinfectG.nodes):
+                if lengthA_dict[node] > lengthB_dict[node]:  # 这个点离b近一些。
+                    node_twolist[1].append(node)
+                elif lengthA_dict[node] < lengthB_dict[node]:
+                    node_twolist[0].append(node)
+                else:
+                    node_twolist[0].append(node)
+                    node_twolist[1].append(node)
+            print('len(node_twolist[0]', len(node_twolist[0]))
+            print('len(node_twolist[1]', len(node_twolist[1]))
+            return node_twolist
+
+    pass
+
     '''
    第一种方案，k-center，先分层。注意传入的得是原始图。
    1  然后从第一层随机选择两点，，
@@ -136,6 +192,17 @@ class Partion_graph:
         print('good_node_two_result', best_node_two_result)
 
         return [[good_two_result[0],best_node_two_result[0]],[good_two_result[1],best_node_two_result[1]]]
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -456,9 +523,13 @@ class Partion_graph:
         a2 = len([x for x in node_list[0] if x in true_list[1]]) / len(true_list[1])
         b2 = len([x for x in node_list[1] if x in true_list[0]]) / len(true_list[0])
         if a1+b1 > a2+b2:
+            print(a1)
+            print(b1)
             print('输出看看',(a1+b1)/2)
             return (a1+b1)/2
         else:
+            print(a2)
+            print(b2)
             print('输出看看', (a2 + b2) / 2)
             return (a2 + b2) / 2
 
@@ -529,7 +600,7 @@ class Partion_graph:
         '''
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
-        twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
+        # twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
         #进行覆盖率走，并进行jaya算法。
         # twosource_node_list=self.jaya_add_coverage(infectG_other)
         #进行删除边操作。
@@ -550,57 +621,65 @@ class Partion_graph:
         # #
         #
 
-        print('真实的情况第一个社区first——node_list3', len(node_list3))
-        print('真实的情况第一个社区second——node_list4', len(node_list4))
-        print('common_node_list', len(node_list5))
-        node_coverage1 = twosource_node_list[0][1]
-        node_coverage2 = twosource_node_list[1][1]
-        #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
-        lengtha =nx.shortest_path_length(infectG, source=twosource_node_list[0][0], target=source_list[0])
-        lengthb = nx.shortest_path_length(infectG, source=twosource_node_list[1][0], target=source_list[0])
-        print('length1',lengtha)
-        print('lengthb',lengthb)
-        if  lengtha >  lengthb:
-            print('成功匹配。')
-            a= [x for x in node_list3 if x in node_coverage2]
-            print('len(a)', len(a))
-            print(len(a)/len(node_list3))
 
-            A_ratio = len(a) / len(node_list3)
+        #  最后一种，分区的方法了
 
-            b = [x for x in node_list4 if x in node_coverage1]
-            print('len(b)',len(b))
-            print(len(b)/len(node_list4))
-            B_ratio =  len(b)/len(node_list4)
-            print('失败匹配')
-            c = [x for x in node_list3 if x in node_coverage1]
-            print('len(c)', len(c))
-            print(len(c) / len(node_list3))
-            d = [x for x in node_list4 if x in node_coverage2]
-            print('len(c)', len(d))
-            print(len(d) / len(node_list4))
+        twosource_node_list = self.other_k_center(subinfectG)
+        print(twosource_node_list)
+        return self.verification(twosource_node_list,[node_list3,node_list4])
 
 
-            return   (A_ratio+B_ratio)/2
-
-        else:
-            print('成功匹配。')
-            a = [x for x in node_list3 if x in node_coverage1]
-            print('len(a)', a)
-            print(len(a) / len(node_list3))
-            b = [x for x in node_list4 if x in node_coverage2]
-            print('len(b)', b)
-            print(len(b) / len(node_list4))
-            A_ratio = len(a) / len(node_list3)
-            B_ratio = len(b) / len(node_list4)
-            print('失败匹配')
-            c = [x for x in node_list3 if x in node_coverage2]
-            print('len(c)', len(c))
-            print(len(c) / len(node_list3))
-            d = [x for x in node_list4 if x in node_coverage1]
-            print('len(c)', len(d))
-            print(len(d) / len(node_list4))
-            return (A_ratio + B_ratio) / 2
+        # print('真实的情况第一个社区first——node_list3', len(node_list3))
+        # print('真实的情况第一个社区second——node_list4', len(node_list4))
+        # print('common_node_list', len(node_list5))
+        # node_coverage1 = twosource_node_list[0][1]
+        # node_coverage2 = twosource_node_list[1][1]
+        # #判断那个跟那个拟合。就看BFS树源点跟那个近就可以了。就认为是那个。
+        # lengtha =nx.shortest_path_length(infectG, source=twosource_node_list[0][0], target=source_list[0])
+        # lengthb = nx.shortest_path_length(infectG, source=twosource_node_list[1][0], target=source_list[0])
+        # print('length1',lengtha)
+        # print('lengthb',lengthb)
+        # if  lengtha >  lengthb:
+        #     print('成功匹配。')
+        #     a= [x for x in node_list3 if x in node_coverage2]
+        #     print('len(a)', len(a))
+        #     print(len(a)/len(node_list3))
+        #
+        #     A_ratio = len(a) / len(node_list3)
+        #
+        #     b = [x for x in node_list4 if x in node_coverage1]
+        #     print('len(b)',len(b))
+        #     print(len(b)/len(node_list4))
+        #     B_ratio =  len(b)/len(node_list4)
+        #     print('失败匹配')
+        #     c = [x for x in node_list3 if x in node_coverage1]
+        #     print('len(c)', len(c))
+        #     print(len(c) / len(node_list3))
+        #     d = [x for x in node_list4 if x in node_coverage2]
+        #     print('len(c)', len(d))
+        #     print(len(d) / len(node_list4))
+        #
+        #
+        #     return   (A_ratio+B_ratio)/2
+        #
+        # else:
+        #     print('成功匹配。')
+        #     a = [x for x in node_list3 if x in node_coverage1]
+        #     print('len(a)', a)
+        #     print(len(a) / len(node_list3))
+        #     b = [x for x in node_list4 if x in node_coverage2]
+        #     print('len(b)', b)
+        #     print(len(b) / len(node_list4))
+        #     A_ratio = len(a) / len(node_list3)
+        #     B_ratio = len(b) / len(node_list4)
+        #     print('失败匹配')
+        #     c = [x for x in node_list3 if x in node_coverage2]
+        #     print('len(c)', len(c))
+        #     print(len(c) / len(node_list3))
+        #     d = [x for x in node_list4 if x in node_coverage1]
+        #     print('len(c)', len(d))
+        #     print(len(d) / len(node_list4))
+        #     return (A_ratio + B_ratio) / 2
 '''
 
 
@@ -618,7 +697,8 @@ if __name__ == '__main__':
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    filname = '../../data/CA-GrQc.txt'
+    filname = '../../../data/CA-GrQc.txt'
+    # filname= ''
     for i  in range(0,20):
         tempresult =test.main(filname)
         sum += tempresult #跑实验

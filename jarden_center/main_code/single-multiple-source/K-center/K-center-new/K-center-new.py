@@ -418,15 +418,16 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     filname = '../../data/CA-GrQc.txt'
+    method= 'k-center'
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
         with open('result.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
-            f.write('数据集'+str(filname)+'每一步的结果' + str(tempresult) + '\n')
+            f.write('数据集'+str(filname)+'方法'+method+'每一步的结果' + str(tempresult) + '\n')
     with open('result.txt', "a") as f:
-        f.write('数据集'+str(filname) + '总结果' + str(sum / 20) + '\n')
+        f.write('数据集'+str(filname) +'方法'+method+ '总结果' + str(sum / 20) + '\n')
         f.write('\n')
     print(sum / 20)
 

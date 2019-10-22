@@ -225,3 +225,93 @@ Tue Oct 22 12:59:39 2019
 每一步的结果是   2      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
 数据集../../../data/4_regular_graph_3000_data.txt方法distan+ covage总结果   0.55
 
+Tue Oct 22 15:46:06 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:46:49 2019
+每一步的结果是   5      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:47:18 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:48:32 2019
+每一步的结果是   4      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:48:53 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:49:12 2019
+每一步的结果是   4      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:49:28 2019
+每一步的结果是   2      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:49:42 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:49:57 2019
+每一步的结果是   2      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:50:13 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:50:36 2019
+每一步的结果是   5      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:50:45 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:51:06 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:51:26 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:51:49 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:52:02 2019
+每一步的结果是   4      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:52:21 2019
+每一步的结果是   4      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:52:32 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:52:45 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:52:54 2019
+每一步的结果是   3      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:53:20 2019
+每一步的结果是   5      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:53:33 2019
+每一步的结果是   2      数据集方法distan+ covage../../../data/CA-GrQc.txt
+Tue Oct 22 15:53:58 2019
+每一步的结果是   6      数据集方法distan+ covage../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法distan+ covage总结果   3.25
+
+Tue Oct 22 15:55:48 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:55:59 2019
+每一步的结果是   3      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:06 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:11 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:17 2019
+每一步的结果是   2      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:22 2019
+每一步的结果是   2      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:30 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:34 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:36 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:44 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:50 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:56:58 2019
+每一步的结果是   5      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:57:07 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:57:15 2019
+每一步的结果是   2      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:57:19 2019
+每一步的结果是   2      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:57:22 2019
+每一步的结果是   2      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:57:30 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:57:33 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:57:41 2019
+每一步的结果是   5      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 22 15:57:50 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法jardan_center总结果   2.15
+

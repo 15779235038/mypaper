@@ -316,3 +316,95 @@ Tue Oct 22 11:50:38 2019
 每一步的结果数据集../../../data/CA-GrQc.txt4.0
 方法，真实子图+ distance+coverage +数据集../../../data/CA-GrQc.txt总结果2.975
 方法，真实子图+ distance+coverage +
+Tue Oct 22 15:58:48 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 15:59:10 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 15:59:34 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.5
+方法，真实子图+ distance+coverage +Tue Oct 22 15:59:58 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:00:17 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:00:33 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:00:58 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:01:09 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:01:37 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:01:50 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:02:00 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:02:15 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:02:29 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:02:47 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:03:15 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:03:43 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:04:19 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:04:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:05:13 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:05:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +数据集../../../data/CA-GrQc.txt总结果2.725
+方法，真实子图+ distance+coverage +
+Tue Oct 22 16:09:33 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:10:59 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:12:21 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ distance+coverage +Tue Oct 22 16:13:32 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ distance+coverage +Tue Oct 22 16:14:13 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:14:46 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ jarcenter +Tue Oct 22 16:15:32 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ jarcenter +Tue Oct 22 16:16:19 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ jarcenter +Tue Oct 22 16:17:00 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ jarcenter +Tue Oct 22 16:17:37 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ jarcenter +Tue Oct 22 16:18:29 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:19:29 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:20:17 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:21:04 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ jarcenter +Tue Oct 22 16:21:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ jarcenter +Tue Oct 22 16:22:18 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:23:00 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:23:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:24:22 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:25:01 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:25:40 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ jarcenter +Tue Oct 22 16:26:22 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ jarcenter +Tue Oct 22 16:27:06 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ jarcenter +Tue Oct 22 16:27:53 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ jarcenter +数据集../../../data/CA-GrQc.txt总结果3.0
+方法，真实子图+ jarcenter +

@@ -399,7 +399,7 @@ def   propagation1(G,SourceList,number =1):
             y_list.append(count)
             print('被感染点为' + str(count) + '个')
             # progation_number += 1
-            if count / G_temp.number_of_nodes() > 0.5:
+            if count / G_temp.number_of_nodes() > 0.7:
                 print('超过50%节点了，不用传播啦')
                 break
     #数据进去图，看看

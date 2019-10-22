@@ -174,9 +174,9 @@ class Single_source:
         #将在这里进行单源测试。
         '''   第一种，就是jarden center '''
         #
-        # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
+        result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
         ''' 第二种，就是coverage/distance'''
-        result_node= self.single_source_bydistance_coverage(infectG,subinfectG)
+        # result_node= self.single_source_bydistance_coverage(infectG,subinfectG)
 
         # '''  第3种，距离中心'''
         # result_node = self.single_source_bydistance( subinfectG)
@@ -201,16 +201,16 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
 
     # initG = commons.get_networkByFile(filename)
-    filname = '../../../data/4_regular_graph_3000_data.txt'
+    # filname = '../../../data/4_regular_graph_3000_data.txt'
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    # filname = '../../data/CA-GrQc.txt'
+    filname = '../../../data/CA-GrQc.txt'
 
 
 
-    method ='distan+ covage'
-    # method = 'jardan_center'
+    # method ='distan+ covage'
+    method = 'jardan_center'
     # method ='distance'
 
 
