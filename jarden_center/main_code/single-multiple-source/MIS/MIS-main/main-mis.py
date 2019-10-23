@@ -159,7 +159,7 @@ class Mutiple_source:
         # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
         infectG = commons.propagation1(max_sub_graph, source_list)
 
-        subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
+        # subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
         single_Source_detection_object = single_Source_detection.Single_source()
 
         '''
@@ -186,9 +186,8 @@ class Mutiple_source:
             maxsubsubinfectG = self.judge_data(subsubinfectG)
             # 开始单源定位了。
             '''jar center'''
-            # source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
-            source_node = single_Source_detection_object.single_source_bydistance_coverage(infectG, maxsubsubinfectG)
-
+            source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+            # source_node = single_Source_detection_object.single_source_bydistance_coverage(infectG, maxsubsubinfectG)
             result_source_list.append(source_node[0])
 
         distance = commons.cal_distance(max_sub_graph, source_list, result_source_list)
@@ -212,11 +211,12 @@ if __name__ == '__main__':
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    filname = '../../data/4_regular_graph_3000_data.txt'
-    # filname = '../../data/CA-GrQc.txt'
+    # filname = '../../data/4_regular_graph_3000_data.txt'
+    filname = '../../data/CA-GrQc.txt'
     # filname = '../../data/facebook_combined.txt'
 
-    method = 'mis'
+    # method = 'mis+反转算法'
+    method = 'mis+dis+coverage'
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验

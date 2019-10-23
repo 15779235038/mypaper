@@ -408,3 +408,575 @@ Tue Oct 22 16:09:33 2019
 每一步的结果数据集../../../data/CA-GrQc.txt2.5
 方法，真实子图+ jarcenter +数据集../../../data/CA-GrQc.txt总结果3.0
 方法，真实子图+ jarcenter +
+Tue Oct 22 16:39:36 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:40:34 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:41:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:42:40 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:43:49 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:45:10 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:46:17 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:47:45 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:49:09 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:50:15 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:51:26 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:53:35 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:54:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:55:15 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:56:04 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:56:39 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:57:14 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:57:46 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:58:35 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:59:19 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 16:59:52 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:00:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:01:14 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:01:54 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:02:48 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:03:37 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:04:21 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:05:11 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:05:54 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:06:31 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +Tue Oct 22 17:07:05 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +数据集../../../data/CA-GrQc.txt总结果2.575
+方法，真实子图+ single_source_bydistance +
+Tue Oct 22 19:57:17 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 19:57:56 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 19:58:45 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 19:59:30 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:00:07 2019
+每一步的结果数据集../../../data/CA-GrQc.txt5.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:00:54 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:01:35 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:02:37 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:03:17 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:04:21 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:05:22 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:06:05 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:07:06 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:08:01 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:08:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:09:53 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:10:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:11:20 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:12:02 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:13:12 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  数据集../../../data/CA-GrQc.txt总结果2.9
+方法，真实子图+ single_source_bydistance +   seed的k-center  
+Tue Oct 22 20:15:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:16:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:17:24 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:18:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:19:47 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:20:57 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:21:53 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:22:43 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:23:55 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:25:08 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:25:57 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:26:47 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:27:24 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:28:03 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:29:01 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:30:19 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:31:10 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:32:04 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:33:02 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:34:35 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:35:15 2019
+每一步的结果数据集../../../data/CA-GrQc.txt5.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:36:09 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:37:01 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:38:34 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:39:50 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:41:00 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:42:23 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:43:54 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:45:27 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:46:37 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:47:52 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:49:07 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:50:06 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:51:19 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  Tue Oct 22 20:52:46 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ single_source_bydistance +   seed的k-center  数据集../../../data/CA-GrQc.txt总结果3.25
+方法，真实子图+ single_source_bydistance +   seed的k-center  
+Wed Oct 23 07:45:55 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:47:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:48:34 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:49:54 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:50:58 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:52:02 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:53:52 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:54:37 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:56:31 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:57:59 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 07:59:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:01:05 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:02:33 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:03:47 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:04:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:05:55 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:07:06 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:08:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:09:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:10:32 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ other_center +   seed的k-center  数据集../../../data/CA-GrQc.txt总结果3.375
+方法，真实子图+ other_center +   seed的k-center  
+Wed Oct 23 08:18:02 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:19:10 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:21:06 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:22:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:24:05 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:25:39 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:27:06 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:27:58 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:28:52 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:30:01 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:31:10 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:32:34 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:33:25 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:34:24 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:36:07 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:37:52 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:38:49 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:40:17 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:41:07 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:42:37 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   seed的k-center  数据集../../../data/CA-GrQc.txt总结果2.925
+方法，真实子图+ other_center +   seed的k-center  
+Wed Oct 23 08:56:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:57:19 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:58:25 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 08:59:30 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:00:15 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:00:52 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:01:56 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:02:57 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:03:52 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:05:08 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:06:00 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:06:56 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:08:06 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:08:45 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:09:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:10:20 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:11:33 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:12:26 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:13:41 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   seed的k-center  Wed Oct 23 09:14:18 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   seed的k-center  数据集../../../data/CA-GrQc.txt总结果2.85
+方法，真实子图+ other_center +   seed的k-center  
+Wed Oct 23 09:40:00 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 09:41:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 09:44:18 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 09:47:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 09:50:39 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 09:52:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 09:54:59 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 09:57:04 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 09:59:12 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:01:19 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:03:55 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:05:26 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:07:00 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:08:56 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:11:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:13:22 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:15:49 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:18:21 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:20:45 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:24:22 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:26:32 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:29:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:31:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:34:38 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:38:09 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:40:26 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:42:53 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:45:10 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:45:57 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:46:57 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:47:19 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:47:46 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:48:04 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:48:23 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:48:40 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:49:07 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:49:26 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:49:40 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:49:54 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:50:10 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:50:25 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:50:44 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:50:59 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:51:14 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:51:41 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:52:09 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:52:23 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:52:45 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:53:10 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.0
+方法，真实子图+ other_center +   距离中心  数据集../../../data/4_regular_graph_3000_data.txt总结果1.5
+方法，真实子图+ other_center +   距离中心  
+Wed Oct 23 10:54:53 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:55:03 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:55:14 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:55:24 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:55:38 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:55:56 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:56:06 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:56:21 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:56:43 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:57:03 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:57:20 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:57:31 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:57:42 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:57:54 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:58:11 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:58:30 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:58:40 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt5.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:58:52 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:59:03 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 10:59:19 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  数据集../../../data/4_regular_graph_3000_data.txt总结果2.525
+方法，真实子图+ other_center +   距离中心  
+Wed Oct 23 11:09:09 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:09:22 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:09:42 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:09:58 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:10:17 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt4.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:10:39 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:10:58 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:11:09 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:11:23 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:11:42 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:12:06 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:12:28 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:12:50 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:13:14 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:13:34 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:13:53 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt4.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:14:08 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:14:22 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:14:44 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:15:02 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt4.5
+方法，真实子图+ other_center +   距离中心  数据集../../../data/4_regular_graph_3000_data.txt总结果2.325
+方法，真实子图+ other_center +   距离中心  
+Wed Oct 23 11:19:50 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:20:03 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:20:20 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:20:40 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt4.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:21:01 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:21:27 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:21:39 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:21:55 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:22:08 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:22:25 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt2.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:22:39 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:22:51 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:23:07 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:23:25 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:23:45 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:24:06 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:24:31 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:24:44 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:24:58 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt1.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:25:10 2019
+每一步的结果数据集../../../data/4_regular_graph_3000_data.txt0.5
+方法，真实子图+ other_center +   距离中心  数据集../../../data/4_regular_graph_3000_data.txt总结果1.45
+方法，真实子图+ other_center +   距离中心  
+Wed Oct 23 11:45:50 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:46:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:47:12 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:47:56 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:48:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:50:00 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:50:48 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:51:21 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:52:21 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:53:20 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:54:11 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:55:06 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:55:47 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:56:47 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:57:28 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:58:12 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 11:59:21 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 12:00:17 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 12:01:15 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 12:02:21 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  数据集../../../data/CA-GrQc.txt总结果3.1
+方法，真实子图+ other_center +   距离中心  

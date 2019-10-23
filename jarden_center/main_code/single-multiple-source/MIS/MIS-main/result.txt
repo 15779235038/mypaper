@@ -158,3 +158,378 @@ Tue Oct 22 16:35:42 2019
 数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果3.5
 Tue Oct 22 16:36:06 2019
 数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Tue Oct 22 16:36:40 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Tue Oct 22 16:37:04 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Tue Oct 22 16:37:41 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果4.0
+Tue Oct 22 16:38:08 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Tue Oct 22 16:38:41 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.5
+Tue Oct 22 16:39:13 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.0
+Tue Oct 22 16:39:41 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果4.0
+Tue Oct 22 16:40:24 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果4.0
+数据集../../data/4_regular_graph_3000_data.txt总结果2.875
+Tue Oct 22 16:57:27 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.5
+Tue Oct 22 16:58:46 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果1.5
+Tue Oct 22 16:59:32 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 17:00:33 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.0
+Tue Oct 22 17:01:36 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.0
+Tue Oct 22 17:02:39 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 17:03:44 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.0
+Tue Oct 22 17:04:25 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 17:05:15 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.0
+Tue Oct 22 17:06:28 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.0
+Tue Oct 22 17:07:13 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.0
+Tue Oct 22 17:08:13 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 17:09:27 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 17:10:09 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 17:11:00 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 17:12:15 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 17:12:56 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 17:13:36 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 17:14:39 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.0
+Tue Oct 22 17:15:42 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+数据集../../data/CA-GrQc.txt总结果3.05
+
+Tue Oct 22 20:01:27 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:02:46 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:04:11 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 20:05:21 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:06:14 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果1.0
+Tue Oct 22 20:07:03 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:07:49 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 20:09:20 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.5
+Tue Oct 22 20:10:38 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.0
+Tue Oct 22 20:11:47 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:13:03 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:14:09 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:15:34 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.0
+Tue Oct 22 20:16:54 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:18:27 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:19:47 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.0
+Tue Oct 22 20:21:20 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:22:19 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果1.5
+Tue Oct 22 20:23:09 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:24:07 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+数据集../../data/CA-GrQc.txt总结果2.975
+
+Tue Oct 22 20:31:41 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:32:53 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.0
+Tue Oct 22 20:33:54 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:34:37 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:35:52 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:36:51 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:37:41 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 20:38:26 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:39:08 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 20:39:54 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:40:47 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:41:57 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:43:07 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 20:43:48 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.0
+Tue Oct 22 20:44:37 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果2.5
+Tue Oct 22 20:45:35 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果4.0
+Tue Oct 22 20:46:39 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:47:20 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.0
+Tue Oct 22 20:48:01 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+Tue Oct 22 20:49:21 2019
+数据集../../data/CA-GrQc.txt方法mis每一步的结果3.5
+数据集../../data/CA-GrQc.txt总结果3.0
+
+Wed Oct 23 10:16:28 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.5
+Wed Oct 23 10:16:48 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.5
+Wed Oct 23 10:17:02 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果3.0
+Wed Oct 23 10:17:16 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Wed Oct 23 10:17:35 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.5
+Wed Oct 23 10:18:07 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:18:25 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.5
+Wed Oct 23 10:18:42 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:18:58 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:19:21 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:19:42 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:20:15 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果3.0
+Wed Oct 23 10:20:47 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.5
+Wed Oct 23 10:21:15 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.5
+Wed Oct 23 10:21:34 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:21:56 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Wed Oct 23 10:22:15 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.0
+Wed Oct 23 10:22:43 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.0
+Wed Oct 23 10:23:10 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:23:25 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.5
+数据集../../data/4_regular_graph_3000_data.txt总结果1.275
+
+Wed Oct 23 10:41:39 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.0
+Wed Oct 23 10:42:04 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.0
+Wed Oct 23 10:42:38 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Wed Oct 23 10:43:19 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.0
+Wed Oct 23 10:43:50 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Wed Oct 23 10:44:19 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果3.5
+Wed Oct 23 10:44:51 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:45:24 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:45:43 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:46:01 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.5
+Wed Oct 23 10:46:26 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Wed Oct 23 10:46:51 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Wed Oct 23 10:47:09 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.5
+Wed Oct 23 10:47:32 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Wed Oct 23 10:47:49 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果0.5
+Wed Oct 23 10:48:10 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.5
+Wed Oct 23 10:48:36 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:49:31 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果4.5
+Wed Oct 23 10:49:50 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:50:15 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Wed Oct 23 10:50:31 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.0
+Wed Oct 23 10:50:58 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.0
+Wed Oct 23 10:51:37 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.0
+Wed Oct 23 10:51:50 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果4.0
+Wed Oct 23 10:52:03 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果4.0
+Wed Oct 23 10:52:17 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.0
+Wed Oct 23 10:52:39 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果5.5
+Wed Oct 23 10:52:49 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果3.5
+Wed Oct 23 10:53:11 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果5.5
+Wed Oct 23 10:53:30 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果5.0
+Wed Oct 23 10:53:45 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果3.0
+Wed Oct 23 10:53:59 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.0
+Wed Oct 23 10:54:20 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果4.5
+Wed Oct 23 10:54:31 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.5
+Wed Oct 23 10:54:48 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.5
+Wed Oct 23 10:55:10 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果3.0
+Wed Oct 23 10:55:25 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.5
+Wed Oct 23 10:55:38 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果3.0
+Wed Oct 23 10:55:58 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果1.5
+Wed Oct 23 10:56:11 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.0
+Wed Oct 23 10:56:28 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果2.5
+Wed Oct 23 10:56:49 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis每一步的结果3.5
+数据集../../data/4_regular_graph_3000_data.txt总结果3.2
+
+Wed Oct 23 10:59:41 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果1.0
+Wed Oct 23 11:00:02 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果2.0
+Wed Oct 23 11:00:23 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果1.5
+Wed Oct 23 11:00:36 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果0.0
+Wed Oct 23 11:00:50 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果4.5
+Wed Oct 23 11:01:08 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果0.5
+Wed Oct 23 11:01:24 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果1.0
+Wed Oct 23 11:01:49 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果1.0
+Wed Oct 23 11:02:11 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 11:02:28 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果1.0
+Wed Oct 23 11:02:47 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果1.0
+Wed Oct 23 11:03:09 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果1.0
+Wed Oct 23 11:03:31 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果2.0
+Wed Oct 23 11:03:46 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 11:04:11 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果2.0
+Wed Oct 23 11:04:28 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果2.0
+Wed Oct 23 11:04:46 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 11:05:09 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 11:05:22 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果1.0
+Wed Oct 23 11:05:35 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+dis+coverage每一步的结果2.5
+数据集../../data/4_regular_graph_3000_data.txt总结果1.7
+
+Wed Oct 23 11:32:22 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 11:33:16 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.0
+Wed Oct 23 11:33:54 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.0
+Wed Oct 23 11:34:33 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.0
+Wed Oct 23 11:35:16 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 11:36:13 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.5
+Wed Oct 23 11:37:05 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.5
+Wed Oct 23 11:37:56 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.0
+Wed Oct 23 11:38:53 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.0
+Wed Oct 23 11:39:38 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.5
+Wed Oct 23 11:40:18 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.0
+Wed Oct 23 11:41:18 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果4.5
+Wed Oct 23 11:42:20 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.0
+Wed Oct 23 11:43:23 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.0
+Wed Oct 23 11:43:57 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果4.0
+Wed Oct 23 11:45:09 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.0
+Wed Oct 23 11:45:55 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.0
+Wed Oct 23 11:46:50 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 11:48:06 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 11:48:58 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.5
+数据集../../data/CA-GrQc.txt总结果2.925
+
+Wed Oct 23 12:58:10 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.0
+Wed Oct 23 12:58:50 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果4.0
+Wed Oct 23 12:59:23 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果1.0
+Wed Oct 23 13:00:11 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 13:00:55 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果1.5
+Wed Oct 23 13:01:28 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.5
+Wed Oct 23 13:02:10 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果4.0
+Wed Oct 23 13:02:53 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.5
+Wed Oct 23 13:03:43 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果3.0
+Wed Oct 23 13:04:12 2019
+数据集../../data/CA-GrQc.txt方法mis+dis+coverage每一步的结果2.0

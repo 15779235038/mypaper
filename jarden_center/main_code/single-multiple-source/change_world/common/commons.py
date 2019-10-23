@@ -375,7 +375,7 @@ def   propagation1(G,SourceList,number =1):
     '''
     queue = set()
     for source in SourceList:
-        G.node[source]['SI'] = 2
+        G_temp.node[source]['SI'] = 2
         queue.add(source)
     # progation_number = 0
     while 1:
@@ -399,7 +399,7 @@ def   propagation1(G,SourceList,number =1):
             y_list.append(count)
             print('被感染点为' + str(count) + '个')
             # progation_number += 1
-            if count / G_temp.number_of_nodes() > 0.7:
+            if count / G_temp.number_of_nodes() > 0.5:
                 print('超过50%节点了，不用传播啦')
                 break
     #数据进去图，看看
@@ -668,7 +668,6 @@ def partion_layer(G,number_layer= 10):
     print(sort_dict)
     sort_list = sorted(sort_dict.items(), key=lambda x: x[0], reverse=True)
     print(sort_list)
-
     return sort_list
 
 
@@ -698,6 +697,65 @@ def partion_layer_dict(G,number_layer= 10):
             neighbor_list_len = len(neighbor_list)
             node_dict[nodes]=count / neighbor_list_len
     return node_dict
+
+
+'''
+
+1 分层算法，输入原感染图。注意要包含感染和未感染点，还有分层的层数参数,这个分层比较严格。
+返回键值对
+'''
+
+def partion_layer_dict_bfs(G,subinfectG,bfs_layer,number_layer,sourcelist):
+    G_temp = nx.Graph()
+    subGraph = nx.Graph()
+    G_temp = copy.deepcopy(G)
+    # 获取我们所有的图。
+    # 拿到所有的感染点,并且统计他们感染率。
+    node_dict = defaultdict(int)
+    infect_listNode = []
+
+    for nodes in list(G_temp.nodes):
+        if G_temp.node[nodes]['SI'] == 2:
+            neighbor_list = list(G_temp.neighbors(nodes))
+            count = len([x for x in neighbor_list if G_temp.node[x]['SI'] == 2])
+            neighbor_list_len = len(neighbor_list)
+            node_dict[nodes]=count / neighbor_list_len
+            # node_dict[nodes] = count
+
+    count1 =0
+    for k ,v in node_dict.items():
+        if v ==1:
+            count1 += 1
+    print('count1',count1)
+    print('感染总图节点个数',len(list(G_temp.nodes())))
+    print('感染点个数',len(node_dict.items()))
+    #计算每个点附近两层的
+    node_dict_bfs = defaultdict(int)
+    #这是每个点的覆盖率，现在某些点肯定要更精细点。
+    for node,coverage  in node_dict.items():
+        node_dict_temp = copy.deepcopy(node_dict)
+        # BFS_node_list = list(nx.bfs_tree(subinfectG, source=node, depth_limit=3).nodes)
+        edges =nx.bfs_edges(G_temp,node, depth_limit=5)
+        BFS_node_list = [node] + [v for u, v in edges]
+        neighbor_list_temp = list(G_temp.neighbors(node))
+        lens= len(neighbor_list_temp)
+        # print('BFS_node_list',BFS_node_list)
+        temp_coverage = 0
+        for bfs_node in BFS_node_list:
+            temp_coverage += (node_dict_temp[bfs_node])/((nx.shortest_path_length(G_temp,source=node,target=bfs_node))+1)
+        node_dict_bfs[node] = temp_coverage
+    print(node_dict_bfs)
+    sort_list = sorted(node_dict_bfs.items(), key=lambda x: x[1], reverse=True)
+    print(sort_list)
+    print(nx.shortest_path_length(G_temp,source=sourcelist[0],target=sort_list[0][0]))
+    print(nx.shortest_path_length(G_temp, source=sourcelist[1], target=sort_list[0][0]))
+    print(nx.shortest_path_length(G_temp, source=sourcelist[0], target=sort_list[1][0]))
+    print(nx.shortest_path_length(G_temp, source=sourcelist[1], target=sort_list[1][0]))
+
+    print(node_dict_bfs[sourcelist[0]])
+    print(node_dict_bfs[sourcelist[1]])
+    return sort_list[:400]
+
 
 
 
@@ -1403,6 +1461,7 @@ def cal_distance(infectG,true_Source_list,findSource_list):
 
 
 if __name__ == '__main__':
+
     initG = get_networkByFile('.././data/CA-GrQc.txt')
     max_sub_graph = judge_data(initG)
     # source_list =product_sourceList_circle(max_sub_graph, 2)

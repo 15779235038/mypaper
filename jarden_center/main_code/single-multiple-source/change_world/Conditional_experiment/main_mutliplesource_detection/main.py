@@ -91,7 +91,7 @@ class Mutiple_source:
 
         '''2.1   k-center方法'''
         partion_graph_object = Partion_graph.Partion_graph()
-        result = partion_graph_object.Partion_graph_K_center(infectG,source_list,source_number_=2)
+        result = partion_graph_object.other_k_center(infectG,subinfectG,source_list,source_number=2)
 
         single_Source_detection_object = single_Source_detection.Single_source()
         print('result',result)
@@ -102,7 +102,7 @@ class Mutiple_source:
 
             3  针对2传回来的多个区域，开始定位源点。
          '''
-        for community_node ,community in  result:
+        for community in  result:
             subsubinfectG= nx.Graph()
             for edge in list(subinfectG.edges()):
                 if edge[0] in community and (edge[1] in community):
@@ -111,18 +111,15 @@ class Mutiple_source:
             maxsubsubinfectG= self.judge_data(subsubinfectG)
             #开始单源定位了。
             '''jar center'''
-            source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
-            # source_node =  single_Source_detection_object.single_source_bydistance_coverage(infectG,maxsubsubinfectG)
+            # source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+            source_node =  single_Source_detection_object.single_source_bydistance_coverage(infectG,maxsubsubinfectG)
+            #
+            # source_node = single_Source_detection_object.single_source_bydistance(maxsubsubinfectG)
 
 
             result_source_list.append(source_node[0])
 
         distance = commons.cal_distance(max_sub_graph,source_list,result_source_list)
-
-
-
-
-
 
 
         return distance
@@ -132,7 +129,7 @@ import time
 if __name__ == '__main__':
     test = Mutiple_source()
     sum = 0
-    filname = '../../../data/CA-GrQc.txt'
+
     # initG = commons.get_networkByFile('../../../data/3regular_tree1000.txt')
     # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
 
@@ -142,7 +139,8 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     # filname = '../../../data/4_regular_graph_3000_data.txt'
-    method ='方法，真实子图+ jarcenter +'
+    filname = '../../../data/CA-GrQc.txt'
+    method ='方法，真实子图+ other_center +   距离中心  '
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验

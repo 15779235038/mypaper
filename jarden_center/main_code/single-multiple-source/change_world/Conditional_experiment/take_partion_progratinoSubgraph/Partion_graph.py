@@ -1,7 +1,7 @@
 
 
 
-
+import  single_Source_detection
 import numpy as np
 import matplotlib.pyplot as plt
 from networkx.algorithms import community
@@ -29,7 +29,7 @@ class Partion_graph:
         #开始分区，输出每个区域的点和边。当前是两源的。
         return subGraph
 
-    def other_k_center(self ,subinfectG, sourceNumber=2):
+    def other_k_center(self ,infectG,subinfectG,source_list,source_number=2):
         # 首先需要判断是否多源。不断找源点去对这个区域。
         tempGraph = nx.Graph()
         tempGraph = subinfectG
@@ -42,7 +42,7 @@ class Partion_graph:
         Alternativenodeset = list(tempGraph.nodes())  # 备选集合。
         print('tempgraph的所有点数' + str(len(Alternativenodeset)))
         minCoverlist = []
-        print('在源点在' + str(sourceNumber) + '个数的情况下')
+        print('在源点在' + str(source_number) + '个数的情况下')
         # print('在h为' + str(h) + '的情况下')
         # 计算图的拉普拉斯
         k = 1
@@ -193,6 +193,206 @@ class Partion_graph:
 
         return [[good_two_result[0],best_node_two_result[0]],[good_two_result[1],best_node_two_result[1]]]
 
+    '''
+        选取高覆盖率的种子节点，然后分开区域。
+      
+      
+       1  然后从第一层随机选择两点，，
+       外层的节点根据距离加入他们。每个点只需要算一次迪杰斯特拉就可以了。
+
+       2 选择新的结果。
+        目标函数为两个点距离对方区域不同点的平均距离，两个平均距离越大越好。
+
+        随机选择两点，使得
+        '''
+
+    def Partion_graph_K_center_seed(self, G,subinfectG, true_source_list, source_number_=2):
+        # 开始分区，输出每个区域的点和边。当前是两源的。
+
+        sort_list = commons.partion_layer_dict_bfs(G,subinfectG, 2,number_layer= 10)  # 分层
+
+        first_layer = [x[0] for x in sort_list]  # 用第一层的节点。
+        # 先验证源点在不在第一层。
+        b = set(true_source_list)
+        print('源点在不在第一层呢？', b.issubset(first_layer))
+        print('第一层节点个数', len(first_layer))
+        subinfectG = commons.get_subGraph_true(G)  # 获取真实的传播图
+        # 判断是否连通看看。
+        self.judge_connect(subinfectG)
+        print('如果不连通，这个方法就会出问题，一定要是连连通的。')
+        two_source = random.sample(first_layer, 2)  # 从list中随机获取2个元素，作为一个片断返回
+
+        flag = 1
+        lengthA_B = 10000
+        good_two_result = []
+        best_node_two_result = None
+
+        averageA = 1
+        averageB = 1
+        for iter in range(0, 100):
+            # 对这两个点进行Djstra，计算所有点到他们的距离。
+            print('two_source', two_source)
+            lengthA_dict = nx.single_source_bellman_ford_path_length(subinfectG, two_source[0], weight='weight')
+            lengthB_dict = nx.single_source_bellman_ford_path_length(subinfectG, two_source[1], weight='weight')
+            # 统计两者距离相等的点个数
+            count = 0
+            for node, distance in lengthB_dict.items():
+                if lengthA_dict[node] == lengthB_dict[node]:
+                    count += 1
+            print('两者距离相等的点个数为', count)
+            # 初始化两个集合，用来保存两个类别节点集合。
+            node_twolist = [[], []]  # 保存两个类别节点集合
+            node_diff_twolist = [[], []]  # 保存不同点
+            count = 0
+            for node in list(subinfectG.nodes):
+                if lengthA_dict[node] > lengthB_dict[node]:  # 这个点离b近一些。
+                    node_twolist[1].append(node)
+                    node_diff_twolist[1].append(node)
+                elif lengthA_dict[node] < lengthB_dict[node]:
+                    node_twolist[0].append(node)
+                    node_diff_twolist[0].append(node)
+                else:
+                    node_twolist[0].append(node)
+                    node_twolist[1].append(node)
+                    count += 1
+            print('node_twolist1 ', len(node_twolist[1]))
+            print('node_twolist2 ', len(node_twolist[0]))
+            print('count是公共节点数目', count)
+            # 在两个list中找到中心位置，有几种中心性可以度量的。或者进行快速算法。
+            # 判断这次找的两个中心好不好。
+
+            lengthA_sum = 0  # a这个不同点，
+            lengthB_sum = 0
+            for i in node_diff_twolist[0]:  # 距离a近，第一个源点近的点。统计它跟第二个区域点的距离之和
+                lengthA_sum += lengthB_dict[i]
+            for j in node_diff_twolist[1]:  # 距离b近，第二个源点近的点。统计它跟第二个区域点的距离之和
+                lengthB_sum += lengthA_dict[j]
+
+            print('平均距离计算')
+            average_lengthA = lengthA_sum / len(node_diff_twolist[0])
+            average_lengthB = lengthB_sum / len(node_diff_twolist[1])
+
+            sums = lengthA_sum + lengthB_sum
+            print(lengthA_B)
+            print('平均距离有增大就可以了。')
+            if average_lengthA > averageA and average_lengthB > averageB:
+
+                averageA = average_lengthA
+                averageB = average_lengthB
+                print('sums', sums)
+                # 是比原来好的的两个源。
+                print('node_diff_twolist', len(node_diff_twolist[0]))
+                print('node_diff_twolist', len(node_diff_twolist[1]))
+                print('更行sums', sums)
+                lengthA_B = sums
+                good_two_result = two_source
+                best_node_two_result = node_twolist
+
+            else:
+                # 重新长生两个源吧。这里还是可以做优化的，选择的方向问题。
+                two_source = random.sample(first_layer, 2)
+                print('新生成两个源是', two_source)
+        print('传播子图所有节点个数', len(list(subinfectG.nodes())))
+        print('len(good_two_result[0]', len(best_node_two_result[0]))
+        print('len(good_two_result[0]', len(best_node_two_result[1]))
+
+        print('分开的两个区域的点的交集大小。')
+        print('LEN', len([x for x in best_node_two_result[0] if x in best_node_two_result[1]]))
+        print('good_two_result', good_two_result)
+        print('short_length', nx.shortest_path_length(subinfectG, source=good_two_result[0], target=good_two_result[1]))
+        print('good_node_two_result', best_node_two_result)
+
+        return [[good_two_result[0], best_node_two_result[0]], [good_two_result[1], best_node_two_result[1]]]
+
+
+    #找最远的节点进行分区，寻找距离中心。然后构建h。
+    def  coverage_best_kcenter(self,infectG,subinfectG,source_list,source_number=2):
+            # 首先需要判断是否多源。不断找源点去对这个区域。
+            tempGraph = nx.Graph()
+            tempGraph = subinfectG
+            tempGraphNodelist = []
+            for node in list(tempGraph.nodes):
+                tempGraphNodelist.append(node)
+            print('这个传播子图的节点个数,也是我们用来做u的备选集合的' + str(len(set(tempGraphNodelist))))
+            print('这个感染区域的传播图节点个数')
+            print(tempGraph.number_of_nodes())
+            Alternativenodeset = list(tempGraph.nodes())  # 备选集合。
+            print('tempgraph的所有点数' + str(len(Alternativenodeset)))
+            minCoverlist = []
+            print('在源点在' + str(source_number) + '个数的情况下')
+            # print('在h为' + str(h) + '的情况下')
+            # 计算图的拉普拉斯
+            k = 1
+            sourceNum = 2
+            # while 1:
+            minCoverlist = []
+            print('在源点在' + str(sourceNum) + '个数的情况下')
+            # print('在h为' + str(h) + '的情况下')
+
+            # 基于k-means的方法。
+            if sourceNum == 2:
+                partion_region = []
+                # 选择距离最远的点。
+                distance_iter = nx.shortest_path_length(subinfectG)
+                everynode_distance = []
+                for node, node_distance in distance_iter:
+                    # print(node_distance)
+                    sort_list = sorted(node_distance.items(), key=lambda x: x[1], reverse=True)
+                    # print('sort_list',sort_list)
+                    everynode_distance.append([node, sort_list[0][0], sort_list[0][1]])
+                # print('everynode_idstance',everynode_distance)
+                sort_every_distance = sorted(everynode_distance, key=lambda x: x[2], reverse=True)
+                # print(sort_every_distance)
+                node_twolist = [[], []]
+                lengthA_dict = nx.single_source_bellman_ford_path_length(subinfectG, sort_every_distance[0][0],
+                                                                         weight='weight')
+                lengthB_dict = nx.single_source_bellman_ford_path_length(subinfectG, sort_every_distance[0][1],
+                                                                         weight='weight')
+                for node in list(subinfectG.nodes):
+                    if lengthA_dict[node] > lengthB_dict[node]:  # 这个点离b近一些。
+                        node_twolist[1].append(node)
+                    elif lengthA_dict[node] < lengthB_dict[node]:
+                        node_twolist[0].append(node)
+                    else:
+                        node_twolist[0].append(node)
+                        node_twolist[1].append(node)
+                print('len(node_twolist[0]', len(node_twolist[0]))
+                print('len(node_twolist[1]', len(node_twolist[1]))
+                source_distance_list = []
+                new_subinfectG = nx.Graph()
+                new_node_list =[]
+                for community in node_twolist:
+                    #给定两个区域构建子图，找出距离中心，然后再找出最大半径。进行h求解。
+                    single_Source_detection_object = single_Source_detection.Single_source()
+
+                    for edge in list(subinfectG.edges()):
+                            if edge[0] in community and (edge[1] in community):
+                                new_subinfectG.add_edge(edge[0], edge[1])
+                            # 看下图连通吗。
+                    maxsubsubinfectG = self.judge_data(new_subinfectG)
+                    source_node = single_Source_detection_object.single_source_bydistance_coverage(infectG,maxsubsubinfectG)
+                    source_distance_list.append(source_node)
+                    print('source_node',source_node)
+                    distance = nx.shortest_path_length(new_subinfectG, source=source_node[0])
+                    print('distance',distance)
+                    sort_list_temp = sorted(distance.items(), key=lambda x: x[1], reverse=True)
+                    h=sort_list_temp[0][1] -3
+                    print('最大的h是多少呢？',h)
+                    edges = nx.bfs_edges(subinfectG,source=source_node[0],depth_limit=h)
+                    nodes = [source_node[0]] + [v for u, v in edges]
+                    new_node_list.append(nodes)
+
+                print('len(new_node_list)',len(new_node_list[0]))
+                print('len(new_node_list)',len(new_node_list[1]))
+                print('我们找出的共有元素是多少来着')
+                print(len([x for x in new_node_list[0] if x in new_node_list[1]]))
+
+                return new_node_list
+
+
+
+
+                # return node_twolist
 
 
 
@@ -201,12 +401,25 @@ class Partion_graph:
 
 
 
-
-
-
-
-
-
+    def judge_data(self,initG):
+        '''
+        :param initG:
+        :return:  #返回最大子图的源点数据集
+        '''
+        Gc = nx.Graph()
+        Gc = max(nx.connected_component_subgraphs(initG), key=len)
+        sum = 0
+        count = 0
+        for sub_graph in sorted(nx.connected_component_subgraphs(initG), key=len, reverse=True):
+            # print(type(sub_graph))
+            # print(sub_graph.number_of_nodes())
+            sum += sub_graph.number_of_nodes()
+            count += 1
+        print('count', count)
+        if count >1:
+            print('图不连通，单还是返回最大子图')
+        print('sum', sum)
+        return Gc
     '''
     
     使用jaya有参数的操作。
@@ -587,6 +800,8 @@ class Partion_graph:
         node_list3.extend(node_list5)
         node_list4.extend(node_list5)
 
+
+
         print('first——node_list3',len(node_list3))
         print('second——node_list4',len(node_list4))
         print('common_node_list',len(node_list5))
@@ -601,6 +816,12 @@ class Partion_graph:
         应该在这个地方进行传播分区的各种实验，先做好2源的分区。
         '''
         # twosource_node_list =self.Partion_graph_K_center(infectG_other,source_list,2)
+        #第3种方式
+
+        # twosource_node_list = self.Partion_graph_K_center_seed(infectG_other,subinfectG,source_list,2)
+        twosource_node_list = self.other_k_center(infectG_other, subinfectG, source_list, 2)
+
+
         #进行覆盖率走，并进行jaya算法。
         # twosource_node_list=self.jaya_add_coverage(infectG_other)
         #进行删除边操作。
@@ -624,11 +845,11 @@ class Partion_graph:
 
         #  最后一种，分区的方法了
 
-        twosource_node_list = self.other_k_center(subinfectG)
-        print(twosource_node_list)
+        # twosource_node_list = self.other_k_center(subinfectG)
+        # print(twosource_node_list)
         return self.verification(twosource_node_list,[node_list3,node_list4])
 
-
+        #
         # print('真实的情况第一个社区first——node_list3', len(node_list3))
         # print('真实的情况第一个社区second——node_list4', len(node_list4))
         # print('common_node_list', len(node_list5))
@@ -697,8 +918,8 @@ if __name__ == '__main__':
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    filname = '../../../data/CA-GrQc.txt'
-    # filname= ''
+    # filname = '../../../data/CA-GrQc.txt'
+    filname= '../../../data/4_regular_graph_3000_data.txt'
     for i  in range(0,20):
         tempresult =test.main(filname)
         sum += tempresult #跑实验

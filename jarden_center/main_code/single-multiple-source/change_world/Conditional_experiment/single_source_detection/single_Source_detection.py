@@ -201,11 +201,11 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
 
     # initG = commons.get_networkByFile(filename)
-    # filname = '../../../data/4_regular_graph_3000_data.txt'
+    filname = '../../../data/4_regular_graph_3000_data.txt'
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    filname = '../../../data/CA-GrQc.txt'
+    # filname = '../../../data/CA-GrQc.txt'
 
 
 
