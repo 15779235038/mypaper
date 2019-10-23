@@ -1,0 +1,144 @@
+Wed Oct 23 20:03:26 2019
+每一步的结果是   [0, 4]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:03:45 2019
+每一步的结果是   [1, 4]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:03:59 2019
+每一步的结果是   [0, 2]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:04:13 2019
+每一步的结果是   [1, 6]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:04:30 2019
+每一步的结果是   [0, 5]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:04:48 2019
+每一步的结果是   [0, 5]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:05:05 2019
+每一步的结果是   [0, 3]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:05:19 2019
+每一步的结果是   [0, 4]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:05:35 2019
+每一步的结果是   [2, 8]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:05:50 2019
+每一步的结果是   [0, 1]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:06:03 2019
+每一步的结果是   [0, 7]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:06:38 2019
+每一步的结果是   [0, 7]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:06:52 2019
+每一步的结果是   [2, 3]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:07:13 2019
+每一步的结果是   [1, 3]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:07:34 2019
+每一步的结果是   [0, 41]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:07:48 2019
+每一步的结果是   [0, 6]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:08:00 2019
+每一步的结果是   [0, 18]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:08:15 2019
+每一步的结果是   [0, 1]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:08:30 2019
+每一步的结果是   [1, 3]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:08:50 2019
+每一步的结果是   [0, 8]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:09:05 2019
+每一步的结果是   [0, 6]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:09:16 2019
+每一步的结果是   [0, 3]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:09:28 2019
+每一步的结果是   [0, 15]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:09:52 2019
+每一步的结果是   [0, 1]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:10:14 2019
+每一步的结果是   [0, 17]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:10:31 2019
+每一步的结果是   [2, 6]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:10:44 2019
+每一步的结果是   [3, 6]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:10:55 2019
+每一步的结果是   [1, 22]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:11:14 2019
+每一步的结果是   [0, 3]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:11:26 2019
+每一步的结果是   [1, 4]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:11:41 2019
+每一步的结果是   [0, 1]      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:21:45 2019
+每一步的结果是   [57, 2665]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:22:31 2019
+每一步的结果是   [4, 2516]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:23:33 2019
+每一步的结果是   [57, 2699]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:24:27 2019
+每一步的结果是   [803, 1001]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:25:03 2019
+每一步的结果是   [107, 1358]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:25:44 2019
+每一步的结果是   [58, 1134]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:26:20 2019
+每一步的结果是   [471, 534]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:26:50 2019
+每一步的结果是   [159, 506]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:27:46 2019
+每一步的结果是   [130, 2520]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:28:33 2019
+每一步的结果是   [675, 1631]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:29:33 2019
+每一步的结果是   [646, 1414]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:30:04 2019
+每一步的结果是   [586, 1410]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:30:56 2019
+每一步的结果是   [625, 1564]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:31:39 2019
+每一步的结果是   [95, 2481]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:32:36 2019
+每一步的结果是   [796, 2179]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:33:11 2019
+每一步的结果是   [667, 1126]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:34:08 2019
+每一步的结果是   [282, 2005]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:34:43 2019
+每一步的结果是   [198, 643]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:35:14 2019
+每一步的结果是   [376, 928]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:36:02 2019
+每一步的结果是   [787, 2460]      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Wed Oct 23 20:39:56 2019
+每一步的结果是   [1, 10]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:39:57 2019
+每一步的结果是   [0, 16]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:39:58 2019
+每一步的结果是   [0, 8]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:00 2019
+每一步的结果是   [1, 4]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:02 2019
+每一步的结果是   [2, 10]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:04 2019
+每一步的结果是   [0, 26]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:05 2019
+每一步的结果是   [0, 19]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:06 2019
+每一步的结果是   [0, 4]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:08 2019
+每一步的结果是   [0, 23]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:09 2019
+每一步的结果是   [1, 13]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:11 2019
+每一步的结果是   [0, 11]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:13 2019
+每一步的结果是   [2, 3]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:14 2019
+每一步的结果是   [1, 7]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:16 2019
+每一步的结果是   [0, 4]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:18 2019
+每一步的结果是   [0, 2]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:19 2019
+每一步的结果是   [1, 12]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:20 2019
+每一步的结果是   [3, 16]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:22 2019
+每一步的结果是   [0, 6]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:23 2019
+每一步的结果是   [0, 1]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:40:25 2019
+每一步的结果是   [1, 5]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt
+Wed Oct 23 20:43:35 2019
+每一步的结果是   [0, 8]      数据集方法single_source_bydistance_coverage../../../data/3regular_tree1000.txt

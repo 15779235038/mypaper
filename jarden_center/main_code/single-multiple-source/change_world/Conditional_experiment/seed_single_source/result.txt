@@ -2,3 +2,41 @@ Wed Oct 23 19:56:59 2019
 每一步的结果是   1      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
 Wed Oct 23 19:57:10 2019
 每一步的结果是   1      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:57:33 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:57:51 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:58:13 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:58:28 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:58:46 2019
+每一步的结果是   1      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:59:05 2019
+每一步的结果是   4      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:59:17 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:59:35 2019
+每一步的结果是   3      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:59:53 2019
+每一步的结果是   1      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:00:10 2019
+每一步的结果是   1      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:00:27 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:00:45 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:00:59 2019
+每一步的结果是   1      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:01:13 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:01:32 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:01:51 2019
+每一步的结果是   2      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:02:14 2019
+每一步的结果是   0      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 20:02:34 2019
+每一步的结果是   1      数据集方法single_source_bydistance_coverage../../../data/4_regular_graph_3000_data.txt
+数据集../../../data/4_regular_graph_3000_data.txt方法single_source_bydistance_coverage总结果   0.8
+

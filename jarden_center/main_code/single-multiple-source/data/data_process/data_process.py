@@ -23,14 +23,14 @@ def ContractDict(dir, G):
 # G=nx.random_tree(3000)
 #生成1000个节点树图
 
-G= nx.random_regular_graph(2,1000)
+G= nx.balanced_tree(3,15)
 
 print (len(list(G.nodes)))
 print (len(list(G.edges)))
 
 
 for  edge  in list(G.edges):
-    listToTxt(edge,'2regular_tree1000.txt')
+    listToTxt(edge,'3regular_tree1000.txt')
 #
 # #读取生成图
 # G=nx.Graph()
