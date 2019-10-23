@@ -211,12 +211,12 @@ if __name__ == '__main__':
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    # filname = '../../data/4_regular_graph_3000_data.txt'
-    filname = '../../data/CA-GrQc.txt'
+    filname = '../../data/4_regular_graph_3000_data.txt'
+    # filname = '../../data/CA-GrQc.txt'
     # filname = '../../data/facebook_combined.txt'
 
-    # method = 'mis+反转算法'
-    method = 'mis+dis+coverage'
+    method = 'mis+反转算法'
+    # method = 'mis+dis+coverage'
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
