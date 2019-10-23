@@ -170,6 +170,14 @@ class Single_source:
 
 
 
+    '''
+    第4种单源定位方法，就是利用覆盖率以及distance。只要你的图构造的好，以每个点
+    进行BFS树构建，就可以了。试试。
+    '''
+
+
+
+
 
 
 
@@ -221,13 +229,13 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
 
     # initG = commons.get_networkByFile(filename)
-    filname = '../../../data/4_regular_graph_3000_data.txt'
+    # filname = '../../../data/4_regular_graph_3000_data.txt'
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     # filname = '../../../data/CA-GrQc.txt'
 
-
+    filname = '../../../data/3regular_tree9.txt'
 
     method ='distan+ covage'
     # method = 'jardan_center'

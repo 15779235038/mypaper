@@ -34,10 +34,10 @@ class Seed_single_source:
 
     def single_source_bydistance_coverage(self, infectG, subinfectG, true_source):
 
-        for node in list(infectG.nodes()):
-            print(len(list(nx.neighbors(infectG,node))))
-
-        print(nx.find_cycle(infectG))
+        # for node in list(infectG.nodes()):
+        #     print(len(list(nx.neighbors(infectG,node))))
+        #
+        # print(nx.find_cycle(infectG))
         sort_dict = commons.partion_layer_dict(infectG, 10)  # 分层
         print('sort_list', sort_dict)
         node_cal = []
@@ -89,9 +89,26 @@ class Seed_single_source:
                 node_import += sort_dict[othernode] / (ditance + 1)
             node_cal.append([node, node_import])
         sort_list = sorted(node_cal, key=lambda x: x[1], reverse=True)
-        print(sort_list)
-        print('在的', [x[0] for x in sort_list[:200] if x[0] == true_source])
-        return sort_list[0]
+        print('sort_list', sort_list)
+        print('true_list', true_source)
+        index_list = []
+        for index in range(0, len(sort_list)):
+            if true_source[0] == sort_list[index][0] or (true_source[1] == sort_list[index][0]):
+                index_list.append(index)
+        return index_list
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # 种子节点还有呢？
 
@@ -131,17 +148,17 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
 
     # initG = commons.get_networkByFile(filename)
-    filname = '../../../data/3regular_tree1000.txt'
+    # filname = '../../../data/3regular_tree9.txt'
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    # filname = '../../../data/CA-GrQc.txt'
+    filname = '../../../data/CA-GrQc.txt'
 
     # method = 'distan+ covage'
     # method = 'jardan_center'
     # method ='distance'
-    method = 'single_source_bydistance_coverage'
-
+    # method = 'single_source_bydistance_coverage'
+    method= 'single_source_bydistance_coverage_SECOND'
     for i in range(0, 20):
         tempresult = test.main(filname, method)
         # sum += tempresult  # 跑实验

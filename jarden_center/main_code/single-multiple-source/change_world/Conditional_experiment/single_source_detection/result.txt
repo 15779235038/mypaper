@@ -539,3 +539,7 @@ Wed Oct 23 19:46:46 2019
 每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
 数据集../../../data/4_regular_graph_3000_data.txt方法distan+ covage总结果   0.45
 
+Wed Oct 23 21:01:33 2019
+每一步的结果是   7      数据集方法distan+ covage../../../data/3regular_tree9.txt
+Wed Oct 23 21:01:52 2019
+每一步的结果是   7      数据集方法distan+ covage../../../data/3regular_tree9.txt

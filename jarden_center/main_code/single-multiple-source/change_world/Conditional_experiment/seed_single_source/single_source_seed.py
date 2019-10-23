@@ -54,6 +54,8 @@ class Seed_single_source:
                 return index
         # return sort_list[0]
 
+
+
     '''
        第2种覆盖率计算，
        公式为： a点=  a周围所有的点覆盖率 / 离这个a点距离  
@@ -84,8 +86,11 @@ class Seed_single_source:
             node_cal.append([node, node_import])
         sort_list = sorted(node_cal, key=lambda x: x[1], reverse=True)
         print(sort_list)
-        print('在的', [x[0] for x in sort_list[:200] if x[0] == true_source])
-        return sort_list[0]
+        # print('在的', [x[0] for x in sort_list[:100] if x[0] == true_source])
+        # 只需要返回在你排序的集合中，源点在第几位就可以了。
+        for index in range(0, len(sort_list)):
+            if true_source == sort_list[index][0]:
+                return index
 
 
 
@@ -139,7 +144,7 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
 
     # initG = commons.get_networkByFile(filename)
-    filname = '../../../data/4_regular_graph_3000_data.txt'
+    filname = '../../../data/3regular_tree9.txt'
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
@@ -148,22 +153,19 @@ if __name__ == '__main__':
     # method = 'distan+ covage'
     # method = 'jardan_center'
     # method ='distance'
-    method= 'single_source_bydistance_coverage'
+    method= 'single_source_bydistance_coverage_SECOND'
 
 
     for i in range(0, 20):
         tempresult = test.main(filname,method)
-        sum += tempresult  # 跑实验
+
 
         with open('result.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
             f.write('每一步的结果是   ' + str(tempresult) + '      数据集' + '方法' + str(method) + str(filname) + '\n')
-    with open('result.txt', "a") as f:
-        f.write('数据集' + str(filname) + '方法' + str(method) + '总结果   ' + str(sum / 20) + '\n')
-        f.write('\n')
-    print('result', sum / 20)
-    print(sum / 20)
+
+    print(sum)
 
 
 
