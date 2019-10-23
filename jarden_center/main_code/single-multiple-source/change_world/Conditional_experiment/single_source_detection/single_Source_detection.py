@@ -125,8 +125,9 @@ class Single_source:
                 node_import += sort_dict[othernode]*lens_degree / (ditance+1)
             node_cal.append([node,node_import])
         sort_list = sorted(node_cal, key=lambda x: x[1], reverse=True)
+
         print(sort_list)
-        print('在的',[x[0] for x  in sort_list[:200] if x[0] ==true_source])
+        # print('在的',[x[0] for x  in sort_list[:200] if x[0] ==true_source])
         return  sort_list[0]
 
 
@@ -178,6 +179,26 @@ class Single_source:
 
 
 
+    def  single_source_bydistance_coverage_three(self,infectG,subinfectG,true_source):
+        sort_dict = commons.partion_layer_dict(infectG, 10)  # 分层
+        print('sort_list', sort_dict)
+        node_cal = []
+        for node in subinfectG:
+            node_import = 0
+            length_dict = nx.single_source_bellman_ford_path_length(subinfectG, node, weight='weight')
+            for othernode,ditance in length_dict.items():
+                lens_degree = len(list(nx.neighbors(infectG,othernode)))
+                node_import += sort_dict[othernode]*lens_degree / (ditance+1)
+            node_cal.append([node,node_import])
+        sort_list = sorted(node_cal, key=lambda x: x[1], reverse=True)
+
+        print(sort_list)
+        # print('在的',[x[0] for x  in sort_list[:200] if x[0] ==true_source])
+        return  sort_list[0]
+
+
+
+
 
 
 
@@ -200,11 +221,11 @@ class Single_source:
         '''   第一种，就是jarden center '''
         #
         # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
-        ''' 第二种，就是coverage/distance'''
-        result_node= self.single_source_bydistance_coverage(infectG,subinfectG,source_list[0])
+        # ''' 第二种，就是coverage/distance'''
+        # result_node= self.single_source_bydistance_coverage(infectG,subinfectG,source_list[0])
 
         # '''  第3种，距离中心'''
-        # result_node = self.single_source_bydistance( subinfectG)
+        result_node = self.single_source_bydistance( subinfectG)
 
 
         print('真实源是',source_list[0])
@@ -229,16 +250,16 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../data/4_regular_graph_3000_data.txt')
 
     # initG = commons.get_networkByFile(filename)
-    # filname = '../../../data/4_regular_graph_3000_data.txt'
+    filname = '../../../data/4_regular_graph_3000_data.txt'
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     # filname = '../../../data/CA-GrQc.txt'
 
-    filname = '../../../data/3regular_tree9.txt'
+    # filname = '../../../data/3regular_tree9.txt'
 
-    method ='distan+ covage'
-    # method = 'jardan_center'
+    # method ='distan+ covage'
+    method = 'jardan_center'
     # method ='distance'
 
 

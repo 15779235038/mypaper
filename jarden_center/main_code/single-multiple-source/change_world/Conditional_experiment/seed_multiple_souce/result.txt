@@ -258,3 +258,21 @@ Wed Oct 23 21:47:17 2019
 每一步的结果是   [748, 1073]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
 Wed Oct 23 21:47:54 2019
 每一步的结果是   [455, 1495]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
+Wed Oct 23 21:48:45 2019
+每一步的结果是   [347, 2352]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
+Wed Oct 23 21:49:48 2019
+每一步的结果是   [0, 2543]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
+Wed Oct 23 21:50:27 2019
+每一步的结果是   [275, 1750]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
+Wed Oct 23 21:51:13 2019
+每一步的结果是   [73, 2362]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
+Wed Oct 23 21:52:10 2019
+每一步的结果是   [446, 802]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
+Wed Oct 23 21:53:03 2019
+每一步的结果是   [0, 2459]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
+Wed Oct 23 21:53:32 2019
+每一步的结果是   [403, 899]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
+Wed Oct 23 21:54:04 2019
+每一步的结果是   [206, 577]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt
+Wed Oct 23 21:55:05 2019
+每一步的结果是   [396, 1040]      数据集方法single_source_bydistance_coverage_SECOND../../../data/CA-GrQc.txt

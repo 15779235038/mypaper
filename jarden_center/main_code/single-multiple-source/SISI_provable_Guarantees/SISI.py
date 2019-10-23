@@ -52,6 +52,19 @@ class Mutiple_source:
       1 
 
     '''
+    #产生大量集合，返回被截断的区域。
+    def   product_many_region(self, p, t, infectG,subinfetG,true_list):
+        #这里的随便，我就用源点了。
+        for i  in true_list:
+            G_temp=commons.propagation1(infectG,i,number =2)
+            
+
+
+
+
+
+
+        pass
 
     def main(self, filename):
         # #拿到图
@@ -76,8 +89,10 @@ class Mutiple_source:
 
         '''
         思路：
-        1  借助概率p= 0，5以及不同的时间t生成大量的集合。
+        1  借助概率p= 0，5以及不同的时间t生成大量的集合。假设知道时间吧。
         2 然后用这些集合去覆盖感染区域，尽可能让blue中点多，而红色区域少。
+            这种方法还可以用来确定种子节点的。
+            
         
         
         
@@ -91,7 +106,16 @@ class Mutiple_source:
 
         '''''''# 2 分区，分区的太多了，我们看看那种好。'''
 
-        '''2.1   k-center方法'''
+        self.product_many_region(0.5,6,infectG,subinfectG,source_list)
+
+
+
+
+
+
+
+
+
         partion_graph_object = Partion_graph.Partion_graph()
         result = partion_graph_object.other_k_center(infectG, subinfectG, source_list, source_number=2)
 
