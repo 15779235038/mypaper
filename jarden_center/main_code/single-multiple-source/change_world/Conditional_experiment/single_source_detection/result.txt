@@ -357,3 +357,185 @@ Tue Oct 22 16:48:48 2019
 每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
 数据集../../../data/4_regular_graph_3000_data.txt方法jardan_center总结果   2.2
 
+Wed Oct 23 19:18:48 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:19:21 2019
+每一步的结果是   2      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:19:30 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:19:48 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:20:02 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:20:12 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:20:34 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:20:50 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:21:00 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:21:13 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:21:41 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:22:01 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:22:11 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:22:26 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:22:39 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:22:56 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:23:12 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:23:33 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:23:56 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:24:08 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:24:20 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:24:32 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:24:43 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:24:59 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:25:11 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:25:26 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:25:38 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:25:53 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:26:06 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:26:18 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:26:43 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:27:40 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 19:28:29 2019
+每一步的结果是   5      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 19:29:27 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 19:30:06 2019
+每一步的结果是   3      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 19:30:55 2019
+每一步的结果是   8      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 19:31:51 2019
+每一步的结果是   5      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 19:32:20 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:32:31 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:32:49 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:33:00 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:33:23 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:33:41 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:33:51 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:34:06 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:34:19 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:34:32 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:34:46 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:34:59 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:35:17 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:35:32 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:35:47 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:36:00 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:36:18 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:36:40 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:37:03 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:37:18 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:37:36 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:37:47 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:38:00 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:38:20 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:38:46 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:39:03 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:39:26 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:39:37 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:39:56 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:40:11 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:40:25 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:40:46 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:40:59 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:41:32 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:41:47 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:42:09 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:42:28 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:42:40 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:42:58 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:43:19 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:43:36 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:43:50 2019
+每一步的结果是   2      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:44:02 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:44:23 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:44:37 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:44:52 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:45:03 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:45:24 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:45:45 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:45:57 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:46:19 2019
+每一步的结果是   0      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:46:35 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 19:46:46 2019
+每一步的结果是   1      数据集方法distan+ covage../../../data/4_regular_graph_3000_data.txt
+数据集../../../data/4_regular_graph_3000_data.txt方法distan+ covage总结果   0.45
+

@@ -113,7 +113,7 @@ class Single_source:
     
     '''
 
-    def  single_source_bydistance_coverage(self,infectG,subinfectG):
+    def  single_source_bydistance_coverage(self,infectG,subinfectG,true_source):
         sort_dict = commons.partion_layer_dict(infectG, 10)  # 分层
         print('sort_list', sort_dict)
         node_cal = []
@@ -121,15 +121,32 @@ class Single_source:
             node_import = 0
             length_dict = nx.single_source_bellman_ford_path_length(subinfectG, node, weight='weight')
             for othernode,ditance in length_dict.items():
-                node_import += sort_dict[othernode] / (ditance+1)
+                lens_degree = len(list(nx.neighbors(infectG,othernode)))
+                node_import += sort_dict[othernode]*lens_degree / (ditance+1)
             node_cal.append([node,node_import])
         sort_list = sorted(node_cal, key=lambda x: x[1], reverse=True)
         print(sort_list)
+        print('在的',[x[0] for x  in sort_list[:200] if x[0] ==true_source])
         return  sort_list[0]
 
 
 
-
+    #种子节点的看看都在那里
+    def single_source_bydistance_coverage_SECOND(self, infectG, subinfectG, true_source):
+        sort_dict = commons.partion_layer_dict(infectG, 10)  # 分层
+        print('sort_list', sort_dict)
+        node_cal = []
+        for node in subinfectG:
+            node_import = 0
+            length_dict = nx.single_source_bellman_ford_path_length(subinfectG, node, weight='weight')
+            for othernode, ditance in length_dict.items():
+                lens_degree = len(list(nx.neighbors(infectG, othernode)))
+                node_import += sort_dict[othernode] * lens_degree / (ditance + 1)
+            node_cal.append([node, node_import])
+        sort_list = sorted(node_cal, key=lambda x: x[1], reverse=True)
+        print(sort_list)
+        print('在的', [x[0] for x in sort_list[:200] if x[0] == true_source])
+        return sort_list[0]
 
     '''
     第3种单源定位方法。距离中心
@@ -174,13 +191,16 @@ class Single_source:
         #将在这里进行单源测试。
         '''   第一种，就是jarden center '''
         #
-        result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
+        # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
         ''' 第二种，就是coverage/distance'''
-        # result_node= self.single_source_bydistance_coverage(infectG,subinfectG)
+        result_node= self.single_source_bydistance_coverage(infectG,subinfectG,source_list[0])
 
         # '''  第3种，距离中心'''
         # result_node = self.single_source_bydistance( subinfectG)
 
+
+        print('真实源是',source_list[0])
+        print('预测源是',result_node[0])
         distance= nx.shortest_path_length(subinfectG,source=source_list[0],target=result_node[0])
         print('结果是', distance)
         return distance
@@ -209,8 +229,8 @@ if __name__ == '__main__':
 
 
 
-    # method ='distan+ covage'
-    method = 'jardan_center'
+    method ='distan+ covage'
+    # method = 'jardan_center'
     # method ='distance'
 
 
