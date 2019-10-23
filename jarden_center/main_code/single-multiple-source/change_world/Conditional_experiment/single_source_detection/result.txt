@@ -721,3 +721,87 @@ Wed Oct 23 22:58:11 2019
 每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
 数据集../../../data/CA-GrQc.txt方法jardan_center总结果   3.8
 
+Wed Oct 23 23:00:39 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:00:54 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:01:04 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:01:21 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:01:32 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:01:50 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:02:05 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:02:16 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:02:28 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:02:40 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:02:50 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:03:00 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:03:09 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:03:28 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:03:47 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:04:01 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:04:12 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:04:30 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:04:39 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+Wed Oct 23 23:04:54 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/4_regular_graph_3000_data.txt
+数据集../../../data/4_regular_graph_3000_data.txt方法jardan_center总结果   0.25
+
+Wed Oct 23 23:20:57 2019
+每一步的结果是   3      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:21:25 2019
+每一步的结果是   3      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:21:42 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:22:12 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:22:28 2019
+每一步的结果是   3      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:22:45 2019
+每一步的结果是   3      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:23:04 2019
+每一步的结果是   5      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:23:17 2019
+每一步的结果是   2      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:23:33 2019
+每一步的结果是   1      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:23:56 2019
+每一步的结果是   6      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:24:12 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:24:24 2019
+每一步的结果是   2      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:24:46 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:25:11 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:25:40 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:25:57 2019
+每一步的结果是   5      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:26:30 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:26:56 2019
+每一步的结果是   3      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:27:16 2019
+每一步的结果是   4      数据集方法jardan_center../../../data/CA-GrQc.txt
+Wed Oct 23 23:27:39 2019
+每一步的结果是   3      数据集方法jardan_center../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法jardan_center总结果   3.35
+

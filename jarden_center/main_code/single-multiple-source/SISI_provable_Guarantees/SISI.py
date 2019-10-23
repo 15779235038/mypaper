@@ -46,6 +46,11 @@ class Mutiple_source:
         print('sum', sum)
         return Gc
 
+
+
+
+
+
     '''
       #设计本类用来组合所有步骤。
 
@@ -57,7 +62,7 @@ class Mutiple_source:
         #这里的随便，我就用源点了。
         for i  in true_list:
             G_temp=commons.propagation1(infectG,i,number =2)
-            
+
 
 
 
