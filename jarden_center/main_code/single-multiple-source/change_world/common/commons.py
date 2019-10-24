@@ -97,7 +97,9 @@ def product_sourceList(G,sourceNum):
             rumorSourceList.append(random_RumorSource)
             flag = 1
         elif sourceNum == 2:
-            # random_Rumo = random.sample(sumlist, 1)
+            # rumorSourceList = random.sample(sumlist, 2)
+            # print(nx.shortest_path_length(G,source=rumorSourceList[0],target=rumorSourceList[1]))
+            # break
             # random_RumorSource = random_Rumo[0]
 
             random_RumorSource = random.choice(sumlist)

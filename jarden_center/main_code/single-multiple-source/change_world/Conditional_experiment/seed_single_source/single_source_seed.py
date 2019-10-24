@@ -40,7 +40,7 @@ class Seed_single_source:
         node_cal = []
         for node in subinfectG:
             node_import = 0
-            length_dict = nx.single_source_bellman_ford_path_length(subinfectG, node, weight='weight')
+            length_dict = nx.single_source_bellman_ford_path_length(subinfectG, source=node, weight='weight')
             for othernode, ditance in length_dict.items():
                 lens_degree = len(list(nx.neighbors(infectG, othernode)))
                 node_import += sort_dict[othernode] * lens_degree / (ditance + 1)

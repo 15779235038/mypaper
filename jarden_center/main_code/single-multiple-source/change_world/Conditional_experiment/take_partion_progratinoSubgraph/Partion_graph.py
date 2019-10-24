@@ -397,6 +397,35 @@ class Partion_graph:
 
 
 
+    #分区，首先进行单源定位，然后找两个最远的点。进行BFS直到遇到单源定位的源远。停止。
+    def randmo_BFS(self,infectG,subinfectG):
+
+
+        single_source = commons.revsitionAlgorithm_singlueSource(subinfectG)
+        distance_iter = nx.shortest_path_length(subinfectG)
+        everynode_distance = []
+        for node, node_distance in distance_iter:
+            # print(node_distance)
+            sort_list = sorted(node_distance.items(), key=lambda x: x[1], reverse=True)
+            # print('sort_list',sort_list)
+            everynode_distance.append([node, sort_list[0][0], sort_list[0][1]])
+        # print('everynode_idstance',everynode_distance)
+        sort_every_distance = sorted(everynode_distance, key=lambda x: x[2], reverse=True)
+        print('sort_every_distance',sort_every_distance)
+
+        #从两个最远的点进行BFS直到找到单源的位置。
+
+        print(nx.shortest_path_length(infectG,source=single_source[0],target=sort_every_distance[0][0]))
+        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[0][1]))
+
+        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[1][0]))
+        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[1][1]))
+
+        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[2][0]))
+        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[2][1]))
+
+        pass
+
 
 
 
@@ -819,9 +848,9 @@ class Partion_graph:
         #第3种方式
 
         # twosource_node_list = self.Partion_graph_K_center_seed(infectG_other,subinfectG,source_list,2)
-        twosource_node_list = self.other_k_center(infectG_other, subinfectG, source_list, 2)
+        # twosource_node_list = self.other_k_center(infectG_other, subinfectG, source_list, 2)
 
-
+        twosource_node_list = self.randmo_BFS(infectG_other, subinfectG)
         #进行覆盖率走，并进行jaya算法。
         # twosource_node_list=self.jaya_add_coverage(infectG_other)
         #进行删除边操作。
@@ -919,7 +948,7 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     # filname = '../../../data/CA-GrQc.txt'
-    filname= '../../../data/4_regular_graph_3000_data.txt'
+    filname= '../../../data/CA-GrQc.txt'
     for i  in range(0,20):
         tempresult =test.main(filname)
         sum += tempresult #跑实验
