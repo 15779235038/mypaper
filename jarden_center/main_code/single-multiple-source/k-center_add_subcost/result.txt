@@ -1,0 +1,378 @@
+Thu Oct 24 08:19:29 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:20:20 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:20:54 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:21:28 2019
+每一步的结果数据集../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:22:19 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:23:02 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:23:28 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:24:03 2019
+每一步的结果数据集../data/CA-GrQc.txt5.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:24:49 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:25:40 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:26:33 2019
+每一步的结果数据集../data/CA-GrQc.txt1.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:27:38 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:29:01 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:29:29 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:30:13 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:30:49 2019
+每一步的结果数据集../data/CA-GrQc.txt1.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:31:29 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:31:56 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:33:05 2019
+每一步的结果数据集../data/CA-GrQc.txt1.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:33:32 2019
+每一步的结果数据集../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:34:05 2019
+每一步的结果数据集../data/CA-GrQc.txt1.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:34:34 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:35:07 2019
+每一步的结果数据集../data/CA-GrQc.txt1.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:35:50 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:36:17 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:36:43 2019
+每一步的结果数据集../data/CA-GrQc.txt1.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:37:23 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:37:43 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:38:26 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:38:47 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:39:22 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:40:10 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:40:52 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:41:22 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:42:05 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:42:52 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:43:23 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:44:08 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  数据集../data/CA-GrQc.txt总结果2.35
+方法，真实子图+ other_center +  测量时间  
+Thu Oct 24 08:45:03 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:45:58 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:47:00 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:47:54 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:48:33 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:49:34 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:50:27 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:51:15 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:51:58 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:52:41 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:53:10 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:54:08 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:55:11 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:55:46 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:56:23 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:57:07 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:57:43 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:58:30 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:58:59 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 08:59:40 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:00:11 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:00:49 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:01:25 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:02:13 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:02:45 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:03:26 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:04:02 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:04:43 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:05:21 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:05:55 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:06:26 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:06:53 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  数据集../data/CA-GrQc.txt总结果2.675
+方法，真实子图+ other_center +  测量时间  
+Thu Oct 24 09:18:18 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:18:49 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:19:20 2019
+每一步的结果数据集../data/CA-GrQc.txt4.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:19:57 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:20:28 2019
+每一步的结果数据集../data/CA-GrQc.txt1.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:21:22 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:22:06 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:22:32 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:23:15 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:23:47 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:24:20 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:25:12 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:26:26 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:27:00 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:27:42 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:28:30 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:29:04 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:29:39 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:30:20 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:30:59 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:31:51 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:32:48 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:33:28 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:34:43 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:35:20 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:35:53 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:36:56 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:37:42 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:38:17 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 09:39:04 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:07:50 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:08:24 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:08:47 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:09:14 2019
+每一步的结果数据集../data/CA-GrQc.txt1.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:09:44 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:10:35 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:11:28 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:12:22 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:13:06 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:14:48 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:15:15 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:16:00 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:16:58 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:17:27 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:17:56 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:18:16 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:18:53 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:19:35 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:20:07 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:21:01 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:21:41 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:22:25 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:23:06 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:23:52 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:24:39 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:25:02 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:26:15 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:26:47 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:27:26 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:28:21 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:29:09 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:29:35 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:30:05 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:30:33 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:31:05 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:31:37 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:32:08 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:32:36 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:33:24 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:34:08 2019
+每一步的结果数据集../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:34:54 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:35:45 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:36:19 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:37:01 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:37:43 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:38:58 2019
+每一步的结果数据集../data/CA-GrQc.txt0.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:39:50 2019
+每一步的结果数据集../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:40:17 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:41:03 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:41:46 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:42:13 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:42:43 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:43:11 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:43:34 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:44:48 2019
+每一步的结果数据集../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:45:32 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:46:09 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:46:45 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:47:34 2019
+每一步的结果数据集../data/CA-GrQc.txt4.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:48:19 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:49:02 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:49:49 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:50:33 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:51:11 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:52:03 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:52:46 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:53:14 2019
+每一步的结果数据集../data/CA-GrQc.txt0.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:53:48 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:54:19 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:55:06 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:55:46 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:56:20 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:57:05 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:57:46 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:58:14 2019
+每一步的结果数据集../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:58:52 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 10:59:24 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 11:00:15 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 11:00:45 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 11:01:26 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 11:01:50 2019
+每一步的结果数据集../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 11:02:33 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 11:02:56 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 11:03:39 2019
+每一步的结果数据集../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 11:04:17 2019
+每一步的结果数据集../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +  测量时间  Thu Oct 24 11:04:42 2019
+每一步的结果数据集../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +  测量时间  数据集../data/CA-GrQc.txt总结果2.4
+方法，真实子图+ other_center +  测量时间  

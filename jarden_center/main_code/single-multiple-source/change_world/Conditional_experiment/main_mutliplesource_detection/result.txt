@@ -1022,3 +1022,45 @@ Wed Oct 23 23:14:46 2019
 每一步的结果数据集../../../data/CA-GrQc.txt4.5
 方法，真实子图+ other_center +   距离中心  数据集../../../data/CA-GrQc.txt总结果3.4
 方法，真实子图+ other_center +   距离中心  
+Wed Oct 23 23:39:51 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 23:40:35 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 23:41:35 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Wed Oct 23 23:42:10 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 07:53:15 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 07:54:01 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 07:54:56 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 07:56:10 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 07:57:22 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 07:58:07 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 07:59:26 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.0
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 08:00:25 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 08:01:12 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 08:02:19 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 08:03:13 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 08:03:55 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 08:04:46 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 08:05:33 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 08:06:45 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Thu Oct 24 08:07:48 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  数据集../../../data/CA-GrQc.txt总结果3.275
+方法，真实子图+ other_center +   距离中心  

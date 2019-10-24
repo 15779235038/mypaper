@@ -297,7 +297,6 @@ def constract_Infection_netWork(G,SourceList):
         if count / G.number_of_nodes() > 0.3:
             print('超过50%节点了，不用传播啦')
             break
-    # .infectG = G
     return G
 
 
@@ -311,44 +310,49 @@ def constract_Infection_netWork(G,SourceList):
 
 传播方案1：从源点开始往外面传播，按照队列传播形式
 '''
-def   propagation(G,SourceList):
+def   propagation_withT(G,SourceList,T):
+    G_temp = nx.Graph()
+    G_temp = copy.deepcopy(G)
     '''
     :param G:
     :param SourceList:
     :return:
     '''
-    y_list =[]
-    queue = []
+    queue = set()
     for source in SourceList:
-        G.node[source]['SI'] = 2
-        queue.append(source)
+        G_temp.node[source]['SI'] = 2
+        queue.add(source)
+    # progation_number = 0
+    count1 = 0
     while 1:
-            propagation_layer_list = [] #传播的BFS某一层
-            while len(queue) > 0:
-                propagation_layer_list.append(queue.pop(0))  #总是删除第一个
-            print('第几层为'+str(propagation_layer_list))
-            for source in propagation_layer_list:
-                for height in list(G.neighbors(source)):
-                    randnum = random.random()
-                    if randnum < 0.5:
-                        G.node[height]['SI'] = 2
-                        #如果被传播，那就将邻接节点放入队列中。
-                        queue.append(height)
-            propagation_layer_list.clear()
-            count = 0
-            for nodetemp in list(G.nodes):
-                if G.node[nodetemp]['SI'] == 2:
-                    count = count + 1
-            y_list.append(count)
-            print('被感染点为' + str(count) + '个')
-            if count / G.number_of_nodes() > 0.5:
-                print('超过50%节点了，不用传播啦')
-                break
+        propagation_layer_list = []  # 传播的BFS某一层
+        propagation_layer_list.extend(list(queue))  # 总是删除第一个。这里不删除
+        print('第几层为' + str(len(propagation_layer_list)))
+        for source in propagation_layer_list:
+            for height in list(G_temp.neighbors(source)):
+                randnum = random.random()
+                if randnum < 0.5:
+                    G_temp.node[height]['SI'] = 2
+                    G_temp.add_edge(source, height, isInfect=1)
+                    # 如果被传播，那就将邻接节点放入队列中。
+                    queue.add(height)
+        propagation_layer_list.clear()
+        # queue_set = list(set(queue))
+        count = 0
+        for nodetemp in list(G.nodes):
+            if G_temp.node[nodetemp]['SI'] == 2:
+                count = count + 1
 
-            # 数据进去图，看看
-    # x_list = [i for i in range(len(y_list))]
-    # plot(x_list, y_list, 'pro')
-    return G
+        print('被感染点为' + str(count) + '个')
+        # progation_number += 1
+        count1 += 1
+        if count1 == T:
+            print('超过50%节点了，不用传播啦')
+            break
+    # 数据进去图，看看
+
+    return G_temp
+
 
 
 
@@ -951,6 +955,22 @@ def getSimilir1( ulist, hlist, singleRegionList, infectionG):
             ratio = 1.0 - ratios
             # print('在u为' + str(ulist) + 'h为' + str(hlist) + '情况下的覆盖率' + str(ratio))
             return abs(ratio)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

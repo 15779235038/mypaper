@@ -681,3 +681,45 @@ Wed Oct 23 23:35:45 2019
 数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果1.0
 数据集../../data/4_regular_graph_3000_data.txt总结果3.025
 
+Wed Oct 23 23:39:17 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果3.5
+Wed Oct 23 23:39:38 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果3.5
+Wed Oct 23 23:39:54 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果3.5
+Wed Oct 23 23:40:09 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果6.0
+Wed Oct 23 23:40:27 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果4.5
+Wed Oct 23 23:40:37 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果4.0
+Wed Oct 23 23:40:49 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果3.0
+Wed Oct 23 23:41:01 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果1.5
+Wed Oct 23 23:41:24 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果5.0
+Wed Oct 23 23:41:35 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果2.5
+Wed Oct 23 23:41:45 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果4.5
+Wed Oct 23 23:42:03 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果1.5
+Wed Oct 23 23:42:19 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果1.0
+Wed Oct 23 23:42:40 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果5.0
+Wed Oct 23 23:42:49 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果1.5
+Wed Oct 23 23:43:01 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果4.5
+Thu Oct 24 07:53:03 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果2.0
+Thu Oct 24 07:53:26 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果3.0
+Thu Oct 24 07:53:40 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果4.0
+Thu Oct 24 07:53:51 2019
+数据集../../data/4_regular_graph_3000_data.txt方法mis+反转算法每一步的结果3.0
+数据集../../data/4_regular_graph_3000_data.txt总结果3.35
+

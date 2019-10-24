@@ -12,6 +12,7 @@ import sys
 import copy
 import Partion_common
 import commons
+import math
 
 import Use_uninfected_node
 import Partion_graph
@@ -47,27 +48,26 @@ class Mutiple_source:
         return Gc
 
 
+    #封装函数，传入传播子图以及两个点按照距离分区。传回两个区域。
+    def get_partion(self, subinfecG, two_center_list):
+        
 
 
-
-
-    '''
-      #设计本类用来组合所有步骤。
-
-      1 
-
-    '''
-    #产生大量集合，返回被截断的区域。
-    def   product_many_region(self, p, t, infectG,subinfetG,true_list):
-        #这里的随便，我就用源点了。
-        for i  in true_list:
-            G_temp=commons.propagation1(infectG,i,number =2)
+        pass
 
 
 
 
 
 
+
+
+
+    # 产生大量集合，返回被截断的区域。
+    def product_many_region(self, p, t, infectG, subinfetG, true_list):
+        # 这里的随便，我就用源点了。
+        for i in true_list:
+            G_temp = commons.propagation1(infectG, i, number=2)
 
         pass
 
@@ -97,27 +97,17 @@ class Mutiple_source:
         1  借助概率p= 0，5以及不同的时间t生成大量的集合。假设知道时间吧。
         2 然后用这些集合去覆盖感染区域，尽可能让blue中点多，而红色区域少。
             这种方法还可以用来确定种子节点的。
-            
-        
+
+
         '''
 
         # 1  抽取子图操作，共有3种抽取子图操作。我们选择那3种呢?
         subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
 
         '''''''# 2 分区，分区的太多了，我们看看那种好。'''
-
-        self.product_many_region(0.5,6,infectG,subinfectG,source_list)
-
-
-
-
-
-
-
-
-
         partion_graph_object = Partion_graph.Partion_graph()
         result = partion_graph_object.other_k_center(infectG, subinfectG, source_list, source_number=2)
+
 
         single_Source_detection_object = single_Source_detection.Single_source()
         print('result', result)
@@ -128,24 +118,60 @@ class Mutiple_source:
 
             3  针对2传回来的多个区域，开始定位源点。
          '''
+
+        h_T = 0
         for community in result:
             subsubinfectG = nx.Graph()
             for edge in list(subinfectG.edges()):
                 if edge[0] in community and (edge[1] in community):
                     subsubinfectG.add_edge(edge[0], edge[1])
+                    subsubinfectG.add_node(edge[0],SI=1)
+                    subsubinfectG.add_node(edge[1], SI=1)
             # 看下图连通吗。
             maxsubsubinfectG = self.judge_data(subsubinfectG)
             # 开始单源定位了。
             '''jar center'''
-            # source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
-            source_node = single_Source_detection_object.single_source_bydistance_coverage(infectG, maxsubsubinfectG)
+            source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+            # source_node = single_Source_detection_object.single_source_bydistance_coverage(infectG, maxsubsubinfectG)
             #
             # source_node = single_Source_detection_object.single_source_bydistance(maxsubsubinfectG)
-
+            # 定出两个源点后，由于增加或者缺失部分信息。我们找出源点与边界点的平均距离长度为半径。
+            #找出边界点,被感染而且度为1。
+            bound_list =[ ]
+            distanc_all =0
+            length_source_dict = nx.nx.single_source_bellman_ford_path_length(maxsubsubinfectG, source=source_node[0])
+            for node in list(maxsubsubinfectG.nodes()):
+                if  nx.degree(maxsubsubinfectG,node)==1:
+                    distanc_all += length_source_dict[node]
+                    bound_list.append(node)
+            print('bound_list', (len(bound_list)))
+            h_T = math.ceil(distanc_all/(len(bound_list)))
+            print('distanc_all/(len(bound_list)))', distanc_all/(len(bound_list)))
             result_source_list.append(source_node[0])
 
-        distance = commons.cal_distance(max_sub_graph, source_list, result_source_list)
 
+
+
+
+
+        #现在就是覆盖问题，有一个覆盖率的问题，从两个源点开始传播。直到两个区域很好的拟合传播图。
+
+        for nodes in list(infectG.nodes()):
+            infectG.node[nodes]["SI"] = 1
+        #先用真实的传播试试。
+
+        G_temp= commons.propagation_withT(infectG,source_list,h_T+2)
+        # G_temp2= commons.propagation_withT(G_temp,[source_list],h_T)
+        node_temp1 = []
+        for node_Gtemp in list(G_temp.nodes()):
+            if G_temp.node[node_Gtemp]['SI'] == 2:
+                node_temp1.append(node_Gtemp)
+        print('subinfecg',subinfectG.number_of_nodes())
+        length=len([x for x in node_temp1 if x in list(subinfectG.nodes())])
+        print('len(common_node))',len([x for x in node_temp1 if x in list(subinfectG.nodes())]))
+        print('len(notcommon_node))',len([x for x in node_temp1 if x not in list(subinfectG.nodes())]))
+        print('ratio',length/subinfectG.number_of_nodes())
+        distance = commons.cal_distance(max_sub_graph, source_list, result_source_list)
         return distance
 
 
@@ -164,8 +190,8 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     # filname = '../../../data/4_regular_graph_3000_data.txt'
-    filname = '../../../data/CA-GrQc.txt'
-    method = '方法，真实子图+ other_center +   距离中心  '
+    filname = '../data/CA-GrQc.txt'
+    method = '方法，真实子图+ other_center +  测量时间  '
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
