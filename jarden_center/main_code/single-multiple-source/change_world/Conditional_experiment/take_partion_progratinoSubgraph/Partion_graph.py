@@ -424,6 +424,18 @@ class Partion_graph:
         print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[2][0]))
         print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[2][1]))
 
+
+
+        #根据最远得点，把我们的那个啥，分区，然后利用消息传播算法。  
+
+
+
+
+
+
+
+
+
         pass
 
 
