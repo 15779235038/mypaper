@@ -111,12 +111,10 @@ class Mutiple_source:
         2 然后用这些集合去覆盖感染区域，尽可能让blue中点多，而红色区域少。
             这种方法还可以用来确定种子节点的。
 
-
         '''
 
         # 1  抽取子图操作，共有3种抽取子图操作。我们选择那3种呢?
         subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
-
         '''''''# 2 分区，分区的太多了，我们看看那种好。'''
         partion_graph_object = Partion_graph.Partion_graph()
         result = partion_graph_object.other_k_center(infectG, subinfectG, source_list, source_number=2)
@@ -133,8 +131,9 @@ class Mutiple_source:
          '''
         h_T = 0
         result_source=[]
+        result_source_list = []
         while 1:
-            result_source_list=[]
+            result_source_list.clear()
             for community in result:
                 subsubinfectG = nx.Graph()
                 for edge in list(subinfectG.edges()):
@@ -146,37 +145,19 @@ class Mutiple_source:
                 maxsubsubinfectG = self.judge_data(subsubinfectG)
                 # 开始单源定位了。
                 source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+                # source_node = single_Source_detection_object.single_source_bydistance(maxsubsubinfectG)
+                # source_node = single_Source_detection_object.single_source_bydistance_coverage(infectG,maxsubsubinfectG,source_list)
+
                 result_source_list.append(source_node[0])
             result_source.append(result_source_list)
             print('上次的是', result_source[-1])
             print('这次是', result_source_list)
             if sorted(result_source[-1]) == sorted(result_source_list):
                 break
-
             result = self.get_partion(subinfectG, result_source_list)
 
 
 
-
-
-        #
-        # #现在就是覆盖问题，有一个覆盖率的问题，从两个源点开始传播。直到两个区域很好的拟合传播图。
-        #
-        # for nodes in list(infectG.nodes()):
-        #     infectG.node[nodes]["SI"] = 1
-        # #先用真实的传播试试。
-        #
-        # G_temp= commons.propagation_withT(infectG,source_list,h_T+2)
-        # # G_temp2= commons.propagation_withT(G_temp,[source_list],h_T)
-        # node_temp1 = []
-        # for node_Gtemp in list(G_temp.nodes()):
-        #     if G_temp.node[node_Gtemp]['SI'] == 2:
-        #         node_temp1.append(node_Gtemp)
-        # print('subinfecg',subinfectG.number_of_nodes())
-        # length=len([x for x in node_temp1 if x in list(subinfectG.nodes())])
-        # print('len(common_node))',len([x for x in node_temp1 if x in list(subinfectG.nodes())]))
-        # print('len(notcommon_node))',len([x for x in node_temp1 if x not in list(subinfectG.nodes())]))
-        # print('ratio',length/subinfectG.number_of_nodes())
         distance = commons.cal_distance(max_sub_graph, source_list, result_source_list)
         return distance
 
