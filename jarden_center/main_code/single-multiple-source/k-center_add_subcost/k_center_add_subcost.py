@@ -129,46 +129,54 @@ class Mutiple_source:
 
         '''
 
-            3  针对2传回来的多个区域，开始定位源点。
+            3  针对2传回来的多个区域，开始定位源点。直到单源定位稳定下来。
          '''
         h_T = 0
-        for community in result:
-            subsubinfectG = nx.Graph()
-            for edge in list(subinfectG.edges()):
-                if edge[0] in community and (edge[1] in community):
-                    subsubinfectG.add_edge(edge[0], edge[1])
-                    subsubinfectG.add_node(edge[0],SI=1)
-                    subsubinfectG.add_node(edge[1], SI=1)
-            # 看下图连通吗。
-            maxsubsubinfectG = self.judge_data(subsubinfectG)
-            # 开始单源定位了。
-            '''jar center'''
-            source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
-            result_source_list.append(source_node[0])
-            result = self.get_partion(subinfectG,result_source_list)
+        result_source=[]
+        while 1:
+            result_source_list=[]
+            for community in result:
+                subsubinfectG = nx.Graph()
+                for edge in list(subinfectG.edges()):
+                    if edge[0] in community and (edge[1] in community):
+                        subsubinfectG.add_edge(edge[0], edge[1])
+                        subsubinfectG.add_node(edge[0],SI=1)
+                        subsubinfectG.add_node(edge[1], SI=1)
+                # 看下图连通吗。
+                maxsubsubinfectG = self.judge_data(subsubinfectG)
+                # 开始单源定位了。
+                source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+                result_source_list.append(source_node[0])
+            result_source.append(result_source_list)
+            print('上次的是', result_source[-1])
+            print('这次是', result_source_list)
+            if sorted(result_source[-1]) == sorted(result_source_list):
+                break
+
+            result = self.get_partion(subinfectG, result_source_list)
 
 
 
 
 
-
-        #现在就是覆盖问题，有一个覆盖率的问题，从两个源点开始传播。直到两个区域很好的拟合传播图。
-
-        for nodes in list(infectG.nodes()):
-            infectG.node[nodes]["SI"] = 1
-        #先用真实的传播试试。
-
-        G_temp= commons.propagation_withT(infectG,source_list,h_T+2)
-        # G_temp2= commons.propagation_withT(G_temp,[source_list],h_T)
-        node_temp1 = []
-        for node_Gtemp in list(G_temp.nodes()):
-            if G_temp.node[node_Gtemp]['SI'] == 2:
-                node_temp1.append(node_Gtemp)
-        print('subinfecg',subinfectG.number_of_nodes())
-        length=len([x for x in node_temp1 if x in list(subinfectG.nodes())])
-        print('len(common_node))',len([x for x in node_temp1 if x in list(subinfectG.nodes())]))
-        print('len(notcommon_node))',len([x for x in node_temp1 if x not in list(subinfectG.nodes())]))
-        print('ratio',length/subinfectG.number_of_nodes())
+        #
+        # #现在就是覆盖问题，有一个覆盖率的问题，从两个源点开始传播。直到两个区域很好的拟合传播图。
+        #
+        # for nodes in list(infectG.nodes()):
+        #     infectG.node[nodes]["SI"] = 1
+        # #先用真实的传播试试。
+        #
+        # G_temp= commons.propagation_withT(infectG,source_list,h_T+2)
+        # # G_temp2= commons.propagation_withT(G_temp,[source_list],h_T)
+        # node_temp1 = []
+        # for node_Gtemp in list(G_temp.nodes()):
+        #     if G_temp.node[node_Gtemp]['SI'] == 2:
+        #         node_temp1.append(node_Gtemp)
+        # print('subinfecg',subinfectG.number_of_nodes())
+        # length=len([x for x in node_temp1 if x in list(subinfectG.nodes())])
+        # print('len(common_node))',len([x for x in node_temp1 if x in list(subinfectG.nodes())]))
+        # print('len(notcommon_node))',len([x for x in node_temp1 if x not in list(subinfectG.nodes())]))
+        # print('ratio',length/subinfectG.number_of_nodes())
         distance = commons.cal_distance(max_sub_graph, source_list, result_source_list)
         return distance
 
@@ -189,7 +197,7 @@ if __name__ == '__main__':
 
     # filname = '../../../data/4_regular_graph_3000_data.txt'
     filname = '../data/CA-GrQc.txt'
-    method = '方法，真实子图+ other_center +  测量时间  '
+    method = '方法，真实子图+ other_center +  单源定位稳定下来。  '
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
