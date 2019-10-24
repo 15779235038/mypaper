@@ -50,10 +50,23 @@ class Mutiple_source:
 
     #封装函数，传入传播子图以及两个点按照距离分区。传回两个区域。
     def get_partion(self, subinfecG, two_center_list):
-        
+        node_twolist = [[], []]
+        lengthA_dict = nx.single_source_bellman_ford_path_length(subinfecG, two_center_list[0],
+                                                                 weight='weight')
+        lengthB_dict = nx.single_source_bellman_ford_path_length(subinfecG, two_center_list[1],
+                                                                 weight='weight')
+        for node in list(subinfecG.nodes):
+            if lengthA_dict[node] > lengthB_dict[node]:  # 这个点离b近一些。
+                node_twolist[1].append(node)
+            elif lengthA_dict[node] < lengthB_dict[node]:
+                node_twolist[0].append(node)
+            else:
+                node_twolist[0].append(node)
+                node_twolist[1].append(node)
+        print('len(node_twolist[0]', len(node_twolist[0]))
+        print('len(node_twolist[1]', len(node_twolist[1]))
+        return node_twolist
 
-
-        pass
 
 
 
@@ -118,7 +131,6 @@ class Mutiple_source:
 
             3  针对2传回来的多个区域，开始定位源点。
          '''
-
         h_T = 0
         for community in result:
             subsubinfectG = nx.Graph()
@@ -132,22 +144,8 @@ class Mutiple_source:
             # 开始单源定位了。
             '''jar center'''
             source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
-            # source_node = single_Source_detection_object.single_source_bydistance_coverage(infectG, maxsubsubinfectG)
-            #
-            # source_node = single_Source_detection_object.single_source_bydistance(maxsubsubinfectG)
-            # 定出两个源点后，由于增加或者缺失部分信息。我们找出源点与边界点的平均距离长度为半径。
-            #找出边界点,被感染而且度为1。
-            bound_list =[ ]
-            distanc_all =0
-            length_source_dict = nx.nx.single_source_bellman_ford_path_length(maxsubsubinfectG, source=source_node[0])
-            for node in list(maxsubsubinfectG.nodes()):
-                if  nx.degree(maxsubsubinfectG,node)==1:
-                    distanc_all += length_source_dict[node]
-                    bound_list.append(node)
-            print('bound_list', (len(bound_list)))
-            h_T = math.ceil(distanc_all/(len(bound_list)))
-            print('distanc_all/(len(bound_list)))', distanc_all/(len(bound_list)))
             result_source_list.append(source_node[0])
+            result = self.get_partion(subinfectG,result_source_list)
 
 
 
