@@ -65,13 +65,8 @@ class Seed_single_source:
 
        思路：从每个点计算一次djstra方法，统计距离。
        传入的是原始图
-
        效果：在树上效果好。
-
        '''
-
-
-
     # 种子节点的看看都在那里
     def single_source_bydistance_coverage_SECOND(self, infectG, subinfectG, true_source):
         sort_dict = commons.partion_layer_dict(infectG, 10)  # 分层

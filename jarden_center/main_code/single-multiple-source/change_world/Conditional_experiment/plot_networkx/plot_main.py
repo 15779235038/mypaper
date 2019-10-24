@@ -64,7 +64,7 @@ def plot_G_node_color(infectG,subinfectG,nodelist,two_source_list):
 
 
 
-initG = commons.get_networkByFile('../../../data/2regular_tree9.txt')
-plot_G(initG)
-
-plot_G_node_color(initG,[1])
+# initG = commons.get_networkByFile('../../../data/2regular_tree9.txt')
+# plot_G(initG)
+#
+# plot_G_node_color(initG,[1])

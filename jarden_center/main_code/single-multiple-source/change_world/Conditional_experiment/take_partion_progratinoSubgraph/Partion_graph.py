@@ -398,10 +398,10 @@ class Partion_graph:
 
 
     #分区，首先进行单源定位，然后找两个最远的点。进行BFS直到遇到单源定位的源远。停止。
-    def randmo_BFS(self,infectG,subinfectG):
+    def randmo_BFS(self,infectG,subinfectG,true_list):
 
 
-        single_source = commons.revsitionAlgorithm_singlueSource(subinfectG)
+        # single_source = commons.revsitionAlgorithm_singlueSource(subinfectG)
         distance_iter = nx.shortest_path_length(subinfectG)
         everynode_distance = []
         for node, node_distance in distance_iter:
@@ -415,18 +415,77 @@ class Partion_graph:
 
         #从两个最远的点进行BFS直到找到单源的位置。
 
-        print(nx.shortest_path_length(infectG,source=single_source[0],target=sort_every_distance[0][0]))
-        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[0][1]))
+        # print(nx.shortest_path_length(infectG,source=single_source[0],target=sort_every_distance[0][0]))
+        # print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[0][1]))
+        #
+        # print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[1][0]))
+        # print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[1][1]))
+        #
+        # print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[2][0]))
+        # print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[2][1]))
 
-        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[1][0]))
-        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[1][1]))
-
-        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[2][0]))
-        print(nx.shortest_path_length(infectG, source=single_source[0], target=sort_every_distance[2][1]))
 
 
+        # #根据最远得点，把我们的那个啥，分区，然后利用分区点进行单源定位。。
+        node_twolist = [[], []]
+        lengthA_dict = nx.single_source_bellman_ford_path_length(subinfectG, sort_every_distance[0][0],
+                                                                 weight='weight')
+        lengthB_dict = nx.single_source_bellman_ford_path_length(subinfectG, sort_every_distance[0][1],
+                                                                 weight='weight')
+        for node in list(subinfectG.nodes):
+            if lengthA_dict[node] > lengthB_dict[node]:  # 这个点离b近一些。
+                node_twolist[1].append(node)
+            elif lengthA_dict[node] < lengthB_dict[node]:
+                node_twolist[0].append(node)
+            # else:
+            #     node_twolist[0].append(node)
+            #     node_twolist[1].append(node)
+        print('len(node_twolist[0]', len(node_twolist[0]))
+        print('len(node_twolist[1]', len(node_twolist[1]))
+        # 边界点。
+        bound_list = []
+        for node_temp in list(infectG.nodes()):
+            # print(node_temp)
+            if infectG.node[node_temp]['SI'] == 2:
+                neighbors_list = list(nx.neighbors(infectG, node_temp))
+                neighbors_infect_list = [x for x in neighbors_list if infectG.node[x]['SI'] == 2]
+                if len(neighbors_list) != 1 and len(neighbors_infect_list) == 1:
+                    # if  len(neighbors_infect_list) == 1:
+                    bound_list.append(node_temp)
 
-        #根据最远得点，把我们的那个啥，分区，然后利用消息传播算法。  
+
+
+        print('boundelist', len(bound_list))
+
+        print('len(kjlk)',len([x for x in bound_list if x in list(subinfectG.nodes())]))
+        left=[x for x in bound_list if x  in node_twolist[0] ]
+        right =[x for x in bound_list if x  in node_twolist[1] ]
+
+        print('left',left)
+        print('right',right)
+
+
+        left_source=commons.revsitionAlgorithm_singlueSource_receive(subinfectG,left)
+        right_source = commons.revsitionAlgorithm_singlueSource_receive(subinfectG, right)
+        if set(left) < set(list(subinfectG.nodes())):
+            print('left在感染点里面啊')
+        if set(right) < set(list(subinfectG.nodes())):
+            print('left在感染点里面啊')
+        print('distance',commons.cal_distance(infectG,[left_source[0],right_source[0]],true_list))
+
+
+        return node_twolist
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -862,7 +921,7 @@ class Partion_graph:
         # twosource_node_list = self.Partion_graph_K_center_seed(infectG_other,subinfectG,source_list,2)
         # twosource_node_list = self.other_k_center(infectG_other, subinfectG, source_list, 2)
 
-        twosource_node_list = self.randmo_BFS(infectG_other, subinfectG)
+        twosource_node_list = self.randmo_BFS(infectG_other, subinfectG,source_list)
         #进行覆盖率走，并进行jaya算法。
         # twosource_node_list=self.jaya_add_coverage(infectG_other)
         #进行删除边操作。

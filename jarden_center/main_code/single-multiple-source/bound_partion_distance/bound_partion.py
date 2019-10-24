@@ -84,7 +84,29 @@ class Mutiple_source:
         #求得所有点到他们的距离，把和加起来求得最小值。
 
 
+
+
+
+
+
+
+
+
+
+
         #看下是否是边界点。
+
+
+
+
+
+
+
+
+
+
+
+
 
         plot_main.plot_G_node_color(infectG,subinfecG,bound_list,two_center_list)
 
