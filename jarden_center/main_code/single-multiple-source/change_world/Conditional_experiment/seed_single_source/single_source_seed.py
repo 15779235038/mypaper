@@ -44,7 +44,7 @@ class Seed_single_source:
             for othernode, ditance in length_dict.items():
                 lens_degree = len(list(nx.neighbors(infectG, othernode)))
                 node_import += sort_dict[othernode] * lens_degree / (ditance + 1)
-            node_cal.append([node, node_import])
+            node_cal.append([node, node_import ])
         sort_list = sorted(node_cal, key=lambda x: x[1], reverse=True)
         print(sort_list)
         # print('在的', [x[0] for x in sort_list[:100] if x[0] == true_source])
@@ -52,7 +52,6 @@ class Seed_single_source:
         for index in range(0,len(sort_list)):
             if true_source == sort_list[index][0]:
                 return index
-        # return sort_list[0]
 
 
 
@@ -90,6 +89,16 @@ class Seed_single_source:
 
 
 
+    #单源种子节点，利用消息传播算法。当有接受到全部节点的1/n的节点出现时。是effect
+    #节点。某些点可以最早接受到所有源点的点。
+
+
+
+
+
+
+
+
 
 
 
@@ -114,11 +123,8 @@ class Seed_single_source:
         source_list = commons.product_sourceList(max_sub_graph, 1)
         # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
         infectG = commons.propagation1(max_sub_graph, source_list)
-
         subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
         # 将在这里进行种子节点覆盖。
-
-
         ''' 第1种，就是coverage/distance'''
         func = getattr(self,method)
         sort_partion = func(infectG, subinfectG, source_list[0])
@@ -148,7 +154,8 @@ if __name__ == '__main__':
     # method = 'distan+ covage'
     # method = 'jardan_center'
     # method ='distance'
-    method= 'single_source_bydistance_coverage_SECOND'
+    # method= 'single_source_bydistance_coverage_SECOND'
+    method='single_source_bydistance_coverage'
 
 
     for i in range(0, 20):

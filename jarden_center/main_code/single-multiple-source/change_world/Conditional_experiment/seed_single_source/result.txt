@@ -262,3 +262,105 @@ Thu Oct 24 21:42:30 2019
 每一步的结果是   730      数据集方法single_source_bydistance_coverage_SECOND../../../data/3regular_tree9.txt
 Thu Oct 24 21:42:44 2019
 每一步的结果是   644      数据集方法single_source_bydistance_coverage_SECOND../../../data/3regular_tree9.txt
+Fri Oct 25 11:50:35 2019
+每一步的结果是   707      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:50:54 2019
+每一步的结果是   867      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:51:12 2019
+每一步的结果是   905      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:51:30 2019
+每一步的结果是   303      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:51:48 2019
+每一步的结果是   795      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:52:04 2019
+每一步的结果是   292      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:52:20 2019
+每一步的结果是   241      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:52:33 2019
+每一步的结果是   739      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:52:47 2019
+每一步的结果是   865      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:53:02 2019
+每一步的结果是   8      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:53:15 2019
+每一步的结果是   638      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:53:28 2019
+每一步的结果是   663      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:53:43 2019
+每一步的结果是   807      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:53:57 2019
+每一步的结果是   249      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:54:11 2019
+每一步的结果是   296      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:54:24 2019
+每一步的结果是   102      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:54:42 2019
+每一步的结果是   951      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:54:58 2019
+每一步的结果是   851      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:55:13 2019
+每一步的结果是   249      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:55:28 2019
+每一步的结果是   885      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:59:01 2019
+每一步的结果是   1296      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:59:16 2019
+每一步的结果是   119      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:59:28 2019
+每一步的结果是   53      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:59:40 2019
+每一步的结果是   28      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 11:59:56 2019
+每一步的结果是   123      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:00:10 2019
+每一步的结果是   1344      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:00:23 2019
+每一步的结果是   1369      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:00:35 2019
+每一步的结果是   36      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:00:46 2019
+每一步的结果是   50      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:02:01 2019
+每一步的结果是   1980      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Fri Oct 25 12:03:01 2019
+每一步的结果是   1342      数据集方法single_source_bydistance_coverage../../../data/CA-GrQc.txt
+Fri Oct 25 12:03:27 2019
+每一步的结果是   975      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:03:45 2019
+每一步的结果是   1024      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:04:03 2019
+每一步的结果是   350      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:04:19 2019
+每一步的结果是   880      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:04:32 2019
+每一步的结果是   727      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:04:50 2019
+每一步的结果是   316      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:05:06 2019
+每一步的结果是   810      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:05:21 2019
+每一步的结果是   834      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:05:40 2019
+每一步的结果是   982      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:05:55 2019
+每一步的结果是   810      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:06:11 2019
+每一步的结果是   782      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:06:25 2019
+每一步的结果是   832      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:06:40 2019
+每一步的结果是   755      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:06:55 2019
+每一步的结果是   619      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:07:12 2019
+每一步的结果是   750      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:07:27 2019
+每一步的结果是   113      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:07:45 2019
+每一步的结果是   120      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:08:01 2019
+每一步的结果是   897      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:08:16 2019
+每一步的结果是   258      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt
+Fri Oct 25 12:08:33 2019
+每一步的结果是   837      数据集方法single_source_bydistance_coverage../../../data/3regular_tree9.txt

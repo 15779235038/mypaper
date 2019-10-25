@@ -416,6 +416,75 @@ def   propagation1(G,SourceList,number =1):
 
 
 
+
+
+
+
+
+
+'''
+1 IC传播模型，试试。
+
+
+'''
+def   propagation_IC(G,SourceList,number =1):
+
+    y_list =[]
+    G_temp = nx.Graph()
+    G_temp = copy.deepcopy(G)
+    '''
+    :param G:
+    :param SourceList:
+    :return:
+    '''
+    queue = set()
+    for source in SourceList:
+        G_temp.node[source]['SI'] = 2
+        queue.add(source)
+    # progation_number = 0
+    while 1:
+            propagation_layer_list = [] #传播的BFS某一层
+            propagation_layer_list.extend(list(queue)) #总是删除第一个。这里不删除
+            print('第几层为'+str(len(propagation_layer_list)))
+            for source in propagation_layer_list:
+                for height in list(G_temp.neighbors(source)):
+                    randnum = random.random()
+                    if randnum < 0.5:
+                        G_temp.node[height]['SI'] = 2
+                        G_temp.add_edge(source, height, isInfect = 1)
+                        #如果被传播，那就将邻接节点放入队列中。
+                        queue.add(height)
+            propagation_layer_list.clear()
+            # queue_set = list(set(queue))
+            count = 0
+            for nodetemp in list(G.nodes):
+                if G_temp.node[nodetemp]['SI'] == 2:
+                    count = count + 1
+            y_list.append(count)
+            print('被感染点为' + str(count) + '个')
+            # progation_number += 1
+            if count / G_temp.number_of_nodes() > 0.5:
+                print('超过50%节点了，不用传播啦')
+                break
+    #数据进去图，看看
+
+
+    return G_temp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import copy
 
 '''
