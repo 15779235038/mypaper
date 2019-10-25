@@ -211,8 +211,8 @@ if __name__ == '__main__':
 
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
-    filname = '../../data/4_regular_graph_3000_data.txt'
-    # filname = '../../data/CA-GrQc.txt'
+    # filname = '../../data/4_regular_graph_3000_data.txt'
+    filname = '../../data/CA-GrQc.txt'
     # filname = '../../data/facebook_combined.txt'
 
     method = 'mis+反转算法'
