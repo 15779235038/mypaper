@@ -23,7 +23,7 @@ def ContractDict(dir, G):
 # G=nx.random_tree(3000)
 #生成1000个节点树图
 
-G= nx.balanced_tree(2,4)
+G= nx.balanced_tree(3,4)
 
 print (len(list(G.nodes)))
 print (len(list(G.edges)))

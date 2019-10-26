@@ -3,7 +3,7 @@ import  commons
 import matplotlib.pyplot as plt
 import  networkx as nx
 def   plot_G(G):
-    nx.draw_networkx(G, node_size=0.1,node_color='red')
+    nx.draw_networkx(G, node_size=20,node_color='red')
     plt.show()
     plt.savefig('test.png')
     plt.close()
@@ -64,7 +64,7 @@ def plot_G_node_color(infectG,subinfectG,nodelist,two_source_list):
 
 
 
-# initG = commons.get_networkByFile('../../../data/2regular_tree9.txt')
-# plot_G(initG)
-#
+initG = commons.get_networkByFile('../../../data/2regular_tree9.txt')
+plot_G(initG)
+
 # plot_G_node_color(initG,[1])
