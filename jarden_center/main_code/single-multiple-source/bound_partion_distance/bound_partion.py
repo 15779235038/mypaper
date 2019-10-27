@@ -246,8 +246,8 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     # filname = '../../../data/4_regular_graph_3000_data.txt'
-    filname = '../data/CA-GrQc.txt'
-    # filname = '../data/3regular_tree9.txt'
+    # filname = '../data/CA-GrQc.txt'
+    filname = '../data/3regular_tree9.txt'
     method = '方法，真实子图+ other_center +  单源定位稳定下来。  '
     for i in range(0, 20):
         tempresult = test.main(filname)
