@@ -111,17 +111,13 @@ class Mutiple_source:
             maxsubsubinfectG= self.judge_data(subsubinfectG)
             #开始单源定位了。
             '''jar center'''
-            # # source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
-            source_node =  single_Source_detection_object.single_source_bydistance_coverage(infectG,maxsubsubinfectG,source_list)
+            source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(maxsubsubinfectG)
+            # source_node =  single_Source_detection_object.single_source_bydistance_coverage(infectG,maxsubsubinfectG,source_list)
             #
             # source_node = single_Source_detection_object.single_source_bydistance(maxsubsubinfectG)
-
-
             result_source_list.append(source_node[0])
 
         distance = commons.cal_distance(max_sub_graph,source_list,result_source_list)
-
-
         return distance
 
 

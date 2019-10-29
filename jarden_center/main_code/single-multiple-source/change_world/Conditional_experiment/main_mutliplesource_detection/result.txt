@@ -1064,3 +1064,20 @@ Wed Oct 23 23:39:51 2019
 每一步的结果数据集../../../data/CA-GrQc.txt3.5
 方法，真实子图+ other_center +   距离中心  数据集../../../data/CA-GrQc.txt总结果3.275
 方法，真实子图+ other_center +   距离中心  
+Tue Oct 29 15:17:11 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.0
+方法，真实子图+ other_center +   距离中心  Tue Oct 29 15:17:42 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.5
+方法，真实子图+ other_center +   距离中心  Tue Oct 29 15:18:15 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Tue Oct 29 15:18:58 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Tue Oct 29 15:19:45 2019
+每一步的结果数据集../../../data/CA-GrQc.txt3.5
+方法，真实子图+ other_center +   距离中心  Tue Oct 29 15:20:26 2019
+每一步的结果数据集../../../data/CA-GrQc.txt2.0
+方法，真实子图+ other_center +   距离中心  Tue Oct 29 15:21:19 2019
+每一步的结果数据集../../../data/CA-GrQc.txt4.5
+方法，真实子图+ other_center +   距离中心  Tue Oct 29 19:04:30 2019
+每一步的结果数据集../../../data/CA-GrQc.txt1.5
+方法，真实子图+ other_center +   距离中心  
