@@ -177,6 +177,21 @@ class Single_source:
 
 
 
+    '''
+    
+    第6种方法，就是利用2018年的那篇。
+    Classifying Quality Centrality for Source
+    '''
+    def  single_source_byQuality_centrality(self,infectG,subinfectG):
+        #你好，再见
+
+        
+        pass
+
+
+
+
+
 
 
 
