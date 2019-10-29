@@ -771,6 +771,8 @@ def partion_layer_dict(G,number_layer= 10):
             count = len([x for x in neighbor_list if G_temp.node[x]['SI'] == 2])
             neighbor_list_len = len(neighbor_list)
             node_dict[nodes]=count / neighbor_list_len
+        else:
+            node_dict[nodes] = 0
     return node_dict
 
 

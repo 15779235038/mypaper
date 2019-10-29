@@ -22,7 +22,7 @@ class Seed_single_source:
 
     '''
     第一种覆盖率计算，
-    公式为： a点=  a周围所有的点周围被感染的点数目 / 离这个a点距离  
+    公式为： a点=  a周围h远的点周围被感染的点数目 /h远所有点，数目。其实就是一个密度的概念。
     我们提出一种新的单源定位方法，基于覆盖率计算的。
     统计每个点对于整个感染图的每个点计算公式，包括距离中心和覆盖率中心的综合计算方式。
     公式等于覆盖率/距离,越大越好。
@@ -40,10 +40,20 @@ class Seed_single_source:
         node_cal = []
         for node in subinfectG:
             node_import = 0
-            length_dict = nx.single_source_bellman_ford_path_length(subinfectG, source=node, weight='weight')
-            for othernode, ditance in length_dict.items():
-                lens_degree = len(list(nx.neighbors(infectG, othernode)))
-                node_import += sort_dict[othernode] * lens_degree / (ditance + 1)
+            length_dict = nx.single_source_bellman_ford_path_length(infectG, source=node, weight='weight')
+            #获取附近3层节点得覆盖率来计算某个点的重要性，越靠近中心，覆盖率越高。
+            root = node
+            edges = nx.bfs_edges(infectG, root, depth_limit=3)
+            nodes = [root] + [v for u, v in edges]
+            neihbor_h_len = len(nodes)
+            count1 = 0
+            for neihbor_h_node in nodes:
+                if infectG.node[neihbor_h_node]['SI']==2:
+                    count1 += 1
+            node_import = count1 / neihbor_h_len
+            # for neihbor_h in nodes:
+            #     lens_degree = len(list(nx.neighbors(infectG, neihbor_h)))
+            #     node_import += sort_dict[neihbor_h] * lens_degree/neihbor_h_len
             node_cal.append([node, node_import ])
         sort_list = sorted(node_cal, key=lambda x: x[1], reverse=True)
         print(sort_list)
@@ -160,8 +170,6 @@ if __name__ == '__main__':
 
     for i in range(0, 20):
         tempresult = test.main(filname,method)
-
-
         with open('result.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')
