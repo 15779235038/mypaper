@@ -181,11 +181,18 @@ class Single_source:
     
     第6种方法，就是利用2018年的那篇。
     Classifying Quality Centrality for Source
+    
+    1 找出原始图最大子图，然后找出所有感染点为M+，所有非感染点为M-。
+    2 遍历每个点，计算每个点跟它们的距离。再计算平均值。
     '''
     def  single_source_byQuality_centrality(self,infectG,subinfectG):
         #你好，再见
+        m_list_add = [x for x in list(infectG.nodes()) if infectG.node[x]['SI']== 2]
+        m_list_dif = [x for x in list(infectG.nodes()) if infectG.node[x]['SI'] == 1]
+        print('len(m_list_dif',len(m_list_dif))
+        print(subinfectG.number_of_nodes())
 
-        
+
         pass
 
 
@@ -219,6 +226,10 @@ class Single_source:
 
         # '''  第3种，距离中心'''
         # result_node = self.single_source_bydistance( subinfectG)
+
+
+        #'''  第6种，质量距离中心'''
+
 
 
         print('真实源是',source_list[0])
