@@ -5,3 +5,4 @@
 | dis+coverage | 0.45 | 3.25 |  5.75
 | jarcen center | 2.2 | 2.4 |  6.65
 | distance center | 0.25 | 3.8 |  6
+| 质量中心  |333 | 6.75| 9.6

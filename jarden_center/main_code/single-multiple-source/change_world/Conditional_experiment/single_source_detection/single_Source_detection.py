@@ -175,7 +175,8 @@ class Single_source:
     利用边界点做一个k-core想法。
     '''
 
-
+    def effectDistance(self, probily):
+        return 1 - math.log(probily)
 
     '''
     
@@ -187,13 +188,41 @@ class Single_source:
     '''
     def  single_source_byQuality_centrality(self,infectG,subinfectG):
         #你好，再见
+        for edge in infectG.edges:
+            # G.add_edge(edge[0], edge[1], weight=1)
+            randomnum = random.random()
+            infectG.add_edge(edge[0], edge[1], weight=self.effectDistance(randomnum))
+
+
+
+
+
         m_list_add = [x for x in list(infectG.nodes()) if infectG.node[x]['SI']== 2]
         m_list_dif = [x for x in list(infectG.nodes()) if infectG.node[x]['SI'] == 1]
-        print('len(m_list_dif',len(m_list_dif))
+        print('len(m_list_dif',len(m_list_add))
         print(subinfectG.number_of_nodes())
+        len_add= len(m_list_add)
+        len_dif = len(m_list_dif)
+        CQ_dict = defaultdict(int)
+        for node_temp in m_list_add:
+            length_dict = nx.single_source_bellman_ford_path_length(infectG,source=node_temp,weight='weight')
+            d_add_all = 0
+            d_dif_all = 0
+            d_dif_avg = 0
+            d_add_avg = 0
+            for add in m_list_add:
+                d_dif_all += length_dict[add]
+            for dif in m_list_dif:
+                d_add_all += length_dict[dif]
 
+            d_dif_avg = d_dif_all/len_dif
+            d_add_avg = d_add_all/len_add
+            CQ_dict[node_temp] = (d_dif_avg -d_add_avg)/d_add_avg
 
-        pass
+        CQ_dict_sort = sorted(CQ_dict.items(), key=lambda x: x[1],reverse=True)
+        print('CQ_dict_sort', CQ_dict_sort)
+        return CQ_dict_sort[0]
+        # pass
 
 
 
@@ -220,7 +249,7 @@ class Single_source:
         #将在这里进行单源测试。
         '''   第一种，就是jarden center '''
         #
-        result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
+        # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
         # ''' 第二种，就是coverage/distance'''
         # result_node= self.single_source_bydistance_coverage(infectG,subinfectG,source_list[0])
 
@@ -230,7 +259,7 @@ class Single_source:
 
         #'''  第6种，质量距离中心'''
 
-
+        result_node = self.single_source_byQuality_centrality(infectG,subinfectG)
 
         print('真实源是',source_list[0])
         print('预测源是',result_node[0])
@@ -255,11 +284,12 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile(filename)
     # filname = '../../../data/4_regular_graph_3000_data.txt'
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
-    filname = '../../../data/CA-GrQc.txt'
-    # filname = '../../../data/3regular_tree9.txt'
+    # filname = '../../../data/CA-GrQc.txt'
+    filname = '../../../data/3regular_tree9.txt'
     # method ='distan+ covage'
-    method = 'jardan_center'
+    # method = 'jardan_center'
     # method ='distance'
+    method = '质量中心'
 
 
 

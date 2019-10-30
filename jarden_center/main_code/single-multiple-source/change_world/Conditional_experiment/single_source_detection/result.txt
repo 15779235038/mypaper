@@ -927,3 +927,107 @@ Thu Oct 24 09:44:27 2019
 每一步的结果是   2      数据集方法jardan_center../../../data/CA-GrQc.txt
 数据集../../../data/CA-GrQc.txt方法jardan_center总结果   1.85
 
+Tue Oct 29 22:57:12 2019
+每一步的结果是   2      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 29 22:57:25 2019
+每一步的结果是   3      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 29 22:57:37 2019
+每一步的结果是   0      数据集方法jardan_center../../../data/CA-GrQc.txt
+Tue Oct 29 23:27:30 2019
+每一步的结果是   6      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:28:48 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:29:59 2019
+每一步的结果是   5      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:31:15 2019
+每一步的结果是   6      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:32:59 2019
+每一步的结果是   6      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:34:22 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:35:40 2019
+每一步的结果是   6      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:38:35 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:39:48 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:41:11 2019
+每一步的结果是   5      数据集方法质量中心../../../data/CA-GrQc.txt
+Tue Oct 29 23:42:35 2019
+每一步的结果是   6      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:42:49 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:44:18 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:45:49 2019
+每一步的结果是   6      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:47:12 2019
+每一步的结果是   6      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:48:21 2019
+每一步的结果是   6      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:49:49 2019
+每一步的结果是   8      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:51:12 2019
+每一步的结果是   11      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:52:26 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:53:41 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:54:55 2019
+每一步的结果是   5      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:56:06 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:57:21 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 08:58:51 2019
+每一步的结果是   7      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 09:00:06 2019
+每一步的结果是   8      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 09:01:31 2019
+每一步的结果是   5      数据集方法质量中心../../../data/CA-GrQc.txt
+Wed Oct 30 09:02:59 2019
+每一步的结果是   6      数据集方法质量中心../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法质量中心总结果   6.75
+
+Wed Oct 30 09:45:25 2019
+每一步的结果是   7      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:45:47 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:46:07 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:46:26 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:46:47 2019
+每一步的结果是   9      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:47:08 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:47:28 2019
+每一步的结果是   9      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:47:48 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:48:08 2019
+每一步的结果是   9      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:48:26 2019
+每一步的结果是   11      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:48:46 2019
+每一步的结果是   9      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:49:07 2019
+每一步的结果是   9      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:49:28 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:49:49 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:50:09 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:50:29 2019
+每一步的结果是   11      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:50:50 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:51:08 2019
+每一步的结果是   11      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:51:29 2019
+每一步的结果是   10      数据集方法质量中心../../../data/3regular_tree9.txt
+Wed Oct 30 09:51:48 2019
+每一步的结果是   7      数据集方法质量中心../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法质量中心总结果   9.6
+

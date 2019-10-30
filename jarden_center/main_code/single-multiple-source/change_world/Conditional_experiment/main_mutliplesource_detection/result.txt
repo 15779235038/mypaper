@@ -1206,3 +1206,45 @@ Tue Oct 29 20:11:35 2019
 每一步的结果数据集../../../data/CA-GrQc.txt1.0
 方法，真实子图+ other_center +   反转 数据集../../../data/CA-GrQc.txt总结果2.925
 方法，真实子图+ other_center +   反转 
+Tue Oct 29 23:28:53 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:29:14 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:29:30 2019
+每一步的结果数据集../../../data/3regular_tree9.txt4.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:29:45 2019
+每一步的结果数据集../../../data/3regular_tree9.txt4.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:29:59 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:30:19 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:30:40 2019
+每一步的结果数据集../../../data/3regular_tree9.txt4.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:31:00 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:31:20 2019
+每一步的结果数据集../../../data/3regular_tree9.txt4.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:31:42 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:31:57 2019
+每一步的结果数据集../../../data/3regular_tree9.txt4.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:32:18 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:32:31 2019
+每一步的结果数据集../../../data/3regular_tree9.txt1.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:32:51 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:33:11 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:33:29 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:33:46 2019
+每一步的结果数据集../../../data/3regular_tree9.txt1.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:34:01 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:34:21 2019
+每一步的结果数据集../../../data/3regular_tree9.txt4.5
+方法，真实子图+ other_center +   反转 Tue Oct 29 23:34:39 2019
+每一步的结果数据集../../../data/3regular_tree9.txt3.5
+方法，真实子图+ other_center +   反转 数据集../../../data/3regular_tree9.txt总结果3.6
+方法，真实子图+ other_center +   反转 

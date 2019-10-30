@@ -135,8 +135,8 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
 
     # filname = '../../../data/4_regular_graph_3000_data.txt'
-    # filname = '../../../data/3regular_tree9.txt'
-    filname = '../../../data/CA-GrQc.txt'
+    filname = '../../../data/3regular_tree9.txt'
+    # filname = '../../../data/CA-GrQc.txt'
 
     method ='方法，真实子图+ other_center +   反转 '
     for i in range(0, 20):
