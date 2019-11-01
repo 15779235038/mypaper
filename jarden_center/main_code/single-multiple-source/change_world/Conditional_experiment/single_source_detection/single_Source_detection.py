@@ -192,11 +192,6 @@ class Single_source:
             # G.add_edge(edge[0], edge[1], weight=1)
             randomnum = random.random()
             infectG.add_edge(edge[0], edge[1], weight=self.effectDistance(randomnum))
-
-
-
-
-
         m_list_add = [x for x in list(infectG.nodes()) if infectG.node[x]['SI']== 2]
         m_list_dif = [x for x in list(infectG.nodes()) if infectG.node[x]['SI'] == 1]
         print('len(m_list_dif',len(m_list_add))
@@ -231,6 +226,77 @@ class Single_source:
 
 
 
+    #几种中心性的性质都试一试吧。hhhh
+    def single_source_bybetweenness_centrality(self,subinfectG):
+        # 介数中心性
+        between_dict = nx.betweenness_centrality(subinfectG)
+        sort_eccentricity_dict = sorted(between_dict.items(), key=lambda x: x[1], reverse=True)
+        print('sort_eccenritci_dict', sort_eccentricity_dict)
+
+
+
+        # #特征向量中心性。
+        # centrality = nx.eigenvector_centrality(subinfectG)
+        # sort_eigener_centrality = sorted(centrality.items(), key=lambda x: x[1], reverse=True)
+        # print('eigenvector_centrality', sort_eigener_centrality)
+        # # self.center = sort_eigener_centrality[0][0]
+
+        import math
+        # Kaza中心性
+        # G = nx.path_graph(4)
+        # maxnumber = max(nx.adjacency_spectrum(subinfectG))
+        # print(maxnumber)
+        # phi = (1 + math.sqrt(5)) / 2.0  # largest eigenvalue of adj matrix
+        # centrality = nx.katz_centrality(subinfectG, 1/ maxnumber -0.01)
+        # katz_centrality = sorted(centrality.items(), key=lambda x: x[1], reverse=True)
+        # print('katz_centrality',katz_centrality)
+
+        # center_list = []
+        # center_list.append(sort_eccentricity_dict[0][0])
+        # center_list.append(sort_colse_centrality_dict[0][0])
+        # center_list.append(sort_degree_centrality[0][0])
+        # center_list.append(sort_eigener_centrality[0][0])
+        # center_list.append(katz_centrality[0][0])
+
+        # return center_list
+        return sort_eccentricity_dict[0]
+
+    #接近度中心性
+    def  single_source_bycloseness_centrality(self,subinfectG):
+
+        #   接近度中心性
+        closeness_centrality = nx.closeness_centrality(subinfectG)
+        sort_colse_centrality_dict = sorted(closeness_centrality.items(), key=lambda x: x[1], reverse=True)
+        print('sort_colse_centrality_dict', sort_colse_centrality_dict)
+
+        return sort_colse_centrality_dict[0]
+
+    #degree_centrali
+    def  single_source_bydegree_centrality(self,subinfectG):
+
+        #   度中心性，这个效果最好，简直了。
+        degree_centrality = nx.degree_centrality(subinfectG)
+        sort_degree_centrality = sorted(degree_centrality.items(), key=lambda x: x[1], reverse=True)
+        print('sort_degree_centrality', sort_degree_centrality)
+
+        return sort_degree_centrality[0]
+
+    #特征向量中心性
+    def single_source_byeigenvector_centrality(self, subinfectG):
+
+        #特征向量中心性。
+        centrality = nx.eigenvector_centrality(subinfectG,max_iter=1000)
+        sort_eigener_centrality = sorted(centrality.items(), key=lambda x: x[1], reverse=True)
+        print('eigenvector_centrality', sort_eigener_centrality)
+        # self.center = sort_eigener_centrality[0][0]
+        return sort_eigener_centrality[0]
+
+
+
+
+
+
+
     '''
       #设计本类用来做单源定位。
     '''
@@ -252,14 +318,17 @@ class Single_source:
         # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
         # ''' 第二种，就是coverage/distance'''
         # result_node= self.single_source_bydistance_coverage(infectG,subinfectG,source_list[0])
-
         # '''  第3种，距离中心'''
         # result_node = self.single_source_bydistance( subinfectG)
 
-
         #'''  第6种，质量距离中心'''
+        # result_node = self.single_source_byQuality_centrality(infectG,subinfectG)
 
-        result_node = self.single_source_byQuality_centrality(infectG,subinfectG)
+
+
+
+        #''''第7种，特征向量中心性
+        result_node = self.single_source_bybetweenness_centrality( subinfectG)
 
         print('真实源是',source_list[0])
         print('预测源是',result_node[0])
@@ -284,12 +353,12 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile(filename)
     # filname = '../../../data/4_regular_graph_3000_data.txt'
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
-    # filname = '../../../data/CA-GrQc.txt'
-    filname = '../../../data/3regular_tree9.txt'
+    filname = '../../../data/CA-GrQc.txt'
+    # filname = '../../../data/3regular_tree9.txt'
     # method ='distan+ covage'
     # method = 'jardan_center'
     # method ='distance'
-    method = '质量中心'
+    method = '中介中心性'
 
 
 
@@ -297,7 +366,6 @@ if __name__ == '__main__':
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
-
         with open('result.txt', "a") as f:
             # f.write("这是个测试！")  # 这句话自带文件关闭功能，不需要再写f.close()
             f.write(str(time.asctime(time.localtime(time.time()))) + '\n')

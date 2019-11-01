@@ -1031,3 +1031,367 @@ Wed Oct 30 09:51:48 2019
 每一步的结果是   7      数据集方法质量中心../../../data/3regular_tree9.txt
 数据集../../../data/3regular_tree9.txt方法质量中心总结果   9.6
 
+Thu Oct 31 08:42:25 2019
+每一步的结果是   6      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:26 2019
+每一步的结果是   5      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:27 2019
+每一步的结果是   1      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:28 2019
+每一步的结果是   5      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:29 2019
+每一步的结果是   6      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:29 2019
+每一步的结果是   4      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:30 2019
+每一步的结果是   4      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:31 2019
+每一步的结果是   6      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:32 2019
+每一步的结果是   6      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:33 2019
+每一步的结果是   6      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:34 2019
+每一步的结果是   6      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:34 2019
+每一步的结果是   6      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:35 2019
+每一步的结果是   5      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:36 2019
+每一步的结果是   6      数据集方法质量中心../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:47 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:48 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:49 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:50 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:51 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:52 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:53 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:54 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:54 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:55 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:56 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:57 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:58 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:42:59 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:43:00 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:43:00 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:43:01 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:43:02 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:43:03 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:43:04 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法特征向量中心性总结果   5.55
+
+Thu Oct 31 08:44:36 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:37 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:37 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:38 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:39 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:39 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:40 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:41 2019
+每一步的结果是   3      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:41 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:42 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:43 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:43 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:45 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:45 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:46 2019
+每一步的结果是   2      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:47 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:48 2019
+每一步的结果是   3      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:48 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:49 2019
+每一步的结果是   3      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:44:50 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法特征向量中心性总结果   4.15
+
+Thu Oct 31 08:45:24 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:25 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:25 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:26 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:26 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:27 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:27 2019
+每一步的结果是   3      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:28 2019
+每一步的结果是   2      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:29 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:29 2019
+每一步的结果是   3      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:30 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:30 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:31 2019
+每一步的结果是   3      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:32 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:32 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:33 2019
+每一步的结果是   2      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:33 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:34 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:35 2019
+每一步的结果是   4      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:45:35 2019
+每一步的结果是   3      数据集方法特征向量中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法特征向量中心性总结果   4.25
+
+Thu Oct 31 08:46:09 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:09 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:09 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:09 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:10 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:10 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:10 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:10 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:10 2019
+每一步的结果是   7      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:11 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:11 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:11 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:11 2019
+每一步的结果是   7      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:11 2019
+每一步的结果是   5      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:12 2019
+每一步的结果是   6      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:12 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:12 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:12 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:12 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:13 2019
+每一步的结果是   8      数据集方法特征向量中心性../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法特征向量中心性总结果   7.25
+
+Thu Oct 31 08:46:52 2019
+每一步的结果是   5      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:46:59 2019
+每一步的结果是   7      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:47:07 2019
+每一步的结果是   7      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:47:13 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:47:19 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:47:26 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:47:33 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:47:39 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:47:44 2019
+每一步的结果是   7      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:47:51 2019
+每一步的结果是   2      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:47:58 2019
+每一步的结果是   7      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:48:04 2019
+每一步的结果是   7      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:48:10 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:48:16 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:48:23 2019
+每一步的结果是   7      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:48:30 2019
+每一步的结果是   7      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:48:37 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:48:43 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:48:49 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+Thu Oct 31 08:48:55 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法接近中心性总结果   6.0
+
+Thu Oct 31 08:50:03 2019
+每一步的结果是   5      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:50:26 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:50:48 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:51:14 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:51:28 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:51:53 2019
+每一步的结果是   2      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:52:16 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:52:38 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:52:55 2019
+每一步的结果是   1      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:53:10 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:53:36 2019
+每一步的结果是   2      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:54:00 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:54:18 2019
+每一步的结果是   2      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:54:32 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:54:54 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:55:14 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:55:28 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:55:51 2019
+每一步的结果是   5      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:56:15 2019
+每一步的结果是   2      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:56:36 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法接近中心性总结果   3.15
+
+Thu Oct 31 08:57:25 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:57:47 2019
+每一步的结果是   7      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:58:04 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:58:26 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:58:47 2019
+每一步的结果是   5      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:59:07 2019
+每一步的结果是   2      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:59:29 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 08:59:47 2019
+每一步的结果是   6      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:00:07 2019
+每一步的结果是   2      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:00:32 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:00:48 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:01:10 2019
+每一步的结果是   0      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:01:35 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:01:54 2019
+每一步的结果是   2      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:02:19 2019
+每一步的结果是   2      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:02:37 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:02:59 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:03:22 2019
+每一步的结果是   4      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:03:36 2019
+每一步的结果是   5      数据集方法接近中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:03:53 2019
+每一步的结果是   3      数据集方法接近中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法接近中心性总结果   3.4
+
+Thu Oct 31 09:12:51 2019
+每一步的结果是   7      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:13:17 2019
+每一步的结果是   5      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:13:32 2019
+每一步的结果是   3      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:13:57 2019
+每一步的结果是   5      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:14:17 2019
+每一步的结果是   4      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:14:39 2019
+每一步的结果是   4      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:14:55 2019
+每一步的结果是   4      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:15:18 2019
+每一步的结果是   4      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:15:44 2019
+每一步的结果是   4      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:16:03 2019
+每一步的结果是   5      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:16:29 2019
+每一步的结果是   4      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:16:51 2019
+每一步的结果是   5      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:17:08 2019
+每一步的结果是   3      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:17:27 2019
+每一步的结果是   4      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:17:45 2019
+每一步的结果是   3      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:18:01 2019
+每一步的结果是   1      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:18:18 2019
+每一步的结果是   2      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:18:33 2019
+每一步的结果是   2      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:18:58 2019
+每一步的结果是   4      数据集方法中介中心性../../../data/CA-GrQc.txt
+Thu Oct 31 09:19:20 2019
+每一步的结果是   4      数据集方法中介中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法中介中心性总结果   3.85
+
