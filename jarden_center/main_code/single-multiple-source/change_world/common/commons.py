@@ -384,6 +384,8 @@ def   propagation1(G,SourceList,number =1):
         G_temp.node[source]['SI'] = 2
         queue.add(source)
     # progation_number = 0
+
+    true_T = 0
     while 1:
             propagation_layer_list = [] #传播的BFS某一层
             propagation_layer_list.extend(list(queue)) #总是删除第一个。这里不删除
@@ -405,13 +407,14 @@ def   propagation1(G,SourceList,number =1):
             y_list.append(count)
             print('被感染点为' + str(count) + '个')
             # progation_number += 1
+            true_T += 1
             if count / G_temp.number_of_nodes() > 0.5:
                 print('超过50%节点了，不用传播啦')
                 break
     #数据进去图，看看
 
 
-    return G_temp
+    return G_temp,true_T
 
 
 

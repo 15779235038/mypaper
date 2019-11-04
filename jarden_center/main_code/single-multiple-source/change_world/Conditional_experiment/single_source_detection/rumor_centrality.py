@@ -58,3 +58,7 @@ class rumor:
         return rumor_center, center
 
 
+
+
+
+
