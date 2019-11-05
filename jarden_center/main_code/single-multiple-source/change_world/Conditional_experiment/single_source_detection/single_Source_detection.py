@@ -13,6 +13,8 @@ import sys
 import  copy
 import  Partion_common
 import commons
+import  rumor_centrality
+import  jordan_centrality
 class Single_source:
     def __init__(self):
         pass
@@ -311,27 +313,94 @@ class Single_source:
 
 
     '''
-    1 谣言中心实现。
+    1 谣言中心实现。目前只能处理树
     
     
     '''
 
-    def  rumor_center(self,subinfectG):
+    def  rumor_center(self,infectG,subinfectG):
         #将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
         infect_node = []
         infect_neighbour_list = []
-        for node_temp in list(subinfectG.nodes()):
-            infect_node.append(node_temp)
-            infect_neighbour_list.append(list(nx.neighbors(subinfectG,node_temp)))
+        print(infectG.number_of_nodes())
+
+        # who_infected =  [[] for i in range(infectG.number_of_nodes())]
+        #找出最大的id数目。
+        maxs= 0
+        for node_index in list(infectG.nodes):
+            if node_index > maxs:
+                maxs = node_index
+        print('maxs',maxs)
+        for node in list(subinfectG.nodes()):
+            infect_node.append(node)
+        who_infected = [[] for i in range(maxs+1)]
+
+        i = 0
+        for node_temp in infect_node:
+            neighbour_list =list(nx.neighbors(subinfectG,node_temp))
+            neighbour_list_index = []
+            for neighbour in neighbour_list:
+                neighbour_list_index.append(infect_node.index(neighbour))
+            who_infected[i] = neighbour_list_index
+            i += 1
+
         print('infect_node',infect_node)
-        print('infect_neighbour_list',infect_neighbour_list)
-        
+        print('who_infected',who_infected)
+        rumor_center_object= rumor_centrality.rumor_center()
 
 
-        rumor_center.rumor_centrality()
+        rumor_center, center=rumor_center_object.rumor_centrality(who_infected)
+
+        print('rumor_center', rumor_center)
+        print('center', center)
+
+        return [rumor_center]
 
 
-        pass
+    '''
+    1 乔丹中心实现。
+    '''
+
+    def jarden_center(self, infectG, subinfectG):
+        # 将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
+        infect_node = []
+        infect_neighbour_list = []
+        print(infectG.number_of_nodes())
+
+        # who_infected =  [[] for i in range(infectG.number_of_nodes())]
+        # 找出最大的id数目。
+        maxs = 0
+        for node_index in list(infectG.nodes):
+            if node_index > maxs:
+                maxs = node_index
+        print('maxs', maxs)
+        for node in list(subinfectG.nodes()):
+            infect_node.append(node)
+        who_infected = [[] for i in range(maxs + 1)]
+
+        i = 0
+        for node_temp in infect_node:
+            neighbour_list = list(nx.neighbors(subinfectG, node_temp))
+            neighbour_list_index = []
+            for neighbour in neighbour_list:
+                neighbour_list_index.append(infect_node.index(neighbour))
+            who_infected[i] = neighbour_list_index
+            i += 1
+
+        print('infect_node', infect_node)
+        print('who_infected', who_infected)
+
+        jordan_center_object = jordan_centrality.jordan()
+        jordan_center = jordan_center_object.jordan_centrality(who_infected)
+
+        print(' jordan_center',  jordan_center)
+        # print('center', center)
+
+        return [ jordan_center]
+
+
+
+
 
 
 
@@ -341,8 +410,8 @@ class Single_source:
 
 
     '''
-      #设计本类用来做单源定位。
-    '''
+      设计本类用来做单源  定位。
+    # '''
 
     def main(self,filename):
 
@@ -375,7 +444,11 @@ class Single_source:
 
         #'''第9种，谣言中心性‘’
 
-        result_node = self.rumor_center(subinfectG)
+        # result_node = self.rumor_center(infectG,subinfectG)
+
+
+        #’‘ 乔丹中心性
+        result_node = self.jarden_center(infectG,subinfectG)
 
         print('真实源是',source_list[0])
         print('预测源是',result_node[0])
@@ -405,7 +478,7 @@ if __name__ == '__main__':
     # method ='distan+ covage'
     # method = 'jardan_center'
     # method ='distance'
-    method = '中介中心性'
+    method = '乔丹中心性'
 
 
 
