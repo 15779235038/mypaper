@@ -318,12 +318,13 @@ class Single_source:
     
     '''
 
-    def  rumor_center(self,infectG,subinfectG):
+    def  rumor_center(self,infectG,subiG,source_true):
         #将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
         infect_node = []
         infect_neighbour_list = []
         print(infectG.number_of_nodes())
-
+        random_node = random.choice(list(subiG.nodes()))
+        subinfectG=nx.bfs_tree(subiG, source=random_node)
         # who_infected =  [[] for i in range(infectG.number_of_nodes())]
         #找出最大的id数目。
         maxs= 0
@@ -354,19 +355,20 @@ class Single_source:
         print('rumor_center', rumor_center)
         print('center', center)
 
-        return [rumor_center]
+        return [infect_node[rumor_center]]
 
 
     '''
     1 乔丹中心实现。
     '''
 
-    def jarden_center(self, infectG, subinfectG):
+    def jarden_center(self, infectG, subiG,source_true):
         # 将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
         infect_node = []
         infect_neighbour_list = []
         print(infectG.number_of_nodes())
-
+        random_node = random.choice(list(subiG.nodes()))
+        subinfectG = nx.bfs_tree(subiG, source=random_node)
         # who_infected =  [[] for i in range(infectG.number_of_nodes())]
         # 找出最大的id数目。
         maxs = 0
@@ -396,7 +398,7 @@ class Single_source:
         print(' jordan_center',  jordan_center)
         # print('center', center)
 
-        return [ jordan_center]
+        return [infect_node[jordan_center]]
 
 
 
@@ -442,13 +444,13 @@ class Single_source:
         # #''''第8种，反转加t性
         # result_node = self.single_source_get_T_jarden_center( T,subinfectG)
 
-        #'''第9种，谣言中心性‘’
+        # # '''第9种，谣言中心性‘’
+        # #
+        # result_node = self.rumor_center(infectG,subinfectG,source_list[0])
 
-        # result_node = self.rumor_center(infectG,subinfectG)
 
-
-        #’‘ 乔丹中心性
-        result_node = self.jarden_center(infectG,subinfectG)
+        # #’‘ 乔丹中心性
+        result_node = self.jarden_center(infectG,subinfectG,source_list[0])
 
         print('真实源是',source_list[0])
         print('预测源是',result_node[0])
