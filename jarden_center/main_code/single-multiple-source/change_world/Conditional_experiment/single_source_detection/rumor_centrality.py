@@ -2,7 +2,7 @@ import math
 import sys
 sys.setrecursionlimit(100000)  # 例如这里设置为十万
 
-class rumor:
+class rumor_center:
     def __init__(self):
         print('谣言中心构建开始...')
 

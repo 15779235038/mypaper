@@ -310,12 +310,28 @@ class Single_source:
         pass
 
 
+    '''
+    1 谣言中心实现。
+    
+    
+    '''
+
+    def  rumor_center(self,subinfectG):
+        #将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
+        infect_node = []
+        infect_neighbour_list = []
+        for node_temp in list(subinfectG.nodes()):
+            infect_node.append(node_temp)
+            infect_neighbour_list.append(list(nx.neighbors(subinfectG,node_temp)))
+        print('infect_node',infect_node)
+        print('infect_neighbour_list',infect_neighbour_list)
+        
 
 
+        rumor_center.rumor_centrality()
 
 
-
-
+        pass
 
 
 
@@ -355,7 +371,11 @@ class Single_source:
         # #''''第7种，特征向量中心性
         # result_node = self.single_source_bybetweenness_centrality( subinfectG)
         # #''''第8种，反转加t性
-        result_node = self.single_source_get_T_jarden_center( T,subinfectG)
+        # result_node = self.single_source_get_T_jarden_center( T,subinfectG)
+
+        #'''第9种，谣言中心性‘’
+
+        result_node = self.rumor_center(subinfectG)
 
         print('真实源是',source_list[0])
         print('预测源是',result_node[0])
