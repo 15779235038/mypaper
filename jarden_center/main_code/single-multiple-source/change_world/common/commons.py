@@ -431,7 +431,6 @@ def   propagation1(G,SourceList,number =1):
 
 '''
 def   propagation_IC(G,SourceList,number =1):
-
     y_list =[]
     G_temp = nx.Graph()
     G_temp = copy.deepcopy(G)
@@ -630,7 +629,36 @@ def   BFS_coverage(G,SourceList,number =1):
 
 
 
+'''
+1 BFS层次遍历，返回从某个点开始BFS层次节点，但是如果这一层没有被感染点。
+就不返回了
+2 
 
+
+'''
+
+
+def  BFS_nodes(tree,source,infectG):
+    queue = []
+    queue.append(source)
+    layer_node = []
+    layer_node.append([source])
+    while queue:
+        temp_layer_node = []
+        for i  in queue:
+            for neighbour in list(nx.neighbors(tree,i)):
+                if neighbour != i:
+                    temp_layer_node.append(neighbour)
+
+        #如果某一层的被感染点为0，就退出。不用再加了。
+        if len([x for x in temp_layer_node if infectG.node[x]['SI'] ==2]) == 0:
+            break
+        layer_node.append(temp_layer_node)
+        queue = temp_layer_node
+
+    print('layer_node_append',layer_node)
+    return layer_node
+    #BFS形成的层次遍历。
 
 
 

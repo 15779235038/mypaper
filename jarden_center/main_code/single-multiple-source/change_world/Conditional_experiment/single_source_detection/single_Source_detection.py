@@ -415,10 +415,69 @@ class Single_source:
     2 然后对那个源点进行BFS树构建
     3 单源定位。
     '''
-    def  coverage_BFS_single_source(self, infectG, subInfectG):
+    def  coverage_BFS_single_source(self, infectG, subInfectG,source_ture):
+        # 进行所有点有向树构建，再进行层次遍历。针对每一层都进行传播点/全部的比例计算。
+
+        node_every_ratio = []
+        for node_every in list(subInfectG.nodes()):
+            #进行BFS树构造，
+            tree=nx.bfs_tree(infectG, source=node_every)
+            #进行层次遍历。返回每一层顶点。
+            BFS_nodes=commons.BFS_nodes(tree,node_every,infectG)
+            ratio_all =0
+            for layer_node in BFS_nodes:
+                infect_node_len=len([x for x in layer_node if infectG.node[x]['SI']==2])
+                # print('infect_node_len',infect_node_len)
+                infect_node_not = len([x for x in layer_node if infectG.node[x]['SI'] == 1])
+                # print('infect_node_not', infect_node_not)
+                infect_ratio = infect_node_len/len(layer_node) #感染点的比例
+                ratio_all +=infect_ratio
+            ratio_average = ratio_all / len(BFS_nodes)
+            node_every_ratio.append([node_every,ratio_average])
+
+        node_every_ratio_sort = sorted(node_every_ratio, key=lambda x : x[1], reverse=True)
+        print(node_every_ratio_sort)
 
 
-        pass
+        #以第一个点进行BFS树构建，然后单源定位。
+
+        subinfectG = nx.bfs_tree(subInfectG, source=node_every_ratio_sort[0][0])
+        # who_infected =  [[] for i in range(infectG.number_of_nodes())]
+        # 找出最大的id数目。
+        maxs = 0
+        infect_node = []
+        for node_index in list(infectG.nodes):
+            if node_index > maxs:
+                maxs = node_index
+        print('maxs', maxs)
+        for node in list(subinfectG.nodes()):
+            infect_node.append(node)
+        who_infected = [[] for i in range(maxs + 1)]
+
+        i = 0
+        for node_temp in infect_node:
+            neighbour_list = list(nx.neighbors(subinfectG, node_temp))
+            neighbour_list_index = []
+            for neighbour in neighbour_list:
+                neighbour_list_index.append(infect_node.index(neighbour))
+            who_infected[i] = neighbour_list_index
+            i += 1
+
+        print('infect_node', infect_node)
+        print('who_infected', who_infected)
+        rumor_center_object = rumor_centrality.rumor_center()
+
+        rumor_center, center = rumor_center_object.rumor_centrality(who_infected)
+
+        print('rumor_center', rumor_center)
+        print('center', center)
+
+        return [infect_node[rumor_center]]
+
+
+
+
+
 
 
 
@@ -475,8 +534,13 @@ class Single_source:
         # result_node = self.rumor_center(infectG,subinfectG,source_list[0])
 
 
-        # #’‘ 乔丹中心性
-        result_node = self.jarden_center(infectG,subinfectG,source_list[0])
+              # # #’‘ 乔丹中心性
+        # result_node = self.jarden_center(infectG,subinfectG,source_list[0])
+
+
+        #覆盖率加我们的操作
+        result_node = self.coverage_BFS_single_source(infectG,subinfectG,source_list[0])
+
 
         print('真实源是',source_list[0])
         print('预测源是',result_node[0])

@@ -124,7 +124,7 @@ max_sub_graph = commons.judge_data(initG)
 # source_list = product_sourceList(max_sub_graph, 2)
 source_list = commons.product_sourceList(max_sub_graph, 1)
 # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
-infectG = commons.propagation1(max_sub_graph, source_list)
+infectG,trueT = commons.propagation1(max_sub_graph, source_list)
 subinfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
 
 # '''''''# 2 分区，分区的太多了，我们看看那种好。'''
@@ -179,5 +179,5 @@ plot_G_node_color_PPT(initG,subinfectG,source_list,result_source_list)
 
 
 # plot_G(initG)
-
+#
 # plot_G_node_color(initG,[1])
