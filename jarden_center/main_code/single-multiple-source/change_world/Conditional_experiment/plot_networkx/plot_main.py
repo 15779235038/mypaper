@@ -170,7 +170,6 @@ source_node = single_Source_detection_object.revsitionAlgorithm_singlueSource(su
 result_source_list =[]
 result_source_list.append(source_node[0])
 
-
 #需要画3种点，一个是源点，一个是传播点。一个是未传播点。
 
 
@@ -179,5 +178,4 @@ plot_G_node_color_PPT(initG,subinfectG,source_list,result_source_list)
 
 
 # plot_G(initG)
-#
 # plot_G_node_color(initG,[1])
