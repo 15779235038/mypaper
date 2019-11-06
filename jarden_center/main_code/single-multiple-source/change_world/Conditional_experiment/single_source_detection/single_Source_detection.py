@@ -410,7 +410,8 @@ class Single_source:
     1 覆盖率确定那个源点，如何利用覆盖率呢？就是对每个点进行BFS树构建。
     如果某一层的未感染点多于某个比例，就停止扩散。类似于随机游走。
     
-    或者以所有点进行BFS到全部点（传播点+未传播点），计算每一层的未感染点比例。计算
+    用这个：或者以所有点进行BFS到全部点（传播点+未传播点）某一层，这一层没有感染点就停止了。
+    ，计算每一层的未感染点比例。计算
     平均值作为这个点的一个指标。
     2 然后对那个源点进行BFS树构建
     3 单源定位。
@@ -512,7 +513,7 @@ class Single_source:
 
         subinfectG = commons.get_subGraph_true( infectG)  # 只取感染点，为2表示,真实的感染图。
         #将在这里进行单源测试。
-        '''   第一种，就是jarden center '''
+
         #
         # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
         # ''' 第二种，就是coverage/distance'''
@@ -565,8 +566,8 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile(filename)
     # filname = '../../../data/4_regular_graph_3000_data.txt'
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
-    filname = '../../../data/CA-GrQc.txt'
-    # filname = '../../../data/3regular_tree9.txt'
+    # filname = '../../../data/CA-GrQc.txt'
+    filname = '../../../data/3regular_tree9.txt'
     # method ='distan+ covage'
     # method = 'jardan_center'
     # method ='distance'
