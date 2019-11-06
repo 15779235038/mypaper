@@ -2,6 +2,8 @@ import math
 import sys
 sys.setrecursionlimit(100000)  # 例如这里设置为十万
 
+import  networkx as nx
+
 class rumor_center:
     def __init__(self):
         print('谣言中心构建开始...')
@@ -54,11 +56,31 @@ class rumor_center:
         for i in range(len(down_messages)):
             if down_messages[i] == center:
                 rumor_center = i
-
         return rumor_center, center
 
 
 
 
 
+if __name__ == '__main__':
+    # creating a toy graph (tree)
+    adjacency = [[] for i in range(7)]
+    adjacency[0] = [1, 2]
+    adjacency[1] = [0, 3, 4]
+    adjacency[2] = [0, 5]
+    adjacency[3] = [1]
+    adjacency[4] = [1]
+    adjacency[5] = [2, 6]
+    # adjacency[6] = [2]
+    adjacency[6] = [5]
+    # print(__name__)
+    #这肯定是一个树，不然处理不了。构建成一颗树，然后处理吧。然后画图，然后再理解思路。
+    
 
+
+
+
+
+    rumor_center_object=rumor_center()
+    rumor_center, center=rumor_center_object.rumor_centrality(adjacency)
+    print(rumor_center,center)
