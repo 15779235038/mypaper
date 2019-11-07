@@ -95,7 +95,7 @@ class rumor_center:
         for i in range(len(down_messages)):
             if down_messages[i] == center:
                 rumor_center = i
-        return rumor_center, center
+        return rumor_center, center,up_messages,down_messages
 
 
 
@@ -112,6 +112,31 @@ if __name__ == '__main__':
     adjacency[5] = [2, 6]
     # adjacency[6] = [2]
     adjacency[6] = [5]
+
+
+
+
+
+
+
+
+
+
+
+    adjacency2 = [[] for i in range(8)]
+    adjacency2[0] = [1, 2]
+    adjacency2[1] = [0, 3, 4]
+    adjacency2[2] = [0, 5]
+    adjacency2[3] = [1]
+    adjacency2[4] = [1]
+    adjacency2[5] = [2, 6]
+    # adjacency[6] = [2,5]
+    adjacency2[6] = [5,7]
+    adjacency2[7] = [6]
+
+
+
+
     # print(__name__)
     #这肯定是一个树，不然处理不了。构建成一颗树，然后处理吧。然后画图，然后再理解思路。
     G = nx.Graph()
@@ -120,11 +145,35 @@ if __name__ == '__main__':
             G.add_edge(index, j)
     print('number_of_G', G.number_of_nodes())
 
+
+
+
     nx.draw_networkx(G, pos=nx.spring_layout(G), node_size=20, node_color='red')
     plt.savefig('test.png')
     plt.show()
     plt.close()
 
+    G = nx.Graph()
+    for index in range(len(adjacency2)):
+        for j in adjacency2[index]:
+            G.add_edge(index, j)
+    print('number_of_G', G.number_of_nodes())
+
+    nx.draw_networkx(G, pos=nx.spring_layout(G), node_size=20, node_color='red')
+    plt.savefig('test.png')
+    plt.show()
+    plt.close()
+
+
     rumor_center_object = rumor_center()
-    rumor_center, center = rumor_center_object.rumor_centrality(adjacency)
-    print(rumor_center, center )
+    rumor_center, center,up_messages,down_messages = rumor_center_object.rumor_centrality(adjacency)
+    rumor_center1, center1, up_messages1, down_messages1 = rumor_center_object.rumor_centrality(adjacency2)
+
+    print('up_message,第一个图',up_messages)
+    print('down_message,第二个图', down_messages)
+    print(rumor_center,  center)
+
+    print()
+    print('up_message,第2个图', up_messages1)
+    print('down_message,第2个图', down_messages1)
+    print(rumor_center1, center)

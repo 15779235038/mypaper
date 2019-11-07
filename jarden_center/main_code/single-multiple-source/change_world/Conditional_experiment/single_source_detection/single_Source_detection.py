@@ -354,7 +354,6 @@ class Single_source:
 
         print('rumor_center', rumor_center)
         print('center', center)
-
         return [infect_node[rumor_center]]
 
 
@@ -362,7 +361,7 @@ class Single_source:
     1 乔丹中心实现。
     '''
 
-    def jarden_center(self, infectG, subiG,source_true):
+    def jarden_center(self, infectG, subiG, source_true):
         # 将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
         infect_node = []
         infect_neighbour_list = []
@@ -477,6 +476,46 @@ class Single_source:
 
 
 
+    '''
+    多个独立观察图，然后进行联合单源定位。
+    '''
+
+    def mutiple_Observation(self, infectG, subInfectG, source_ture):
+        # 将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
+        infect_node = []
+        infect_neighbour_list = []
+        print(infectG.number_of_nodes())
+        random_node = random.choice(list(subiG.nodes()))
+        subinfectG = nx.bfs_tree(subiG, source=random_node)
+        # who_infected =  [[] for i in range(infectG.number_of_nodes())]
+        # 找出最大的id数目。
+        maxs = 0
+        for node_index in list(infectG.nodes):
+            if node_index > maxs:
+                maxs = node_index
+        print('maxs', maxs)
+        for node in list(subinfectG.nodes()):
+            infect_node.append(node)
+        who_infected = [[] for i in range(maxs + 1)]
+
+        i = 0
+        for node_temp in infect_node:
+            neighbour_list = list(nx.neighbors(subinfectG, node_temp))
+            neighbour_list_index = []
+            for neighbour in neighbour_list:
+                neighbour_list_index.append(infect_node.index(neighbour))
+            who_infected[i] = neighbour_list_index
+            i += 1
+
+        print('infect_node', infect_node)
+        print('who_infected', who_infected)
+        rumor_center_object = rumor_centrality.rumor_center()
+
+        rumor_center, center = rumor_center_object.rumor_centrality(who_infected)
+
+        print('rumor_center', rumor_center)
+        print('center', center)
+        return [infect_node[rumor_center]]
 
 
 
