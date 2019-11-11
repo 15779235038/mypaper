@@ -313,7 +313,10 @@ class Single_source:
 
 
     '''
-    1 谣言中心实现。目前只能处理树
+    1 谣言中心实现。目前只能处理树，处理树直接送进去就可以了。
+    
+    2 如果要处理图，就要面临随机挑选一个点作为源点构成BFS结构的问题。
+    应该不是源点的，
     
     
     '''
@@ -476,53 +479,6 @@ class Single_source:
 
 
 
-    '''
-    多个独立观察图，然后进行联合单源定位。
-    '''
-
-    def mutiple_Observation(self, infectG, subInfectG, source_ture):
-        # 将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
-        infect_node = []
-        infect_neighbour_list = []
-        print(infectG.number_of_nodes())
-        random_node = random.choice(list(subiG.nodes()))
-        subinfectG = nx.bfs_tree(subiG, source=random_node)
-        # who_infected =  [[] for i in range(infectG.number_of_nodes())]
-        # 找出最大的id数目。
-        maxs = 0
-        for node_index in list(infectG.nodes):
-            if node_index > maxs:
-                maxs = node_index
-        print('maxs', maxs)
-        for node in list(subinfectG.nodes()):
-            infect_node.append(node)
-        who_infected = [[] for i in range(maxs + 1)]
-
-        i = 0
-        for node_temp in infect_node:
-            neighbour_list = list(nx.neighbors(subinfectG, node_temp))
-            neighbour_list_index = []
-            for neighbour in neighbour_list:
-                neighbour_list_index.append(infect_node.index(neighbour))
-            who_infected[i] = neighbour_list_index
-            i += 1
-
-        print('infect_node', infect_node)
-        print('who_infected', who_infected)
-        rumor_center_object = rumor_centrality.rumor_center()
-
-        rumor_center, center = rumor_center_object.rumor_centrality(who_infected)
-
-        print('rumor_center', rumor_center)
-        print('center', center)
-        return [infect_node[rumor_center]]
-
-
-
-
-
-
-
 
 
 
@@ -549,7 +505,7 @@ class Single_source:
         source_list = commons.product_sourceList(max_sub_graph, 1)
         # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
         infectG,T = commons.propagation1(max_sub_graph,source_list)
-
+        # infectG1, T = commons.propagation1(max_sub_graph, [source_list])
         subinfectG = commons.get_subGraph_true( infectG)  # 只取感染点，为2表示,真实的感染图。
         #将在这里进行单源测试。
 
@@ -579,12 +535,15 @@ class Single_source:
 
 
         #覆盖率加我们的操作
+        # result_node = self.coverage_BFS_single_source(infectG,subinfectG,source_list[0])
+
+        #多个观察点
         result_node = self.coverage_BFS_single_source(infectG,subinfectG,source_list[0])
 
 
         print('真实源是',source_list[0])
         print('预测源是',result_node[0])
-        distance= nx.shortest_path_length(subinfectG,source=source_list[0],target=result_node[0])
+        distance= nx.shortest_path_length(subinfectG,source=source_list[0], target=result_node[0])
         print('结果是', distance)
         return distance
 
@@ -605,8 +564,8 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile(filename)
     # filname = '../../../data/4_regular_graph_3000_data.txt'
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
-    # filname = '../../../data/CA-GrQc.txt'
-    filname = '../../../data/3regular_tree9.txt'
+    filname = '../../../data/CA-GrQc.txt'
+    # filname = '../../../data/3regular_tree9.txt'
     # method ='distan+ covage'
     # method = 'jardan_center'
     # method ='distance'

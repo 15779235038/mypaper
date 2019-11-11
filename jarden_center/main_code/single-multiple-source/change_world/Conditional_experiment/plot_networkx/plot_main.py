@@ -119,7 +119,7 @@ def plot_G_node_color_PPT(infectG,subinfectG,two_source_list,result_source_list)
 
 
 
-initG =  commons.get_networkByFile('../../../data/2regular_tree.txt')
+initG =  commons.get_networkByFile('../../../data/2regular_tree13ceng.txt')
 max_sub_graph = commons.judge_data(initG)
 # source_list = product_sourceList(max_sub_graph, 2)
 source_list = commons.product_sourceList(max_sub_graph, 1)
