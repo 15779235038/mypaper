@@ -327,7 +327,7 @@ class Single_source:
         infect_neighbour_list = []
         print(infectG.number_of_nodes())
         random_node = random.choice(list(subiG.nodes()))
-        subinfectG=nx.bfs_tree(subiG, source=random_node)
+        subinfectG=nx.bfs_tree(subiG, source=source_true)
         # who_infected =  [[] for i in range(infectG.number_of_nodes())]
         #找出最大的id数目。
         maxs= 0
@@ -341,7 +341,7 @@ class Single_source:
 
         i = 0
         for node_temp in infect_node:
-            neighbour_list =list(nx.neighbors(subinfectG,node_temp))
+            neighbour_list =list(nx.all_neighbors(subinfectG,node_temp))
             neighbour_list_index = []
             for neighbour in neighbour_list:
                 neighbour_list_index.append(infect_node.index(neighbour))
@@ -357,6 +357,7 @@ class Single_source:
 
         print('rumor_center', rumor_center)
         print('center', center)
+        print('[infect_node[rumor_center]]', [infect_node[rumor_center]])
         return [infect_node[rumor_center]]
 
 
@@ -384,7 +385,7 @@ class Single_source:
 
         i = 0
         for node_temp in infect_node:
-            neighbour_list = list(nx.neighbors(subinfectG, node_temp))
+            neighbour_list = list(nx.all_neighbors(subinfectG, node_temp))
             neighbour_list_index = []
             for neighbour in neighbour_list:
                 neighbour_list_index.append(infect_node.index(neighbour))
@@ -471,10 +472,9 @@ class Single_source:
         rumor_center_object = rumor_centrality.rumor_center()
 
         rumor_center, center = rumor_center_object.rumor_centrality(who_infected)
-
         print('rumor_center', rumor_center)
         print('center', center)
-
+        print('[infect_node[rumor_center]]',[infect_node[rumor_center]])
         return [infect_node[rumor_center]]
 
 
@@ -525,20 +525,20 @@ class Single_source:
         # #''''第8种，反转加t性
         # result_node = self.single_source_get_T_jarden_center( T,subinfectG)
 
-        # # '''第9种，谣言中心性‘’
-        # #
+        # '''第9种，谣言中心性‘’
+        #
         # result_node = self.rumor_center(infectG,subinfectG,source_list[0])
 
 
-              # # #’‘ 乔丹中心性
-        # result_node = self.jarden_center(infectG,subinfectG,source_list[0])
+      # # #’‘ 乔丹中心性
+        result_node = self.jarden_center(infectG,subinfectG,source_list[0])
 
 
-        #覆盖率加我们的操作
+        # 覆盖率加我们的操作
         # result_node = self.coverage_BFS_single_source(infectG,subinfectG,source_list[0])
 
-        #多个观察点
-        result_node = self.coverage_BFS_single_source(infectG,subinfectG,source_list[0])
+        # #多个观察点
+        # result_node = self.coverage_BFS_single_source(infectG,subinfectG,source_list[0])
 
 
         print('真实源是',source_list[0])

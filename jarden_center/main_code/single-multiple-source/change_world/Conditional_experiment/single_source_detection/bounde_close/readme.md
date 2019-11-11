@@ -5,3 +5,9 @@
 就是那种给定时间的优化。
 
 
+
+为什么真实源点就是边界点较多的那条传播线上？
+
+
+#复现来自论文
+    Rumor Source Detection in Finite Graphs with  2017
