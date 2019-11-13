@@ -408,7 +408,7 @@ def   propagation1(G,SourceList,number =1):
             print('被感染点为' + str(count) + '个')
             # progation_number += 1
             true_T += 1
-            if count / G_temp.number_of_nodes() > 0.5:
+            if count / G_temp.number_of_nodes() > 0.2:
                 print('超过50%节点了，不用传播啦')
                 break
     #数据进去图，看看
@@ -656,7 +656,7 @@ def  BFS_nodes(tree,source,infectG):
         layer_node.append(temp_layer_node)
         queue = temp_layer_node
 
-    print('layer_node_append',layer_node)
+    # print('layer_node_append',layer_node)
     return layer_node
     #BFS形成的层次遍历。
 

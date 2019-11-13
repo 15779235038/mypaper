@@ -9,9 +9,12 @@ class jordan:
             for child_node in who_infected[current_node]:
                 up_messages = self.jordan_centrality_up(up_messages, who_infected, current_node, child_node)
         elif len(who_infected[current_node]) == 1:
+            # print('当前节点只跟一个点相连，自然就是边界点。',current_node)
             up_messages[parent_node][0] = max(up_messages[parent_node][0], (up_messages[current_node][0] + 1))
+            # print('更新它的父亲节点，',up_messages[parent_node])
             if len(who_infected[parent_node]) >= 3:
                 up_messages[parent_node][1] = up_messages[current_node][1] + 1
+                # print('只有1的节点度为3，然后就要加1？')
         # leave
         else:
             for child_node in who_infected[current_node]:

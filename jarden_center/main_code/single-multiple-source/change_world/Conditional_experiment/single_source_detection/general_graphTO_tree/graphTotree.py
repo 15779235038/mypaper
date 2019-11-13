@@ -68,10 +68,12 @@ class Graph_tree:
             up_messages.append([0, 0])
         jordan_center_object = jordan_centrality.jordan()
         up_message = jordan_center_object.jorden_centrality_upmessage(root_node,who_infected)
-
-
         print('up_message',up_message)
         #up_message 中每一个对应我们的infect_node的下标。
+        #upmessage转成
+        Ut_u=1
+
+
 
 
 

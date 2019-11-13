@@ -13,6 +13,7 @@ import sys
 import  copy
 import  Partion_common
 import commons
+import  plot_main
 import  rumor_centrality
 import  jordan_centrality
 class Single_source:
@@ -42,7 +43,7 @@ class Single_source:
             print(
                 't为' + str(t) + '的时候-----------------------------------------------------------------------------')
             for node in nodelist:  # 对每一个节点来说
-                for heighbour in list(source1G.neighbors(node)):  # 对每一个节点的邻居来说
+                for heighbour in list(nx.all_neighbors(source1G,node)):  # 对每一个节点的邻居来说
                     retD = list(
                         set(IDdict[heighbour]).difference(set(IDdict[node])))  # 如果邻居中有这个node没有的，那就加到这个node中去。
                     if len(retD) != 0:  # 表示在B中，但不在A.是有的，那就求并集
@@ -371,7 +372,7 @@ class Single_source:
         infect_neighbour_list = []
         print(infectG.number_of_nodes())
         random_node = random.choice(list(subiG.nodes()))
-        subinfectG = nx.bfs_tree(subiG, source=random_node)
+        subinfectG = nx.bfs_tree(subiG, source=source_true)
         # who_infected =  [[] for i in range(infectG.number_of_nodes())]
         # 找出最大的id数目。
         maxs = 0
@@ -421,13 +422,12 @@ class Single_source:
     '''
     def  coverage_BFS_single_source(self, infectG, subInfectG,source_ture):
         # 进行所有点有向树构建，再进行层次遍历。针对每一层都进行传播点/全部的比例计算。
-
         node_every_ratio = []
         for node_every in list(subInfectG.nodes()):
             #进行BFS树构造，
             tree=nx.bfs_tree(infectG, source=node_every)
             #进行层次遍历。返回每一层顶点。
-            BFS_nodes=commons.BFS_nodes(tree,node_every,infectG)
+            BFS_nodes = commons.BFS_nodes(tree, node_every, infectG)
             ratio_all =0
             for layer_node in BFS_nodes:
                 infect_node_len=len([x for x in layer_node if infectG.node[x]['SI']==2])
@@ -435,49 +435,24 @@ class Single_source:
                 infect_node_not = len([x for x in layer_node if infectG.node[x]['SI'] == 1])
                 # print('infect_node_not', infect_node_not)
                 infect_ratio = infect_node_len/len(layer_node) #感染点的比例
-                ratio_all +=infect_ratio
+                ratio_all += infect_ratio
             ratio_average = ratio_all / len(BFS_nodes)
-            node_every_ratio.append([node_every,ratio_average])
+            node_every_ratio.append([node_every, ratio_average])
 
         node_every_ratio_sort = sorted(node_every_ratio, key=lambda x : x[1], reverse=True)
         print(node_every_ratio_sort)
 
-
+        print('distacne',nx.shortest_path_length(infectG,source=node_every_ratio_sort[0][0],target=source_ture))
         #以第一个点进行BFS树构建，然后单源定位。
 
+        # plot_main. plot_G_node_color(subInfectG,[1])(infectG, subInfectG, source_ture, [node_every_ratio_sort[0][0]])
+        print('isTree,',nx.is_tree(subInfectG))
         subinfectG = nx.bfs_tree(subInfectG, source=node_every_ratio_sort[0][0])
-        # who_infected =  [[] for i in range(infectG.number_of_nodes())]
-        # 找出最大的id数目。
-        maxs = 0
-        infect_node = []
-        for node_index in list(infectG.nodes):
-            if node_index > maxs:
-                maxs = node_index
-        print('maxs', maxs)
-        for node in list(subinfectG.nodes()):
-            infect_node.append(node)
-        who_infected = [[] for i in range(maxs + 1)]
-
-        i = 0
-        for node_temp in infect_node:
-            neighbour_list = list(nx.neighbors(subinfectG, node_temp))
-            neighbour_list_index = []
-            for neighbour in neighbour_list:
-                neighbour_list_index.append(infect_node.index(neighbour))
-            who_infected[i] = neighbour_list_index
-            i += 1
-
-        print('infect_node', infect_node)
-        print('who_infected', who_infected)
-        rumor_center_object = rumor_centrality.rumor_center()
-
-        rumor_center, center = rumor_center_object.rumor_centrality(who_infected)
-        print('rumor_center', rumor_center)
-        print('center', center)
-        print('[infect_node[rumor_center]]',[infect_node[rumor_center]])
-        return [infect_node[rumor_center]]
-
-
+        print('isTree,', nx.is_tree(subinfectG))
+        count_number = 0
+        undirectG=subinfectG.to_undirected()
+        result_node = self.revsitionAlgorithm_singlueSource(undirectG)
+        return result_node
 
 
 
@@ -525,13 +500,13 @@ class Single_source:
         # #''''第8种，反转加t性
         # result_node = self.single_source_get_T_jarden_center( T,subinfectG)
 
-        # '''第9种，谣言中心性‘’
-        #
-        # result_node = self.rumor_center(infectG,subinfectG,source_list[0])
+       #第9种，谣言中心性‘’
 
+        result_node = self.rumor_center(infectG,subinfectG,source_list[0])
 
+      #
       # # #’‘ 乔丹中心性
-        result_node = self.jarden_center(infectG,subinfectG,source_list[0])
+      #   result_node = self.jarden_center(infectG,subinfectG,source_list[0])
 
 
         # 覆盖率加我们的操作
@@ -544,7 +519,7 @@ class Single_source:
         print('真实源是',source_list[0])
         print('预测源是',result_node[0])
         distance= nx.shortest_path_length(subinfectG,source=source_list[0], target=result_node[0])
-        print('结果是', distance)
+        print('结果他们的距离是', distance)
         return distance
 
 
@@ -564,12 +539,12 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile(filename)
     # filname = '../../../data/4_regular_graph_3000_data.txt'
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
-    filname = '../../../data/CA-GrQc.txt'
-    # filname = '../../../data/3regular_tree9.txt'
+    # filname = '../../../data/CA-GrQc.txt'
+    filname = '../../../data/3regular_tree9.txt'
     # method ='distan+ covage'
     # method = 'jardan_center'
     # method ='distance'
-    method = '乔丹中心性'
+    method = '谣言中心性'
 
 
 

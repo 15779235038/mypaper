@@ -82,7 +82,7 @@ class rumor_center:
     def rumor_centrality(self, who_infected):
 
         # print('who_infected',who_infected)
-        root_node = 100
+        root_node = 99
         rumor_center = -1
         up_messages = []
         for i in range(len(who_infected)):
@@ -103,33 +103,66 @@ class rumor_center:
 
 
 
-
+import  random
 
 if __name__ == '__main__':
-    # creating a toy graph (tree)
-    adjacency = [[] for i in range(7)]
-    adjacency[0] = [1, 2]
-    adjacency[1] = [0, 3, 4]
-    adjacency[2] = [0, 5]
-    adjacency[3] = [1]
-    adjacency[4] = [1]
-    adjacency[5] = [2, 6]
-    # adjacency[6] = [2]
-    adjacency[6] = [5]
-    # print(__name__)
-    #这肯定是一个树，不然处理不了。构建成一颗树，然后处理吧。然后画图，然后再理解思路。
+    # #拿到图
+    initG = commons.get_networkByFile('../../../data/3regular_tree9.txt')
+    max_sub_graph = commons.judge_data(initG)
+    # source_list = product_sourceList(max_sub_graph, 2)
+    source_list = commons.product_sourceList(max_sub_graph, 1)
+    # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
+    infectG, T = commons.propagation1(max_sub_graph, source_list)
+    # infectG1, T = commons.propagation1(max_sub_graph, [source_list])
+    subInfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
 
 
+    # result_node = rumor_center(infectG, subinfectG, source_list[0])
+
+
+
+    # 将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
+    infect_node = []
+    infect_neighbour_list = []
+    print(infectG.number_of_nodes())
+    random_node = random.choice(list(subInfectG.nodes()))
+    subinfectG_temp = nx.bfs_tree(subInfectG, source=source_list[0])
+
+    subinfectG = subinfectG_temp.to_undirected()
+    # who_infected =  [[] for i in range(infectG.number_of_nodes())]
+    # 找出最大的id数目。
+    maxs = 0
+    for node_index in list(infectG.nodes):
+        if node_index > maxs:
+            maxs = node_index
+    print('maxs', maxs)
+    for node in list(subinfectG.nodes()):
+        infect_node.append(node)
+    who_infected = [[] for i in range(maxs + 1)]
+
+    i = 0
+    for node_temp in infect_node:
+        neighbour_list = list(nx.all_neighbors(subinfectG, node_temp))
+        neighbour_list_index = []
+        for neighbour in neighbour_list:
+            neighbour_list_index.append(infect_node.index(neighbour))
+        who_infected[i] = neighbour_list_index
+        i += 1
+
+    print('infect_node', infect_node)
+    print('who_infected', who_infected)
     rumor_center_object = rumor_center()
-    rumor_center, center = rumor_center_object.rumor_centrality(adjacency)
-    print(rumor_center, center )
-    G = nx.Graph()
-    for index in range(len(adjacency)):
-        for j in adjacency[index]:
-            G.add_edge(index, j)
-    print('number_of_G', G.number_of_nodes())
 
-    nx.draw_networkx(G, pos=nx.spring_layout(G), node_size=20, node_color='red')
-    plt.savefig('test.png')
-    plt.show()
-    plt.close()
+    rumor_center, center = rumor_center_object.rumor_centrality(who_infected)
+
+    print('rumor_center', rumor_center)
+    print('center', center)
+    print('[infect_node[rumor_center]]', [infect_node[rumor_center]])
+
+    print('真实源是', source_list[0])
+    # print('预测源是', result_node[0])
+    distance = nx.shortest_path_length(subinfectG, source=source_list[0], target=[infect_node[rumor_center]][0])
+    print('结果他们的距离是', distance)
+
+
+

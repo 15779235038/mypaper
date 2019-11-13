@@ -698,3 +698,783 @@ Mon Nov 11 23:22:57 2019
 每一步的结果是   7      数据集方法乔丹中心性../../../data/CA-GrQc.txt
 Mon Nov 11 23:22:57 2019
 每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:19:06 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:19:07 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:28 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:29 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:29 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:30 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:30 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:30 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:31 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:31 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:32 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:32 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:32 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:33 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:33 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:34 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:34 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:35 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:35 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:35 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:36 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:36 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法乔丹中心性总结果   3.8
+
+Tue Nov 12 09:47:51 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:51 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:51 2019
+每一步的结果是   0      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:52 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:52 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:53 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:53 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:54 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:54 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:55 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:55 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:55 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:56 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:56 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:57 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:57 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:58 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:58 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:58 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 09:47:59 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法乔丹中心性总结果   2.1
+
+Tue Nov 12 10:32:16 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:16 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:16 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:17 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:18 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:18 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:19 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:19 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:20 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:20 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:21 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:21 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:22 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:22 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:23 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:23 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:24 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:24 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:25 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 10:32:25 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法乔丹中心性总结果   4.8
+
+Tue Nov 12 10:32:41 2019
+每一步的结果是   9      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:41 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:41 2019
+每一步的结果是   9      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:42 2019
+每一步的结果是   9      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:42 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:42 2019
+每一步的结果是   9      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:42 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:42 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:43 2019
+每一步的结果是   10      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:43 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:43 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:43 2019
+每一步的结果是   12      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:43 2019
+每一步的结果是   11      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:43 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:44 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:44 2019
+每一步的结果是   10      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:44 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:44 2019
+每一步的结果是   9      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:44 2019
+每一步的结果是   10      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:44 2019
+每一步的结果是   11      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法乔丹中心性总结果   8.35
+
+Tue Nov 12 10:32:50 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:50 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:50 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:51 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:51 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:51 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:51 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:51 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:51 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:52 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:52 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:52 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:52 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:52 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:52 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:53 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:53 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:53 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:53 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:32:53 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法乔丹中心性总结果   2.55
+
+Tue Nov 12 10:44:42 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:45:00 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:45:17 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:45:35 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:45:53 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:46:13 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:46:30 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:46:47 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:47:09 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:47:26 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:47:46 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:48:04 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:50:21 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:50:40 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:50:57 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:51:16 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:51:34 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:51:53 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:52:12 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:56:39 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:56:56 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:57:12 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:57:34 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:57:56 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:58:15 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:58:32 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:58:52 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:59:11 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:59:28 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 10:59:45 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:00:01 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:00:20 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:00:35 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:00:56 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:01:33 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:01:49 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:02:01 2019
+每一步的结果是   10      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:02:19 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:02:31 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:02:48 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:03:06 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:03:19 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:03:31 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:03:45 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:03:58 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:04:12 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:04:31 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:04:54 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:05:08 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:05:21 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:05:38 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:05:52 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:06:07 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:06:22 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:06:38 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:07:02 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:07:15 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:07:35 2019
+每一步的结果是   10      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:07:53 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:08:07 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:09:09 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:10:03 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:10:55 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:11:29 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:12:10 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:12:50 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:13:38 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:14:20 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:15:07 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:15:39 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:16:27 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:17:13 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:17:55 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:18:31 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:19:00 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:19:46 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:20:15 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:20:53 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:21:29 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 11:22:01 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法乔丹中心性总结果   1.8
+
+Tue Nov 12 11:28:19 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:28:36 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:28:48 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:29:00 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:29:12 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:29:27 2019
+每一步的结果是   4      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:29:44 2019
+每一步的结果是   10      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:29:59 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:30:15 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:30:26 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:30:39 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:30:55 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:31:09 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:31:25 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:31:40 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:31:57 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:32:08 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:32:20 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:32:35 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 11:32:51 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法乔丹中心性总结果   6.7
+
+Tue Nov 12 12:36:48 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:37:05 2019
+每一步的结果是   5      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:37:19 2019
+每一步的结果是   9      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:37:33 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:37:46 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:38:03 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:38:19 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:38:36 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:38:49 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:39:03 2019
+每一步的结果是   7      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:39:20 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:39:33 2019
+每一步的结果是   8      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:39:48 2019
+每一步的结果是   6      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:40:13 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:40:25 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:40:40 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:40:54 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:41:11 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:41:57 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:42:25 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:42:55 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:43:25 2019
+每一步的结果是   3      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:44:05 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:44:50 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:45:37 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:46:16 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:46:43 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:47:32 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:48:06 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:48:56 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:49:45 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:50:15 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:51:00 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:51:24 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:52:10 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:52:53 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:53:27 2019
+每一步的结果是   2      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+Tue Nov 12 12:53:58 2019
+每一步的结果是   1      数据集方法乔丹中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法乔丹中心性总结果   1.65
+
+Tue Nov 12 12:57:15 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:57:28 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:57:42 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:57:54 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:58:07 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:58:21 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:58:37 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:58:49 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:59:00 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:59:13 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:59:25 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:59:38 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 12:59:55 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 13:00:10 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 13:00:27 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 13:00:43 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 13:00:58 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 13:01:11 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 13:01:25 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 13:01:38 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法谣言中心性总结果   1.6
+
+Tue Nov 12 14:56:37 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:56:53 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:57:09 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:57:25 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:57:42 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:57:57 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:58:12 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:58:28 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:58:48 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:59:03 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:59:20 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 14:59:44 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:00:01 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:00:18 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:00:32 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:00:43 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:00:58 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:01:14 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:01:33 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:01:48 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:02:03 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:02:22 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:02:43 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:02:56 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:03:17 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:03:43 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:03:56 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:04:12 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:04:23 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:12:23 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:12:38 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:34:15 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:34:55 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:35:12 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:35:45 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:36:45 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:37:28 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:37:57 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:38:20 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:38:48 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:39:20 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:41:16 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:41:30 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:41:47 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:42:01 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:42:15 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:42:32 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:42:49 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:43:04 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:43:18 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:43:31 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:43:44 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:44:00 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:44:18 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:44:33 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:44:51 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:45:07 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:45:18 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:45:32 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:46:03 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:46:21 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:46:37 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:46:54 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:47:11 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:47:23 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:47:38 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:47:57 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:48:14 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:48:29 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:48:47 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:05 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:57 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:58 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:58 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:58 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:58 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:58 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:59 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:59 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:59 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:59 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:59 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:49:59 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:50:00 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:50:00 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:50:00 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:50:00 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:50:00 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:50:00 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:50:01 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:50:01 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法谣言中心性总结果   7.65
+
+Tue Nov 12 15:52:23 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Tue Nov 12 15:53:27 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Tue Nov 12 15:54:04 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Tue Nov 12 15:54:32 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Tue Nov 12 15:55:19 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:55:34 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:55:49 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 15:56:03 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:02 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:02 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:02 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:02 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:03 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:03 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:03 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:03 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:03 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:03 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:04 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:04 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:04 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:04 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:04 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:05 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:05 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:05 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:05 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+Tue Nov 12 16:00:05 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree9.txt
+数据集../../../data/3regular_tree9.txt方法谣言中心性总结果   7.75
+
