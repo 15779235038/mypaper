@@ -1,4 +1,5 @@
 import   networkx as nx
+import matplotlib.pyplot as plt
 def listToTxt(listTo, dir):
     fileObject = open(dir, 'a')
     fileObject.write(str(listTo).replace('(','').replace(')','').replace(',',' '))
@@ -20,17 +21,22 @@ def ContractDict(dir, G):
 
 
 
-# G=nx.random_tree(3000)
-#生成1000个节点树图
-G=nx.full_rary_tree(3,100)
-# G= nx.balanced_tree(2,13)
 
+# G=nx.full_rary_tree(3,400)   #生成规定节点数目的3叉树
+
+G = nx.random_regular_graph(3,400) #生成了包含20个节点、每个节点有3个邻居的规则图
+
+# G = nx.random_tree(500) #生成一个随机树，度的数目不一。
+print('IS_TREE',nx.is_tree(G))
+
+nx.draw(G,with_labels=True)
+plt.show()
 print (len(list(G.nodes)))
 print (len(list(G.edges)))
 
 
 for  edge  in list(G.edges):
-    listToTxt(edge,'2regular_tree.txt')
+    listToTxt(edge,'random_tree_500.txt')
 #
 # #读取生成图
 # G=nx.Graph()

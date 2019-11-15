@@ -92,9 +92,13 @@ def product_sourceList(G,sourceNum):
     while (flag == 0):
         if sourceNum == 1:
             # random_RumorSource = random.randint(0, 7000)
-            random_Rumo = random.sample(sumlist, 1)
-            random_RumorSource = random_Rumo[0]
-            rumorSourceList.append(random_RumorSource)
+            while 1:
+
+                random_Rumo = random.sample(sumlist, 1)
+                random_RumorSource = random_Rumo[0]
+                if nx.degree(G,random_RumorSource) >=2 :
+                    rumorSourceList.append(random_RumorSource)
+                    break
             flag = 1
         elif sourceNum == 2:
             # rumorSourceList = random.sample(sumlist, 2)
@@ -388,6 +392,7 @@ def   propagation1(G,SourceList,number =1):
     true_T = 0
     while 1:
             propagation_layer_list = [] #传播的BFS某一层
+            print('queue',queue)
             propagation_layer_list.extend(list(queue)) #总是删除第一个。这里不删除
             print('第几层为'+str(len(propagation_layer_list)))
             for source in propagation_layer_list:
@@ -408,9 +413,11 @@ def   propagation1(G,SourceList,number =1):
             print('被感染点为' + str(count) + '个')
             # progation_number += 1
             true_T += 1
-            if count / G_temp.number_of_nodes() > 0.5:
+            if count / G_temp.number_of_nodes() > 0.1:
                 print('超过50%节点了，不用传播啦')
                 break
+            # if count >200:
+            #     break
     #数据进去图，看看
 
 

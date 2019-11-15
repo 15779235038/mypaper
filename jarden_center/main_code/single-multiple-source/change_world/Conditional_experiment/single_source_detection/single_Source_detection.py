@@ -1,21 +1,10 @@
-
-import numpy as np
-import matplotlib.pyplot as plt
-from networkx.algorithms import community
 import random
 import math
 import networkx  as nx
-import numpy
-from munkres import print_matrix, Munkres
 from collections import defaultdict
-from random import sample
-import sys
-import  copy
-import  Partion_common
 import commons
-import  plot_main
-import  rumor_centrality
-import  jordan_centrality
+from jordan_center import jordan_centrality
+import  rumor_centrality_graph_main
 class Single_source:
     def __init__(self):
         pass
@@ -244,7 +233,6 @@ class Single_source:
         # print('eigenvector_centrality', sort_eigener_centrality)
         # # self.center = sort_eigener_centrality[0][0]
 
-        import math
         # Kaza中心性
         # G = nx.path_graph(4)
         # maxnumber = max(nx.adjacency_spectrum(subinfectG))
@@ -323,43 +311,19 @@ class Single_source:
     '''
 
     def  rumor_center(self,infectG,subiG,source_true):
-        #将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
-        infect_node = []
-        infect_neighbour_list = []
-        print(infectG.number_of_nodes())
-        random_node = random.choice(list(subiG.nodes()))
-        subinfectG=nx.bfs_tree(subiG, source=source_true)
-        # who_infected =  [[] for i in range(infectG.number_of_nodes())]
-        #找出最大的id数目。
-        maxs= 0
-        for node_index in list(infectG.nodes):
-            if node_index > maxs:
-                maxs = node_index
-        print('maxs',maxs)
-        for node in list(subinfectG.nodes()):
-            infect_node.append(node)
-        who_infected = [[] for i in range(maxs+1)]
 
-        i = 0
-        for node_temp in infect_node:
-            neighbour_list =list(nx.all_neighbors(subinfectG,node_temp))
-            neighbour_list_index = []
-            for neighbour in neighbour_list:
-                neighbour_list_index.append(infect_node.index(neighbour))
-            who_infected[i] = neighbour_list_index
-            i += 1
+        if nx.is_tree(subiG) ==True:
 
-        print('infect_node',infect_node)
-        print('who_infected',who_infected)
-        rumor_center_object= rumor_centrality.rumor_center()
+            rumor_center_object= rumor_centrality_graph_main.rumor_center()
+            rumor_center, center=rumor_center_object.rumor_centrality(subiG)
+            return [rumor_center]
+        else:
 
-
-        rumor_center, center=rumor_center_object.rumor_centrality(who_infected)
-
-        print('rumor_center', rumor_center)
-        print('center', center)
-        print('[infect_node[rumor_center]]', [infect_node[rumor_center]])
-        return [infect_node[rumor_center]]
+            direct_tree = nx.bfs_tree(subiG,source=source_true)
+            subinfectG  = direct_tree.to_undirected()
+            rumor_center_object = rumor_centrality_graph_main.rumor_center()
+            rumor_center, center = rumor_center_object.rumor_centrality(subinfectG)
+            return [rumor_center]
 
 
     '''
@@ -392,17 +356,29 @@ class Single_source:
                 neighbour_list_index.append(infect_node.index(neighbour))
             who_infected[i] = neighbour_list_index
             i += 1
-
         print('infect_node', infect_node)
         print('who_infected', who_infected)
-
         jordan_center_object = jordan_centrality.jordan()
         jordan_center = jordan_center_object.jordan_centrality(who_infected)
-
         print(' jordan_center',  jordan_center)
         # print('center', center)
-
         return [infect_node[jordan_center]]
+
+
+
+
+    '''
+    1 乔丹中心直接实现
+    '''
+
+    def jarden_cente_networkx(self, infectG, subiG, source_true):
+       dict = nx.eccentricity(subiG)
+       print('dict',dict)
+       sort_dict = sorted(dict.items(),key= lambda  x:x[1])
+       print('sort_dict',sort_dict)
+       print('源是',[sort_dict[0][0]])
+       return [sort_dict[0][0]]
+
 
 
 
@@ -479,11 +455,11 @@ class Single_source:
         # source_list = product_sourceList(max_sub_graph, 2)
         source_list = commons.product_sourceList(max_sub_graph, 1)
         # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
-        infectG,T = commons.propagation1(max_sub_graph,source_list)
+        infectG,T = commons.propagation1(max_sub_graph,[100])
         # infectG1, T = commons.propagation1(max_sub_graph, [source_list])
         subinfectG = commons.get_subGraph_true( infectG)  # 只取感染点，为2表示,真实的感染图。
         #将在这里进行单源测试。
-
+        print(sorted(list(subinfectG.nodes())))
         #
         # result_node = self.revsitionAlgorithm_singlueSource(subinfectG)
         # ''' 第二种，就是coverage/distance'''
@@ -502,11 +478,11 @@ class Single_source:
 
        #第9种，谣言中心性‘’
 
-        result_node = self.rumor_center(infectG,subinfectG,source_list[0])
+        # result_node = self.rumor_center(infectG,subinfectG,source_list[0])
 
       #
       # # #’‘ 乔丹中心性
-      #   result_node = self.jarden_center(infectG,subinfectG,source_list[0])
+        result_node = self.jarden_cente_networkx(infectG,subinfectG,source_list[0])
 
 
         # 覆盖率加我们的操作
@@ -517,8 +493,8 @@ class Single_source:
 
 
         print('真实源是',source_list[0])
-        print('预测源是',result_node[0])
-        distance= nx.shortest_path_length(subinfectG,source=source_list[0], target=result_node[0])
+        # print('预测源是',result_node[0])
+        distance= nx.shortest_path_length(subinfectG,source=100, target=result_node[0])
         print('结果他们的距离是', distance)
         return distance
 
@@ -540,7 +516,7 @@ if __name__ == '__main__':
     # filname = '../../../data/4_regular_graph_3000_data.txt'
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
     # filname = '../../../data/CA-GrQc.txt'
-    filname = '../../../data/3regular_tree9.txt'
+    filname = '../../../data/3regular_tree10000.txt'
     # method ='distan+ covage'
     # method = 'jardan_center'
     # method ='distance'

@@ -202,30 +202,30 @@ if __name__ == '__main__':
     # source_list = product_sourceList(max_sub_graph, 2)
     source_list = commons.product_sourceList(max_sub_graph, 1)
     # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
-    infectG, T = commons.propagation1(max_sub_graph, source_list)
+    infectG, T = commons.propagation1(max_sub_graph, [78])
     # infectG1, T = commons.propagation1(max_sub_graph, [source_list])
     subInfectG = commons.get_subGraph_true(infectG)  # 只取感染点，为2表示,真实的感染图。
 
     # result_node = rumor_center(infectG, subinfectG, source_list[0])
 
     # 将图构造成两个list，一个是感染点list，一个是感染和它的邻居点构造成的list
-    infect_node = []
-    infect_neighbour_list = []
-    print(infectG.number_of_nodes())
-    random_node = random.choice(list(subInfectG.nodes()))
-    subinfectG_temp = nx.bfs_tree(subInfectG, source=source_list[0])
-    subinfectG = subinfectG_temp.to_undirected()
+    # infect_node = []
+    # infect_neighbour_list = []
+    # print(infectG.number_of_nodes())
+    # random_node = random.choice(list(subInfectG.nodes()))
+    # subinfectG_temp = nx.bfs_tree(subInfectG, source=source_list[0])
+    # subinfectG = subinfectG_temp.to_undirected()
 
 
 
-    
+
     rumor_center_object = rumor_center()
-    rumor_center, center = rumor_center_object.rumor_centrality(subinfectG)
+    rumor_center, center = rumor_center_object.rumor_centrality(subInfectG)
     print('rumor_center', rumor_center)
     print('center', center)
     print('真实源是', source_list[0])
     # print('预测源是', result_node[0])
-    distance = nx.shortest_path_length(subinfectG, source=source_list[0], target=rumor_center)
+    distance = nx.shortest_path_length(subInfectG, source=33, target=rumor_center)
     print('结果他们的距离是', distance)
 
 

@@ -88,8 +88,9 @@ def plot_G_node_color_simple(subinfectG,nodelist):
     for edge in list(subinfectG.edges()):
         edge_list.append(edge)
 
+    nx.draw(subinfectG, pos,node_color = 'b', edge_color = 'r', with_labels = True,font_size = 8, node_size = 20)
     # nx.draw_networkx_nodes(infectG, pos, nodelist=nodelist_all_graph, node_size=20, node_color='b')  #所有点的
-    nx.draw_networkx_nodes(subinfectG, pos, nodelist=node_subinfetG, node_size=50, node_color='G')  #传播子图的
+    nx.draw_networkx_nodes(subinfectG, pos, nodelist=node_subinfetG, node_size=50, node_color='G',label=True)  #传播子图的
 
     nx.draw_networkx_nodes(subinfectG, pos, nodelist=nodelist, node_size=300, node_color='R') #边界点的
 
