@@ -5,6 +5,7 @@ from collections import defaultdict
 import commons
 from jordan_center import jordan_centrality
 import  rumor_centrality_graph_main
+import  numpy as np
 class Single_source:
     def __init__(self):
         pass
@@ -435,6 +436,77 @@ class Single_source:
 
 
 
+    '''
+    1 基于覆盖率的置信算法实现
+    思路：
+        1 初始化每个点的一阶邻域覆盖率
+        2 随机某个点i和它的邻居节点j1，j2，j3。（通过i来影响j）
+        3 从i向j1，j2，j3发送消息。消息的定义公式一定要搞下，操。
+        再重复2，3直到所有点都更新了。
+        4 计算每个点的置信度，将它所收到的所有消息乘积起来。
+        最大的就是谣言中心。
+        
+        
+    '''
+    def belief_algorithm(self,infectG,subinfectG,true_source):
+        #初始化所有的点的覆盖率，有初始值。
+        node_coverage =defaultdict(int)
+        for node_index in list(infectG.nodes()):
+            if infectG.node[node_index]['SI']==2:
+                neighbour = list(nx.neighbors(infectG,node_index))
+                SI_len= len([x for x in neighbour if infectG.node[x]['SI']==2])
+                # if SI_len != len(neighbour):
+                #     print('不是啊啊发士大夫')
+                node_coverage[node_index] = SI_len / len(neighbour)
+        print('node_coverage',node_coverage)
+
+        node_message = defaultdict(list)  #这个会根据无向图的所有点和度生成一个空的度。
+        #直接有一个矩阵不就好了嘛。
+        new_arrays=np.zeros((infectG.number_of_nodes(),infectG.number_of_nodes()))
+        for i  in range(0,20):
+            #对每个点来说，向四周发送消息。消息为
+            for node in list(subinfectG.nodes()):
+                for neighbour_temp in list(nx.neighbors(subinfectG,node)):
+                    mutiplue = 1
+                    #制造list，除去neighbor_temp的邻居节点
+                    neighbour_temp_list=list(nx.neighbors(subinfectG, node))
+                    neighbour_temp_list.remove(neighbour_temp)
+                    for neighbour_two in neighbour_temp_list:
+                        mutiplue = mutiplue+node_coverage[neighbour_two]  #改成了加，效果很好啊。还是需要再修改下，这个公式
+                    #消息更新
+                    new_arrays[node][neighbour_temp] =mutiplue
+
+                    #还是有问题，就是这里应该有加的。
+
+
+        #这个矩阵就是所有点相互之间发送的消息了。
+        node_belief_dict  =defaultdict(int )
+        #现在计算每个点的置信度。
+        for node_belief in list(subinfectG.nodes):
+            mutiplue_belief =1
+            for neighbour_belief in list(nx.neighbors(subinfectG,node_belief)):
+                mutiplue_belief= mutiplue_belief *new_arrays[neighbour_belief][node_belief]  #注意这里是反的，并不是正
+            node_belief_dict[node_belief] = mutiplue_belief
+
+        node_belief_dict_sort =sorted(node_belief_dict.items(),key= lambda  x:x[1],reverse=True)
+        print('node_belief_dict',node_belief_dict_sort)
+        print('distance',nx.shortest_path_length(infectG,source=node_belief_dict_sort[0][0],target=true_source))
+
+        return [node_belief_dict_sort[0][0]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -482,7 +554,7 @@ class Single_source:
 
       #
       # # #’‘ 乔丹中心性
-        result_node = self.jarden_cente_networkx(infectG,subinfectG,source_list[0])
+      #   result_node = self.jarden_cente_networkx(infectG,subinfectG,source_list[0])
 
 
         # 覆盖率加我们的操作
@@ -491,6 +563,8 @@ class Single_source:
         # #多个观察点
         # result_node = self.coverage_BFS_single_source(infectG,subinfectG,source_list[0])
 
+        #基于覆盖率的计算方式
+        result_node = self.belief_algorithm(infectG, subinfectG,100)
 
         print('真实源是',source_list[0])
         # print('预测源是',result_node[0])

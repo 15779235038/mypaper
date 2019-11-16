@@ -82,7 +82,7 @@ class rumor_center:
     def rumor_centrality(self, who_infected):
 
         # print('who_infected',who_infected)
-        root_node = 100
+        root_node = 4
         rumor_center = -1
         up_messages = []
         for i in range(len(who_infected)):
