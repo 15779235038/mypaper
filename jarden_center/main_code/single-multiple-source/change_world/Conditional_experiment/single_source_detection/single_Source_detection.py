@@ -662,7 +662,7 @@ if __name__ == '__main__':
     # filname = '../../../data/4_regular_graph_3000_data.txt'
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
     # filname = '../../../data/CA-GrQc.txt'
-    filname = '../../../data/3regular_tree10000.txt'
+    filname = '../../../data/4regular_tree9.txt'
     # method ='distan+ covage'
     # method = 'jardan_center'
     # method ='distance'
