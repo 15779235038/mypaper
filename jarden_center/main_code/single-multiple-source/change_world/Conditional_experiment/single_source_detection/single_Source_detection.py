@@ -603,7 +603,7 @@ class Single_source:
         # source_list = product_sourceList(max_sub_graph, 2)
         source_list = commons.product_sourceList(max_sub_graph, 1)
         # print('两个节点的距离', nx.shortest_path_length(max_sub_graph, source=source_list[0], target=source_list[1]))
-        infectG,T = commons.propagation1(max_sub_graph,[1000])
+        infectG,T = commons.propagation1(max_sub_graph,source_list)
         # infectG1, T = commons.propagation1(max_sub_graph, [source_list])
         subinfectG = commons.get_subGraph_true( infectG)  # 只取感染点，为2表示,真实的感染图。
         #将在这里进行单源测试。
@@ -641,10 +641,10 @@ class Single_source:
 
         #基于覆盖率的计算方式
 
-        result_node = self.belief_algorithm_newworkx(infectG, subinfectG,1000)
+        result_node = self.belief_algorithm_newworkx(infectG, subinfectG,source_list[0])
         print('真实源是',source_list[0])
         # print('预测源是',result_node[0])
-        distance= nx.shortest_path_length(subinfectG,source=1000, target=result_node[0])
+        distance= nx.shortest_path_length(subinfectG,source=source_list[0], target=result_node[0])
         print('结果他们的距离是', distance)
         return distance
 
@@ -667,10 +667,6 @@ if __name__ == '__main__':
     # method = 'jardan_center'
     # method ='distance'
     method = '谣言中心性'
-
-
-
-
     for i in range(0, 20):
         tempresult = test.main(filname)
         sum += tempresult  # 跑实验
