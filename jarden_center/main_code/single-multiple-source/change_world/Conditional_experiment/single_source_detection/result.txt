@@ -706,3 +706,2565 @@ Sun Nov 17 13:06:37 2019
 每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
 数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   1.85
 
+Mon Nov 18 09:01:59 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:05:38 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:09:20 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:12:59 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:34 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:35 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:36 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:37 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:38 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:39 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:39 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:40 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:41 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:42 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:43 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:44 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:45 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:46 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:47 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:48 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:49 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:49 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:50 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:15:51 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   16.7
+
+Mon Nov 18 09:28:52 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:28:53 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:28:54 2019
+每一步的结果是   11      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:28:55 2019
+每一步的结果是   16      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:28:57 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:00 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:02 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:03 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:04 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:06 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:08 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:09 2019
+每一步的结果是   10      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:10 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:11 2019
+每一步的结果是   23      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:13 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:15 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:16 2019
+每一步的结果是   20      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:18 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:21 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:29:22 2019
+每一步的结果是   14      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   8.45
+
+Mon Nov 18 09:30:25 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:26 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:28 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:29 2019
+每一步的结果是   13      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:31 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:33 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:35 2019
+每一步的结果是   10      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:36 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:37 2019
+每一步的结果是   14      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:38 2019
+每一步的结果是   11      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:40 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:40 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:42 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:44 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:45 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:46 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:47 2019
+每一步的结果是   16      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:48 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:49 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:30:51 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   8.4
+
+Mon Nov 18 09:32:08 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:13 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:19 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:24 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:28 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:34 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:39 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:44 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:49 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:54 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:32:59 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:33:05 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:33:09 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:33:15 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:33:19 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:33:24 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:33:29 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:33:34 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:33:40 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:33:45 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   2.25
+
+Mon Nov 18 09:38:34 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:35 2019
+每一步的结果是   11      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:37 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:39 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:39 2019
+每一步的结果是   26      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:41 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:43 2019
+每一步的结果是   11      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:44 2019
+每一步的结果是   13      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:45 2019
+每一步的结果是   11      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:46 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:48 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:50 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:51 2019
+每一步的结果是   11      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:52 2019
+每一步的结果是   29      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:54 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:55 2019
+每一步的结果是   26      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:56 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:57 2019
+每一步的结果是   29      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:38:58 2019
+每一步的结果是   10      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:39:00 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   10.65
+
+Mon Nov 18 09:42:20 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:21 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:22 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:23 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:24 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:25 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:26 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:27 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:28 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:28 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:29 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:30 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:31 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:32 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:33 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:34 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:35 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:35 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:36 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:42:37 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   8.0
+
+Mon Nov 18 09:45:06 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:07 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:08 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:09 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:10 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:10 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:11 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:12 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:13 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:14 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:15 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:16 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:17 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:18 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:19 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:20 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:21 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:22 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:23 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:24 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   17.0
+
+Mon Nov 18 09:45:34 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:34 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:35 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:36 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:37 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:38 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:39 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:40 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:41 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:41 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:42 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:43 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:44 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:45 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:46 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:47 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:48 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:49 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:49 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:45:50 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   9.8
+
+Mon Nov 18 09:48:01 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:02 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:03 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:04 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:05 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:06 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:07 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:07 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:08 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:09 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:10 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:11 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:12 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:13 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:13 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:14 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:15 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:16 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:17 2019
+每一步的结果是   18      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:18 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   15.4
+
+Mon Nov 18 09:48:28 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:29 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:30 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:31 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:32 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:33 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:33 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:34 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:35 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:36 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:37 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:38 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:39 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:40 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:41 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:42 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:43 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:43 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:44 2019
+每一步的结果是   17      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:48:45 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   8.0
+
+Mon Nov 18 09:51:19 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:20 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:21 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:22 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:23 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:24 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:25 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:26 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:27 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:28 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:29 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:30 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:31 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:32 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:33 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:34 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:35 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:36 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:37 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:51:38 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   8.0
+
+Mon Nov 18 09:52:15 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:17 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:18 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:19 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:20 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:22 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:23 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:24 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:25 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:27 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:28 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:29 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:31 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:32 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:33 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:34 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:36 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:37 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:38 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:52:39 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   8.0
+
+Mon Nov 18 09:53:05 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:53:11 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:53:17 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:53:24 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:53:31 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:53:38 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:53:44 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:53:50 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:53:59 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:03 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:06 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:09 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:12 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:15 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:18 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:21 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:25 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:28 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:31 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:34 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:37 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:40 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:43 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:46 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:49 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:52 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:56 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 09:54:59 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   4.3
+
+Mon Nov 18 09:56:44 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:46 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:47 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:49 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:50 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:52 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:53 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:55 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:56 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:57 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:56:59 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:00 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:02 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:03 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:05 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:06 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:08 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:09 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:11 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:12 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   1.1
+
+Mon Nov 18 09:57:23 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:25 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:26 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:28 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:30 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:31 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:33 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:35 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:36 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:38 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:40 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:42 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:43 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:48 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:49 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:51 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:53 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:54 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:56 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:57:58 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:00 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:01 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:03 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:04 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:06 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:08 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:10 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:11 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:13 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:15 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:17 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:18 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:20 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   4.9
+
+Mon Nov 18 09:58:56 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:58:59 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:01 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:03 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:08 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:12 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:13 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:15 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:16 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:18 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:20 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:21 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:23 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:25 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:26 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:28 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:29 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:31 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:33 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:34 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:36 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:37 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 09:59:39 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   3.15
+
+Mon Nov 18 10:00:08 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:11 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:13 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:14 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:16 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:18 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:19 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:21 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:22 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:24 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:26 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:27 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:29 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:30 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:32 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:33 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:35 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:37 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:38 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   3.4
+
+Mon Nov 18 10:00:45 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:47 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:48 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:50 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:51 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:53 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:54 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:56 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:57 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:00:59 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:01 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:02 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:04 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:06 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:07 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:09 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:10 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:12 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:13 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:01:15 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   3.3
+
+Mon Nov 18 10:03:03 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:05 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:07 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:09 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:13 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:15 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:16 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:18 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:20 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:21 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:23 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:24 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:26 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:27 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:29 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:30 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:32 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:33 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:35 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:36 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:38 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:39 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:41 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:03:43 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   3.4
+
+Mon Nov 18 10:04:35 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:04:37 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:04:50 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:04:51 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:09 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:27 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:30 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:43 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:44 2019
+每一步的结果是   10      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:46 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:50 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:52 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:54 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:55 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:05:57 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:06:09 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:06:10 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:06:12 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:06:14 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:06:15 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   6.9
+
+Mon Nov 18 10:07:05 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:07 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:08 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:10 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:12 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:13 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:15 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:16 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:18 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:20 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:21 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:23 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:24 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:26 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:27 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:29 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:31 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:32 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:34 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 10:07:35 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   2.15
+
+Mon Nov 18 10:08:13 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:15 2019
+每一步的结果是   52      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:16 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:18 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:19 2019
+每一步的结果是   52      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:21 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:22 2019
+每一步的结果是   52      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:24 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:25 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:27 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:29 2019
+每一步的结果是   52      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:30 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:32 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:33 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:35 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:36 2019
+每一步的结果是   52      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:38 2019
+每一步的结果是   52      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:40 2019
+每一步的结果是   34      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:41 2019
+每一步的结果是   52      数据集方法谣言中心性../../../data/random_tree_10000.txt
+Mon Nov 18 10:08:43 2019
+每一步的结果是   52      数据集方法谣言中心性../../../data/random_tree_10000.txt
+数据集../../../data/random_tree_10000.txt方法谣言中心性总结果   41.2
+
+Mon Nov 18 10:10:56 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:10:56 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:10:57 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:10:57 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:10:58 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:10:59 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:10:59 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:00 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:01 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:01 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:02 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:03 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:03 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:04 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:04 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:05 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:06 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:06 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:07 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:08 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法谣言中心性总结果   2.35
+
+Mon Nov 18 10:11:48 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:48 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:49 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:50 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:50 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:51 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:51 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:52 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:53 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:54 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:54 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:55 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:56 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:56 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:57 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:58 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:58 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:11:59 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:00 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:00 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法谣言中心性总结果   2.2
+
+Mon Nov 18 10:12:37 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:38 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:39 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:40 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:40 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:41 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:42 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:43 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:43 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:44 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:45 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:46 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:46 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:47 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:48 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:49 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:50 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:50 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:51 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:12:52 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法谣言中心性总结果   0.4
+
+Mon Nov 18 10:13:43 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:44 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:45 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:45 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:46 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:46 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:47 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:48 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:49 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:49 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:50 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:50 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:51 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:52 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:52 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:53 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:54 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:54 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:55 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:13:55 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法谣言中心性总结果   2.05
+
+Mon Nov 18 10:14:42 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:14:44 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:14:47 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:14:49 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:14:52 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:14:54 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:14:57 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:14:59 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:02 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:04 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:07 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:09 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:12 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:14 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:16 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:18 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:21 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:23 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:25 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:15:28 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法谣言中心性总结果   3.0
+
+Mon Nov 18 10:16:13 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:16:39 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:17:08 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:17:35 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:18:02 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:18:31 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:19:12 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:19:41 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:20:11 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:20:38 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:21:02 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:21:24 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:21:50 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:22:18 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:22:44 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:23:08 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:23:48 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:23 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:38 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:40 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:43 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:46 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:48 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:50 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:53 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:55 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:24:57 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:00 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:02 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:05 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:07 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:10 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:12 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:14 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:16 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:18 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:20 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:25:23 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+数据集../../../data/CA-GrQc.txt方法谣言中心性总结果   3.0
+
+Mon Nov 18 10:26:26 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:26:50 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:27:35 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:27:58 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:16 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:19 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:21 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:23 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:25 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:28 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:30 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:32 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:35 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:37 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:39 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:42 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:28:44 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:03 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:05 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:08 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:11 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:13 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:15 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:18 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:20 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:23 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:25 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:29 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:31 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:33 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:36 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/CA-GrQc.txt
+Mon Nov 18 10:29:46 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:29:51 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:29:55 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:00 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:06 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:16 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:21 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:25 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:30 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:36 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:41 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:47 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:51 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:30:58 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:10 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:16 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:21 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:26 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:30 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:35 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:40 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:44 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:49 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:55 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:31:59 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:32:04 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:32:09 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:32:15 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:32:21 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:32:26 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:32:31 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:32:36 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:32:40 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+Mon Nov 18 10:32:45 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/3regular_tree10000.txt
+数据集../../../data/3regular_tree10000.txt方法谣言中心性总结果   8.0
+
+Mon Nov 18 10:36:31 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:33 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:35 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:37 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:39 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:41 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:43 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:46 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:48 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:50 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:53 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:55 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:36:58 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:37:00 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:37:03 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:37:05 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:37:08 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:37:10 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:37:12 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:37:15 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   3.6
+
+Mon Nov 18 10:37:54 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:37:57 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:38:01 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:38:04 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:38:07 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:38:10 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:38:14 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:38:17 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:38:20 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:39:45 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:40:59 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:42:23 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:43:44 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:45:05 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:46:26 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:47:50 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:49:02 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:50:18 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 10:51:38 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:05 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:09 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:12 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:15 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:23 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:26 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:32 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:35 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:38 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:41 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:44 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:47 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:49 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:52 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:54 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:00:57 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:01:00 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:01:03 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:01:11 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:01:16 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   2.95
+
+Mon Nov 18 11:02:04 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:02:07 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:02:10 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:02:13 2019
+每一步的结果是   0      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:03:36 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:03:41 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:03:43 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:03:47 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:03:50 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:03:56 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:03:59 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:02 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:04 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:09 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:12 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:15 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:18 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:21 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:23 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:28 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:31 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:36 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:41 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:04:51 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   3.0
+
+Mon Nov 18 11:10:37 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:10:41 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:10:45 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:10:49 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:10:53 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:00 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:08 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:12 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:16 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:19 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:23 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:27 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:32 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:37 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:42 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:11:47 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:02 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:07 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:12 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:17 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:20 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:22 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:24 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:27 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:30 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:33 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:37 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:43 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:12:46 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:21 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:23 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:25 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:27 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:30 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:32 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:34 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:36 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:38 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:41 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:43 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:45 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:48 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:50 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:53 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:14:55 2019
+每一步的结果是   1      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:02 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:04 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:07 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:09 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:11 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:14 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:16 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:19 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:21 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:24 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:27 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:29 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:32 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:34 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:37 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:39 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:42 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:45 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:47 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:15:50 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.0
+
+Mon Nov 18 11:16:32 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:34 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:37 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:39 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:41 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:44 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:46 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:48 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:51 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:53 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:55 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:16:58 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:17:00 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:17:02 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:17:05 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:17:08 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:17:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:17:13 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:17:15 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:17:17 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.1
+
+Mon Nov 18 11:23:18 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:21 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:23 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:25 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:27 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:30 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:32 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:34 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:36 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:39 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:41 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:44 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:46 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:48 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:50 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:53 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:55 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:23:58 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:00 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:02 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.1
+
+Mon Nov 18 11:24:16 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:19 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:22 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:25 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:28 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:44 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:46 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:48 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:51 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:53 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:55 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:24:57 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:00 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:02 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:05 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:08 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:13 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:15 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:18 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:21 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:23 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:26 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:29 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:25:31 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.1
+
+Mon Nov 18 11:51:12 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:15 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:17 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:19 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:21 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:24 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:26 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:28 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:31 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:33 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:35 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:38 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:40 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:42 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:44 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:46 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:49 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:51 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:53 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:51:56 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.0
+
+Mon Nov 18 11:56:13 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:16 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:22 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:25 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:28 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:31 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:33 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:35 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:39 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:42 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:44 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:47 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:50 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:52 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:55 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:56:58 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:00 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:07 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:10 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:12 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:15 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:18 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:21 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:24 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:28 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:30 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:33 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:40 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:42 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:45 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:47 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:50 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:52 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:55 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:57:58 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:00 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:03 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:05 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:09 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:12 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:16 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:18 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:21 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:24 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:27 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:29 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:58:32 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.65
+
+Mon Nov 18 11:59:12 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:13 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:15 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:16 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:18 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:19 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:21 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:23 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:25 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:26 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:28 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:32 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:34 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:35 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:37 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:38 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:39 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:40 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:41 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:43 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:44 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:45 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:46 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:48 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:50 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:53 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:54 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:55 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:56 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:57 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 11:59:58 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.4
+
+Mon Nov 18 12:00:59 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:01 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:02 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:06 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:08 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:14 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:16 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:19 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:21 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:28 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:29 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:33 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:36 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:39 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:41 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:43 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:45 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:47 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:48 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:50 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:52 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:54 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:57 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:01:59 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:01 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   7.55
+
+Mon Nov 18 12:02:25 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:27 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:29 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:32 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:34 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:36 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:39 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:41 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:42 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:44 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:46 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:02:51 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:03:02 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:03:04 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:03:05 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:03:07 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:03:09 2019
+每一步的结果是   9      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:03:17 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:03:19 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:03:22 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   7.4
+
+Mon Nov 18 12:03:59 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:01 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:02 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:04 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:05 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:07 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:08 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:11 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:12 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:14 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:15 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:17 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:18 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:20 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:21 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:22 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:24 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:25 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:04:27 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.0
+
+Mon Nov 18 12:44:36 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:37 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:40 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:41 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:43 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:45 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:47 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:49 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:51 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:53 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:54 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:56 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:44:58 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:00 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:02 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:04 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:06 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:08 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:09 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:11 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.2
+
+Mon Nov 18 12:45:51 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:53 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:54 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:56 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:45:58 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:01 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:03 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:05 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:06 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:08 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:12 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:14 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:16 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:18 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:20 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:22 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:24 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:26 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+Mon Nov 18 12:46:28 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/5regular_tree_10000.txt
+数据集../../../data/5regular_tree_10000.txt方法谣言中心性总结果   4.85
+
+Mon Nov 18 12:48:25 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:48:35 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:48:44 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:48:52 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:49:01 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:49:11 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:49:20 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:49:27 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:49:39 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:49:45 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:49:56 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:50:06 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:50:13 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:50:23 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:50:30 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:50:37 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:50:48 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:50:58 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:51:07 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 12:51:19 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   5.2
+
+Mon Nov 18 13:01:05 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:01:13 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:01:19 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:01:30 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:01:39 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:01:48 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:01:54 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:02:02 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:02:10 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:02:17 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:02:23 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:02:32 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:02:39 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:02:44 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:02:54 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:03:00 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:03:08 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:03:16 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:03:22 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:03:31 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   4.8
+
+Mon Nov 18 13:39:52 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:39:59 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:40:05 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:40:15 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:40:22 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:40:32 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:40:39 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:40:45 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:40:51 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:40:58 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:41:07 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:41:17 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 13:41:26 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:48:49 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:48:55 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:49:01 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:49:11 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:55:02 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:57:59 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:13 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:24 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:27 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:30 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:33 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:36 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:40 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:42 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:46 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:48 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:51 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:55 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:58:58 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:59:01 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:59:04 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:59:07 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:59:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:59:13 2019
+每一步的结果是   5      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 15:59:53 2019
+每一步的结果是   3      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:00:24 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:00:48 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:01:07 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:01:11 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:01:15 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:01:19 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:01:30 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:01:52 2019
+每一步的结果是   2      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:05:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:05:17 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:05:23 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:05:29 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:05:35 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:05:41 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:05:47 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:05:52 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:05:58 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:04 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:10 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:16 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:22 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:28 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:34 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:41 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:46 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:52 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:06:58 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:13 2019
+每一步的结果是   7      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:19 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:22 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:27 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:30 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:34 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:37 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:40 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:43 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:47 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:50 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:53 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:07:57 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:00 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:03 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:06 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:09 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:12 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:16 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:19 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:22 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:25 2019
+每一步的结果是   6      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:08:28 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+数据集../../../data/4regular_tree9.txt方法谣言中心性总结果   4.1
+
+Mon Nov 18 16:09:50 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:09:54 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:09:57 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:10:00 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:10:04 2019
+每一步的结果是   4      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:10:24 2019
+每一步的结果是   10      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:10:28 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:10:57 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:12:18 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:12:26 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:12:57 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:13:06 2019
+每一步的结果是   10      数据集方法谣言中心性../../../data/4regular_tree9.txt
+Mon Nov 18 16:13:40 2019
+每一步的结果是   8      数据集方法谣言中心性../../../data/4regular_tree9.txt

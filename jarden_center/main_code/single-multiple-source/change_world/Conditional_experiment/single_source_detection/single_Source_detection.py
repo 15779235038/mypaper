@@ -449,65 +449,87 @@ class Single_source:
         
     '''
     def belief_algorithm(self,infectG,subinfectG,true_source):
-        #初始化所有的点的覆盖率，有初始值。
-        node_coverage =defaultdict(int)
+        # 初始化所有的点的覆盖率，有初始值。
+        node_coverage = defaultdict(int)
         for node_index in list(infectG.nodes()):
-            if infectG.node[node_index]['SI']==2:
-                neighbour = list(nx.neighbors(infectG,node_index))
-                SI_len= len([x for x in neighbour if infectG.node[x]['SI']==2])
+            if infectG.node[node_index]['SI'] == 2:
+                neighbour = list(nx.neighbors(infectG, node_index))
+                SI_len = len([x for x in neighbour if infectG.node[x]['SI'] == 2])
                 # if SI_len != len(neighbour):
                 #     print('不是啊啊发士大夫')
                 node_coverage[node_index] = SI_len / len(neighbour)
-        print('node_coverage',node_coverage)
+        print('node_coverage', node_coverage)
 
-        node_message = defaultdict(list)  #这个会根据无向图的所有点和度生成一个空的度。
-        #直接有一个矩阵不就好了嘛。
-        new_arrays=np.zeros((infectG.number_of_nodes(),infectG.number_of_nodes()))
-        #变成图版本，
+        # node_message = defaultdict(list)  # 这个会根据无向图的所有点和度生成一个空的度。
+        # 直接有一个矩阵不就好了嘛。
+        node_message = dict()
+        # new_arrays = np.zeros((infectG.number_of_nodes(), infectG.number_of_nodes()))
+        # 变成图版本，
+        for edge in infectG.edges():
+            node_message[(edge[0], edge[1])] = 1
+            node_message[(edge[1], edge[0])] = 1
 
-        for i  in range(0,50):
-            #对每个点来说，向四周发送消息。消息为
+        for i in range(0, 10):
+            node_message_temp = dict()
+            for edge in infectG.edges():
+                node_message_temp[(edge[0], edge[1])] = 1
+                node_message_temp[(edge[1], edge[0])] = 1
+
+            # 对每个点来说，向四周发送消息。消息为
             lists = list(subinfectG.nodes)
             random.shuffle(lists)
             for node in lists:
-                for neighbour_temp in list(nx.neighbors(subinfectG,node)):
-                    mutiplue = 0
-                    #制造list，除去邻居neighbor_temp的node其他邻居节点list
-                    neighbour_temp_list=list(nx.neighbors(subinfectG, node))
+                for neighbour_temp in list(nx.neighbors(subinfectG, node)):
+                    mutiplue = 1
+                    # 制造list，除去邻居neighbor_temp的node其他邻居节点list
+                    neighbour_temp_list = list(nx.neighbors(subinfectG, node))
                     neighbour_temp_list.remove(neighbour_temp)
                     for neighbour_two in neighbour_temp_list:
-                        mutiplue = mutiplue+node_coverage[neighbour_two]  #改成了加，效果很好啊。还是需要再修改下，这个公式
-                    #消息更新
-                    new_arrays[node][neighbour_temp] +=mutiplue #这个也要接着上次的更新？
-                    #还是有问题，就是这里应该有加的。
-        #这个矩阵就是所有点相互之间发送的消息了。
-        node_belief_dict  =defaultdict(int )
-        #现在计算每个点的置信度。
-        for node_belief in list(subinfectG.nodes):
-            mutiplue_belief =1
-            for neighbour_belief in list(nx.neighbors(subinfectG,node_belief)):
-                mutiplue_belief= mutiplue_belief *new_arrays[neighbour_belief][node_belief]  #注意这里是反的，并不是正
-            node_belief_dict[node_belief] = mutiplue_belief *node_coverage[node_belief]
+                        mutiplue = mutiplue *node_message[neighbour_two,node]  # 改成了加，效果很好啊。还是需要再修改下，这个公式
+                    # 消息更新
+                    node_message_temp[(node, neighbour_temp)] = mutiplue * node_coverage[node]  # 还是有问题，就是这里应该有加的。
+            # 还是有问题，就是这里应该有加的。
+            # print('node_message_temp',node_message_temp)
+            node_message =node_message_temp
 
-        node_belief_dict_sort =sorted(node_belief_dict.items(),key= lambda  x:x[1],reverse=True)
-        print('node_belief_dict',node_belief_dict_sort)
-        print('distance',nx.shortest_path_length(infectG,source=node_belief_dict_sort[0][0],target=true_source))
-        same_belief_list  =[ ]
+            # print('node_message',node_message)
+            print('-----------------------')
+            count  = 0
+            for k,v in node_message.items():
+                if count > 10:
+                    break
+                print('k,v',(k,v))
+                count += 1
+
+        # 这个矩阵就是所有点相互之间发送的消息了。
+        node_belief_dict = defaultdict(int)
+        # 现在计算每个点的置信度。
+        for node_belief in list(subinfectG.nodes):
+            mutiplue_belief = 1
+            for neighbour_belief in list(nx.neighbors(subinfectG, node_belief)):
+                mutiplue_belief = mutiplue_belief * node_message[(neighbour_belief, node_belief)]  # 注意这里是反的，并不是正
+            node_belief_dict[node_belief] = mutiplue_belief * node_coverage[node_belief]
+
+
+        node_belief_dict_sort = sorted(node_belief_dict.items(), key=lambda x: x[1], reverse=True)
+        print('node_belief_dict', node_belief_dict_sort)
+        print('distance', nx.shortest_path_length(infectG, source=node_belief_dict_sort[0][0], target=true_source))
+        same_belief_list = []
         same_belief_list.append(node_belief_dict_sort[0][0])
-        for index in range(0,len(node_belief_dict_sort)-1):
+        for index in range(0, len(node_belief_dict_sort) - 1):
             if node_belief_dict_sort[index][1] == node_belief_dict_sort[0][1]:
                 same_belief_list.append(node_belief_dict_sort[index][0])
 
-        for source_index in same_belief_list:
-            print(nx.shortest_path_length(infectG,source=source_index,target=true_source))
+        # for source_index in same_belief_list:
+        #     print(nx.shortest_path_length(infectG, source=source_index, target=true_source))
 
-        jarcenlist=[]
-        resultlist =[ ]
+        jarcenlist = []
+        resultlist = []
         for i in same_belief_list:
             jarcenlist.append([i, nx.eccentricity(subinfectG, i)])  # 按照离心率进行排序,最小离心率的就是源点。
             resultlist = sorted(jarcenlist, key=lambda x: x[1])
 
-        print('偏心率最低的是',resultlist[0][0])
+        print('偏心率最低的是', resultlist[0][0])
         return [resultlist[0][0]]
 
     '''
@@ -558,8 +580,7 @@ class Single_source:
                         for neighbour_two in neighbour_temp_list:
                             mutiplue = mutiplue + node_coverage[neighbour_two]  # 改成了加，效果很好啊。还是需要再修改下，这个公式
                         # 消息更新
-                        node_message[(node,neighbour_temp)] += mutiplue  # 这个也要接着上次的更新？
-                        # 还是有问题，就是这里应该有加的。
+                        node_message[(node, neighbour_temp)] = mutiplue + node_coverage[node]# 还是有问题，就是这里应该有加的。
             # 这个矩阵就是所有点相互之间发送的消息了。
             node_belief_dict = defaultdict(int)
             # 现在计算每个点的置信度。
@@ -599,6 +620,10 @@ class Single_source:
 
         # #拿到图
         initG = commons.get_networkByFile(filename)
+
+        # ecc=nx.eccentricity(initG)
+        # sort_ecc=sorted(ecc.items(),key=lambda  x:x[1])
+        # product_srouce =sort_ecc[0][0]
         max_sub_graph = commons.judge_data(initG)
         # source_list = product_sourceList(max_sub_graph, 2)
         source_list = commons.product_sourceList(max_sub_graph, 1)
@@ -641,7 +666,7 @@ class Single_source:
 
         #基于覆盖率的计算方式
 
-        result_node = self.belief_algorithm_newworkx(infectG, subinfectG,1000)
+        result_node = self.belief_algorithm(infectG, subinfectG,1000)
         print('真实源是',source_list[0])
         # print('预测源是',result_node[0])
         distance= nx.shortest_path_length(subinfectG,source=1000, target=result_node[0])
@@ -663,6 +688,10 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
     # filname = '../../../data/CA-GrQc.txt'
     filname = '../../../data/4regular_tree9.txt'
+    # filname = '../../../data/random_tree_10000.txt'
+    # filname = '../../../data/5regular_tree_10000.txt'
+
+
     # method ='distan+ covage'
     # method = 'jardan_center'
     # method ='distance'
