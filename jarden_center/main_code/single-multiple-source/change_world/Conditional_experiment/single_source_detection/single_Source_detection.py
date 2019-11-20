@@ -445,8 +445,6 @@ class Single_source:
         再重复2，3直到所有点都更新了。
         4 计算每个点的置信度，将它所收到的所有消息乘积起来。
         最大的就是谣言中心。
-        
-        
     '''
     def belief_algorithm(self,infectG,subinfectG,true_source):
         # 初始化所有的点的覆盖率，有初始值。
@@ -485,7 +483,7 @@ class Single_source:
                     neighbour_temp_list = list(nx.neighbors(subinfectG, node))
                     neighbour_temp_list.remove(neighbour_temp)
                     for neighbour_two in neighbour_temp_list:
-                        mutiplue = mutiplue *node_message[neighbour_two,node]  # 改成了加，效果很好啊。还是需要再修改下，这个公式
+                        mutiplue = mutiplue +node_message[neighbour_two,node]  # 改成了加，效果很好啊。还是需要再修改下，这个公式
                     # 消息更新
                     node_message_temp[(node, neighbour_temp)] = mutiplue * node_coverage[node]  # 还是有问题，就是这里应该有加的。
             # 还是有问题，就是这里应该有加的。
