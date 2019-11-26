@@ -306,7 +306,7 @@ class Single_source:
     1 谣言中心实现。目前只能处理树，处理树直接送进去就可以了。
     
     2 如果要处理图，就要面临随机挑选一个点作为源点构成BFS结构的问题。
-    应该不是源点的，
+    我们实现的是基于贪心BFS的方法，就是选择每个点进行BFS，但是挑选其中谣言中心性最高的作为结果。
     
     
     '''
@@ -319,12 +319,24 @@ class Single_source:
             rumor_center, center=rumor_center_object.rumor_centrality(subiG)
             return [rumor_center]
         else:
+            #这里做一个改进。对于一个图来说。
+            # 有两个方案，
+            # 1  一种是随机取一个点作为BFS树，然后计算中心性
 
-            direct_tree = nx.bfs_tree(subiG,source=source_true)
-            subinfectG  = direct_tree.to_undirected()
+            # 2 一种是每一个做一个BFS树，谣言中心性。选谣言中心性最大的为结果.我们复现的是这个。
+            rumo_ceterAndcenter =[]
             rumor_center_object = rumor_centrality_graph_main.rumor_center()
-            rumor_center, center = rumor_center_object.rumor_centrality(subinfectG)
-            return [rumor_center]
+            for  bfs_source_node in list(subiG.nodes()):
+                direct_tree = nx.bfs_tree(subiG,source=bfs_source_node)
+                subinfectG  = direct_tree.to_undirected()
+                rumor_center, center = rumor_center_object.rumor_centrality(subinfectG)
+                rumo_ceterAndcenter.append([bfs_source_node,rumor_center,center])
+
+            sort_rumor_center = sorted(rumo_ceterAndcenter,key = lambda x:x[2],reverse= True)
+            #
+            print('sort_rumor_center',sort_rumor_center)
+
+            return [sort_rumor_center[0][0]]
 
 
     '''
@@ -379,6 +391,14 @@ class Single_source:
        print('sort_dict',sort_dict)
        print('源是',[sort_dict[0][0]])
        return [sort_dict[0][0]]
+
+
+
+
+    def  Gromov_matrix(self,infectG,subiG,ture_source):
+
+        pass
+
 
 
 
@@ -649,7 +669,7 @@ class Single_source:
 
        #第9种，谣言中心性‘’
 
-        # result_node = self.rumor_center(infectG,subinfectG,1000)
+        result_node = self.rumor_center(infectG,subinfectG,1000)
 
       #
       # # #’‘ 乔丹中心性
@@ -664,7 +684,7 @@ class Single_source:
 
         #基于覆盖率的计算方式
 
-        result_node = self.belief_algorithm(infectG, subinfectG,1000)
+        # result_node = self.belief_algorithm(infectG, subinfectG,1000)
         print('真实源是',source_list[0])
         # print('预测源是',result_node[0])
         distance= nx.shortest_path_length(subinfectG,source=1000, target=result_node[0])
@@ -684,8 +704,8 @@ if __name__ == '__main__':
     # initG = commons.get_networkByFile(filename)
     # filname = '../../../data/4_regular_graph_3000_data.txt'
     # initG = commons.get_networkByFile('../../../data/email-Eu-core.txt')
-    # filname = '../../../data/CA-GrQc.txt'
-    filname = '../../../data/4regular_tree9.txt'
+    filname = '../../../data/CA-GrQc.txt'
+    # filname = '../../../data/4regular_tree9.txt'
     # filname = '../../../data/random_tree_10000.txt'
     # filname = '../../../data/5regular_tree_10000.txt'
 

@@ -111,7 +111,7 @@ class rumor_center:
 
         random_root_node = random.choice(list(infectG.nodes()))
         root_node = random_root_node
-        print('root_node',root_node)
+        # print('root_node',root_node)
         rumor_center = -1
         up_messages = []
         for i in range(infectG.number_of_nodes()):
@@ -125,14 +125,14 @@ class rumor_center:
         for node_index in list(infectG.nodes()):
             upmessage_dict[node_index] = [1,1]
             down_messages_dict[node_index] = 1
-        print('upmessge_dict',upmessage_dict)
+        # print('upmessge_dict',upmessage_dict)
 
 
         upmessage_dict_temp = self.rumor_centrality_up(  root_node, root_node,infectG,upmessage_dict)
 
-        print('up_message_temp',upmessage_dict_temp)
+        # print('up_message_temp',upmessage_dict_temp)
 
-        print('upmessage_dict_temp', upmessage_dict_temp[root_node])
+        # print('upmessage_dict_temp', upmessage_dict_temp[root_node])
 
         #up_message的第一项是它作为子树的节点个数，第二项是子树上所有节点的子树个数的乘积。
         '''
@@ -140,10 +140,10 @@ class rumor_center:
         '''
         down_messages_dict_temp = self.rumor_centrality_down(upmessage_dict_temp,  root_node, root_node,infectG, down_messages_dict)
 
-        print('down_message_dict_temp', down_messages_dict_temp)
+        # print('down_message_dict_temp', down_messages_dict_temp)
 
         sort_down_message = sorted(down_messages_dict_temp.items(), key= lambda  x:x[1], reverse= True)
-        print('sort_down_message', sort_down_message)
+        # print('sort_down_message', sort_down_message)
         return  sort_down_message[0][0],sort_down_message[0][1]
         #down_messag是下发给孩子节点的所有孩子。
         # center = max(down_message)

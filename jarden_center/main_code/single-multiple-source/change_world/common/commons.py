@@ -65,6 +65,7 @@ def get_networkByFile( fileName='../data/facebook_combined.txt'):
     #  先给全体的Cn、Scn,time的0的赋值。
     for node in list(G.nodes):
         G.add_node(node, SI=1)
+        G.add_node(node,Time=1)
         G.add_node(node, SIDIF=1)
     # 初始化所有边是否感染。Infection
     for edge in list(G.edges):
