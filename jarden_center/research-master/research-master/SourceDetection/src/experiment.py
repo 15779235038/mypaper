@@ -64,6 +64,7 @@ class Experiment:
 
         '''测试的点也太少了把 '''
         self.logger.info(test_category)
+        self.logger.info('测试生成原点数目'+str(test_num))
         print('这里居然每个数量的感染点都测试100遍。不过，有点少，只有10到41.')
         for infected_size in np.arange(start, end, step):
             print('初始化结果测试方案')

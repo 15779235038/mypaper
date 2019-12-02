@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
     start_time = clock()
     print "Starting..."
-    d = data.Graph("scale-free.ba.v500.e996.gml", weighted=1)
+    d = data.Graph("../data/scale-free.ba.v500.e996.gml", weighted=1)
     d.debug = False
     test_num = 3
 
