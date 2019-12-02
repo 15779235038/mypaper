@@ -96,7 +96,7 @@ class Single_source_using_Part:
         #构建矩阵。给我们的subinfectG中每个点重新绘制点。用一个键值对描述其对应关系，从0开始
         subinfetG_node= dict()
         index =0
-        for i  in range(0,subinfectG.num)
+        for i  in range(0,subinfectG.num):
             pass
 
 

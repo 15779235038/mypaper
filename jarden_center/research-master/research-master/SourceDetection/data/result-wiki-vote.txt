@@ -1,0 +1,326 @@
+C:\Python27\python.exe F:/changbiao/research/SourceDetection/src/main_wiki_vote.py
+Starting...
+Graph size:  7066 100736
+random test 100 10
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 28.6984691694
+(0.29	 0.41461248970725406	 0.72	 0.40500000000000014	 <class rumor_center.RumorCenter at 0x033A65A8>	 100.0)
+(0.26	 0.46307413830313293	 0.87	 0.47900000000000015	 <class distance_center.DistanceCenter at 0x033A6308>	 100.0)
+(0.3	 0.40869135951375846	 0.76	 0.4120000000000003	 <class jordan_center.JordanCenter at 0x033A63B0>	 100.0)
+(0.14	 0.6223513110130625	 1.19	 0.4949999999999999	 <class reverse_infection.ReverseInfection at 0x033F3030>	 100.0)
+(0.29	 0.41797323969933636	 0.73	 0.5280000000000001	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 100.0)
+(0.68	 0.2932080243448219	 0.48	 0.14399999999999982	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 100.0)
+
+
+random test 100 15
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 84.0518090115
+(0.27	 0.3855774921975002	 0.74	 0.30266666666666653	 <class rumor_center.RumorCenter at 0x033A65A8>	 100.0)
+(0.19	 0.4427988404308627	 0.94	 0.42999999999999994	 <class distance_center.DistanceCenter at 0x033A6308>	 100.0)
+(0.27	 0.3801115692051667	 0.78	 0.33599999999999997	 <class jordan_center.JordanCenter at 0x033A63B0>	 100.0)
+(0.11	 0.585731994042695	 1.21	 0.46533333333333327	 <class reverse_infection.ReverseInfection at 0x033F3030>	 100.0)
+(0.25	 0.4006093482054159	 0.77	 0.5566666666666668	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 100.0)
+(0.65	 0.29020798095432015	 0.49	 0.11533333333333327	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 100.0)
+
+
+random test 100 20
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 203.635264427
+(0.36	 0.3760509660509815	 0.67	 0.2595000000000002	 <class rumor_center.RumorCenter at 0x033A65A8>	 100.0)
+(0.13	 0.5211606793178576	 1.17	 0.5125	 <class distance_center.DistanceCenter at 0x033A6308>	 100.0)
+(0.22	 0.44924371329852275	 0.94	 0.38599999999999995	 <class jordan_center.JordanCenter at 0x033A63B0>	 100.0)
+(0.15	 0.6018749968965053	 1.26	 0.4724999999999999	 <class reverse_infection.ReverseInfection at 0x033F3030>	 100.0)
+(0.28	 0.4471475486917504	 0.81	 0.5339999999999997	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 100.0)
+(0.57	 0.3239344442878814	 0.59	 0.10199999999999995	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 100.0)
+
+
+random test 100 25
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 312.73586343
+(0.37	 0.37353044972011856	 0.65	 0.22079999999999975	 <class rumor_center.RumorCenter at 0x033A65A8>	 100.0)
+(0.2	 0.4709868065085116	 1.13	 0.5219999999999998	 <class distance_center.DistanceCenter at 0x033A6308>	 100.0)
+(0.27	 0.4178868470688337	 0.88	 0.4327999999999998	 <class jordan_center.JordanCenter at 0x033A63B0>	 100.0)
+(0.1	 0.6007967676994583	 1.46	 0.5744	 <class reverse_infection.ReverseInfection at 0x033F3030>	 100.0)
+(0.35	 0.3924234002716378	 0.72	 0.4951999999999998	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 100.0)
+(0.45	 0.4611738788689271	 0.75	 0.10119999999999996	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 100.0)
+
+
+random test 100 30
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 522.24284783
+(0.31	 0.4084926500702862	 0.74	 0.23433333333333348	 <class rumor_center.RumorCenter at 0x033A65A8>	 100.0)
+(0.06	 0.5563589228737803	 1.3	 0.5853333333333333	 <class distance_center.DistanceCenter at 0x033A6308>	 100.0)
+(0.21	 0.45135383586741035	 0.95	 0.43366666666666664	 <class jordan_center.JordanCenter at 0x033A63B0>	 100.0)
+(0.02	 0.6578483419375039	 1.55	 0.546	 <class reverse_infection.ReverseInfection at 0x033F3030>	 100.0)
+(0.26	 0.4628057571473073	 0.85	 0.566	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 100.0)
+(0.45	 0.4597021726662293	 0.85	 0.0853333333333333	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 100.0)
+
+
+random test 100 35
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 763.401768307
+(0.31	 0.36686187347871396	 0.73	 0.1977142857142856	 <class rumor_center.RumorCenter at 0x033A65A8>	 100.0)
+(0.07	 0.5181908788238607	 1.35	 0.5794285714285714	 <class distance_center.DistanceCenter at 0x033A6308>	 100.0)
+(0.21	 0.41111975904471765	 0.95	 0.43742857142857167	 <class jordan_center.JordanCenter at 0x033A63B0>	 100.0)
+(0.03	 0.6438977140473935	 1.63	 0.5985714285714288	 <class reverse_infection.ReverseInfection at 0x033F3030>	 100.0)
+(0.23	 0.41830033880114603	 0.8	 0.5302857142857146	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 100.0)
+(0.46	 0.417260980676176	 0.77	 0.10485714285714279	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 100.0)
+
+
+random test 100 40
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 959.534238675
+(0.36	 0.3536215346998797	 0.67	 0.1737500000000001	 <class rumor_center.RumorCenter at 0x033A65A8>	 100.0)
+(0.04	 0.5804191073359735	 1.5	 0.6312500000000001	 <class distance_center.DistanceCenter at 0x033A6308>	 100.0)
+(0.13	 0.47743896588134677	 1.04	 0.5002499999999998	 <class jordan_center.JordanCenter at 0x033A63B0>	 100.0)
+(0.07	 0.6459135973919689	 1.62	 0.5677500000000001	 <class reverse_infection.ReverseInfection at 0x033F3030>	 100.0)
+(0.19	 0.4661216974651631	 0.85	 0.5779999999999998	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 100.0)
+(0.47	 0.46078400732126856	 0.83	 0.07625000000000007	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 100.0)
+
+
+random test 100 45
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 1248.94742986
+(0.22	 0.3810894524880853	 0.87	 0.17333333333333317	 <class rumor_center.RumorCenter at 0x033A65A8>	 100.0)
+(0.02	 0.5040356963595377	 1.46	 0.605333333333333	 <class distance_center.DistanceCenter at 0x033A6308>	 100.0)
+(0.14	 0.41812027859896894	 1.1	 0.4531111111111112	 <class jordan_center.JordanCenter at 0x033A63B0>	 100.0)
+(0.01	 0.6186461450722647	 1.68	 0.5571111111111109	 <class reverse_infection.ReverseInfection at 0x033F3030>	 100.0)
+(0.16	 0.4370150460564684	 0.96	 0.5940000000000001	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 100.0)
+(0.46	 0.44156986316421004	 0.87	 0.08822222222222216	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 100.0)
+
+
+full test 7066 10
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 2232.17336635
+(0.3935748655533541	 0.3423407585966891	 0.623973959807529	 0.37489385791110647	 <class rumor_center.RumorCenter at 0x033A65A8>	 7066.0)
+(0.27823379564109824	 0.41537890783786513	 0.8230965185394848	 0.4538211151995357	 <class distance_center.DistanceCenter at 0x033A6308>	 7066.0)
+(0.36173223889046136	 0.3565216044605797	 0.6825643928672517	 0.37292669119726696	 <class jordan_center.JordanCenter at 0x033A63B0>	 7066.0)
+(0.18822530427398812	 0.5409824135705831	 1.067364845740164	 0.4771865270308452	 <class reverse_infection.ReverseInfection at 0x033F3030>	 7066.0)
+(0.3833852250212284	 0.3572714772456452	 0.6443532408717804	 0.4882111519954542	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 7066.0)
+(0.6602037928106426	 0.2596444455824738	 0.4377299745258987	 0.15506651570903768	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 7066.0)
+
+
+full test 7066 15
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 6032.78162447
+(0.3545145768468723	 0.36729336822749115	 0.6675629776394	 0.2940937824323047	 <class rumor_center.RumorCenter at 0x033A65A8>	 7066.0)
+(0.1950183979620719	 0.4683868946775317	 0.9825926974242853	 0.48234739126332044	 <class distance_center.DistanceCenter at 0x033A6308>	 7066.0)
+(0.30795358052646477	 0.390187870714514	 0.7606849702802151	 0.369846211906778	 <class jordan_center.JordanCenter at 0x033A63B0>	 7066.0)
+(0.11746391168978206	 0.6082398728169108	 1.2461081234078686	 0.5003302198320575	 <class reverse_infection.ReverseInfection at 0x033F3030>	 7066.0)
+(0.329323521086895	 0.3914237945743683	 0.7059156524200396	 0.5046230776488263	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 7066.0)
+(0.5771299179167846	 0.336171350995126	 0.5728842343617322	 0.12494574959903043	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 7066.0)
+
+
+full test 7066 20
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 12302.9623005
+(0.33342768185677896	 0.3831548989097435	 0.6961505802434191	 0.25394140956692784	 <class rumor_center.RumorCenter at 0x033A65A8>	 7066.0)
+(0.147325219360317	 0.5069568163523062	 1.1207189357486556	 0.5165935465610006	 <class distance_center.DistanceCenter at 0x033A6308>	 7066.0)
+(0.2691763373903198	 0.4119847180570821	 0.8310217945089159	 0.3890885932635188	 <class jordan_center.JordanCenter at 0x033A63B0>	 7066.0)
+(0.08887630908576281	 0.6327398411264623	 1.3422020945372204	 0.5069416926125119	 <class reverse_infection.ReverseInfection at 0x033F3030>	 7066.0)
+(0.29634871214265496	 0.41367736072782113	 0.7516275120294368	 0.5236909142372083	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 7066.0)
+(0.5236343051231248	 0.3963484175999931	 0.6783187093121993	 0.10883102179450549	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 7066.0)
+
+
+full test 7066 25
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 20988.7200512
+(0.3213982451174639	 0.3891098413869315	 0.7136994056043023	 0.23420322671949095	 <class rumor_center.RumorCenter at 0x033A65A8>	 7066.0)
+(0.10458533823945655	 0.5353609195493072	 1.244126804415511	 0.5502405887347893	 <class distance_center.DistanceCenter at 0x033A6308>	 7066.0)
+(0.23025757146900652	 0.4349104047433521	 0.9016416643079536	 0.4093178601754794	 <class jordan_center.JordanCenter at 0x033A63B0>	 7066.0)
+(0.04825926974242853	 0.6828027117972031	 1.5428814039060288	 0.5870421737899856	 <class reverse_infection.ReverseInfection at 0x033F3030>	 7066.0)
+(0.26719501839796206	 0.4316387357488287	 0.7908293235210869	 0.5394169261251058	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 7066.0)
+(0.4906594961788848	 0.4205831815546372	 0.7429946221341636	 0.09943390885932721	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 7066.0)
+
+
+full test 7066 30
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 32782.0979647
+(0.3133314463628644	 0.38999577232088517	 0.7287008208321539	 0.21206245872251608	 <class rumor_center.RumorCenter at 0x033A65A8>	 7066.0)
+(0.07415793942824794	 0.5482905034169512	 1.3464477780922728	 0.5744740069817964	 <class distance_center.DistanceCenter at 0x033A6308>	 7066.0)
+(0.20492499292386074	 0.44403008670129174	 0.9568355505236343	 0.4313897537503473	 <class jordan_center.JordanCenter at 0x033A63B0>	 7066.0)
+(0.037220492499292386	 0.6750938791691902	 1.593405038211152	 0.5849042362487076	 <class reverse_infection.ReverseInfection at 0x033F3030>	 7066.0)
+(0.24073025757146901	 0.4466358485584352	 0.8332861590716105	 0.5521039720728379	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 7066.0)
+(0.4660345315595811	 0.44654706630388846	 0.8027172374752335	 0.09330125483536574	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 7066.0)
+
+
+full test 7066 35
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 47100.1254332
+(0.29733937163883384	 0.3980229783905185	 0.7585621285026889	 0.1990578626016005	 <class rumor_center.RumorCenter at 0x033A65A8>	 7066.0)
+(0.05264647608264931	 0.5608204580374654	 1.4339088593263516	 0.602054102139016	 <class distance_center.DistanceCenter at 0x033A6308>	 7066.0)
+(0.1832720067930937	 0.45331899158865174	 1.0150014152278517	 0.45125550927985814	 <class jordan_center.JordanCenter at 0x033A63B0>	 7066.0)
+(0.027879988678177186	 0.6689138588545954	 1.630484007925276	 0.5810521208200222	 <class reverse_infection.ReverseInfection at 0x033F3030>	 7066.0)
+(0.2207755448627229	 0.4557682910343063	 0.8706481743560713	 0.5635356435243256	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 7066.0)
+(0.4435324087178036	 0.4681515326982024	 0.8564958958392301	 0.09106384699365455	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 7066.0)
+
+
+full test 7066 40
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 65419.5077015
+(0.2851684121143504	 0.40669815420299416	 0.7830455703368242	 0.19019247098782896	 <class rumor_center.RumorCenter at 0x033A65A8>	 7066.0)
+(0.03679592414378715	 0.5657622855341036	 1.5159920747240305	 0.6221518539484839	 <class distance_center.DistanceCenter at 0x033A6308>	 7066.0)
+(0.15525049532974808	 0.46578009996931324	 1.0832153976790264	 0.47646122275687225	 <class jordan_center.JordanCenter at 0x033A63B0>	 7066.0)
+(0.026323238041324654	 0.665158909362913	 1.673082366260968	 0.5748230965185394	 <class reverse_infection.ReverseInfection at 0x033F3030>	 7066.0)
+(0.1998301726577979	 0.4695957979861663	 0.913812623832437	 0.5752582790829407	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 7066.0)
+(0.4183413529578262	 0.48696722210200094	 0.9135295782621002	 0.08694452306820954	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 7066.0)
+
+
+full test 7066 45
+	 percentage:  0.1
+	 percentage:  0.2
+	 percentage:  0.3
+	 percentage:  0.4
+	 percentage:  0.5
+	 percentage:  0.6
+	 percentage:  0.7
+	 percentage:  0.8
+	 percentage:  0.9
+	 percentage:  1.0
+Running time: 85250.1060484
+(0.28714973110670816	 0.40612139589780166	 0.7950750070761392	 0.18243230493442744	 <class rumor_center.RumorCenter at 0x033A65A8>	 7066.0)
+(0.025191055759977356	 0.5710997365652699	 1.5761392584206058	 0.6430606661005769	 <class distance_center.DistanceCenter at 0x033A6308>	 7066.0)
+(0.14690065100481178	 0.4746782307101515	 1.1365694876875176	 0.4960593766707565	 <class jordan_center.JordanCenter at 0x033A63B0>	 7066.0)
+(0.021228417775261816	 0.6592377238696541	 1.6889329181998303	 0.5741044752649582	 <class reverse_infection.ReverseInfection at 0x033F3030>	 7066.0)
+(0.18143221058590434	 0.4845268256032763	 0.9610812340786866	 0.5830801647954263	 <class dynamic_importance.DynamicImportance at 0x033A6340>	 7066.0)
+(0.41055759977356354	 0.5013794938268223	 0.946079818850835	 0.08496084536277367	 (<class map_gsba.GSBA at 0x033A6FB8>	 <class jordan_center.JordanCenter at 0x033A63B0>)	 7066.0)
+
+
+Running time: 276243.68243
+
+Process finished with exit code 0
