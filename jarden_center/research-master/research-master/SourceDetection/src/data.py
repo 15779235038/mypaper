@@ -133,7 +133,7 @@ class Graph:
 
     def infect_from_source_SI(self, source, scheme='random',infected_size=None):
 
-        print( 'SI模型传播')
+        # print( 'SI模型传播')
         """
         diffuse by the SI model.
         three most common propagation schemes: snowball, random walk and contact process
@@ -144,7 +144,7 @@ class Graph:
             max_infected_number = infected_size
         infected = set()
         waiting = set()
-        print('source',source)
+        # print('source',source)
         infected.add(source)
         waiting.add(source)
         stop = False
@@ -178,9 +178,9 @@ class Graph:
 
 
         self.subgraph = self.graph.subgraph(infected)       #获取子图出来
-        print('子图到底是什么啊？')
-        print(self.subgraph.nodes())
-        print('返回传播的节点')
+        # print('子图到底是什么啊？')
+        # print(self.subgraph.nodes())
+        # print('返回传播的节点')
         return infected
 
     def generate_random_graph(self, size):
