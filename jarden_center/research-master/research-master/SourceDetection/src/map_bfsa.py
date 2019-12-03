@@ -78,9 +78,12 @@ class BFSA(method.Method):
 
     def get_likelihood_by_BFSA2(self, nodes):
         permutations = itertools.permutations(nodes)
+
+        #得到所有的排列组合，然后就每个排列组合做一个计算。
         n = len(nodes)
         for p in permutations:
             permitted = True
+            #接下里，是将不符合排列结构的删除。
             for i in np.arange(1, n):
                 # None of nodes[0,..,i-1] are descendants of nodes[i]
                 result = [p[j] not in self.descendants[p[0]][p[i]] for j in np.arange(0, i)]
@@ -208,3 +211,10 @@ class BFSA(method.Method):
                 "add to buffers"
                 self.permutation_likelihood[nodes[0:(i+1)]] = likelihood, neighbours.copy(), w.copy()
         return likelihood
+
+
+
+
+if __name__=="__main__":
+
+        pass

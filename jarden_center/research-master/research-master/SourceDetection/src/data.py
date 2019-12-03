@@ -13,6 +13,7 @@ import numpy as np
 
 class Graph:
     graph = nx.Graph()
+
     node2index = {}  # index all nodes in graph, from 0 to n-1: node->index
     index2node = {}  # from index to node: index->node
 
@@ -41,13 +42,15 @@ class Graph:
             elif path.endswith('.txt'):
                 self.graph = nx.read_edgelist(path, comments=comments)
             self.set_weight_random()
-        elif weighted == 1:
+        elif weighted == 1: #接受权重设置
             if path.endswith('.gml'):
                 self.graph = nx.read_gml(path)
             elif path.endswith('.txt'):
                 self.graph = nx.read_weighted_edgelist(path, comments=comments)
         self.subgraph = self.graph
         self.weights = nx.adjacency_matrix(self.graph, weight='weight')
+        print('有权重把？')
+        print(self.weights)
         # self.weights = nx.adjacency_matrix(self.graph, weight='weight').todense().tolist() # read elements faster
         i = 0
         for v in self.graph.nodes():
@@ -117,6 +120,8 @@ class Graph:
                         if u not in infected:
                             infected.add(u)
                 waiting = infected
+
+
         self.subgraph = self.graph.subgraph(infected)
         return infected
 
@@ -169,7 +174,12 @@ class Graph:
                         if u not in infected:
                             infected.add(u)
                 waiting = infected
+
+
+
         self.subgraph = self.graph.subgraph(infected)       #获取子图出来
+        print('子图到底是什么啊？')
+        print(self.subgraph.nodes())
         print('返回传播的节点')
         return infected
 

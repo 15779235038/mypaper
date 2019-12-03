@@ -117,11 +117,11 @@ class Experiment:
         count  = 0
         for s in sources:
             count +=1
-            print('这是第多少次测试')
-            print(count)
-            print('---------------------------------------')
-            print('本次选中的源为')
-            print(s)
+            # print('这是第多少次测试')
+            # print(count)
+            # print('---------------------------------------')
+            # print('本次选中的源为')
+            # print(s)
             i += 1
             if abs(i - n_i * p) < 1:
                 print '\t percentage: ', p
@@ -132,13 +132,13 @@ class Experiment:
                 # print('source',s)
                 infected = data.infect_from_source_SI(s, infected_size=infected_size)
             if infected_size is not None and len(infected)<infected_size-1:
-                print('如果传播的点没有达到要求，本次传播结束')
+                # print('如果传播的点没有达到要求，本次传播结束')
                 continue
 
-            print('感染点的数目是多少')
+            # print('感染点的数目是多少')
             print(len(infected))
 
-            print('传播完之后，作者使用各种方法来实验,每种方法都会有其各种尺度的测试方案')
+            # print('传播完之后，作者使用各种方法来实验,每种方法都会有其各种尺度的测试方案')
             for m in self.methods:
                 m.set_data(data)
                 start_time = clock()
@@ -148,18 +148,18 @@ class Experiment:
                 """evaluate the result"""
                 if len(result) > 0:
                     if result[0][0] == s:
-                        print('准确率测试')
+                        # print('准确率测试')
                         self.precision[test_category][m.method_name].append(1)
                     else:
                         self.precision[test_category][m.method_name].append(0)
-                        print('平均距离测试')
+                        # print('平均距离测试')
                     self.error[test_category][m.method_name].append(
                         nx.dijkstra_path_length(data.subgraph, result[0][0], s, weight='weight'))
-                    print('拓扑结果测试')
+                    # print('拓扑结果测试')
                     self.topological_error[test_category][m.method_name].append(
                         nx.dijkstra_path_length(data.subgraph, result[0][0], s, weight=None))
                     r = 0
-                    print('rank测试')
+                    # print('rank测试')
                     for u in result:
                         r += 1
                         if u[0] == s:
@@ -234,8 +234,10 @@ class Experiment:
 
 
 
-        print('作者给出了5个指标，包括准确率，（不知道）错误距离，等级距离，运行时间。')
+        print('作者给出了5个指标，包括准确率，带权重的距离，误差步长，等级距离，运行时间。')
         print('输出到log中')
+
+        self.logger.info('作者给出了5个指标，包括准确率，带权重的距离，误差步长，等级距离，运行时间')
         self.logger.info(self.precision)
         print('precision')
         print(self.precision)
@@ -246,6 +248,8 @@ class Experiment:
 
         for m in self.methods:
             l = len(self.precision[test][m.method_name]) * 1.0
+            print('l是什么，就是500次')
+            print(l)
             if l == 0: continue
             r = sum(self.precision[test][m.method_name]) / l, sum(self.error[test][m.method_name]) / l, sum(
                 self.topological_error[test][m.method_name]) / l, sum(

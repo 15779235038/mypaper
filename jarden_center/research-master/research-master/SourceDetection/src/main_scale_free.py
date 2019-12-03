@@ -57,7 +57,7 @@ if __name__ == '__main__':
     print "Starting..."
     d = data.Graph("../data/scale-free.ba.v500.e996.gml", weighted=1)
     d.debug = False
-    test_num = 3
+    test_num =100
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     # test_category = experiment.RANDOM_TEST
@@ -65,6 +65,5 @@ if __name__ == '__main__':
 
     test_category = experiment.FULL_TEST
     experiment.start(d, test_category, test_num, 20, 46, 5)
-
     end_time = clock()
     print "Running time:", end_time-start_time

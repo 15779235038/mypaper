@@ -22,7 +22,7 @@ class Uniform(method.Method):
         """
         self.reset_centrality()
         centrality = {u:1 for u in self.subgraph.nodes()}
-        print('统一先验为')
-        print(centrality)
+        # print('统一先验为')
+        # print(centrality)
         nx.set_node_attributes(self.subgraph, 'centrality', centrality)
         return self.sort_nodes_by_centrality()
