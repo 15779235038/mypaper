@@ -41,12 +41,13 @@ if __name__ == '__main__':
     prior_detector3 = dc.DistanceCenter()
     prior_detector4 = jc.JordanCenter()
     prior_detector5 = ri.ReverseInfection()
+    prior_detector6 = di.DynamicImportance()
     # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(), prior_detector2,
     #            gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
     #            gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2), #bfsa_p.BFSA(prior_detector4)
     #            ]
 
-    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
+    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),prior_detector2,prior_detector5,prior_detector6,
                gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
                gsba_bao.GSBA_coverage(prior_detector1)
 

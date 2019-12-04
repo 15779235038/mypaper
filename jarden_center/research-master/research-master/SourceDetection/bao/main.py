@@ -25,6 +25,8 @@ import map_bfsa_parallel as bfsa_p
 import map_bfsa as bfsa
 import prior
 import numpy as np
+import  map_gsba_bao as gsba_bao
+
 
 class Experiment:
     precision = {}  # Detection Rate
@@ -135,10 +137,17 @@ if __name__ == '__main__':
     prior_detector5 = ri.ReverseInfection()
     methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),ri.ReverseInfection(),prior_detector2,
                gsba.GSBA( prior_detector1),gsba.GSBA(prior_detector2), gsba.GSBA( prior_detector3),
-               gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5)]
-    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(), prior_detector2,
-               gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
-               gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2), bfsa_p.BFSA(prior_detector1)]
+               gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5),
+               gsba_bao.GSBA_coverage(prior_detector1)
+
+               ]
+
+
+
+    # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(), prior_detector2,
+    #            gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
+    #            gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2),
+    #            bfsa_p.BFSA(prior_detector1)]
     #methods = [bfsa_p.BFSA(prior_detector1)]
     # methods = [dmp2.DynamicMessagePassing()]
     experiment.methods = methods
@@ -158,7 +167,7 @@ if __name__ == '__main__':
     test = "random_test"
     d.ratio_infected = 0.006
     logger.info(test)
-    for i in np.arange(0,-1):
+    for i in np.arange(0,4):
         experiment.initialize_evaluation_measures()
         str = 'd.ratio_infected', d.ratio_infected, d.ratio_infected*d.graph.number_of_nodes()
         logger.info(str)

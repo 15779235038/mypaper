@@ -51,10 +51,10 @@ class CoverageCenter(method.Method):
             sets = set(list(neighors2_list))
             infect_nei = [ x for x in sets if x in self.subgraph.nodes()]
             infect_neilen = len(infect_nei)-1
-            print('附近2层节点')
-            print(sets)
-            print('被感染有多少个')
-            print(infect_neilen)
+            # print('附近2层节点')
+            # print(sets)
+            # print('被感染有多少个')
+            # print(infect_neilen)
 
             centrality[source] = Decimal(infect_neilen*1.0/len(sets))
         nx.set_node_attributes(self.subgraph, 'centrality',centrality)

@@ -85,20 +85,6 @@ class GSBA(method.Method):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         self.reset_centrality()
         infected_nodes = set(self.subgraph.nodes())
         n = len(infected_nodes)
