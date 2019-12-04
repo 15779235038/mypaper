@@ -29,6 +29,7 @@ from experiment import Experiment
 
 import map_ulbaa as ulbaa
 
+import map_gsba_bao as gsba_bao
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -38,12 +39,16 @@ if __name__ == '__main__':
     prior_detector4 = jc.JordanCenter()
     prior_detector5 = ri.ReverseInfection()
     methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
-               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4)]
+               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
+               gsba_bao.GSBA_coverage(prior_detector1)
+               ]
+
+
     # methods = [dc.DistanceCenter()]
     #methods = [bfsa_p.BFSA(prior_detector1)]
     # methods = [dmp2.DynamicMessagePassing()]
 
-    logger = log.Logger(logname='../data/main_power_grid1202.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_power_grid20191204.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 

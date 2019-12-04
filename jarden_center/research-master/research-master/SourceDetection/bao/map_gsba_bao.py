@@ -19,9 +19,9 @@ import networkx as nx
 import data
 import rumor_center as rc
 from experiment import Experiment
-import  coverage_center as cc
+import  coverage_center2 as cc
 
-class GSBA(method.Method):
+class GSBA_coverage(method.Method):
     """detect the source with Greedy Search Bound Approximation.
         Please refer to the my paper for more details.
     """
@@ -58,8 +58,8 @@ class GSBA(method.Method):
         self.prior_detector.detect()
         self.prior = nx.get_node_attributes(self.subgraph, 'centrality')
 
-        print('先验检测器是什么？')
-        print(self.prior)
+        # print('先验检测器是什么？')
+        # print(self.prior)
 
 
 
@@ -69,8 +69,8 @@ class GSBA(method.Method):
         cc_object.detect()
         coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
         # print('先验加进去，试试看')
-        print('覆盖率的检测器')
-        print(coverage_centralities)
+        # print('覆盖率的检测器')
+        # print(coverage_centralities)
 
 
 
@@ -79,16 +79,16 @@ class GSBA(method.Method):
         self.reset_centrality()
         infected_nodes = set(self.subgraph.nodes())
         n = len(infected_nodes)
-        print(infected_nodes)
-        print('infected_nodes')
+        # print(infected_nodes)
+        # print('infected_nodes')
 
         posterior = {}
         included = set()
         neighbours = set()
         weights = self.data.weights
         for v in infected_nodes:
-            print('------从v点开始----------')
-            print(v)
+            # print('------从v点开始----------')
+            # print(v)
             """find the approximate upper bound by greedy searching"""
             included.clear()
             neighbours.clear()
@@ -100,23 +100,23 @@ class GSBA(method.Method):
             w[v] = 1
             w_key_sorted.append(v)
             while len(included) < n:
-                print('邻居用来计算所谓的neighbours')
-                print(neighbours)
+                # print('邻居用来计算所谓的neighbours')
+                # print(neighbours)
                 w_sum = sum([w[j] for j in neighbours])
                 u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w
                 likelihood *= w[u] / w_sum
-                print('分母是？')
-                print(w_sum)
-                print('likelihood')
-                print(likelihood)
+                # print('分母是？')
+                # print(w_sum)
+                # print('likelihood')
+                # print(likelihood)
                 included.add(u)
                 neighbours.remove(u)
                 new = nx.neighbors(self.data.graph, u)
-                print('new也就是在总图中的邻居')
-                print(new)
+                # print('new也就是在总图中的邻居')
+                # print(new)
                 for h in new:
-                    print('遍历到某个邻居')
-                    print(h)
+                    # print('遍历到某个邻居')
+                    # print(h)
                     if h in included:
                         continue
                     neighbours.add(h)
@@ -124,19 +124,19 @@ class GSBA(method.Method):
                     w_h2u = weights[self.data.node2index[u], self.data.node2index[h]]
                     # w_h2u = weights[self.data.node2index[u]][self.data.node2index[h]]
                     if h in w.keys():
-                        print('------')
-                        print(w[h])
-                        print(w_h2u)
+                        # print('------')
+                        # print(w[h])
+                        # print(w_h2u)
                         w[h] = 1 - (1 - w[h]) * (1 - w_h2u)
-                        print('w[h]，，，，h在keys')
-                        print(w[h])
+                        # print('w[h]，，，，h在keys')
+                        # print(w[h])
                     else:
-                        print('h不在keys')
+                        # print('h不在keys')
                         w[h] = w_h2u
-                        print(w[h])
+                        # print(w[h])
 
-                    print('w是什么')
-                    print(w)
+                    # print('w是什么')
+                    # print(w)
                     # h_neighbor = nx.neighbors(self.data.graph, h)
                     # w_h = 1
                     # for be in included.intersection(h_neighbor):
@@ -144,7 +144,7 @@ class GSBA(method.Method):
                     # w[h] = 1 - w_h
                     """insert h into w_key_sorted, ranking by w from small to large"""
                     if h in infected_nodes:
-                        print('开始排序了')
+                        # print('开始排序了')
                         if h in w_key_sorted:
                             w_key_sorted.remove(h)  # remove the old w[h]
                         k = 0
@@ -153,25 +153,25 @@ class GSBA(method.Method):
                             if w[w_key_sorted[k]] > w[h]:
                                 break
                             k += 1
-                        print(w_key_sorted)
+                        # print(w_key_sorted)
                         w_key_sorted.insert(k, h)  # 安排降序加入，就是排列可能性加入，安排顺序插入进去
-                        print('w_key_sorted')
-                        print(w_key_sorted)
+                        # print('w_key_sorted')
+                        # print(w_key_sorted)
 
                         # w_key_sorted[k:k] = [h]
-            print('每次开始的是那个节点呢？')
-            print(v)
-            print('每一个的可能性是likehood')
-            print(likelihood)
+            # print('每次开始的是那个节点呢？')
+            # print(v)
+            # print('每一个的可能性是likehood')
+            # print(likelihood)
             posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) * coverage_centralities[v])
 
-        print('w_key_sorted')
-        print(w_key_sorted)
-
-        print('------------')
-        print(coverage_centralities)
-        print('看下这里的posterior')
-        print(posterior)
+        # print('w_key_sorted')
+        # print(w_key_sorted)
+        #
+        # print('------------')
+        # print(coverage_centralities)
+        # print('看下这里的posterior')
+        # print(posterior)
         nx.set_node_attributes(self.subgraph, 'centrality', posterior)
         return self.sort_nodes_by_centrality()
 
@@ -180,7 +180,7 @@ if __name__ == "__main__":
     prior_detector1 = rc.RumorCenter()
 
     # gsba =GSBA(prior_detector1)
-    methods = [GSBA(prior_detector1)]
+    methods = [GSBA_coverage(prior_detector1)]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
                         logger="experiment").get_log()
 

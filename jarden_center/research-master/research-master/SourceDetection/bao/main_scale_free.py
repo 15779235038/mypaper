@@ -32,6 +32,7 @@ from experiment import Experiment
 
 import map_gsba_old as gsba_old
 
+import map_gsba_bao as gsba_bao
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -46,10 +47,15 @@ if __name__ == '__main__':
     #            ]
 
     methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
-               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4)]
+               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
+               gsba_bao.GSBA_coverage(prior_detector1)
+
+               ]
+
+
     # methods = [gsba_old(prior_detector1)]
 
-    logger = log.Logger(logname='../data/main_scale_free20171201.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_scale_free20191204.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 

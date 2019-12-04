@@ -25,13 +25,10 @@ class CoverageCenter(method.Method):
 
 
     '''   
-    1 加覆盖率，给每个点加一个覆盖率就是覆盖率参数。
+    1 加二阶邻域覆盖率，给每个点加一个覆盖率就是覆盖率参数。
     2 
 
     '''
-
-
-
     def detect(self):
         """detect the source with Rumor Centrality.
         Returns:
@@ -45,13 +42,21 @@ class CoverageCenter(method.Method):
         self.reset_centrality()
         centrality = {}
         for source in self.subgraph.nodes():
-            neighors=nx.neighbors(self.data.graph,source)
-            # print(source)
-            # print('source和它的邻居')
-            # print(neighors)
-            infect_nei = [ x for x in neighors if x in self.subgraph.nodes()]
-            infect_neilen = len(infect_nei)
-            centrality[source] = Decimal(infect_neilen*1.0/len(neighors))
+            neighors = nx.neighbors(self.data.graph,source)
+            neighors2_list=[]
+            for node in neighors:
+                neighors2=nx.neighbors(self.data.graph,node)
+                neighors2_list.extend(neighors2)
+            neighors2_list.extend(neighors)
+            sets = set(list(neighors2_list))
+            infect_nei = [ x for x in sets if x in self.subgraph.nodes()]
+            infect_neilen = len(infect_nei)-1
+            print('附近2层节点')
+            print(sets)
+            print('被感染有多少个')
+            print(infect_neilen)
+
+            centrality[source] = Decimal(infect_neilen*1.0/len(sets))
         nx.set_node_attributes(self.subgraph, 'centrality',centrality)
         return self.sort_nodes_by_centrality()
 
