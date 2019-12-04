@@ -46,11 +46,22 @@ class GSBA(method.Method):
         """
 
         ''' 
+        这是什么时候调用的？这是公式需要，对别的来说，就不是这个了。所有对于贪心是有两个
+        
+        先验的，一个是要谣言中心性，一个是其他。
+        我们要加我们的就是加一个先验的，比如覆盖的操作，模仿其谣言定位方式，自己写一个
+        然后作为先验，放在先验中。
+        
         '''
         self.reset_centrality()
         self.prior_detector.set_data(self.data)
         self.prior_detector.detect()
         self.prior = nx.get_node_attributes(self.subgraph, 'centrality')
+
+        print('先验检测器是什么？')
+        print(self.prior)
+
+
 
         self.reset_centrality()
         rc = rumor_center.RumorCenter()
@@ -58,6 +69,12 @@ class GSBA(method.Method):
         rc.detect()
         rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
         # print('先验加进去，试试看')
+        print('谣言中心性的检测器')
+        print(rumor_centralities)
+
+
+
+
         self.reset_centrality()
         infected_nodes = set(self.subgraph.nodes())
         n = len(infected_nodes)
@@ -184,7 +201,7 @@ if __name__ == "__main__":
     print(d.graph.number_of_edges())
     print(d)
     d.debug = False
-    test_num = 3
+    test_num = 1
     print(d.subgraph)
     # print(infected)
     # d.subgraph= d.graph
@@ -197,6 +214,8 @@ if __name__ == "__main__":
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
 
+    print('方法是')
+    print(experiment.methods)
     for m in experiment.methods:
         m.set_data(d)
         start_time = clock()
