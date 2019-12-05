@@ -12,7 +12,7 @@ from decimal import *
 
 
 import method
-
+import math
 
 from time import clock
 import log
@@ -55,22 +55,30 @@ class EPA_center(method.Method):
 
         self.reset_centrality()
         centrality = {}
+        P_node_prominence ={}
+
+        for infect_node in self.subgraph.nodes():
+            neigbour_node = nx.neighbors(self.data.graph,infect_node)
+            neigbour_infect_node = [x for x in neigbour_node if x in self.subgraph.nodes()]
+            Iv= len(neigbour_infect_node)
+            Ov = len(neigbour_node)
+            P_node_prominence[infect_node] = Iv *1.0 / Ov *(1+ math.log(Ov))
+
+        radius = nx.radius(self.subgraph)
+        print('半径是多少？')
 
         # 进行所有点有向树构建，再进行层次遍历。针对每一层都进行传播点/全部的比例计算。
         node_every_ratio = []
         temp_nodes = self.subgraph.nodes()
-
         for source in self.subgraph.nodes():
-
             tree = nx.bfs_tree(self.data.graph, source=source)
-
-
             # 进行层次遍历。返回每一层顶点。
-            BFS_nodes = self.BFS_nodes(tree, source, self.data.graph,self.subgraph)
-            # print(BFS_nodes)
+            BFS_nodes = self.BFS_nodes(tree, source, self.data.graph,self.subgraph,radius)
+
+
+            print(BFS_nodes)
             ratio_all = 0
             for layer_node in BFS_nodes:
-
                 infect_node_len = len([x for x in layer_node if x in temp_nodes])
 
                 infect_ratio = infect_node_len*1.0 / len(layer_node)  # 感染点的比例
@@ -86,11 +94,12 @@ class EPA_center(method.Method):
 
 
 
-    def BFS_nodes(self,tree, source, infectG,subgraph):
+    def BFS_nodes(self,tree, source, infectG,subgraph,radius):
         queue = []
         queue.append(source)
         layer_node = []
         layer_node.append([source])
+        layer =1
         while queue:
             temp_layer_node = []
             for i in queue:
@@ -100,13 +109,15 @@ class EPA_center(method.Method):
             # 如果某一层的被感染点为0，就退出。不用再加了。
             if len([x for x in temp_layer_node if x in subgraph.nodes() ])== 0:
                 break
+            if layer >radius:
+                break
             layer_node.append(temp_layer_node)
             queue = temp_layer_node
         return layer_node
 
 
 if __name__ == "__main__":
-    prior_detector1 = CoverageCenter()
+    prior_detector1 = EPA_center()
     # gsba =GSBA(prior_detector1)
     methods = [prior_detector1]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
