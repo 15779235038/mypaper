@@ -5,11 +5,22 @@ Author: Biao Chang, changb110@gmail.com, from University of Science and Technolo
 created at 2017/1/9.
 """
 
-import networkx as nx
+
 import numpy as np
+
 
 import method
 
+
+
+
+from time import clock
+import log
+import logging
+import networkx as nx
+import data
+
+from experiment import Experiment
 
 class DynamicMessagePassing(method.Method):
     """detect the source with DynamicMessagePassing.
@@ -102,3 +113,53 @@ class DynamicMessagePassing(method.Method):
         nx.set_node_attributes(self.subgraph, 'centrality', centrality)
         del theta, phi, pij_s, p_sir, ps0
         return self.sort_nodes_by_centrality()
+
+
+if __name__ == "__main__":
+    prior_detector1 = DynamicMessagePassing()
+    # gsba =GSBA(prior_detector1)
+    methods = [prior_detector1]
+    logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
+                        logger="experiment").get_log()
+
+    experiment = Experiment(methods, logger)
+    experiment.propagation_model = 'SI'
+    start_time = clock()
+    # print "Starting..."
+    # data就是我们的图，我们可以做一些操作。      创建一个简单的图。试试看结果。
+    ''' 
+    1 创建例子的图
+    2 给定传播点子图
+
+    '''
+
+    infected = set()
+    infected.add(1)
+    infected.add(2)
+    infected.add(4)
+    d = data.Graph("../data/test.txt", weighted=1)
+    # print(d.graph.number_of_edges())
+    # print(d)
+    d.debug = False
+    test_num = 3
+    # print(d.subgraph)
+    # #print(infected)
+    # d.subgraph= d.graph
+
+    d.subgraph = nx.Graph()
+    d.subgraph = nx.subgraph(d.graph, ['1', '2', '4'])
+    # print('子图节点个数')
+    # print(d.subgraph.nodes())
+    # print(d.graph.nodes())
+
+    # print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
+
+    for m in experiment.methods:
+        m.set_data(d)
+        start_time = clock()
+        result = m.detect()
+        end_time = clock()
+        # print('result')
+        # print(result)
+
+

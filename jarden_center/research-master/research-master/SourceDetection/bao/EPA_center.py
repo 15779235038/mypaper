@@ -1,9 +1,11 @@
-# coding=utf-8
-"""
-A part of Source Detection.
-Author: Biao Chang, changb110@gmail.com, from University of Science and Technology of China
-created at 2017/1/9.
-"""
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# @File  : afsdf.py
+# @Author: zhiqiangbao
+# @Date  : 2019/12/5
+
+
+
 
 import math
 from decimal import *
@@ -21,12 +23,11 @@ import data
 from experiment import Experiment
 
 
-class CoverageCenter(method.Method):
+class EPA_center(method.Method):
     """
-        detect the source with Rumor Centrality.
-        Please refer to the following paper for more details.
-        Shah D, Zaman T. Detecting sources of computer viruses in networks: theory and experiment[J].
-        ACM SIGMETRICS Performance Evaluation Review, 2010, 38(1): 203-214.
+        detect the source with EPA-center
+        2019 EPA: Exoneration and Prominence based Age for Infection Source Identification
+       .
     """
 
     visited = set()  # node set
@@ -34,8 +35,12 @@ class CoverageCenter(method.Method):
 
 
     '''   
-    1 加二阶邻域覆盖率，给每个点加一个覆盖率就是覆盖率参数。
-    2 
+    全体都要计算，思路：
+        1 计算每一个顶点的突出性。论文公式(10)
+        2 计算图半径。
+        2 从每一个顶点出发，进行BFS遍历。 论文公式（11）
+        3 
+    
 
     '''
     def detect(self):
@@ -54,12 +59,9 @@ class CoverageCenter(method.Method):
         # 进行所有点有向树构建，再进行层次遍历。针对每一层都进行传播点/全部的比例计算。
         node_every_ratio = []
         temp_nodes = self.subgraph.nodes()
-        # print('temp_nodes')
-        # print(temp_nodes)
+
         for source in self.subgraph.nodes():
-            # print('从什么开始')
-            # print(source)
-            # 进行BFS树构造，
+
             tree = nx.bfs_tree(self.data.graph, source=source)
 
 
@@ -68,14 +70,11 @@ class CoverageCenter(method.Method):
             # print(BFS_nodes)
             ratio_all = 0
             for layer_node in BFS_nodes:
-                # print('layter_ndes')
-                # print(layer_node)
+
                 infect_node_len = len([x for x in layer_node if x in temp_nodes])
-                # print('infect_node_len')
-                # print(infect_node_len)
+
                 infect_ratio = infect_node_len*1.0 / len(layer_node)  # 感染点的比例
-                # print('iinfect_ratio')
-                # print(infect_ratio)
+
                 ratio_all += infect_ratio
             ratio_average = ratio_all*1.0 / len(BFS_nodes)
             centrality[source] = Decimal(ratio_average)

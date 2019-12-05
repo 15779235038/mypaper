@@ -19,7 +19,19 @@ import networkx as nx
 import data
 import rumor_center as rc
 from experiment import Experiment
-import  coverage_center2 as cc
+
+'''
+一阶覆盖率
+'''
+#import  coverage_center as cc
+'''
+二阶覆盖率
+'''
+#import  coverage_center2 as cc
+'''
+全部覆盖率
+'''
+import  coverage_center_all as cc
 
 class GSBA_coverage(method.Method):
     """detect the source with Greedy Search Bound Approximation.
@@ -62,15 +74,25 @@ class GSBA_coverage(method.Method):
         # print(self.prior)
 
 
-
+        #覆盖率中心
         self.reset_centrality()
         cc_object = cc.CoverageCenter()
         cc_object.set_data(self.data)
         cc_object.detect()
         coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
-        # print('先验加进去，试试看')
-        # print('覆盖率的检测器')
-        # print(coverage_centralities)
+
+
+        #谣言中心
+        self.reset_centrality()
+        rc = rumor_center.RumorCenter()
+        rc.set_data(self.data)
+        rc.detect()
+        rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
+        # #print('先验加进去，试试看')
+
+
+
+
 
 
 
@@ -163,7 +185,7 @@ class GSBA_coverage(method.Method):
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) * coverage_centralities[v])
+            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) * coverage_centralities[v] *rumor_centralities[v])
 
         # print('w_key_sorted')
         # print(w_key_sorted)

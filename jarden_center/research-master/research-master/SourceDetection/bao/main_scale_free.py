@@ -42,16 +42,29 @@ if __name__ == '__main__':
     prior_detector4 = jc.JordanCenter()
     prior_detector5 = ri.ReverseInfection()
     prior_detector6 = di.DynamicImportance()
-    # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(), prior_detector2,
-    #            gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
-    #            gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2), #bfsa_p.BFSA(prior_detector4)
-    #            ]
 
-    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),prior_detector2,prior_detector5,prior_detector6,
-               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
+
+    '''
+        这是为了检测所有的东西，然后评测性能的。
+    
+    '''
+    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(), prior_detector2,
+               gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
+               gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2), bfsa_p.BFSA(prior_detector1),
                gsba_bao.GSBA_coverage(prior_detector1)
 
                ]
+    '''
+        而底下的这些方法是为了验证先验有没有提高的意思，如果我们需要做修改的话，
+        我们需要做全面对比，但是我们的方法也是有侧重点的。
+
+
+        '''
+    # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
+    #            gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
+    #            gsba_bao.GSBA_coverage(prior_detector1)
+    #
+    #            ]
 
 
     # methods = [gsba_old(prior_detector1)]
@@ -68,11 +81,22 @@ if __name__ == '__main__':
     test_num =100
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
+
+    '''
+    不加BFSA的大数据集，40到60
+    '''
     # test_category = experiment.RANDOM_TEST
     # experiment.start(d, test_category, test_num, 20, 46, 5)
 
-    test_category = experiment.FULL_TEST
-    experiment.start(d, test_category, test_num, 20, 46, 5)
+    # test_category = experiment.FULL_TEST
+    # experiment.start(d, test_category, test_num, 20, 46, 5)
+
+    '''
+    
+    1 加BFSA的小数据集
+    '''
+    test_category = experiment.RANDOM_TEST
+    experiment.start(d, test_category, test_num, 5, 10, 1)
     end_time = clock()
     print "Running time:", end_time-start_time
 

@@ -23,6 +23,8 @@ import  rumor_center as rc
 2 然后进行定位，先试试谣言中心。
 
 
+要看下它的SI是怎么按照概率传播点。
+
 '''
 class Completion_Center(method.Method):
     """

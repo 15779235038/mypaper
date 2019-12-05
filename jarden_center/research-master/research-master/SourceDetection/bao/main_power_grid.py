@@ -38,6 +38,8 @@ if __name__ == '__main__':
     prior_detector3 = dc.DistanceCenter()
     prior_detector4 = jc.JordanCenter()
     prior_detector5 = ri.ReverseInfection()
+
+
     methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
                gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
                gsba_bao.GSBA_coverage(prior_detector1)

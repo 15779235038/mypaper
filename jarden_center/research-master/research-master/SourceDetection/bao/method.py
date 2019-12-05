@@ -52,7 +52,5 @@ class Method:
         result = nx.get_node_attributes(self.subgraph, 'centrality')
         result = sorted(result.items(), key=lambda d: d[1], reverse=True)
 
-        # print('sort_node_by_centrality调用，将RC先验放置')
-        # print('RC的中心性result')
         print(result)
         return result
