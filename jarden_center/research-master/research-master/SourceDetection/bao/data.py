@@ -58,6 +58,9 @@ class Graph:
             self.index2node[i] = v
             i += 1
 
+
+
+
     def set_weight_random(self):
         """  set edges with random weights
         """

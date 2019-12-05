@@ -13,7 +13,7 @@ from decimal import *
 
 import method
 import math
-
+from  collections import  defaultdict
 from time import clock
 import log
 import logging
@@ -39,7 +39,7 @@ class EPA_center(method.Method):
         1 计算每一个顶点的突出性。论文公式(10)
         2 计算图半径。
         2 从每一个顶点出发，进行BFS遍历。 论文公式（11）
-        3 
+        3 计算离心率
     
 
     '''
@@ -52,21 +52,22 @@ class EPA_center(method.Method):
         if self.subgraph.number_of_nodes() == 0:
             print 'subgraph.number_of_nodes =0'
             return
-
         self.reset_centrality()
         centrality = {}
-        P_node_prominence ={}
-
+        P_node_prominence = defaultdict(int)
         for infect_node in self.subgraph.nodes():
             neigbour_node = nx.neighbors(self.data.graph,infect_node)
             neigbour_infect_node = [x for x in neigbour_node if x in self.subgraph.nodes()]
             Iv= len(neigbour_infect_node)
             Ov = len(neigbour_node)
             P_node_prominence[infect_node] = Iv *1.0 / Ov *(1+ math.log(Ov))
-
+        # print('P_node_prominence')
+        # print(P_node_prominence)
         radius = nx.radius(self.subgraph)
-        print('半径是多少？')
-
+        ecc = nx.eccentricity(self.subgraph)
+        # print('ecc')
+        # print(ecc)
+        # print('半径是多少？')
         # 进行所有点有向树构建，再进行层次遍历。针对每一层都进行传播点/全部的比例计算。
         node_every_ratio = []
         temp_nodes = self.subgraph.nodes()
@@ -74,20 +75,15 @@ class EPA_center(method.Method):
             tree = nx.bfs_tree(self.data.graph, source=source)
             # 进行层次遍历。返回每一层顶点。
             BFS_nodes = self.BFS_nodes(tree, source, self.data.graph,self.subgraph,radius)
-
-
-            print(BFS_nodes)
-            ratio_all = 0
+            # print(BFS_nodes)
+            layer_node_sum = 0
             for layer_node in BFS_nodes:
-                infect_node_len = len([x for x in layer_node if x in temp_nodes])
+                for evuery_layer_node in layer_node:
+                    layer_node_sum+= P_node_prominence[evuery_layer_node]
+            # centrality[source] = Decimal(layer_node_sum)
 
-                infect_ratio = infect_node_len*1.0 / len(layer_node)  # 感染点的比例
-
-                ratio_all += infect_ratio
-            ratio_average = ratio_all*1.0 / len(BFS_nodes)
-            centrality[source] = Decimal(ratio_average)
-
-        print('让我看下这个ratio _average的centiality')
+            centrality[source] = Decimal(layer_node_sum*1.0/ ecc[source])
+        print('让我看下这个ratio _average的centiality')  
         print(centrality)
         nx.set_node_attributes(self.subgraph, 'centrality',centrality)
         return self.sort_nodes_by_centrality()
@@ -109,8 +105,10 @@ class EPA_center(method.Method):
             # 如果某一层的被感染点为0，就退出。不用再加了。
             if len([x for x in temp_layer_node if x in subgraph.nodes() ])== 0:
                 break
+            layer += layer
             if layer >radius:
                 break
+
             layer_node.append(temp_layer_node)
             queue = temp_layer_node
         return layer_node

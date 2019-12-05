@@ -62,25 +62,25 @@ class GSBA(method.Method):
         '''
         谣言中心性做县衙
         '''
-        # self.reset_centrality()
-        # rc = rumor_center.RumorCenter()
-        # rc.set_data(self.data)
-        # rc.detect()
-        # rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
-        # # #print('先验加进去，试试看')
-
-        '''
-        覆盖率因子
-
-        '''
         self.reset_centrality()
-        cc_object = cc.CoverageCenter()
-        cc_object.set_data(self.data)
-        cc_object.detect()
-        coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
-        # print('先验加进去，试试看')
-        print('覆盖率的检测器')
-        print(coverage_centralities)
+        rc = rumor_center.RumorCenter()
+        rc.set_data(self.data)
+        rc.detect()
+        rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
+        # #print('先验加进去，试试看')
+
+        # '''
+        # 覆盖率因子
+        #
+        # '''
+        # self.reset_centrality()
+        # cc_object = cc.CoverageCenter()
+        # cc_object.set_data(self.data)
+        # cc_object.detect()
+        # coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
+        # # print('先验加进去，试试看')
+        # print('覆盖率的检测器')
+        # print(coverage_centralities)
 
 
 

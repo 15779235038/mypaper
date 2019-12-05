@@ -26,7 +26,7 @@ import prior
 import map_ulbaa as ulbaa
 import map_gslba as gslba
 import map_gsba2 as gsba2
-
+import  EPA_center as epa
 import numpy as np
 from experiment import Experiment
 
@@ -42,13 +42,14 @@ if __name__ == '__main__':
     prior_detector4 = jc.JordanCenter()
     prior_detector5 = ri.ReverseInfection()
     prior_detector6 = di.DynamicImportance()
-
+    prior_detector7 = epa.EPA_center()
 
     '''
         这是为了检测所有的东西，然后评测性能的。
     
     '''
     methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(), prior_detector2,
+               prior_detector7,
                gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
                gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2), bfsa_p.BFSA(prior_detector1),
                gsba_bao.GSBA_coverage(prior_detector1)
@@ -69,7 +70,7 @@ if __name__ == '__main__':
 
     # methods = [gsba_old(prior_detector1)]
 
-    logger = log.Logger(logname='../data/main_scale_free20191204.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_scale_free20191205.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
