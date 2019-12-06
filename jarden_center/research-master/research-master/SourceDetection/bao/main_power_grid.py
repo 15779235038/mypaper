@@ -26,7 +26,7 @@ import map_bfsa_parallel as bfsa_p
 import prior
 import numpy as np
 from experiment import Experiment
-
+import  EPA_center as epa
 import map_ulbaa as ulbaa
 
 import map_gsba_bao as gsba_bao
@@ -38,19 +38,38 @@ if __name__ == '__main__':
     prior_detector3 = dc.DistanceCenter()
     prior_detector4 = jc.JordanCenter()
     prior_detector5 = ri.ReverseInfection()
+    prior_detector7 = epa.EPA_center()
+    '''
+    以下是比较prior的性能的，为源代码所为。
+    
+    '''
+    # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
+    #            gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
+    #            gsba_bao.GSBA_coverage(prior_detector1)
+    #            ]
 
 
-    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
-               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
+    '''
+    以下是综合比较的，我用比较大数据集,我写的
+    
+    
+    '''
+
+    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(),
+               prior_detector2,
+               prior_detector7,
+               gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA(prior_detector3),
+               gsba.GSBA(prior_detector4), gsba.GSBA(prior_detector5), gsba.GSBA(prior_detector2),
+               bfsa_p.BFSA(prior_detector1),
+               gsba.GSBA(prior_detector7),
                gsba_bao.GSBA_coverage(prior_detector1)
+
                ]
-
-
     # methods = [dc.DistanceCenter()]
     #methods = [bfsa_p.BFSA(prior_detector1)]
     # methods = [dmp2.DynamicMessagePassing()]
 
-    logger = log.Logger(logname='../data/main_power_grid20191204.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_power_grid20191205.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 

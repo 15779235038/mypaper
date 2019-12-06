@@ -31,7 +31,7 @@ import numpy as np
 from experiment import Experiment
 
 import map_gsba_old as gsba_old
-
+import  EPA_center_Weights2 as epa2
 import map_gsba_bao as gsba_bao
 if __name__ == '__main__':
 
@@ -43,6 +43,7 @@ if __name__ == '__main__':
     prior_detector5 = ri.ReverseInfection()
     prior_detector6 = di.DynamicImportance()
     prior_detector7 = epa.EPA_center()
+    prior_detector8 = epa2.EPA_center_weight()  #有权重版本
 
     '''
         这是为了检测所有的东西，然后评测性能的。
@@ -51,7 +52,8 @@ if __name__ == '__main__':
     methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(), prior_detector2,
                prior_detector7,
                gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
-               gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2), bfsa_p.BFSA(prior_detector1),
+               gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2), #bfsa_p.BFSA(prior_detector1),
+               gsba.GSBA(prior_detector7),gsba.GSBA(prior_detector8),
                gsba_bao.GSBA_coverage(prior_detector1)
 
                ]
@@ -94,10 +96,10 @@ if __name__ == '__main__':
 
     '''
     
-    1 加BFSA的小数据集
+    1 没加BFSA的正常搞
     '''
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 5, 10, 1)
+    experiment.start(d, test_category, test_num, 20, 46, 5)
     end_time = clock()
     print "Running time:", end_time-start_time
 

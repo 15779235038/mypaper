@@ -61,8 +61,6 @@ class CoverageCenter(method.Method):
             # print(source)
             # 进行BFS树构造，
             tree = nx.bfs_tree(self.data.graph, source=source)
-
-
             # 进行层次遍历。返回每一层顶点。
             BFS_nodes = self.BFS_nodes(tree, source, self.data.graph,self.subgraph)
             # print(BFS_nodes)

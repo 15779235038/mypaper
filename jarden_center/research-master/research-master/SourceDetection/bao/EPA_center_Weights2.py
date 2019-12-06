@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @File  : afsdf.py
+# @File  : EPA_center_Weights2.py
 # @Author: zhiqiangbao
-# @Date  : 2019/12/5
+# @Date  : 2019/12/6
 
 
 
@@ -10,10 +10,9 @@
 import math
 from decimal import *
 
-
 import method
 import math
-from  collections import  defaultdict
+from collections import defaultdict
 from time import clock
 import log
 import logging
@@ -23,16 +22,15 @@ import data
 from experiment import Experiment
 
 
-class EPA_center(method.Method):
+class EPA_center_weight(method.Method):
     """
         detect the source with EPA-center
         2019 EPA: Exoneration and Prominence based Age for Infection Source Identification
-       .
+       .在此基础上考虑权重。
     """
 
     visited = set()  # node set
     bfs_tree = nx.Graph()
-
 
     '''   
     全体都要计算，思路：
@@ -40,9 +38,10 @@ class EPA_center(method.Method):
         2 计算图半径。
         2 从每一个顶点出发，进行BFS遍历。 论文公式（11）
         3 计算离心率，然后除以离心率就可以了
-    
+
 
     '''
+
     def detect(self):
         """detect the source with Rumor Centrality.
         Returns:
@@ -56,11 +55,33 @@ class EPA_center(method.Method):
         centrality = {}
         P_node_prominence = defaultdict(int)
         for infect_node in self.subgraph.nodes():
-            neigbour_node = nx.neighbors(self.data.graph,infect_node)
+            # print('是哪个点')
+            # print(infect_node)
+            neigbour_node = nx.neighbors(self.data.graph, infect_node)
             neigbour_infect_node = [x for x in neigbour_node if x in self.subgraph.nodes()]
-            Iv= len(neigbour_infect_node)
+            Iv = len(neigbour_infect_node)
             Ov = len(neigbour_node)
-            P_node_prominence[infect_node] = Iv *1.0 / Ov *(1+ math.log(Ov))
+            P_node_prominence[infect_node] = Iv * 1.0 / Ov * (1 + math.log(Ov))
+            # print('输出权重')
+            #加一个对感染边权重的处理。
+            # print(self.data.weights)
+            #分子
+            molecule = 0
+            for neigbour_infect in neigbour_infect_node:
+                molecule +=  1- self.data.weights[self.data.node2index[infect_node],self.data.node2index[neigbour_infect]]
+            # print('分子是')
+            # print(molecule)
+            Denominator = 0
+            for neigbour in neigbour_node:
+                Denominator += 1 - self.data.weights[
+                    self.data.node2index[infect_node], self.data.node2index[neigbour]]
+            # print('分母是')
+            # print(Denominator)
+            factor = molecule *1.0 / Denominator
+            # print('看下factor')
+            # print(factor)
+            P_node_prominence[infect_node] *=factor
+
         # print('P_node_prominence')
         # print(P_node_prominence)
         radius = nx.radius(self.subgraph)
@@ -74,27 +95,25 @@ class EPA_center(method.Method):
         for source in self.subgraph.nodes():
             tree = nx.bfs_tree(self.data.graph, source=source)
             # 进行层次遍历。返回每一层顶点。
-            BFS_nodes = self.BFS_nodes(tree, source, self.data.graph,self.subgraph,radius)
+            BFS_nodes = self.BFS_nodes(tree, source, self.data.graph, self.subgraph, radius)
             # print(BFS_nodes)
             layer_node_sum = 0
             for layer_node in BFS_nodes:
                 for evuery_layer_node in layer_node:
-                    layer_node_sum+= P_node_prominence[evuery_layer_node]
+                    layer_node_sum += P_node_prominence[evuery_layer_node]
             # centrality[source] = Decimal(layer_node_sum)
-            centrality[source] = Decimal(layer_node_sum*1.0/ ecc[source])
-        print('让我看下这个ratio _average的centiality')  
+            centrality[source] = Decimal(layer_node_sum * 1.0 / ecc[source])
+        print('让我看下这个ratio _average的centiality')
         print(centrality)
-        nx.set_node_attributes(self.subgraph, 'centrality',centrality)
+        nx.set_node_attributes(self.subgraph, 'centrality', centrality)
         return self.sort_nodes_by_centrality()
 
-
-
-    def BFS_nodes(self,tree, source, infectG,subgraph,radius):
+    def BFS_nodes(self, tree, source, infectG, subgraph, radius):
         queue = []
         queue.append(source)
         layer_node = []
         layer_node.append([source])
-        layer =1
+        layer = 1
         while queue:
             temp_layer_node = []
             for i in queue:
@@ -102,10 +121,10 @@ class EPA_center(method.Method):
                     if neighbour != i:
                         temp_layer_node.append(neighbour)
             # 如果某一层的被感染点为0，就退出。不用再加了。
-            if len([x for x in temp_layer_node if x in subgraph.nodes() ])== 0:
+            if len([x for x in temp_layer_node if x in subgraph.nodes()]) == 0:
                 break
             layer += layer
-            if layer >radius:
+            if layer > radius:
                 break
             layer_node.append(temp_layer_node)
             queue = temp_layer_node
@@ -113,7 +132,7 @@ class EPA_center(method.Method):
 
 
 if __name__ == "__main__":
-    prior_detector1 = EPA_center()
+    prior_detector1 = EPA_center_weight()
     # gsba =GSBA(prior_detector1)
     methods = [prior_detector1]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
@@ -142,7 +161,8 @@ if __name__ == "__main__":
     # print(d.subgraph)
     # #print(infected)
     # d.subgraph= d.graph
-
+    print('这是有权重的啊')
+    print(d.weights)
     d.subgraph = nx.Graph()
     d.subgraph = nx.subgraph(d.graph, ['1', '2', '4'])
     # print('子图节点个数')
