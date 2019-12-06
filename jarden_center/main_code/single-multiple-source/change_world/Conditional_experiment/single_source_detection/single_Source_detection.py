@@ -563,6 +563,8 @@ class Single_source:
 
     '''
 
+
+
     def belief_algorithm_newworkx(self, infectG, subinfectG, true_source):
             # 初始化所有的点的覆盖率，有初始值。
             node_coverage = defaultdict(int)

@@ -33,6 +33,7 @@ from experiment import Experiment
 import map_gsba_old as gsba_old
 import  EPA_center_Weights2 as epa2
 import map_gsba_bao as gsba_bao
+import  belief_coverage_center as bc
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -44,15 +45,16 @@ if __name__ == '__main__':
     prior_detector6 = di.DynamicImportance()
     prior_detector7 = epa.EPA_center()
     prior_detector8 = epa2.EPA_center_weight()  #有权重版本
+    prior_detector9=bc.Belief_coverage_center()  #置信传播算法。
 
     '''
         这是为了检测所有的东西，然后评测性能的。
     
     '''
-    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(), prior_detector2,
-               prior_detector7,
+    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(),
+               prior_detector7,prior_detector9,prior_detector8,
                gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
-               gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2), #bfsa_p.BFSA(prior_detector1),
+               gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), #bfsa_p.BFSA(prior_detector1),
                gsba.GSBA(prior_detector7),gsba.GSBA(prior_detector8),
                gsba_bao.GSBA_coverage(prior_detector1),
 
@@ -82,7 +84,7 @@ if __name__ == '__main__':
     d = data.Graph("../data/scale-free.ba.v500.e996.gml", weighted=1)
     d.debug = False
 
-    test_num =5
+    test_num =100
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
 
