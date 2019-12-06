@@ -54,7 +54,8 @@ if __name__ == '__main__':
                gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
                gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), gsba.GSBA(prior_detector2), #bfsa_p.BFSA(prior_detector1),
                gsba.GSBA(prior_detector7),gsba.GSBA(prior_detector8),
-               gsba_bao.GSBA_coverage(prior_detector1)
+               gsba_bao.GSBA_coverage(prior_detector1),
+
 
                ]
     '''
@@ -99,7 +100,7 @@ if __name__ == '__main__':
     1 没加BFSA的正常搞
     '''
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 20, 46, 5)
+    experiment.start(d, test_category, test_num, 200, 205, 5)
     end_time = clock()
     print "Running time:", end_time-start_time
 

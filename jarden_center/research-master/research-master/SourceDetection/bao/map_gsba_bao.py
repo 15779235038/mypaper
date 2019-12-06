@@ -19,6 +19,7 @@ import networkx as nx
 import data
 import rumor_center as rc
 from experiment import Experiment
+import  EPA_center_Weights2 as epa2
 
 '''
 一阶覆盖率
@@ -89,6 +90,15 @@ class GSBA_coverage(method.Method):
         rc.detect()
         rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
         # #print('先验加进去，试试看')
+
+
+
+        #epa带权重的东西
+        self.reset_centrality()
+        epa_weight_object = epa2.EPA_center_weight()
+        epa_weight_object.set_data(self.data)
+        epa_weight_object.detect()
+        epa_weight_cnetralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
 
 
@@ -185,7 +195,7 @@ class GSBA_coverage(method.Method):
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) * coverage_centralities[v] *rumor_centralities[v])
+            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) * coverage_centralities[v] *rumor_centralities[v] *epa_weight_cnetralities[v])
 
         # print('w_key_sorted')
         # print(w_key_sorted)
