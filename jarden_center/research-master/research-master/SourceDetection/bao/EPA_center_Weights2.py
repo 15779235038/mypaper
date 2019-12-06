@@ -43,11 +43,9 @@ class EPA_center_weight(method.Method):
     '''
 
     def detect(self):
-        """detect the source with Rumor Centrality.
-        Returns:
-            @rtype:int
-            the detected source
-        """
+        print('epa_center带权重检测')
+
+
         if self.subgraph.number_of_nodes() == 0:
             print 'subgraph.number_of_nodes =0'
             return
@@ -103,8 +101,8 @@ class EPA_center_weight(method.Method):
                     layer_node_sum += P_node_prominence[evuery_layer_node]
             # centrality[source] = Decimal(layer_node_sum)
             centrality[source] = Decimal(layer_node_sum * 1.0 / ecc[source])
-        print('让我看下这个ratio _average的centiality')
-        print(centrality)
+        # print('让我看下这个ratio _average的centiality')
+        # print(centrality)
         nx.set_node_attributes(self.subgraph, 'centrality', centrality)
         return self.sort_nodes_by_centrality()
 

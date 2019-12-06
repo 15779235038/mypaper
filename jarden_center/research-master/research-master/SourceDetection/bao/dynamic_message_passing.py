@@ -25,6 +25,7 @@ class DynamicMessagePassing(method.Method):
             @rtype:int
             the detected source
         """
+        print('DMP检测')
         self.reset_centrality()
         nodes_infected = self.subgraph.nodes()
         nodes = nodes_infected

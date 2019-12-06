@@ -23,6 +23,7 @@ class JordanCenter(method.Method):
             @rtype:int
             the detected source
         """
+        print('jordan_center 中心检测')
         self.reset_centrality()
         distances = nx.all_pairs_dijkstra_path_length(self.subgraph, weight='weight')
         centrality = {}

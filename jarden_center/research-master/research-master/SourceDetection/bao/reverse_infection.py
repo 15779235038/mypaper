@@ -24,6 +24,7 @@ class ReverseInfection(method.Method):
             @rtype:int
             the detected source
         """
+        print('反转算法检测')
         self.reset_centrality()
         stop = 0
         t = 0

@@ -82,7 +82,7 @@ if __name__ == '__main__':
     d = data.Graph("../data/scale-free.ba.v500.e996.gml", weighted=1)
     d.debug = False
 
-    test_num =100
+    test_num =5
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
 

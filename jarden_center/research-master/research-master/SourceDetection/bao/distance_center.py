@@ -25,6 +25,8 @@ class DistanceCenter(method.Method):
             @rtype:int
             the detected source
         """
+
+        print('距离中心检测')
         self.reset_centrality()
         centrality = nx.closeness_centrality(self.subgraph, distance='weight')
         nx.set_node_attributes(self.subgraph, 'centrality', centrality)

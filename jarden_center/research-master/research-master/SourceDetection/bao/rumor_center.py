@@ -30,6 +30,8 @@ class RumorCenter(method.Method):
             @rtype:int
             the detected source
         """
+
+        print('谣言中心检测')
         if self.subgraph.number_of_nodes() == 0:
             print 'subgraph.number_of_nodes =0'
             return

@@ -52,5 +52,5 @@ class Method:
         result = nx.get_node_attributes(self.subgraph, 'centrality')
         result = sorted(result.items(), key=lambda d: d[1], reverse=True)
 
-        print(result)
+        # print(result)
         return result

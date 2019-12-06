@@ -44,6 +44,8 @@ class CoverageCenter(method.Method):
             @rtype:int
             the detected source
         """
+
+        print('覆盖率检测')
         if self.subgraph.number_of_nodes() == 0:
             print 'subgraph.number_of_nodes =0'
             return
@@ -78,8 +80,8 @@ class CoverageCenter(method.Method):
             ratio_average = ratio_all*1.0 / len(BFS_nodes)
             centrality[source] = Decimal(ratio_average)
 
-        print('让我看下这个ratio _average的centiality')
-        print(centrality)
+        # print('让我看下这个ratio _average的centiality')
+        # print(centrality)
         nx.set_node_attributes(self.subgraph, 'centrality',centrality)
         return self.sort_nodes_by_centrality()
 
