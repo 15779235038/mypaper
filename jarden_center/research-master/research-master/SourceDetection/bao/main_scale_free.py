@@ -102,7 +102,7 @@ if __name__ == '__main__':
     1 没加BFSA的正常搞
     '''
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 200, 205, 5)
+    experiment.start(d, test_category, test_num, 100, 200, 5)
     end_time = clock()
     print "Running time:", end_time-start_time
 
