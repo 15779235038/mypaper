@@ -34,6 +34,7 @@ import map_gsba_old as gsba_old
 import  EPA_center_Weights2 as epa2
 import map_gsba_bao as gsba_bao
 import  belief_coverage_center as bc
+import  map_gsba_bao2 as gsba_bao2
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -57,6 +58,8 @@ if __name__ == '__main__':
                gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), #bfsa_p.BFSA(prior_detector1),
                gsba.GSBA(prior_detector7),gsba.GSBA(prior_detector8),
                gsba_bao.GSBA_coverage(prior_detector1),
+               gsba_bao2.GSBA_coverage_2(prior_detector1)
+
 
 
                ]
@@ -102,7 +105,7 @@ if __name__ == '__main__':
     1 没加BFSA的正常搞
     '''
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 100, 200, 5)
+    experiment.start(d, test_category, test_num, 20, 100,10)
     end_time = clock()
     print "Running time:", end_time-start_time
 

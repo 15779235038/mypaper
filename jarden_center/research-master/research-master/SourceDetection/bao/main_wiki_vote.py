@@ -29,6 +29,9 @@ import map_ulbaa as ulbaa
 import map_gslba as gslba
 import map_gsba2 as gsba2
 
+import map_gsba_bao as gsba_bao
+
+
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -46,7 +49,8 @@ if __name__ == '__main__':
     #            gsba2.GSBA(prior_detector1), gsba2.GSBA( prior_detector3),gsba2.GSBA(prior_detector4),]
 
     methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
-               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4)]
+               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
+               gsba_bao.GSBA_coverage(prior_detector1)]
 
     logger = log.Logger(logname='../data/main_wiki_vote.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
@@ -61,7 +65,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 100, 200, 10)
+    experiment.start(d, test_category, test_num, 20, 200, 10)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 31, 5)
 
