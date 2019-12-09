@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# @File  : map_gsba_bao4.py
+# @Author: zhiqiangbao
+# @Date  : 2019/12/9
+
+# !/usr/bin/env python3
+# -*- coding: utf-8 -*-
 # @File  : map_gsba_bao3.py
 # @Author: zhiqiangbao
 # @Date  : 2019/12/9
 
 '''
 
-贪心构建的序列中，不应该只是单纯考虑该节点和已经感染节点的权重和连边，
-或许也可以考虑该点覆盖率来加它。
+不要GSBA构建的序列，也是直接谣言中心性乘以覆盖率来算
 '''
 
 import decimal
@@ -40,7 +45,7 @@ import EPA_center_Weights2 as epa2
 import coverage_center_all as cc
 
 
-class GSBA_coverage_3(method.Method):
+class GSBA_coverage_4(method.Method):
     """detect the source with Greedy Search Bound Approximation.
         Please refer to the my paper for more details.
     """
@@ -80,6 +85,13 @@ class GSBA_coverage_3(method.Method):
         # print('先验检测器是什么？')
         # print(self.prior)
 
+        # 覆盖率中心
+        self.reset_centrality()
+        cc_object = cc.CoverageCenter()
+        cc_object.set_data(self.data)
+        cc_object.detect()
+        coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
+
         # 谣言中心
         self.reset_centrality()
         rc = rumor_center.RumorCenter()
@@ -88,15 +100,6 @@ class GSBA_coverage_3(method.Method):
         rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
         # #print('先验加进去，试试看')
 
-
-
-
-        # epa带权重的东西
-        self.reset_centrality()
-        epa_weight_object = epa2.EPA_center_weight()
-        epa_weight_object.set_data(self.data)
-        epa_weight_object.detect()
-        epa_weight_cnetralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
         self.reset_centrality()
         infected_nodes = set(self.subgraph.nodes())
@@ -150,9 +153,9 @@ class GSBA_coverage_3(method.Method):
                         # print(w[h])
                         # print(w_h2u)
                         # print(h)
-                        # print(epa_weight_cnetralities)
-                        if h in epa_weight_cnetralities.keys():
-                            w[h] = (1 - (1 - w[h]) * (1 - w_h2u))*float(epa_weight_cnetralities[h])
+                        # print(coverage_centralities)
+                        if h in coverage_centralities.keys():
+                            w[h] = (1 - (1 - w[h]) * (1 - w_h2u)) * float(coverage_centralities[h])
                         else:
                             w[h] = (1 - (1 - w[h]) * (1 - w_h2u))
                         # print('w[h]，，，，h在keys')
@@ -190,8 +193,7 @@ class GSBA_coverage_3(method.Method):
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) *
-                            rumor_centralities[v]*epa_weight_cnetralities[v] )
+            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood)  *coverage_centralities[v]       )
 
         # print('w_key_sorted')
         # print(w_key_sorted)
@@ -208,7 +210,7 @@ if __name__ == "__main__":
     prior_detector1 = rc.RumorCenter()
 
     # gsba =GSBA(prior_detector1)
-    methods = [GSBA_coverage_3(prior_detector1)]
+    methods = [GSBA_coverage_4(prior_detector1)]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
                         logger="experiment").get_log()
 
