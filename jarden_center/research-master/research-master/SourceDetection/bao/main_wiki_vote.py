@@ -52,7 +52,7 @@ if __name__ == '__main__':
                gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
                gsba_bao.GSBA_coverage(prior_detector1)]
 
-    logger = log.Logger(logname='../data/main_wiki_vote.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_wiki_vote1208.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
