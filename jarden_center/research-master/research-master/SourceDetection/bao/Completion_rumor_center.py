@@ -25,6 +25,15 @@ import  rumor_center as rc
 
 要看下它的SI是怎么按照概率传播点。
 
+思路：
+1 得到每个点关于其它点的距离
+2 传播子图，然后计算所有点的rumor center。
+3 每个点按照找到传播子图最短距离最远的点，进行BFS树构键
+    3.1 得到新的rumor center
+    3.2 统计BFS树和传播子图差距，差距越大，越不可能是源点。以差距计算概率，乘以原来的先验
+    
+4 
+
 '''
 class Completion_Center(method.Method):
     """
@@ -34,27 +43,40 @@ class Completion_Center(method.Method):
         ACM SIGMETRICS Performance Evaluation Review, 2010, 38(1): 203-214.
     """
 
-    visited = set()  # node set
-    bfs_tree = nx.Graph()
+    prior = ''
+    prior_detector = None
+
+    def __init__(self, prior_detector):
+        method.Method.__init__(self)
+        self.method_name = self.__class__, prior_detector.method_name
+        self.prior_detector = prior_detector  # 先验检测器
 
     def detect(self):
-        """detect the source with Rumor Centrality.
 
-        Returns:
-            @rtype:int
-            the detected source
-        """
+
+        self.reset_centrality()
+        self.prior_detector.set_data(self.data)
+        self.prior_detector.detect()
+        self.prior = nx.get_node_attributes(self.subgraph, 'centrality')
+
+
+        self.reset_centrality()
         if self.subgraph.number_of_nodes() == 0:
             print 'subgraph.number_of_nodes =0'
             return
 
+        for node in self.subgraph.nodes():
+            shortest_path_length_all=nx.shortest_path_length(self.data.graph,source=node,weight=None)
+            sorted(shortest_path_length_all.items(), key=lambda x: x[1],reverse=True)
+            print('shortnode')
+            print(shortnode)
 
-        self.reset_centrality()
+
+
         centrality = {}
         for source in self.subgraph.nodes():
             self.bfs_tree = nx.bfs_tree(self.subgraph, source)
-            self.visited.clear()
-            self.get_number_in_subtree(source)
+
             centrality[source] = Decimal(math.factorial(self.bfs_tree.number_of_nodes())) \
                          / nx.get_node_attributes(self.bfs_tree, 'cumulativeProductOfSubtrees')[source]
 
