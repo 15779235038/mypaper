@@ -57,13 +57,14 @@ if __name__ == '__main__':
         这是为了检测所有的东西，然后评测性能的。
     
     '''
-    methods = [rc.RumorCenter(),
-    #            dc.DistanceCenter(),
-    #            jc.JordanCenter(),
-    #            ri.ReverseInfection(),
+    methods = [
+               # rc.RumorCenter(),
+               # dc.DistanceCenter(),
+               # jc.JordanCenter(),
+               # ri.ReverseInfection(),
     #            di.DynamicImportance(),
                # prior_detector7,
-               prior_detector9,
+               # prior_detector9,
                prior_detector8,
                # gsba.GSBA(prior_detector0),
                gsba.GSBA(prior_detector1),
@@ -71,14 +72,14 @@ if __name__ == '__main__':
                # gsba.GSBA(prior_detector4),
                # gsba.GSBA(prior_detector5), #bfsa_p.BFSA(prior_detector1),
                # gsba.GSBA(prior_detector7),
-               gsba.GSBA(prior_detector8),
+               # gsba.GSBA(prior_detector8),
                gsba_bao.GSBA_coverage(prior_detector1),
-               gsba_bao2.GSBA_coverage_2(prior_detector1),
-               gsba_bao3.GSBA_coverage_3(prior_detector1),
+               # gsba_bao2.GSBA_coverage_2(prior_detector1),
+               # gsba_bao3.GSBA_coverage_3(prior_detector1),
                # gsba_bao4.GSBA_coverage_4(prior_detector1),
                # rumor_epa.rumor_epa(prior_detector1),
                # rumor_coverage.rumor_coverage(prior_detector1),
-               gsba_bao5.GSBA_coverage_5(prior_detector1)
+               # gsba_bao5.GSBA_coverage_5(prior_detector1)
                ]
     '''
         而底下的这些方法是为了验证先验有没有提高的意思，如果我们需要做修改的话，
@@ -122,7 +123,7 @@ if __name__ == '__main__':
     1 没加BFSA的正常搞
     '''
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 20, 100,10)
+    experiment.start(d, test_category, test_num, 20, 45,5)
     end_time = clock()
     print "Running time:", end_time-start_time
 

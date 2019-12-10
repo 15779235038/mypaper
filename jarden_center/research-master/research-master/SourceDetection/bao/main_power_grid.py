@@ -28,6 +28,7 @@ import numpy as np
 from experiment import Experiment
 import  EPA_center as epa
 import map_ulbaa as ulbaa
+import  EPA_center_Weights2 as epa2
 
 import map_gsba_bao as gsba_bao
 if __name__ == '__main__':
@@ -39,13 +40,15 @@ if __name__ == '__main__':
     prior_detector4 = jc.JordanCenter()
     prior_detector5 = ri.ReverseInfection()
     prior_detector7 = epa.EPA_center()
+    prior_detector8 = epa2.EPA_center_weight()  # 有权重版本
     '''
     以下是比较prior的性能的，为源代码所为。
     
     '''
-    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
-               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
-               gsba_bao.GSBA_coverage(prior_detector1)
+    methods = [
+                prior_detector8,
+                gsba.GSBA(prior_detector1),
+                gsba_bao.GSBA_coverage(prior_detector1),
                ]
 
 
@@ -82,7 +85,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 100, 400, 50)
+    experiment.start(d, test_category, test_num, 50, 400, 50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 
