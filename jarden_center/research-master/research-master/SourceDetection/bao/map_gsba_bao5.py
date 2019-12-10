@@ -90,12 +90,14 @@ class GSBA_coverage_5(method.Method):
         # print('先验检测器是什么？')
         # print(self.prior)
 
-        # 覆盖率中心
+
+
+        # epa带权重的东西
         self.reset_centrality()
-        cc_object = cc.CoverageCenter()
-        cc_object.set_data(self.data)
-        cc_object.detect()
-        coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
+        epa_weight_object = epa2.EPA_center_weight()
+        epa_weight_object.set_data(self.data)
+        epa_weight_object.detect()
+        epa_weight_cnetralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
         # 谣言中心
         self.reset_centrality()
@@ -118,7 +120,7 @@ class GSBA_coverage_5(method.Method):
         weights = self.data.weights
         w = {}  # effective propagation probabilities: node->w
         for node in infected_nodes:
-            w[node] = float(coverage_centralities[node])
+            w[node] = float(epa_weight_cnetralities[node])
         for v in infected_nodes:
             # print('------从v点开始----------')
             # print(v)
@@ -162,7 +164,7 @@ class GSBA_coverage_5(method.Method):
                         # print(w_h2u)
                         # print(h)
                         # print(coverage_centralities)
-                        if h in coverage_centralities.keys():
+                        if h in epa_weight_cnetralities.keys():
                             w[h] = (1 - (1 - w[h]) * (1 - w_h2u))
                         else:
                             w[h] = (1 - (1 - w[h]) * (1 - w_h2u))
@@ -201,7 +203,7 @@ class GSBA_coverage_5(method.Method):
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood)  *rumor_centralities[v]      )
+            posterior[v] = (decimal.Decimal( decimal.Decimal(likelihood)  *rumor_centralities[v] *epa_weight_cnetralities[v]     ))
 
         # print('w_key_sorted')
         # print(w_key_sorted)

@@ -66,13 +66,13 @@ class EPA_center_weight(method.Method):
             #分子
             molecule = 0
             for neigbour_infect in neigbour_infect_node:
-                molecule +=  1- self.data.weights[self.data.node2index[infect_node],self.data.node2index[neigbour_infect]]
+                molecule +=  (1- self.data.weights[self.data.node2index[infect_node],self.data.node2index[neigbour_infect]])
             # print('分子是')
             # print(molecule)
             Denominator = 0
             for neigbour in neigbour_node:
-                Denominator += 1 - self.data.weights[
-                    self.data.node2index[infect_node], self.data.node2index[neigbour]]
+                Denominator += (1 - self.data.weights[
+                    self.data.node2index[infect_node], self.data.node2index[neigbour]])
             # print('分母是')
             # print(Denominator)
             factor = molecule *1.0 / Denominator

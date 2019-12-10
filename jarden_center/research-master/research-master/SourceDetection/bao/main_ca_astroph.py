@@ -36,6 +36,7 @@ import  map_gsba_bao3 as gsba_bao3
 import  map_gsba_bao4 as gsba_bao4
 import  rumor_EPA_center as rumor_epa
 import  rumor_coverage_center as rumor_coverage
+import  map_gsba_bao5 as gsba_bao5
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -66,17 +67,28 @@ if __name__ == '__main__':
     
     '''
 
-    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(),
-               prior_detector7, prior_detector9, prior_detector8,
-               gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA(prior_detector3),
-               gsba.GSBA(prior_detector4), gsba.GSBA(prior_detector5),  # bfsa_p.BFSA(prior_detector1),
-               gsba.GSBA(prior_detector7), gsba.GSBA(prior_detector8),
+    methods = [rc.RumorCenter(),
+               #            dc.DistanceCenter(),
+               #            jc.JordanCenter(),
+               #            ri.ReverseInfection(),
+               #            di.DynamicImportance(),
+               # prior_detector7,
+               prior_detector9,
+               prior_detector8,
+               # gsba.GSBA(prior_detector0),
+               gsba.GSBA(prior_detector1),
+               # gsba.GSBA( prior_detector3),
+               # gsba.GSBA(prior_detector4),
+               # gsba.GSBA(prior_detector5), #bfsa_p.BFSA(prior_detector1),
+               # gsba.GSBA(prior_detector7),
+               gsba.GSBA(prior_detector8),
                gsba_bao.GSBA_coverage(prior_detector1),
                gsba_bao2.GSBA_coverage_2(prior_detector1),
                gsba_bao3.GSBA_coverage_3(prior_detector1),
-               gsba_bao4.GSBA_coverage_4(prior_detector1),
-               rumor_epa.rumor_epa(prior_detector1),
-               rumor_coverage.rumor_coverage(prior_detector1)
+               # gsba_bao4.GSBA_coverage_4(prior_detector1),
+               # rumor_epa.rumor_epa(prior_detector1),
+               # rumor_coverage.rumor_coverage(prior_detector1),
+               gsba_bao5.GSBA_coverage_5(prior_detector1)
                ]
     logger = log.Logger(logname='../data/main_ca_astroph1210.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)

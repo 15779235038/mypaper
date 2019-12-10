@@ -57,17 +57,27 @@ if __name__ == '__main__':
         这是为了检测所有的东西，然后评测性能的。
     
     '''
-    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(),
-               prior_detector7,prior_detector9,prior_detector8,
-               gsba.GSBA(prior_detector0), gsba.GSBA(prior_detector1), gsba.GSBA( prior_detector3),
-               gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5), #bfsa_p.BFSA(prior_detector1),
-               gsba.GSBA(prior_detector7),gsba.GSBA(prior_detector8),
+    methods = [rc.RumorCenter(),
+    #            dc.DistanceCenter(),
+    #            jc.JordanCenter(),
+    #            ri.ReverseInfection(),
+    #            di.DynamicImportance(),
+               # prior_detector7,
+               prior_detector9,
+               prior_detector8,
+               # gsba.GSBA(prior_detector0),
+               gsba.GSBA(prior_detector1),
+               # gsba.GSBA( prior_detector3),
+               # gsba.GSBA(prior_detector4),
+               # gsba.GSBA(prior_detector5), #bfsa_p.BFSA(prior_detector1),
+               # gsba.GSBA(prior_detector7),
+               gsba.GSBA(prior_detector8),
                gsba_bao.GSBA_coverage(prior_detector1),
                gsba_bao2.GSBA_coverage_2(prior_detector1),
                gsba_bao3.GSBA_coverage_3(prior_detector1),
-               gsba_bao4.GSBA_coverage_4(prior_detector1),
-               rumor_epa.rumor_epa(prior_detector1),
-               rumor_coverage.rumor_coverage(prior_detector1),
+               # gsba_bao4.GSBA_coverage_4(prior_detector1),
+               # rumor_epa.rumor_epa(prior_detector1),
+               # rumor_coverage.rumor_coverage(prior_detector1),
                gsba_bao5.GSBA_coverage_5(prior_detector1)
                ]
     '''
