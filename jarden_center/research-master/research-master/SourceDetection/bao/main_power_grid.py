@@ -82,7 +82,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 100, 200, 20)
+    experiment.start(d, test_category, test_num, 100, 400, 50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 

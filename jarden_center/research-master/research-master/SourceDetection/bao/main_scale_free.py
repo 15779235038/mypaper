@@ -38,6 +38,7 @@ import  map_gsba_bao2 as gsba_bao2
 import  map_gsba_bao3 as gsba_bao3
 import  map_gsba_bao4 as gsba_bao4
 import  rumor_EPA_center as rumor_epa
+import  rumor_coverage_center as rumor_coverage
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -64,7 +65,8 @@ if __name__ == '__main__':
                gsba_bao2.GSBA_coverage_2(prior_detector1),
                gsba_bao3.GSBA_coverage_3(prior_detector1),
                gsba_bao4.GSBA_coverage_4(prior_detector1),
-               rumor_epa.rumor_epa(prior_detector1)
+               rumor_epa.rumor_epa(prior_detector1),
+               rumor_coverage.rumor_coverage(prior_detector1)
                ]
     '''
         而底下的这些方法是为了验证先验有没有提高的意思，如果我们需要做修改的话，
