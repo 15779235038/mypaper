@@ -1,14 +1,9 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# @File  : map_gsba_bao3.py
-# @Author: zhiqiangbao
-# @Date  : 2019/12/9
-
-'''
-
-贪心构建的序列中，不应该只是单纯考虑该节点和已经感染节点的权重和连边，
-或许也可以考虑该点覆盖率来加它。
-'''
+# coding=utf-8
+"""
+A part of Source Detection.
+Author: Biao Chang, changb110@gmail.com, from University of Science and Technology of China
+created at 2017/1/9.
+"""
 
 import decimal
 import networkx as nx
@@ -40,7 +35,7 @@ import EPA_center_Weights2 as epa2
 import coverage_center_all as cc
 
 
-class GSBA_coverage_3(method.Method):
+class GSBA_coverage_7(method.Method):
     """detect the source with Greedy Search Bound Approximation.
         Please refer to the my paper for more details.
     """
@@ -80,15 +75,6 @@ class GSBA_coverage_3(method.Method):
         # print('先验检测器是什么？')
         # print(self.prior)
 
-        # 谣言中心
-        self.reset_centrality()
-        rc = rumor_center.RumorCenter()
-        rc.set_data(self.data)
-        rc.detect()
-        rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
-        # #print('先验加进去，试试看')
-
-
 
 
         # epa带权重的东西
@@ -97,6 +83,13 @@ class GSBA_coverage_3(method.Method):
         epa_weight_object.set_data(self.data)
         epa_weight_object.detect()
         epa_weight_cnetralities = nx.get_node_attributes(self.subgraph, 'centrality')
+
+        # 覆盖率中心
+        self.reset_centrality()
+        cc_object = cc.CoverageCenter()
+        cc_object.set_data(self.data)
+        cc_object.detect()
+        coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
         self.reset_centrality()
         infected_nodes = set(self.subgraph.nodes())
@@ -126,7 +119,7 @@ class GSBA_coverage_3(method.Method):
                 # print(neighbours)
                 w_sum = sum([w[j] for j in neighbours])
                 u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w
-                likelihood *= w[u] / w_sum
+                likelihood += w[u] / w_sum
                 # print('分母是？')
                 # print(w_sum)
                 # print('likelihood')
@@ -149,10 +142,7 @@ class GSBA_coverage_3(method.Method):
                         # print('------')
                         # print(w[h])
                         # print(w_h2u)
-                        # print(h)
-                        # print(epa_weight_cnetralities)
-
-                            w[h] = (1 - (1 - w[h]) * (1 - w_h2u))
+                        w[h] = 1 - (1 - w[h]) * (1 - w_h2u)
                         # print('w[h]，，，，h在keys')
                         # print(w[h])
                     else:
@@ -188,16 +178,8 @@ class GSBA_coverage_3(method.Method):
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-            print('点为多少个时，各个参数的值为多少')
-            print(len(self.subgraph.nodes()))
-            print(decimal.Decimal(self.prior[v]))
-            print(decimal.Decimal(likelihood))
-            print(rumor_centralities[v])
-            print(epa_weight_cnetralities[v])
-
-            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) *
-                            rumor_centralities[v]*epa_weight_cnetralities[v] )
-            print(posterior[v])
+            posterior[v] = (decimal.Decimal(  decimal.Decimal(likelihood) *coverage_centralities[v] *
+                            epa_weight_cnetralities[v]))
 
         # print('w_key_sorted')
         # print(w_key_sorted)
@@ -214,7 +196,7 @@ if __name__ == "__main__":
     prior_detector1 = rc.RumorCenter()
 
     # gsba =GSBA(prior_detector1)
-    methods = [GSBA_coverage_3(prior_detector1)]
+    methods = [GSBA_coverage_7(prior_detector1)]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
                         logger="experiment").get_log()
 

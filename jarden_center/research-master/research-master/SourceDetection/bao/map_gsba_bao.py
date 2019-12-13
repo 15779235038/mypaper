@@ -83,13 +83,6 @@ class GSBA_coverage(method.Method):
         coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
 
-        #谣言中心
-        self.reset_centrality()
-        rc = rumor_center.RumorCenter()
-        rc.set_data(self.data)
-        rc.detect()
-        rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
-        # #print('先验加进去，试试看')
 
 
 
@@ -195,15 +188,12 @@ class GSBA_coverage(method.Method):
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) * coverage_centralities[v] *rumor_centralities[v] *epa_weight_cnetralities[v])
-
-        # print('w_key_sorted')
-        # print(w_key_sorted)
-        #
-        # print('------------')
-        # print(coverage_centralities)
-        # print('看下这里的posterior')
-        # print(posterior)
+            # print(self.prior[v])
+            # print(coverage_centralities[v])
+            # print(epa_weight_cnetralities[v])
+            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) * coverage_centralities[v]  *epa_weight_cnetralities[v])
+            print('300个点有正确性吗？')
+            print(posterior[v])
         nx.set_node_attributes(self.subgraph, 'centrality', posterior)
         return self.sort_nodes_by_centrality()
 

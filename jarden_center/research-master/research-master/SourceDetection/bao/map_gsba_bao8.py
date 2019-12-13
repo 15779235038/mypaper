@@ -1,14 +1,9 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# @File  : map_gsba_bao3.py
-# @Author: zhiqiangbao
-# @Date  : 2019/12/9
-
-'''
-
-贪心构建的序列中，不应该只是单纯考虑该节点和已经感染节点的权重和连边，
-或许也可以考虑该点覆盖率来加它。
-'''
+# coding=utf-8
+"""
+A part of Source Detection.
+Author: Biao Chang, changb110@gmail.com, from University of Science and Technology of China
+created at 2017/1/9.
+"""
 
 import decimal
 import networkx as nx
@@ -40,7 +35,7 @@ import EPA_center_Weights2 as epa2
 import coverage_center_all as cc
 
 
-class GSBA_coverage_3(method.Method):
+class GSBA_coverage_8(method.Method):
     """detect the source with Greedy Search Bound Approximation.
         Please refer to the my paper for more details.
     """
@@ -80,15 +75,6 @@ class GSBA_coverage_3(method.Method):
         # print('先验检测器是什么？')
         # print(self.prior)
 
-        # 谣言中心
-        self.reset_centrality()
-        rc = rumor_center.RumorCenter()
-        rc.set_data(self.data)
-        rc.detect()
-        rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
-        # #print('先验加进去，试试看')
-
-
 
 
         # epa带权重的东西
@@ -97,6 +83,13 @@ class GSBA_coverage_3(method.Method):
         epa_weight_object.set_data(self.data)
         epa_weight_object.detect()
         epa_weight_cnetralities = nx.get_node_attributes(self.subgraph, 'centrality')
+
+        # 覆盖率中心
+        self.reset_centrality()
+        cc_object = cc.CoverageCenter()
+        cc_object.set_data(self.data)
+        cc_object.detect()
+        coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
         self.reset_centrality()
         infected_nodes = set(self.subgraph.nodes())
@@ -119,14 +112,22 @@ class GSBA_coverage_3(method.Method):
             likelihood = 1
             w = {}  # effective propagation probabilities: node->w
             w_key_sorted = blist()
+            w_key_sorted_reverse =blist()
+            w_key_sorted_reverse.append(v)
             w[v] = 1
+
+            likelihood_rev =1
             w_key_sorted.append(v)
             while len(included) < n:
                 # print('邻居用来计算所谓的neighbours')
                 # print(neighbours)
                 w_sum = sum([w[j] for j in neighbours])
                 u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w
-                likelihood *= w[u] / w_sum
+                rever_node = w_key_sorted_reverse.pop()
+
+                likelihood += w[u] / w_sum
+
+                likelihood_rev +=w[rever_node]/w_sum
                 # print('分母是？')
                 # print(w_sum)
                 # print('likelihood')
@@ -149,10 +150,7 @@ class GSBA_coverage_3(method.Method):
                         # print('------')
                         # print(w[h])
                         # print(w_h2u)
-                        # print(h)
-                        # print(epa_weight_cnetralities)
-
-                            w[h] = (1 - (1 - w[h]) * (1 - w_h2u))
+                        w[h] = 1 - (1 - w[h]) * (1 - w_h2u)
                         # print('w[h]，，，，h在keys')
                         # print(w[h])
                     else:
@@ -183,21 +181,36 @@ class GSBA_coverage_3(method.Method):
                         # print('w_key_sorted')
                         # print(w_key_sorted)
 
+                        """insert h into w_key_sorted, ranking by w from small to large"""
+                    if h in infected_nodes:
+                            # print('开始排序了')
+                            if h in w_key_sorted_reverse:
+                                w_key_sorted_reverse.remove(h)  # remove the old w[h]
+                            k = 0
+
+                            while k < len(w_key_sorted_reverse):
+                                if w[w_key_sorted_reverse[k]] < w[h]:
+                                    break
+                                k += 1
+                            # print(w_key_sorted)
+                            w_key_sorted_reverse.insert(k, h)  # 安排降序加入，就是排列可能性加入，安排顺序插入进去
+                            # print('w_key_sorted')
+                            # print(w_key_sorted)
+
+
+
+
                         # w_key_sorted[k:k] = [h]
             # print('每次开始的是那个节点呢？')
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-            print('点为多少个时，各个参数的值为多少')
-            print(len(self.subgraph.nodes()))
-            print(decimal.Decimal(self.prior[v]))
-            print(decimal.Decimal(likelihood))
-            print(rumor_centralities[v])
-            print(epa_weight_cnetralities[v])
 
-            posterior[v] = (decimal.Decimal(self.prior[v]) * decimal.Decimal(likelihood) *
-                            rumor_centralities[v]*epa_weight_cnetralities[v] )
-            print(posterior[v])
+
+
+
+            posterior[v] = (decimal.Decimal(  decimal.Decimal((likelihood +likelihood_rev)*1.0/2) *coverage_centralities[v] *
+                            epa_weight_cnetralities[v]))
 
         # print('w_key_sorted')
         # print(w_key_sorted)
@@ -214,7 +227,7 @@ if __name__ == "__main__":
     prior_detector1 = rc.RumorCenter()
 
     # gsba =GSBA(prior_detector1)
-    methods = [GSBA_coverage_3(prior_detector1)]
+    methods = [GSBA_coverage_8(prior_detector1)]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
                         logger="experiment").get_log()
 

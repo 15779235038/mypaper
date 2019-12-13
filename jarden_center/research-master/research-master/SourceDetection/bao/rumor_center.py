@@ -42,8 +42,8 @@ class RumorCenter(method.Method):
             self.bfs_tree = nx.bfs_tree(self.subgraph, source)
             self.visited.clear()
             self.get_number_in_subtree(source)
-            centrality[source] = Decimal(math.factorial(self.bfs_tree.number_of_nodes())) \
-                         / nx.get_node_attributes(self.bfs_tree, 'cumulativeProductOfSubtrees')[source]
+            centrality[source] = Decimal(math.factorial(self.bfs_tree.number_of_nodes()) \
+                         / nx.get_node_attributes(self.bfs_tree, 'cumulativeProductOfSubtrees')[source])
 
         nx.set_node_attributes(self.subgraph, 'centrality',centrality)
         return self.sort_nodes_by_centrality()

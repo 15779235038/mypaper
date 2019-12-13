@@ -30,8 +30,22 @@ import map_gslba as gslba
 import map_gsba2 as gsba2
 
 import map_gsba_bao as gsba_bao
+import map_gsba_old as gsba_old
+import  EPA_center_Weights2 as epa2
+import map_gsba_bao as gsba_bao
+import  belief_coverage_center as bc
+import  EPA_center as epa
+import  map_gsba_bao3 as gsba_bao3
+import  Completion_rumor_center as complet
 
-
+import  map_gsba_bao2 as gsba_bao2
+import  map_gsba_bao3 as gsba_bao3
+import  map_gsba_bao4 as gsba_bao4
+import  rumor_EPA_center as rumor_epa
+import  rumor_coverage_center as rumor_coverage
+import  map_gsba_bao5  as gsba_bao5
+import  map_gsba_bao6 as gsba_bao6
+import  map_gsba_bao7 as gsba_bao7
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -40,6 +54,12 @@ if __name__ == '__main__':
     prior_detector3 = dc.DistanceCenter()
     prior_detector4 = jc.JordanCenter()
     prior_detector5 = ri.ReverseInfection()
+    prior_detector6 = di.DynamicImportance()
+    prior_detector7 = epa.EPA_center()
+    prior_detector8 = epa2.EPA_center_weight()  # 有权重版本
+    prior_detector9 = bc.Belief_coverage_center()  # 置信传播算法。
+
+
     # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),ri.ReverseInfection(), di.DynamicImportance(),
     #            gsba.GSBA(prior_detector1), gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),]
     # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
@@ -48,9 +68,26 @@ if __name__ == '__main__':
     #            gslba.GSLBA(prior_detector1), gslba.GSLBA(prior_detector3), gslba.GSLBA(prior_detector4),
     #            gsba2.GSBA(prior_detector1), gsba2.GSBA( prior_detector3),gsba2.GSBA(prior_detector4),]
 
-    methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
-               gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
-               gsba_bao.GSBA_coverage(prior_detector1)]
+    methods = [
+               prior_detector8,
+               # gsba.GSBA(prior_detector0),
+               gsba.GSBA(prior_detector1),
+               # gsba.GSBA( prior_detector3),
+               # gsba.GSBA(prior_detector4),
+               # gsba.GSBA(prior_detector5), #bfsa_p.BFSA(prior_detector1),
+               # gsba.GSBA(prior_detector7),
+               # gsba.GSBA(prior_detector8),
+               gsba_bao.GSBA_coverage(prior_detector1),
+               # gsba_bao3.GSBA_coverage_3(prior_detector1),
+               # gsba_bao2.GSBA_coverage_2(prior_detector1),
+               # gsba_bao3.GSBA_coverage_3(prior_detector1),
+               # gsba_bao4.GSBA_coverage_4(prior_detector1),
+               # rumor_epa.rumor_epa(prior_detector1),
+               # rumor_coverage.rumor_coverage(prior_detector1),
+               # gsba_bao5.GSBA_coverage_5(prior_detector1)
+               gsba_bao6.GSBA_coverage_6(prior_detector1),
+                gsba_bao7.GSBA_coverage_7(prior_detector1)
+                ]
 
     logger = log.Logger(logname='../data/main_wiki_vote1208.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
@@ -61,11 +98,11 @@ if __name__ == '__main__':
     d = data.Graph("../data/test.txt", weighted=1)
     d = data.Graph("../data/Wiki-Vote.gml", weighted=1)
     d.debug = False
-    test_num = 100
+    test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 10, 45, 5)
+    experiment.start(d, test_category, test_num, 200, 400, 100)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 31, 5)
 

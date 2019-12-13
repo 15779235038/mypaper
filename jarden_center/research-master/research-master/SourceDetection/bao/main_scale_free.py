@@ -40,6 +40,10 @@ import  map_gsba_bao4 as gsba_bao4
 import  rumor_EPA_center as rumor_epa
 import  rumor_coverage_center as rumor_coverage
 import  map_gsba_bao5  as gsba_bao5
+import  map_gsba_bao6 as gsba_bao6
+import  Completion_rumor_center as cr
+import  map_gsba_bao7 as gsba_bao7
+import  map_gsba_bao8 as gsba_bao8
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -66,6 +70,7 @@ if __name__ == '__main__':
                # prior_detector7,
                # prior_detector9,
                prior_detector8,
+
                # gsba.GSBA(prior_detector0),
                gsba.GSBA(prior_detector1),
                # gsba.GSBA( prior_detector3),
@@ -74,18 +79,15 @@ if __name__ == '__main__':
                # gsba.GSBA(prior_detector7),
                # gsba.GSBA(prior_detector8),
                gsba_bao.GSBA_coverage(prior_detector1),
-               # gsba_bao2.GSBA_coverage_2(prior_detector1),
-               # gsba_bao3.GSBA_coverage_3(prior_detector1),
-               # gsba_bao4.GSBA_coverage_4(prior_detector1),
-               # rumor_epa.rumor_epa(prior_detector1),
-               # rumor_coverage.rumor_coverage(prior_detector1),
-               # gsba_bao5.GSBA_coverage_5(prior_detector1)
+               # cr.Completion_Center(prior_detector1),
+                gsba_bao5.GSBA_coverage_5(prior_detector1),
+                gsba_bao6.GSBA_coverage_6(prior_detector1),
+                 gsba_bao7.GSBA_coverage_7(prior_detector1),
+                gsba_bao8.GSBA_coverage_8(prior_detector1)
                ]
     '''
         而底下的这些方法是为了验证先验有没有提高的意思，如果我们需要做修改的话，
         我们需要做全面对比，但是我们的方法也是有侧重点的。
-
-
         '''
     # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
     #            gsba.GSBA(prior_detector1),gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
@@ -96,7 +98,7 @@ if __name__ == '__main__':
 
     # methods = [gsba_old(prior_detector1)]
 
-    logger = log.Logger(logname='../data/main_scale_free20191205.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_scale_free20191212.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
@@ -105,7 +107,7 @@ if __name__ == '__main__':
     d = data.Graph("../data/scale-free.ba.v500.e996.gml", weighted=1)
     d.debug = False
 
-    test_num =100
+    test_num =10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
 
@@ -120,10 +122,11 @@ if __name__ == '__main__':
 
     '''
     
+    
     1 没加BFSA的正常搞
     '''
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 20, 45,5)
+    experiment.start(d, test_category, test_num, 10, 100, 10)
     end_time = clock()
     print "Running time:", end_time-start_time
 

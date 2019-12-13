@@ -31,6 +31,11 @@ import map_ulbaa as ulbaa
 import  EPA_center_Weights2 as epa2
 
 import map_gsba_bao as gsba_bao
+import  map_gsba_bao3 as gsba_bao3
+import  map_gsba_bao5 as gsba_bao5
+import  map_gsba_bao2 as gsba_bao2
+import map_gsba_bao6 as gsba_bao6
+import  map_gsba_bao7 as gsba_bao7
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -46,10 +51,14 @@ if __name__ == '__main__':
     
     '''
     methods = [
-                prior_detector8,
-                gsba.GSBA(prior_detector1),
-                gsba_bao.GSBA_coverage(prior_detector1),
-               ]
+        # prior_detector1,
+        prior_detector8,
+        gsba.GSBA(prior_detector1),
+        gsba_bao.GSBA_coverage(prior_detector1),
+        gsba_bao6.GSBA_coverage_6(prior_detector1),
+        gsba_bao7.GSBA_coverage_7(prior_detector1)
+
+    ]
 
 
     '''
@@ -72,7 +81,7 @@ if __name__ == '__main__':
     #methods = [bfsa_p.BFSA(prior_detector1)]
     # methods = [dmp2.DynamicMessagePassing()]
 
-    logger = log.Logger(logname='../data/main_power_grid20191205.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_power_grid20191212.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
@@ -81,11 +90,11 @@ if __name__ == '__main__':
     # d = data.Graph("../data/power-grid.txt")
     d = data.Graph("../data/power-grid.gml", weighted=1)
     d.debug = False
-    test_num = 100
+    test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 50, 400, 50)
+    experiment.start(d, test_category, test_num,400, 500, 100)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 

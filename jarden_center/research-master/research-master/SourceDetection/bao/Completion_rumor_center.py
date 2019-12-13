@@ -64,21 +64,23 @@ class Completion_Center(method.Method):
         if self.subgraph.number_of_nodes() == 0:
             print 'subgraph.number_of_nodes =0'
             return
-
+        infected_node=self.subgraph.nodes()
+        centrality= {}  #保留每个点最远距离。
         for node in self.subgraph.nodes():
             shortest_path_length_all=nx.shortest_path_length(self.data.graph,source=node,weight=None)
-            sorted(shortest_path_length_all.items(), key=lambda x: x[1],reverse=True)
-            print('shortnode')
-            print(shortnode)
+            length=sorted(shortest_path_length_all.items(), key=lambda x: x[1],reverse=True)
+
+            node_listBFS= []
+            for other_node,lens in length:
+                if lens<length[0][1]:
+                    node_listBFS.append(other_node)
+
+            retA = [i for i in node_listBFS if i in infected_node]
+            retC= list(set(node_listBFS).union(set(infected_node)))
+            distance =  len(retA)*1.0 /len(retC)
+            centrality[node]=Decimal(distance)*self.prior[node]
 
 
-
-        centrality = {}
-        for source in self.subgraph.nodes():
-            self.bfs_tree = nx.bfs_tree(self.subgraph, source)
-
-            centrality[source] = Decimal(math.factorial(self.bfs_tree.number_of_nodes())) \
-                         / nx.get_node_attributes(self.bfs_tree, 'cumulativeProductOfSubtrees')[source]
 
         nx.set_node_attributes(self.subgraph, 'centrality',centrality)
         return self.sort_nodes_by_centrality()
