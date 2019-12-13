@@ -86,10 +86,10 @@ if __name__ == '__main__':
     test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
-    # test_category = experiment.RANDOM_TEST
-    # experiment.start(d, test_category, test_num, 10, 45, 5)
-    test_category = experiment.FULL_TEST
-    experiment.start(d, test_category, test_num, 200, 400,100)
+    test_category = experiment.RANDOM_TEST
+    experiment.start(d, test_category, test_num, 200, 400, 100)
+    # test_category = experiment.FULL_TEST
+    # experiment.start(d, test_category, test_num, 200, 400,100)
 
     end_time = clock()
     print "Running time:", end_time-start_time

@@ -48,8 +48,7 @@ class GSBA_coverage_8(method.Method):
         self.prior_detector = prior_detector  # 先验检测器
 
     ''' 
-    那么是如何检测的呢？我觉得先有先验给每个点构建分数，然后再有后验加上。两者乘积
-
+    8只不过把可能性最小的排列概率+可能性最大的排列概率加起来求平均罢了。所以这个序列的构建还是有机会的。为啥大数据图那么慢？
     '''
 
     def detect(self):

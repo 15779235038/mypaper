@@ -36,6 +36,7 @@ import  map_gsba_bao5 as gsba_bao5
 import  map_gsba_bao2 as gsba_bao2
 import map_gsba_bao6 as gsba_bao6
 import  map_gsba_bao7 as gsba_bao7
+import  map_gsba_bao8 as gsba_bao8
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -56,7 +57,8 @@ if __name__ == '__main__':
         gsba.GSBA(prior_detector1),
         gsba_bao.GSBA_coverage(prior_detector1),
         gsba_bao6.GSBA_coverage_6(prior_detector1),
-        gsba_bao7.GSBA_coverage_7(prior_detector1)
+        gsba_bao7.GSBA_coverage_7(prior_detector1),
+        gsba_bao8.GSBA_coverage_8(prior_detector1)
 
     ]
 
@@ -94,7 +96,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num,400, 500, 100)
+    experiment.start(d, test_category, test_num,50, 500, 50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 
