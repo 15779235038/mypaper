@@ -37,6 +37,7 @@ import  map_gsba_bao2 as gsba_bao2
 import map_gsba_bao6 as gsba_bao6
 import  map_gsba_bao7 as gsba_bao7
 import  map_gsba_bao8 as gsba_bao8
+import  map_gsba_bao9 as gsba_bao9
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -56,9 +57,10 @@ if __name__ == '__main__':
         prior_detector8,
         gsba.GSBA(prior_detector1),
         gsba_bao.GSBA_coverage(prior_detector1),
-        gsba_bao6.GSBA_coverage_6(prior_detector1),
+        # gsba_bao6.GSBA_coverage_6(prior_detector1),
         gsba_bao7.GSBA_coverage_7(prior_detector1),
-        gsba_bao8.GSBA_coverage_8(prior_detector1)
+        # gsba_bao8.GSBA_coverage_8(prior_detector1),
+        gsba_bao9.GSBA_coverage_9(prior_detector1)
 
     ]
 
