@@ -53,13 +53,18 @@ if __name__ == '__main__':
     
     '''
     methods = [
-        # prior_detector1,
+        rc.RumorCenter(),
+        dc.DistanceCenter(),
+        jc.JordanCenter(),
+        ri.ReverseInfection(),
+        di.DynamicImportance(),
+        prior_detector7,
+        # prior_detector9,
+        prior_detector1,
         prior_detector8,
         gsba.GSBA(prior_detector1),
         gsba_bao.GSBA_coverage(prior_detector1),
-        # gsba_bao6.GSBA_coverage_6(prior_detector1),
         gsba_bao7.GSBA_coverage_7(prior_detector1),
-        # gsba_bao8.GSBA_coverage_8(prior_detector1),
         gsba_bao9.GSBA_coverage_9(prior_detector1)
 
     ]
