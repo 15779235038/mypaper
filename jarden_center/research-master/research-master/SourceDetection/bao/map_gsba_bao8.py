@@ -48,8 +48,10 @@ class GSBA_coverage_8(method.Method):
         self.prior_detector = prior_detector  # 先验检测器
 
     ''' 
-    8只不过把可能性最小的排列概率+可能性最大的排列概率加起来求平均罢了。所以这个序列的构建还是有机会的。为啥大数据图那么慢？
-    '''
+    
+    8将数据变成一个BFS树，再进行likehood计算。
+    
+        '''
 
     def detect(self):
         """detect the source with GSBA.
@@ -90,6 +92,8 @@ class GSBA_coverage_8(method.Method):
         cc_object.detect()
         coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
+
+
         self.reset_centrality()
         infected_nodes = set(self.subgraph.nodes())
         n = len(infected_nodes)
@@ -101,6 +105,7 @@ class GSBA_coverage_8(method.Method):
         neighbours = set()
         weights = self.data.weights
         for v in infected_nodes:
+            bfs_tree= nx.bfs_tree(self.subgraph, v)
             # print('------从v点开始----------')
             # print(v)
             """find the approximate upper bound by greedy searching"""
@@ -126,14 +131,14 @@ class GSBA_coverage_8(method.Method):
 
                 likelihood += w[u] / w_sum
 
-                likelihood_rev +=w[rever_node]/w_sum
+
                 # print('分母是？')
                 # print(w_sum)
                 # print('likelihood')
                 # print(likelihood)
                 included.add(u)
                 neighbours.remove(u)
-                new = nx.neighbors(self.data.graph, u)
+                new = nx.neighbors(bfs_tree, u)
                 # print('new也就是在总图中的邻居')
                 # print(new)
                 for h in new:
@@ -193,22 +198,8 @@ class GSBA_coverage_8(method.Method):
                                 k += 1
                             # print(w_key_sorted)
                             w_key_sorted_reverse.insert(k, h)  # 安排降序加入，就是排列可能性加入，安排顺序插入进去
-                            # print('w_key_sorted')
-                            # print(w_key_sorted)
 
-
-
-
-                        # w_key_sorted[k:k] = [h]
-            # print('每次开始的是那个节点呢？')
-            # print(v)
-            # print('每一个的可能性是likehood')
-            # print(likelihood)
-
-
-
-
-            posterior[v] = (decimal.Decimal(  decimal.Decimal((likelihood +likelihood_rev)*1.0/2) *coverage_centralities[v] *
+            posterior[v] = (decimal.Decimal(  decimal.Decimal(likelihood)*coverage_centralities[v] *
                             epa_weight_cnetralities[v]))
 
         # print('w_key_sorted')
