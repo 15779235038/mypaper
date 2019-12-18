@@ -24,6 +24,7 @@ import rumor_center as rc
 import dmp2
 import map_bfsa_parallel as bfsa_p
 import prior
+import  coverage_center_all as coverage
 import numpy as np
 from experiment import Experiment
 import  EPA_center as epa
@@ -48,6 +49,7 @@ if __name__ == '__main__':
     prior_detector5 = ri.ReverseInfection()
     prior_detector7 = epa.EPA_center()
     prior_detector8 = epa2.EPA_center_weight()  # 有权重版本
+
     '''
     以下是比较prior的性能的，为源代码所为。
     
@@ -69,11 +71,11 @@ if __name__ == '__main__':
     #
     # ]
     methods =[
-
-        # gsba_bao8.GSBA_coverage_8(prior_detector1),
+        coverage.CoverageCenter(),
+        epa2.EPA_center_weight(),
         gsba_bao7.GSBA_coverage_7(prior_detector1),
 
-        gsba_bao9.GSBA_coverage_9(prior_detector1)
+
     ]
 
 
