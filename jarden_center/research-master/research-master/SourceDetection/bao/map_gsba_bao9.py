@@ -48,8 +48,8 @@ class GSBA_coverage_9(method.Method):
         self.prior_detector = prior_detector  # 先验检测器
 
     ''' 
-    那么是如何检测的呢？我觉得先有先验给每个点构建分数，然后再有后验加上。两者乘积
-
+        将边界点连接，其他的点不连接，然后再试试别的点。
+        
     '''
 
     def detect(self):
@@ -92,18 +92,36 @@ class GSBA_coverage_9(method.Method):
         coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
         self.reset_centrality()
+
+        #获取边界点.
         infected_nodes = set(self.subgraph.nodes())
         n = len(infected_nodes)
-        # print(infected_nodes)
-        # print('infected_nodes')
+        bound_list =[]
+        for node in infected_nodes:
+            neig = nx.neighbors(self.data.graph, node)
+            infect_ne = len([x for x in neig if x in infected_nodes])
+            if infect_ne == 1:
+                bound_list.append(node)
+            print('bound_list')
+            print(bound_list)
 
+
+        # infected_nodes_new = set(simple_subgraph.nodes())
+        # n = len(infected_nodes_new)
         posterior = {}
         included = set()
         neighbours = set()
         weights = self.data.weights
         for v in infected_nodes:
-            # print('------从v点开始----------')
-            # print(v)
+            path_list = []
+            for bound_node in bound_list:
+                path = nx.bidirectional_shortest_path(self.subgraph, source=v, target=bound_node)
+                print('path')
+                print(path)
+                path_list.extend(path)
+            simple_subgraph = self.data.graph.subgraph(set(path_list))
+
+
             """find the approximate upper bound by greedy searching"""
             included.clear()
             neighbours.clear()
@@ -114,19 +132,19 @@ class GSBA_coverage_9(method.Method):
             w_key_sorted = blist()
             w[v] = 1
             w_key_sorted.append(v)
-            while len(included) < n:
+            while len(included) < n and len(w_key_sorted)>0:
                 # print('邻居用来计算所谓的neighbours')
                 # print(neighbours)
                 w_sum = sum([w[j] for j in neighbours])
                 u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w
-                likelihood *= w[u] / w_sum
+                likelihood += w[u] / w_sum
                 # print('分母是？')
                 # print(w_sum)
                 # print('likelihood')
                 # print(likelihood)
                 included.add(u)
                 neighbours.remove(u)
-                new = nx.neighbors(self.data.graph, u)
+                new = nx.neighbors(simple_subgraph, u)
                 # print('new也就是在总图中的邻居')
                 # print(new)
                 for h in new:

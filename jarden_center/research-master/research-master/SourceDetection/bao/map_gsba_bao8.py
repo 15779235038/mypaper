@@ -127,18 +127,14 @@ class GSBA_coverage_8(method.Method):
                 # print(neighbours)
                 w_sum = sum([w[j] for j in neighbours])
                 u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w
-                rever_node = w_key_sorted_reverse.pop()
-
                 likelihood += w[u] / w_sum
-
-
                 # print('分母是？')
                 # print(w_sum)
                 # print('likelihood')
                 # print(likelihood)
                 included.add(u)
                 neighbours.remove(u)
-                new = nx.neighbors(bfs_tree, u)
+                new = nx.neighbors(self.data.graph, u)
                 # print('new也就是在总图中的邻居')
                 # print(new)
                 for h in new:
@@ -154,7 +150,8 @@ class GSBA_coverage_8(method.Method):
                         # print('------')
                         # print(w[h])
                         # print(w_h2u)
-                        w[h] = 1 - (1 - w[h]) * (1 - w_h2u)
+                        # w[h] = 1 - (1 - w[h]) * (1 - w_h2u)
+                        w[h] = w[h]*(1+w_h2u)
                         # print('w[h]，，，，h在keys')
                         # print(w[h])
                     else:
@@ -198,8 +195,22 @@ class GSBA_coverage_8(method.Method):
                                 k += 1
                             # print(w_key_sorted)
                             w_key_sorted_reverse.insert(k, h)  # 安排降序加入，就是排列可能性加入，安排顺序插入进去
+                            # print('w_key_sorted')
+                            # print(w_key_sorted)
 
-            posterior[v] = (decimal.Decimal(  decimal.Decimal(likelihood)*coverage_centralities[v] *
+
+
+
+                        # w_key_sorted[k:k] = [h]
+            # print('每次开始的是那个节点呢？')
+            # print(v)
+            # print('每一个的可能性是likehood')
+            # print(likelihood)
+
+
+
+
+            posterior[v] = (decimal.Decimal(  decimal.Decimal((likelihood +likelihood_rev)*1.0/2) *coverage_centralities[v] *
                             epa_weight_cnetralities[v]))
 
         # print('w_key_sorted')
