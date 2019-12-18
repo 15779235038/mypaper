@@ -87,10 +87,16 @@ if __name__ == '__main__':
         我们需要做全面对比，但是我们的方法也是有侧重点的。
         '''
     methods = [
-                prior_detector2,
-                gsba_bao7.GSBA_coverage_7(prior_detector1)
+        rc.RumorCenter(),
+        dc.DistanceCenter(),
+        jc.JordanCenter(),
+        ri.ReverseInfection(),
+        di.DynamicImportance(),
+        prior_detector8,
+        gsba.GSBA(prior_detector1),
+        gsba_bao7.GSBA_coverage_7(prior_detector1),
 
-               ]
+    ]
 
 
     # methods = [gsba_old(prior_detector1)]
@@ -104,7 +110,7 @@ if __name__ == '__main__':
     d = data.Graph("../data/scale-free.ba.v500.e996.gml", weighted=1)
     d.debug = False
 
-    test_num =10
+    test_num =100
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
 
@@ -123,7 +129,7 @@ if __name__ == '__main__':
     1 没加BFSA的正常搞
     '''
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 200, 500, 30)
+    experiment.start(d, test_category, test_num, 20, 110, 10)
     end_time = clock()
     print "Running time:", end_time-start_time
 

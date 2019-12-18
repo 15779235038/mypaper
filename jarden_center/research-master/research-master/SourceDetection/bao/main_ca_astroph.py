@@ -69,12 +69,20 @@ if __name__ == '__main__':
     
     '''
 
-    methods = [ prior_detector8,
-                gsba.GSBA(prior_detector1),
-                gsba_bao.GSBA_coverage(prior_detector1),
-                gsba_bap6.GSBA_coverage_6(prior_detector1),
-                gsba_bao7.GSBA_coverage_7(prior_detector1)
-               ]
+    methods = [
+        rc.RumorCenter(),
+        dc.DistanceCenter(),
+        jc.JordanCenter(),
+        ri.ReverseInfection(),
+        di.DynamicImportance(),
+        prior_detector8,
+        gsba.GSBA(prior_detector1),
+        gsba_bao7.GSBA_coverage_7(prior_detector1),
+
+    ]
+
+
+
     logger = log.Logger(logname='../data/main_ca_astroph1210.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
@@ -83,11 +91,11 @@ if __name__ == '__main__':
     print "Starting..."
     d = data.Graph("../data/CA-AstroPh.gml", weighted=1)
     d.debug = False
-    test_num = 10
+    test_num = 100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 200, 400, 100)
+    experiment.start(d, test_category, test_num, 50, 500, 50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 200, 400,100)
 

@@ -48,10 +48,9 @@ class GSBA_coverage_8(method.Method):
         self.prior_detector = prior_detector  # 先验检测器
 
     ''' 
-    
-    8将数据变成一个BFS树，再进行likehood计算。
-    
-        '''
+    那么是如何检测的呢？我觉得先有先验给每个点构建分数，然后再有后验加上。两者乘积
+
+    '''
 
     def detect(self):
         """detect the source with GSBA.
@@ -92,8 +91,6 @@ class GSBA_coverage_8(method.Method):
         cc_object.detect()
         coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
-
-
         self.reset_centrality()
         infected_nodes = set(self.subgraph.nodes())
         n = len(infected_nodes)
@@ -105,7 +102,6 @@ class GSBA_coverage_8(method.Method):
         neighbours = set()
         weights = self.data.weights
         for v in infected_nodes:
-            bfs_tree= nx.bfs_tree(self.subgraph, v)
             # print('------从v点开始----------')
             # print(v)
             """find the approximate upper bound by greedy searching"""
@@ -116,18 +112,14 @@ class GSBA_coverage_8(method.Method):
             likelihood = 1
             w = {}  # effective propagation probabilities: node->w
             w_key_sorted = blist()
-            w_key_sorted_reverse =blist()
-            w_key_sorted_reverse.append(v)
             w[v] = 1
-
-            likelihood_rev =1
             w_key_sorted.append(v)
             while len(included) < n:
                 # print('邻居用来计算所谓的neighbours')
                 # print(neighbours)
                 w_sum = sum([w[j] for j in neighbours])
                 u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w
-                likelihood += w[u] / w_sum
+                likelihood *= w[u] / w_sum
                 # print('分母是？')
                 # print(w_sum)
                 # print('likelihood')
@@ -150,8 +142,7 @@ class GSBA_coverage_8(method.Method):
                         # print('------')
                         # print(w[h])
                         # print(w_h2u)
-                        # w[h] = 1 - (1 - w[h]) * (1 - w_h2u)
-                        w[h] = w[h]*(1+w_h2u)
+                        w[h] = 1 - (1 - w[h]) * (1 - w_h2u)
                         # print('w[h]，，，，h在keys')
                         # print(w[h])
                     else:
@@ -182,35 +173,12 @@ class GSBA_coverage_8(method.Method):
                         # print('w_key_sorted')
                         # print(w_key_sorted)
 
-                        """insert h into w_key_sorted, ranking by w from small to large"""
-                    if h in infected_nodes:
-                            # print('开始排序了')
-                            if h in w_key_sorted_reverse:
-                                w_key_sorted_reverse.remove(h)  # remove the old w[h]
-                            k = 0
-
-                            while k < len(w_key_sorted_reverse):
-                                if w[w_key_sorted_reverse[k]] < w[h]:
-                                    break
-                                k += 1
-                            # print(w_key_sorted)
-                            w_key_sorted_reverse.insert(k, h)  # 安排降序加入，就是排列可能性加入，安排顺序插入进去
-                            # print('w_key_sorted')
-                            # print(w_key_sorted)
-
-
-
-
                         # w_key_sorted[k:k] = [h]
             # print('每次开始的是那个节点呢？')
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-
-
-
-
-            posterior[v] = (decimal.Decimal(  decimal.Decimal((likelihood +likelihood_rev)*1.0/2) *coverage_centralities[v] *
+            posterior[v] = (decimal.Decimal(  decimal.Decimal(likelihood) *coverage_centralities[v] *
                             epa_weight_cnetralities[v]))
 
         # print('w_key_sorted')
@@ -273,6 +241,8 @@ if __name__ == "__main__":
         end_time = clock()
         print('result')
         print(result)
+
+
 
 
 

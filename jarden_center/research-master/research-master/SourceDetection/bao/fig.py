@@ -709,7 +709,7 @@ class Fig:
         for i in np.arange(0, n):
             l = axis.plot(x, y[i], '-D', label=legend[i], color=self.colors[legend[i]], linewidth=width,
                       markersize=22, marker=self.markers[legend[i]], markeredgewidth=2)
-            my_legends.(my_legends)
+
         axis.set_xlabel(xlabel, fontsize=30)
         axis.set_ylabel(ylabel, fontsize=30)
         # ax[0].set_xticklabels(fontdict={'fontsize':38})

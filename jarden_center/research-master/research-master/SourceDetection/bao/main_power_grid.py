@@ -71,10 +71,14 @@ if __name__ == '__main__':
     #
     # ]
     methods =[
-        coverage.CoverageCenter(),
-        epa2.EPA_center_weight(),
-        gsba_bao7.GSBA_coverage_7(prior_detector1),
-
+            rc.RumorCenter(),
+            dc.DistanceCenter(),
+            jc.JordanCenter(),
+            ri.ReverseInfection(),
+            di.DynamicImportance(),
+            prior_detector8,
+            gsba.GSBA(prior_detector1),
+            gsba_bao7.GSBA_coverage_7(prior_detector1),
 
     ]
 
@@ -108,11 +112,11 @@ if __name__ == '__main__':
     # d = data.Graph("../data/power-grid.txt")
     d = data.Graph("../data/power-grid.gml", weighted=1)
     d.debug = False
-    test_num = 10
+    test_num = 100
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num,500, 600, 50)
+    experiment.start(d, test_category, test_num,50,500, 50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 
