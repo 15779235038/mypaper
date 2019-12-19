@@ -45,17 +45,10 @@ import EPA_center_Weights2 as epa2
 import coverage_center_all as cc
 
 
-class rumor_epa(method.Method):
+class pagerank_vector_center(method.Method):
     """detect the source with Greedy Search Bound Approximation.
         Please refer to the my paper for more details.
     """
-    prior = ''
-    prior_detector = None
-
-    def __init__(self, prior_detector):
-        method.Method.__init__(self)
-        self.method_name = self.__class__, prior_detector.method_name
-        self.prior_detector = prior_detector  # 先验检测器
 
     ''' 
     那么是如何检测的呢？我觉得先有先验给每个点构建分数，然后再有后验加上。两者乘积
@@ -72,6 +65,8 @@ class rumor_epa(method.Method):
         ''' 
         首先用覆盖率和epa-weight作为先验作为pageRank迭代的起始值,然后再使用
         迭代,只用传播图来迭代吧?
+        
+        
 
         '''
 
@@ -111,23 +106,15 @@ class rumor_epa(method.Method):
         self.reset_centrality()
         infected_nodes = set(self.subgraph.nodes())
         n = len(infected_nodes)
-        # print(infected_nodes)
-        # print('infected_nodes')
+        initvalue={}
+        for node in infected_nodes:
+            initvalue[node] =float(epa_weight_cnetralities[node]*coverage_centralities[node])
 
-        posterior = {}
-        included = set()
-        neighbours = set()
-        weights = self.data.weights
-        for v in infected_nodes:
-            posterior[v] = (decimal.Decimal(self.prior[v])  *epa_weight_cnetralities[v]       )
-
-        # print('w_key_sorted')
-        # print(w_key_sorted)
-        #
-        # print('------------')
-        # print(coverage_centralities)
-        # print('看下这里的posterior')
-        # print(posterior)
+        posterior=nx.pagerank(self.subgraph,alpha=0.85, personalization=None,
+             max_iter=100, tol=1.0e-6, nstart=initvalue, weight='weight',
+             dangling=None)
+        print('posterior')
+        print(posterior)
         nx.set_node_attributes(self.subgraph, 'centrality', posterior)
         return self.sort_nodes_by_centrality()
 
@@ -136,7 +123,7 @@ if __name__ == "__main__":
     prior_detector1 = rc.RumorCenter()
 
     # gsba =GSBA(prior_detector1)
-    methods = [rumor_epa(prior_detector1)]
+    methods = [pagerank_vector_center(prior_detector1)]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
                         logger="experiment").get_log()
 

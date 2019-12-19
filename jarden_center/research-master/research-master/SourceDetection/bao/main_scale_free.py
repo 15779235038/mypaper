@@ -44,6 +44,7 @@ import  map_gsba_bao6 as gsba_bao6
 import  Completion_rumor_center as cr
 import  map_gsba_bao7 as gsba_bao7
 import  map_gsba_bao8 as gsba_bao8
+import  pagerank_vector_center as pvc
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -56,6 +57,7 @@ if __name__ == '__main__':
     prior_detector7 = epa.EPA_center()
     prior_detector8 = epa2.EPA_center_weight()  #有权重版本
     prior_detector9=bc.Belief_coverage_center()  #置信传播算法。
+    prior_detector10 =pvc.pagerank_vector_center()
 
     '''
         这是为了检测所有的东西，然后评测性能的。
@@ -86,20 +88,24 @@ if __name__ == '__main__':
         而底下的这些方法是为了验证先验有没有提高的意思，如果我们需要做修改的话，
         我们需要做全面对比，但是我们的方法也是有侧重点的。
         '''
+    # methods = [
+    #     rc.RumorCenter(),
+    #     dc.DistanceCenter(),
+    #     jc.JordanCenter(),
+    #     ri.ReverseInfection(),
+    #     di.DynamicImportance(),
+    #     prior_detector8,
+    #     gsba.GSBA(prior_detector1),
+    #     gsba_bao7.GSBA_coverage_7(prior_detector1),
+    #
+    # ]
+
+
     methods = [
-        rc.RumorCenter(),
-        dc.DistanceCenter(),
-        jc.JordanCenter(),
-        ri.ReverseInfection(),
-        di.DynamicImportance(),
-        prior_detector8,
-        gsba.GSBA(prior_detector1),
-        gsba_bao7.GSBA_coverage_7(prior_detector1),
+              prior_detector10,
+               gsba_bao7.GSBA_coverage_7(prior_detector1),
 
-    ]
-
-
-    # methods = [gsba_old(prior_detector1)]
+               ]
 
     logger = log.Logger(logname='../data/main_scale_free20191212.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
@@ -110,7 +116,7 @@ if __name__ == '__main__':
     d = data.Graph("../data/scale-free.ba.v500.e996.gml", weighted=1)
     d.debug = False
 
-    test_num =100
+    test_num =10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
 
