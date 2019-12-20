@@ -24,6 +24,6 @@ if __name__ == '__main__':
     d = data.Graph(input_file, weighted=1)
     d.generate_random_graph(200)
 
-    #d.generate_infected_subgraph(output_file, ratio_infected)
+    d.generate_infected_subgraph(output_file, ratio_infected)
 
     # print d.get_diameter_for_subgraphs(35)
