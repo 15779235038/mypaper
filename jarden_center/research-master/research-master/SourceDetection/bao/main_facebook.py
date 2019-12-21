@@ -71,17 +71,17 @@ if __name__ == '__main__':
     #     gsba_bao9.GSBA_coverage_9(prior_detector1)
     #
     # ]
-    # methods = [
-    #     rc.RumorCenter(),
-    #     dc.DistanceCenter(),
-    #     jc.JordanCenter(),
-    #     ri.ReverseInfection(),
-    #     di.DynamicImportance(),
-    #     prior_detector8,
-    #     gsba.GSBA(prior_detector1),
-    #     gsba_bao7.GSBA_coverage_7(prior_detector1),
-    #
-    # ]
+    methods = [
+        rc.RumorCenter(),
+        dc.DistanceCenter(),
+        jc.JordanCenter(),
+        ri.ReverseInfection(),
+        di.DynamicImportance(),
+        prior_detector8,
+        gsba.GSBA(prior_detector1),
+        gsba_bao7.GSBA_coverage_7(prior_detector1),
+
+    ]
 
     '''
     以下是综合比较的，我用比较大数据集,我写的
@@ -101,12 +101,12 @@ if __name__ == '__main__':
     #            ]
     # methods = [dc.DistanceCenter()]
     # methods = [bfsa_p.BFSA(prior_detector1)]
-    methods = [
-
-        prior_detector1,
-        gsba_bao7.GSBA_coverage_7(prior_detector1),
-        gsba_bao10.GSBA_coverage_10(prior_detector1)
-    ]
+    # methods = [
+    #
+    #     prior_detector1,
+    #     gsba_bao7.GSBA_coverage_7(prior_detector1),
+    #     gsba_bao10.GSBA_coverage_10(prior_detector1)
+    # ]
 
     logger = log.Logger(logname='../data/main_facebook_20191212.log', loglevel=logging.INFO,
                         logger="experiment").get_log()

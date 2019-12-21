@@ -124,7 +124,7 @@ class GSBA_coverage_10(method.Method):
                     likepathhood *= weights[self.data.node2index[path[index]] ,self.data.node2index[path[index+1]]]
                 likepath_all += likepathhood
 
-            posterior[v] = (decimal.Decimal(decimal.Decimal(1.0/ likepath_all) * coverage_centralities[v] *
+            posterior[v] = (decimal.Decimal(decimal.Decimal( likepath_all) * coverage_centralities[v] *
                                             epa_weight_cnetralities[v]))
 
         # print('w_key_sorted')
