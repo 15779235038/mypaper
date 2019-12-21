@@ -46,6 +46,7 @@ import  rumor_coverage_center as rumor_coverage
 import  map_gsba_bao5  as gsba_bao5
 import  map_gsba_bao6 as gsba_bao6
 import  map_gsba_bao7 as gsba_bao7
+import  map_gsba_bao9 as gsba_bao9
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -60,25 +61,38 @@ if __name__ == '__main__':
     prior_detector9 = bc.Belief_coverage_center()  # 置信传播算法。
 
 
-    # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),ri.ReverseInfection(), di.DynamicImportance(),
-    #            gsba.GSBA(prior_detector1), gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),]
+
+    #
+    # '''
+    # 真实跑实验用的，
+    #
+    #
+    #
+    # '''
+    # methods =[
+    #         rc.RumorCenter(),
+    #         dc.DistanceCenter(),
+    #         jc.JordanCenter(),
+    #         ri.ReverseInfection(),
+    #         di.DynamicImportance(),
+    #         prior_detector8,
+    #         gsba.GSBA(prior_detector1),
+    #         gsba_bao7.GSBA_coverage_7(prior_detector1),
+    # ]
+
+    methods = [rc.RumorCenter(),
+               gsba_bao7.GSBA_coverage_7(prior_detector1),
+               gsba_bao9.GSBA_coverage_9(prior_detector1)
+               ]
+
+
+
     # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),
     #            gsba.GSBA(prior_detector1), gsba.GSBA(prior_detector3),gsba.GSBA(prior_detector4),
     #            ulbaa.ULBAA(prior_detector1), ulbaa.ULBAA(prior_detector3), ulbaa.ULBAA(prior_detector4),
     #            gslba.GSLBA(prior_detector1), gslba.GSLBA(prior_detector3), gslba.GSLBA(prior_detector4),
     #            gsba2.GSBA(prior_detector1), gsba2.GSBA( prior_detector3),gsba2.GSBA(prior_detector4),]
 
-    methods =[
-            rc.RumorCenter(),
-            dc.DistanceCenter(),
-            jc.JordanCenter(),
-            ri.ReverseInfection(),
-            di.DynamicImportance(),
-            prior_detector8,
-            gsba.GSBA(prior_detector1),
-            gsba_bao7.GSBA_coverage_7(prior_detector1),
-
-    ]
     logger = log.Logger(logname='../data/main_wiki_vote1208.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
