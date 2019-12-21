@@ -112,11 +112,11 @@ if __name__ == '__main__':
     # d = data.Graph("../data/power-grid.txt")
     d = data.Graph("../data/email-Eu-core.txt", weighted=0)
     d.debug = False
-    test_num = 10
+    test_num = 3
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 100, 300, 50)
+    experiment.start(d, test_category, test_num, 150, 400, 50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 

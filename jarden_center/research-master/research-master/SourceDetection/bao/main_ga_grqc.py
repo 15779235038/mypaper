@@ -24,23 +24,24 @@ import rumor_center as rc
 import dmp2
 import map_bfsa_parallel as bfsa_p
 import prior
-import  coverage_center_all as coverage
+import coverage_center_all as coverage
 import numpy as np
 from experiment import Experiment
-import  EPA_center as epa
+import EPA_center as epa
 import map_ulbaa as ulbaa
-import  EPA_center_Weights2 as epa2
+import EPA_center_Weights2 as epa2
 
 import map_gsba_bao as gsba_bao
-import  map_gsba_bao3 as gsba_bao3
-import  map_gsba_bao5 as gsba_bao5
-import  map_gsba_bao2 as gsba_bao2
+import map_gsba_bao3 as gsba_bao3
+import map_gsba_bao5 as gsba_bao5
+import map_gsba_bao2 as gsba_bao2
 import map_gsba_bao6 as gsba_bao6
-import  map_gsba_bao7 as gsba_bao7
-import  map_gsba_bao8 as gsba_bao8
-import  map_gsba_bao9 as gsba_bao9
-if __name__ == '__main__':
+import map_gsba_bao7 as gsba_bao7
+import map_gsba_bao8 as gsba_bao8
+import map_gsba_bao9 as gsba_bao9
+import  map_gsba_bao10 as gsba_bao10
 
+if __name__ == '__main__':
     prior_detector0 = prior.Uniform()
     prior_detector1 = rc.RumorCenter()
     prior_detector2 = dmp2.DynamicMessagePassing()
@@ -52,7 +53,7 @@ if __name__ == '__main__':
 
     '''
     以下是比较prior的性能的，为源代码所为。
-    
+
     '''
     # methods = [
     #     rc.RumorCenter(),
@@ -70,23 +71,22 @@ if __name__ == '__main__':
     #     gsba_bao9.GSBA_coverage_9(prior_detector1)
     #
     # ]
-    methods =[
-            rc.RumorCenter(),
-            dc.DistanceCenter(),
-            jc.JordanCenter(),
-            ri.ReverseInfection(),
-            di.DynamicImportance(),
-            prior_detector8,
-            gsba.GSBA(prior_detector1),
-            gsba_bao7.GSBA_coverage_7(prior_detector1),
+    methods = [
+        rc.RumorCenter(),
+        dc.DistanceCenter(),
+        jc.JordanCenter(),
+        ri.ReverseInfection(),
+        di.DynamicImportance(),
+        prior_detector8,
+        gsba.GSBA(prior_detector1),
+        gsba_bao7.GSBA_coverage_7(prior_detector1),
 
     ]
 
-
     '''
     以下是综合比较的，我用比较大数据集,我写的
-    
-    
+
+
     '''
 
     # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(), ri.ReverseInfection(), di.DynamicImportance(),
@@ -100,25 +100,31 @@ if __name__ == '__main__':
     #
     #            ]
     # methods = [dc.DistanceCenter()]
-    #methods = [bfsa_p.BFSA(prior_detector1)]
-    # methods = [dmp2.DynamicMessagePassing()]
+    # methods = [bfsa_p.BFSA(prior_detector1)]
+    # methods = [
+    #
+    #     prior_detector1,
+    #     gsba_bao7.GSBA_coverage_7(prior_detector1),
+    #     gsba_bao10.GSBA_coverage_10(prior_detector1)
+    # ]
 
-    logger = log.Logger(logname='../data/main_power_grid20191221.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_ga_grqc_20191221.log', loglevel=logging.INFO,
+                        logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
     start_time = clock()
     print "Starting..."
     # d = data.Graph("../data/power-grid.txt")
-    d = data.Graph("../data/power-grid.gml", weighted=1)
+    d = data.Graph("../data/CA-GrQc.txt", weighted=0)
     d.debug = False
-    test_num = 100
+    test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num,20,110, 10)
+    experiment.start(d, test_category, test_num, 50, 400, 50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 
     end_time = clock()
-    print "Running time:", end_time-start_time
+    print "Running time:", end_time - start_time
