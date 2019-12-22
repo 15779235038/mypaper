@@ -46,7 +46,10 @@ import  rumor_coverage_center as rumor_coverage
 import  map_gsba_bao5  as gsba_bao5
 import  map_gsba_bao6 as gsba_bao6
 import  map_gsba_bao7 as gsba_bao7
+import  map_gsba_bao8 as gsba_bao8
+import  map_gsba_bao11 as gsba_bao11
 import  map_gsba_bao9 as gsba_bao9
+import  map_gsba_bao10 as gsba_bao10
 if __name__ == '__main__':
 
     prior_detector0 = prior.Uniform()
@@ -81,8 +84,13 @@ if __name__ == '__main__':
     # ]
 
     methods = [rc.RumorCenter(),
+
                gsba_bao7.GSBA_coverage_7(prior_detector1),
-               gsba_bao9.GSBA_coverage_9(prior_detector1)
+               gsba_bao.GSBA_coverage(prior_detector1),
+               gsba_bao8.GSBA_coverage_8(prior_detector1),
+
+               gsba_bao10.GSBA_coverage_10(prior_detector1),
+               gsba_bao11.GSBA_coverage_11(prior_detector1)
                ]
 
 
@@ -106,7 +114,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 20, 120, 10)
+    experiment.start(d, test_category, test_num, 40, 120, 10)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 31, 5)
 
