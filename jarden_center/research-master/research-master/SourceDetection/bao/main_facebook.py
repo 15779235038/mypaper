@@ -118,11 +118,11 @@ if __name__ == '__main__':
     # d = data.Graph("../data/power-grid.txt")
     d = data.Graph("../data/facebook_combined.txt", weighted=0)
     d.debug = False
-    test_num = 10
+    test_num = 100
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 50, 500, 50)
+    experiment.start(d, test_category, test_num, 20, 120, 10)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 

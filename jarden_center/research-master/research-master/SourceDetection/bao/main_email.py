@@ -102,7 +102,7 @@ if __name__ == '__main__':
     # methods = [bfsa_p.BFSA(prior_detector1)]
     # methods = [dmp2.DynamicMessagePassing()]
 
-    logger = log.Logger(logname='../data/main_email_20191212.log', loglevel=logging.INFO,
+    logger = log.Logger(logname='../data/main_email_20191221.log', loglevel=logging.INFO,
                         logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
@@ -112,11 +112,11 @@ if __name__ == '__main__':
     # d = data.Graph("../data/power-grid.txt")
     d = data.Graph("../data/email-Eu-core.txt", weighted=0)
     d.debug = False
-    test_num = 3
+    test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 150, 400, 50)
+    experiment.start(d, test_category, test_num, 20, 120, 10)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 
