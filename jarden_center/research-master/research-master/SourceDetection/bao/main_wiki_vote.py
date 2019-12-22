@@ -110,11 +110,11 @@ if __name__ == '__main__':
     d = data.Graph("../data/test.txt", weighted=1)
     d = data.Graph("../data/Wiki-Vote.gml", weighted=1)
     d.debug = False
-    test_num = 10
+    test_num = 5
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 40, 120, 10)
+    experiment.start(d, test_category, test_num, 130,200, 30)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 31, 5)
 

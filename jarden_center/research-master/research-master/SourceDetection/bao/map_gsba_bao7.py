@@ -179,7 +179,7 @@ class GSBA_coverage_7(method.Method):
             # print('每一个的可能性是likehood')
             # print(likelihood)
             posterior[v] = (decimal.Decimal(  decimal.Decimal(likelihood) *coverage_centralities[v] *
-                            epa_weight_cnetralities[v]))
+                            epa_weight_cnetralities[v]* self.prior[v]))
 
         # print('w_key_sorted')
         # print(w_key_sorted)
