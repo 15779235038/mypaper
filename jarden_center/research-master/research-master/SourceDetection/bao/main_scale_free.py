@@ -104,7 +104,7 @@ if __name__ == '__main__':
     methods = [
               prior_detector10,
                gsba_bao7.GSBA_coverage_7(prior_detector1),
-
+                 prior_detector4
                ]
 
     logger = log.Logger(logname='../data/main_scale_free20191212.log', loglevel=logging.INFO, logger="experiment").get_log()

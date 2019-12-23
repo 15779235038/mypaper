@@ -102,7 +102,7 @@ if __name__ == '__main__':
     #            gslba.GSLBA(prior_detector1), gslba.GSLBA(prior_detector3), gslba.GSLBA(prior_detector4),
     #            gsba2.GSBA(prior_detector1), gsba2.GSBA( prior_detector3),gsba2.GSBA(prior_detector4),]
 
-    logger = log.Logger(logname='../data/main_wiki_vote1208.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_wiki_vote1221.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
@@ -111,11 +111,11 @@ if __name__ == '__main__':
     d = data.Graph("../data/test.txt", weighted=1)
     d = data.Graph("../data/Wiki-Vote.gml", weighted=1)
     d.debug = False
-    test_num = 5
+    test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 160,300, 40)
+    experiment.start(d, test_category, test_num, 20,110, 10)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 31, 5)
 
