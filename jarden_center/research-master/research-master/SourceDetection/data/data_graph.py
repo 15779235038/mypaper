@@ -1,3 +1,13 @@
+# coding=utf-8
+
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# @File  : data_graph.py
+# @Author: zhiqiangbao
+# @Date  : 2019/12/23
+
+
 
 
 import   networkx as nx
@@ -24,7 +34,7 @@ def ContractDict(dir, G):
 
 
 
-G=nx.full_rary_tree(3,1000)   #生成规定节点数目的3叉树
+G=nx.full_rary_tree(3,2000)   #生成规定节点数目的3叉树
 
 # G = nx.random_regular_graph(3,400) #生成了包含20个节点、每个节点有3个邻居的规则图
 
@@ -33,12 +43,12 @@ print('IS_TREE',nx.is_tree(G))
 
 # nx.draw(G,with_labels=True)
 # plt.show()
-print (len(list(G.nodes)))
-print (len(list(G.edges)))
+# print (len(list(G.nodes)))
+# print (len(list(G.edges)))
 
 
-for  edge  in list(G.edges):
-    listToTxt(edge,'5regular_tree_10000.txt')
+for  edge  in G.edges():
+    listToTxt(edge,'3regular_tree_2000.txt')
 #
 # #读取生成图
 # G=nx.Graph()

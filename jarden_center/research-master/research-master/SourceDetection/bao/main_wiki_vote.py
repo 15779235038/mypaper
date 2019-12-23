@@ -73,26 +73,26 @@ if __name__ == '__main__':
     #
     #
     # '''
-    # methods =[
-    #         rc.RumorCenter(),
-    #         dc.DistanceCenter(),
-    #         jc.JordanCenter(),
-    #         ri.ReverseInfection(),
-    #         di.DynamicImportance(),
-    #         prior_detector8,
-    #         gsba.GSBA(prior_detector1),
-    #         gsba_bao7.GSBA_coverage_7(prior_detector1),
-    # ]
+    methods =[
+            rc.RumorCenter(),
+            dc.DistanceCenter(),
+            jc.JordanCenter(),
+            ri.ReverseInfection(),
+            di.DynamicImportance(),
+            prior_detector8,
+            gsba.GSBA(prior_detector1),
+            gsba_bao7.GSBA_coverage_7(prior_detector1),
+    ]
 
-    methods = [rc.RumorCenter(),
-
-               gsba_bao7.GSBA_coverage_7(prior_detector1),
-               gsba_bao.GSBA_coverage(prior_detector1),
-               gsba_bao8.GSBA_coverage_8(prior_detector1),
-               gsba_bao10.GSBA_coverage_10(prior_detector1),
-               gsba_bao11.GSBA_coverage_11(prior_detector1),
-               gsba_bao12.GSBA_coverage_12(prior_detector1)
-               ]
+    # methods = [rc.RumorCenter(),
+    #
+    #            gsba_bao7.GSBA_coverage_7(prior_detector1),
+    #            gsba_bao.GSBA_coverage(prior_detector1),
+    #            gsba_bao8.GSBA_coverage_8(prior_detector1),
+    #            gsba_bao10.GSBA_coverage_10(prior_detector1),
+    #            gsba_bao11.GSBA_coverage_11(prior_detector1),
+    #            gsba_bao12.GSBA_coverage_12(prior_detector1)
+    #            ]
 
 
 
@@ -102,7 +102,7 @@ if __name__ == '__main__':
     #            gslba.GSLBA(prior_detector1), gslba.GSLBA(prior_detector3), gslba.GSLBA(prior_detector4),
     #            gsba2.GSBA(prior_detector1), gsba2.GSBA( prior_detector3),gsba2.GSBA(prior_detector4),]
 
-    logger = log.Logger(logname='../data/main_wiki_vote1221.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_wiki_vote1222.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
