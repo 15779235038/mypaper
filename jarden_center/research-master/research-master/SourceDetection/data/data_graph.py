@@ -31,31 +31,17 @@ def ContractDict(dir, G):
     print(len(list(G.nodes)))
     return G
 
+# G=nx.full_rary_tree(3,2000)   #生成规定节点数目的3叉树
 
 
 
-G=nx.full_rary_tree(3,2000)   #生成规定节点数目的3叉树
+G=nx.fast_gnp_random_graph(5000,p=0.05)
 
-# G = nx.random_regular_graph(3,400) #生成了包含20个节点、每个节点有3个邻居的规则图
+print('isconnect？',nx.is_connected(G))
+Gc = max(nx.connected_component_subgraphs(G), key=len)
 
-# G = nx.random_tree(10000) #生成一个随机树，度的数目不一。
-print('IS_TREE',nx.is_tree(G))
-
-# nx.draw(G,with_labels=True)
-# plt.show()
-# print (len(list(G.nodes)))
-# print (len(list(G.edges)))
-
-
-for  edge  in G.edges():
-    listToTxt(edge,'3regular_tree_2000.txt')
-#
-# #读取生成图
-# G=nx.Graph()
-# Ginit=ContractDict('3regular_tree1000.txt',G)
-# print (list(Ginit.edges))
-#
-#
+for  edge  in Gc.edges():
+    listToTxt(edge,'random_graph/5000/5000random_graph005.txt')
 
 
 
