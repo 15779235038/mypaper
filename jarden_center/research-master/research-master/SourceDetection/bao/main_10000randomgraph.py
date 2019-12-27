@@ -89,11 +89,11 @@ if __name__ == '__main__':
     print "Starting..."
     d = data.Graph("../data/random_graph/10000/10000random_graph0005.txt", weighted=0)
     d.debug = False
-    test_num = 100
+    test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 20,110,10)
+    experiment.start(d, test_category, test_num, 150,350,50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 200, 400,100)
 

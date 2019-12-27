@@ -81,19 +81,19 @@ if __name__ == '__main__':
 
     ]
 
-    logger = log.Logger(logname='../data/main_1000random_graph005.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_1000random_graph001.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
     start_time = clock()
     print "Starting..."
-    d = data.Graph("../data/random_graph/1000/1000random_graph005.txt", weighted=0)
+    d = data.Graph("../data/random_graph/1000/1000random_graph001.txt", weighted=0)
     d.debug = False
     test_num = 100
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 50,350,50)
+    experiment.start(d, test_category, test_num, 150,350,50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 200, 400,100)
 
