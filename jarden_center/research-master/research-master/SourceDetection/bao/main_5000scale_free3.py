@@ -43,6 +43,8 @@ import  map_gsba_bao8 as gsba_bap8
 import  map_gsba_bao9 as gsba_bao9
 import  map_gsba_bao10 as gsba_bao10
 import  map_gsba_bao7_ as gsba_bao7_
+
+
 if __name__ == '__main__':
     prior_detector0 = prior.Uniform()
     prior_detector1 = rc.RumorCenter()
@@ -95,11 +97,11 @@ if __name__ == '__main__':
     print "Starting..."
     d = data.Graph("../data/scale_network/5000/5000scale_free3.txt", weighted=0)
     d.debug = False
-    test_num = 100
+    test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 150,350,50)
+    experiment.start(d, test_category, test_num, 300,600,50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 200, 400,100)
 

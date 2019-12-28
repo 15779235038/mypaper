@@ -72,14 +72,15 @@ if __name__ == '__main__':
     #
     # ]
     methods = [
-        rc.RumorCenter(),
-        dc.DistanceCenter(),
-        jc.JordanCenter(),
-        ri.ReverseInfection(),
-        di.DynamicImportance(),
-        prior_detector8,
-        gsba.GSBA(prior_detector1),
-        gsba_bao7.GSBA_coverage_7(prior_detector1),
+        # rc.RumorCenter(),
+        # dc.DistanceCenter(),
+        # jc.JordanCenter(),
+        # ri.ReverseInfection(),
+        # di.DynamicImportance(),
+        # prior_detector8,
+        # gsba.GSBA(prior_detector1),
+        # gsba_bao7.GSBA_coverage_7(prior_detector1),
+        gsba_bao9.GSBA_coverage_9(prior_detector1)
 
     ]
 
@@ -122,7 +123,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 20, 120, 10)
+    experiment.start(d, test_category, test_num, 30, 500, 50)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 10, 46, 5)
 
