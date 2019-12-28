@@ -43,7 +43,7 @@ print('isconnect？',nx.is_connected(G))
 Gc = max(nx.connected_component_subgraphs(G), key=len)
 
 for  edge  in Gc.edges():
-    listToTxt(edge,'scale_network/500/500random_graph2.txt')
+    listToTxt(edge,'scale_network/500/500scale_free2.txt')
 
 
 

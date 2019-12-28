@@ -102,9 +102,9 @@ if __name__ == '__main__':
 
 
     methods = [
-              prior_detector10,
-               gsba_bao7.GSBA_coverage_7(prior_detector1),
-                 prior_detector4
+              gsba.GSBA(prior_detector1),
+               gsba_bao7.GSBA_coverage_7(prior_detector1)
+
                ]
 
     logger = log.Logger(logname='../data/main_scale_free20191212.log', loglevel=logging.INFO, logger="experiment").get_log()
@@ -116,7 +116,7 @@ if __name__ == '__main__':
     d = data.Graph("../data/scale-free.ba.v500.e996.gml", weighted=1)
     d.debug = False
 
-    test_num =10
+    test_num =100
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
 

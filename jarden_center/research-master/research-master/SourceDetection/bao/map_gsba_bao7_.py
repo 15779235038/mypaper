@@ -35,7 +35,7 @@ import EPA_center_Weights2 as epa2
 import coverage_center_all as cc
 
 
-class GSBA_coverage_7(method.Method):
+class GSBA_coverage_7_(method.Method):
     """detect the source with Greedy Search Bound Approximation.
         Please refer to the my paper for more details.
     """
@@ -119,7 +119,7 @@ class GSBA_coverage_7(method.Method):
                 # print(neighbours)
                 w_sum = sum([w[j] for j in neighbours])
                 u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w
-                likelihood *= w[u] / w_sum
+                likelihood += w[u] / w_sum
                 # print('分母是？')
                 # print(w_sum)
                 # print('likelihood')
@@ -196,7 +196,7 @@ if __name__ == "__main__":
     prior_detector1 = rc.RumorCenter()
 
     # gsba =GSBA(prior_detector1)
-    methods = [GSBA_coverage_7(prior_detector1)]
+    methods = [GSBA_coverage_7_(prior_detector1)]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
                         logger="experiment").get_log()
 
