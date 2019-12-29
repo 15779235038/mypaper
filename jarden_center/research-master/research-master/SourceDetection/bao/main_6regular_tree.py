@@ -37,9 +37,15 @@ import map_gsba_bao4 as gsba_bao4
 import rumor_EPA_center as rumor_epa
 import rumor_coverage_center as rumor_coverage
 import map_gsba_bao5 as gsba_bao5
-import map_gsba_bao6 as gsba_bap6
-import map_gsba_bao7 as gsba_bao7
+import map_gsba_bao6 as gsba_bao6
+import  map_gsba_bao8 as gsba_bao8
+import  map_gsba_bao11 as gsba_bao11
 import  map_gsba_bao9 as gsba_bao9
+import  map_gsba_bao10 as gsba_bao10
+import  map_gsba_bao12 as gsba_bao12
+
+import map_gsba_bao7 as gsba_bao7
+
 if __name__ == '__main__':
     prior_detector0 = prior.Uniform()
     prior_detector1 = rc.RumorCenter()
@@ -69,28 +75,38 @@ if __name__ == '__main__':
 
     '''
 
-    methods = [
-        rc.RumorCenter(),
-        dc.DistanceCenter(),
-        jc.JordanCenter(),
-        ri.ReverseInfection(),
-        di.DynamicImportance(),
-        prior_detector8,
-        gsba.GSBA(prior_detector1),
-        gsba_bao7.GSBA_coverage_7(prior_detector1),
-        gsba_bao9.GSBA_coverage_9(prior_detector1)
+    # methods = [
+    #     rc.RumorCenter(),
+    #     dc.DistanceCenter(),
+    #     jc.JordanCenter(),
+    #     ri.ReverseInfection(),
+    #     di.DynamicImportance(),
+    #     prior_detector8,
+    #     gsba.GSBA(prior_detector1),
+    #     gsba_bao7.GSBA_coverage_7(prior_detector1),
+    #
+    # ]
 
-    ]
+    methods = [  rc.RumorCenter(),
+               dc.DistanceCenter(),
+               jc.JordanCenter(),
+               ri.ReverseInfection(),
+               di.DynamicImportance(),
+               prior_detector8,
+               gsba.GSBA(prior_detector1),
+               gsba_bao7.GSBA_coverage_7(prior_detector1),
+               gsba_bao9.GSBA_coverage_9(prior_detector1)
+               ]
 
-    logger = log.Logger(logname='../data/main_1000random_graph0005.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_6regular_tree1229.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
     start_time = clock()
     print "Starting..."
-    d = data.Graph("../data/random_graph/1000/1000random_graph0005.txt", weighted=0)
+    d = data.Graph("../data/6regular_tree_5000.txt", weighted=0)
     d.debug = False
-    test_num = 100
+    test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
@@ -100,3 +116,4 @@ if __name__ == '__main__':
 
     end_time = clock()
     print "Running time:", end_time - start_time
+

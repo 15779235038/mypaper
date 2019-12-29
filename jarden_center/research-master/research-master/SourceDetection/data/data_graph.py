@@ -31,7 +31,7 @@ def ContractDict(dir, G):
     print(len(list(G.nodes)))
     return G
 
-# G=nx.full_rary_tree(3,2000)   #生成规定节点数目的3叉树
+G=nx.full_rary_tree(6,5000)   #生成规定节点数目的3叉树
 
 
 
@@ -39,12 +39,12 @@ def ContractDict(dir, G):
 
 # G=nx.random_graphs.barabasi_albert_graph(500,2)  #生成无标度图，
 
-G=nx.random_powerlaw_tree(2000)
+# G=nx.random_powerlaw_tree(2000)
 print('isconnect？',nx.is_connected(G))
 Gc = max(nx.connected_component_subgraphs(G), key=len)
 
 for  edge  in Gc.edges():
-    listToTxt(edge,'random_tree/2000/2000random_tree.txt')
+    listToTxt(edge,'6regular_tree_5000.txt')
 
 
 
