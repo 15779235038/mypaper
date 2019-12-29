@@ -43,6 +43,7 @@ import  map_gsba_bao8 as gsba_bap8
 import  map_gsba_bao9 as gsba_bao9
 import  map_gsba_bao10 as gsba_bao10
 import  map_gsba_bao7_ as gsba_bao7_
+import  map_gsba_bao13 as gsba_bao13
 if __name__ == '__main__':
     prior_detector0 = prior.Uniform()
     prior_detector1 = rc.RumorCenter()
@@ -81,10 +82,9 @@ if __name__ == '__main__':
         prior_detector8,
         gsba.GSBA(prior_detector1),
         gsba_bao7.GSBA_coverage_7(prior_detector1),
-        gsba_bao7_.GSBA_coverage_7_(prior_detector1),
-        gsba_bap8.GSBA_coverage_8(prior_detector1),
+
         gsba_bao9.GSBA_coverage_9(prior_detector1),
-        gsba_bao10.GSBA_coverage_10(prior_detector1)
+        gsba_bao13.GSBA_coverage_13(prior_detector1)
     ]
 
     logger = log.Logger(logname='../data/main_1000scale_free2.log', loglevel=logging.INFO, logger="experiment").get_log()
@@ -99,7 +99,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 30,300,30)
+    experiment.start(d, test_category, test_num, 20, 350, 40)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 200, 400,100)
 

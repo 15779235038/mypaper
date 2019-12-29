@@ -37,13 +37,14 @@ def ContractDict(dir, G):
 
 # G=nx.fast_gnp_random_graph(5000,p=0.05) #生成随即图
 
-G=nx.random_graphs.barabasi_albert_graph(500,2)  #生成无标度图，
+# G=nx.random_graphs.barabasi_albert_graph(500,2)  #生成无标度图，
 
+G=nx.random_powerlaw_tree(2000)
 print('isconnect？',nx.is_connected(G))
 Gc = max(nx.connected_component_subgraphs(G), key=len)
 
 for  edge  in Gc.edges():
-    listToTxt(edge,'scale_network/500/500scale_free2.txt')
+    listToTxt(edge,'random_tree/2000/2000random_tree.txt')
 
 
 

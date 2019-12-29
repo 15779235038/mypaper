@@ -87,22 +87,19 @@ if __name__ == '__main__':
     #
     # ]
 
-    methods = [rc.RumorCenter(),
+    methods = [
+               rc.RumorCenter(),
+               dc.DistanceCenter(),
+               jc.JordanCenter(),
+               ri.ReverseInfection(),
+               di.DynamicImportance(),
+               prior_detector8,
                gsba.GSBA(prior_detector1),
-               gsba_bao.GSBA_coverage(prior_detector1),
-               gsba_bao2.GSBA_coverage_2(prior_detector1),
-               gsba_bao3.GSBA_coverage_3(prior_detector1),
-               gsba_bao4.GSBA_coverage_4(prior_detector1),
-               gsba_bao5.GSBA_coverage_5(prior_detector1),
-               gsba_bao6.GSBA_coverage_6(prior_detector1),
                gsba_bao7.GSBA_coverage_7(prior_detector1),
-               gsba_bao8.GSBA_coverage_8(prior_detector1),
-               gsba_bao10.GSBA_coverage_10(prior_detector1),
-               gsba_bao11.GSBA_coverage_11(prior_detector1),
-               gsba_bao12.GSBA_coverage_12(prior_detector1)
+               gsba_bao9.GSBA_coverage_9(prior_detector1)
                ]
 
-    logger = log.Logger(logname='../data/main_3regular_tree1210.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_3regular_tree1229.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
@@ -114,7 +111,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 20, 110, 10)
+    experiment.start(d, test_category, test_num, 20, 350, 40)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 200, 400,100)
 

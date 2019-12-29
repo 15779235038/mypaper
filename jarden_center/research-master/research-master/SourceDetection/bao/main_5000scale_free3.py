@@ -83,10 +83,10 @@ if __name__ == '__main__':
         prior_detector8,
         gsba.GSBA(prior_detector1),
         gsba_bao7.GSBA_coverage_7(prior_detector1),
-        gsba_bao7_.GSBA_coverage_7_(prior_detector1),
-        gsba_bap8.GSBA_coverage_8(prior_detector1),
+        # gsba_bao7_.GSBA_coverage_7_(prior_detector1),
+        # gsba_bap8.GSBA_coverage_8(prior_detector1),
         gsba_bao9.GSBA_coverage_9(prior_detector1),
-        gsba_bao10.GSBA_coverage_10(prior_detector1)
+        # gsba_bao10.GSBA_coverage_10(prior_detector1)
     ]
 
     logger = log.Logger(logname='../data/main_5000scale_free3.log', loglevel=logging.INFO, logger="experiment").get_log()
@@ -101,7 +101,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 300,600,50)
+    experiment.start(d, test_category, test_num,  20, 350, 40)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 200, 400,100)
 
