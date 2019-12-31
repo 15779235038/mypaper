@@ -103,8 +103,8 @@ class GSBA_coverage_9(method.Method):
             infect_ne = len([x for x in neig if x in infected_nodes])
             if infect_ne == 1:
                 bound_list.append(node)
-            print('bound_list')
-            print(bound_list)
+        print('bound_list,当前的边界点为')
+        print(bound_list)
 
 
         # infected_nodes_new = set(simple_subgraph.nodes())
@@ -113,8 +113,11 @@ class GSBA_coverage_9(method.Method):
         included = set()
         neighbours = set()
         weights = self.data.weights
+
+
         for v in infected_nodes:
             path_list = []
+            path_list.append(v)
             for bound_node in bound_list:
                 path = nx.bidirectional_shortest_path(self.subgraph, source=v, target=bound_node)
                 print('path')
@@ -122,7 +125,7 @@ class GSBA_coverage_9(method.Method):
                 path_list.extend(path)
             simple_subgraph = self.data.graph.subgraph(set(path_list))
 
-
+            print('开始寻找likehood的')
             """find the approximate upper bound by greedy searching"""
             included.clear()
             neighbours.clear()

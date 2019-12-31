@@ -24,11 +24,13 @@ def ContractDict(dir, G):
 
 
 
-G=nx.full_rary_tree(3,1000)   #生成规定节点数目的3叉树
+# G=nx.full_rary_tree(3,1000)   #生成规定节点数目的3叉树
 
 # G = nx.random_regular_graph(3,400) #生成了包含20个节点、每个节点有3个邻居的规则图
 
-# G = nx.random_tree(10000) #生成一个随机树，度的数目不一。
+# G = nx.random_tree(6000) #生成一个随机树，度的数目不一。
+# G= nx.line_graph()
+G=nx.watts_strogatz_graph(3000,5,0.01)
 print('IS_TREE',nx.is_tree(G))
 
 # nx.draw(G,with_labels=True)
@@ -38,7 +40,7 @@ print (len(list(G.edges)))
 
 
 for  edge  in list(G.edges):
-    listToTxt(edge,'5regular_tree_10000.txt')
+    listToTxt(edge,'swall-world-graph3000.txt')
 #
 # #读取生成图
 # G=nx.Graph()
