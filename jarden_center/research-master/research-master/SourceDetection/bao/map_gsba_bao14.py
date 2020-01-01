@@ -48,8 +48,10 @@ class GSBA_coverage_14(method.Method):
         self.prior_detector = prior_detector  # 先验检测器
 
     ''' 
-        将边界点连接，其他的点不连接，然后再试试别的点。
-        只将每次选择的点和边界点连接,效果没有很大提升那种.
+        1 将边界点连接，其他的点不连接，然后再试试别的点。
+        2 首先计算覆盖率乘以epa，反向排序然后取90%到100%的点(最后最小的10个点作为边界)，作为边界点。
+        3 用最短路径连接起来试试看。
+        
 
     '''
 
@@ -76,19 +78,15 @@ class GSBA_coverage_14(method.Method):
         # print('先验检测器是什么？')
         # print(self.prior)
 
-        # epa带权重的东西
-        self.reset_centrality()
-        epa_weight_object = epa2.EPA_center_weight()
-        epa_weight_object.set_data(self.data)
-        epa_weight_object.detect()
-        epa_weight_cnetralities = nx.get_node_attributes(self.subgraph, 'centrality')
 
-        # 覆盖率中心
+
         self.reset_centrality()
-        cc_object = cc.CoverageCenter()
-        cc_object.set_data(self.data)
-        cc_object.detect()
-        coverage_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
+        rc = rumor_center.RumorCenter()
+        rc.set_data(self.data)
+        rc.detect()
+        rumor_centralities = nx.get_node_attributes(self.subgraph, 'centrality')
+
+
 
         self.reset_centrality()
 
@@ -104,6 +102,9 @@ class GSBA_coverage_14(method.Method):
             print('bound_list')
             print(bound_list)
 
+        # 获取边界点.
+        infected_nodes = set(self.subgraph.nodes())
+        n = len(infected_nodes)
         # infected_nodes_new = set(simple_subgraph.nodes())
         # n = len(infected_nodes_new)
         posterior = {}
@@ -112,6 +113,7 @@ class GSBA_coverage_14(method.Method):
         weights = self.data.weights
         for v in infected_nodes:
             path_list = []
+            path_list.append(v)
             for bound_node in bound_list:
                 path = nx.bidirectional_shortest_path(self.subgraph, source=v, target=bound_node)
                 print('path')
@@ -119,6 +121,7 @@ class GSBA_coverage_14(method.Method):
                 path_list.extend(path)
             simple_subgraph = self.data.graph.subgraph(set(path_list))
 
+            print('开始寻找likehood的')
             """find the approximate upper bound by greedy searching"""
             included.clear()
             neighbours.clear()
@@ -193,8 +196,7 @@ class GSBA_coverage_14(method.Method):
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-            posterior[v] = (decimal.Decimal(decimal.Decimal(likelihood) * coverage_centralities[v] *
-                                            epa_weight_cnetralities[v]))
+            posterior[v] = (decimal.Decimal(decimal.Decimal(likelihood)*self.prior[v]*rumor_centralities[v]))
 
         # print('w_key_sorted')
         # print(w_key_sorted)

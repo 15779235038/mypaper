@@ -44,6 +44,7 @@ import  map_gsba_bao9 as gsba_bao9
 import  map_gsba_bao10 as gsba_bao10
 import  map_gsba_bao7_ as gsba_bao7_
 import  map_gsba_bao13 as gsba_bao13
+import  map_gsba_bao14 as gsba_bao14
 if __name__ == '__main__':
     prior_detector0 = prior.Uniform()
     prior_detector1 = rc.RumorCenter()
@@ -73,18 +74,25 @@ if __name__ == '__main__':
 
     '''
 
+    # methods = [
+    #     rc.RumorCenter(),
+    #     dc.DistanceCenter(),
+    #     jc.JordanCenter(),
+    #     ri.ReverseInfection(),
+    #     di.DynamicImportance(),
+    #     prior_detector8,
+    #     gsba.GSBA(prior_detector1),
+    #     gsba_bao7.GSBA_coverage_7(prior_detector1),
+    #
+    #     gsba_bao9.GSBA_coverage_9(prior_detector1),
+    #     gsba_bao13.GSBA_coverage_13(prior_detector1)
+    # ]
+
+
     methods = [
-        rc.RumorCenter(),
-        dc.DistanceCenter(),
-        jc.JordanCenter(),
-        ri.ReverseInfection(),
-        di.DynamicImportance(),
-        prior_detector8,
-        gsba.GSBA(prior_detector1),
-        gsba_bao7.GSBA_coverage_7(prior_detector1),
 
         gsba_bao9.GSBA_coverage_9(prior_detector1),
-        gsba_bao13.GSBA_coverage_13(prior_detector1)
+        gsba_bao14.GSBA_coverage_14(prior_detector1)
     ]
 
     logger = log.Logger(logname='../data/main_1000scale_free2.log', loglevel=logging.INFO, logger="experiment").get_log()
