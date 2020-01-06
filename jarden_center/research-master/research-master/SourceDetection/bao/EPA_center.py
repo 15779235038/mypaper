@@ -83,8 +83,8 @@ class EPA_center(method.Method):
                     layer_node_sum+= P_node_prominence[evuery_layer_node]
             # centrality[source] = Decimal(layer_node_sum)
             centrality[source] = Decimal(layer_node_sum*1.0/ ecc[source])
-        # print('让我看下这个ratio _average的centiality')
-        # print(centrality)
+        print('让我看下这个ratio _average的centiality')
+        print(centrality)
         nx.set_node_attributes(self.subgraph, 'centrality',centrality)
         return self.sort_nodes_by_centrality()
 
@@ -117,7 +117,7 @@ if __name__ == "__main__":
     prior_detector1 = EPA_center()
     # gsba =GSBA(prior_detector1)
     methods = [prior_detector1]
-    logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
+    logger = log.Logger(logname='../data/main_epaAndcoveage_test.log', loglevel=logging.INFO,
                         logger="experiment").get_log()
 
     experiment = Experiment(methods, logger)
@@ -131,11 +131,11 @@ if __name__ == "__main__":
 
     '''
 
-    infected = set()
-    infected.add(1)
-    infected.add(2)
-    infected.add(4)
-    d = data.Graph("../data/test.txt", weighted=1)
+    # infected = set()
+    # infected.add(1)
+    # infected.add(2)
+    # infected.add(4)
+    d = data.Graph("../data/epaAndcoveage_test.txt", weighted=0)
     # print(d.graph.number_of_edges())
     # print(d)
     d.debug = False
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     # d.subgraph= d.graph
 
     d.subgraph = nx.Graph()
-    d.subgraph = nx.subgraph(d.graph, ['1', '2', '4'])
+    d.subgraph = nx.subgraph(d.graph, ['0','1','6', '7', '8','9','10','11'])
     # print('子图节点个数')
     # print(d.subgraph.nodes())
     # print(d.graph.nodes())

@@ -21,7 +21,7 @@ import data
 from experiment import Experiment
 
 
-class CoverageCenter(method.Method):
+class CoverageCenter_all(method.Method):
     """
         detect the source with Rumor Centrality.
         Please refer to the following paper for more details.
@@ -107,7 +107,7 @@ class CoverageCenter(method.Method):
 
 
 if __name__ == "__main__":
-    prior_detector1 = CoverageCenter()
+    prior_detector1 = CoverageCenter_all()
     # gsba =GSBA(prior_detector1)
     methods = [prior_detector1]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
@@ -124,11 +124,11 @@ if __name__ == "__main__":
 
     '''
 
-    infected = set()
-    infected.add(1)
-    infected.add(2)
-    infected.add(4)
-    d = data.Graph("../data/test.txt", weighted=1)
+    # infected = set()
+    # infected.add(1)
+    # infected.add(2)
+    # infected.add(4)
+    d = data.Graph("../data/epaAndcoveage_test.txt", weighted=0)
     # print(d.graph.number_of_edges())
     # print(d)
     d.debug = False
@@ -138,7 +138,7 @@ if __name__ == "__main__":
     # d.subgraph= d.graph
 
     d.subgraph = nx.Graph()
-    d.subgraph = nx.subgraph(d.graph, ['1', '2', '4'])
+    d.subgraph = nx.subgraph(d.graph, ['0','1','6', '7', '8','9','10','11'])
     # print('子图节点个数')
     # print(d.subgraph.nodes())
     # print(d.graph.nodes())

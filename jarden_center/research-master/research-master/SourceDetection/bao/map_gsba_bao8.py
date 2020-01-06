@@ -119,7 +119,7 @@ class GSBA_coverage_8(method.Method):
                 # print(neighbours)
                 w_sum = sum([w[j] for j in neighbours])
                 u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w
-                likelihood *= w[u] / w_sum
+                likelihood += w[u] / w_sum
                 # print('分母是？')
                 # print(w_sum)
                 # print('likelihood')
@@ -178,7 +178,7 @@ class GSBA_coverage_8(method.Method):
             # print(v)
             # print('每一个的可能性是likehood')
             # print(likelihood)
-            posterior[v] = (decimal.Decimal(  decimal.Decimal(likelihood) *coverage_centralities[v] *
+            posterior[v] = (decimal.Decimal(  decimal.Decimal(likelihood) *
                             epa_weight_cnetralities[v]))
 
         # print('w_key_sorted')
