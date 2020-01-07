@@ -28,7 +28,7 @@ def ContractDict(dir, G):
 # G= nx.watts_strogatz_graph(5000,7,0.5)  #小世界图
 # G = nx.scale_free_graph(5000)        #无标度图
 
-G=nx.general_random_intersection_graph(5000,)
+# G=nx.general_random_intersection_graph(5000,)
 
 
 print('IS_TREE',nx.is_tree(G))
@@ -39,7 +39,7 @@ print (len(list(G.edges)))
 
 
 for  edge  in list(G.edges):
-    listToTxt(edge,'intersection_graph5000.txt')
+    # listToTxt(edge,'intersection_graph5000.txt')
 #
 # #读取生成图
 # G=nx.Graph()
