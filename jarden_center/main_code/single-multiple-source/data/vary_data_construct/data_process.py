@@ -25,7 +25,7 @@ def ContractDict(dir, G):
 # G=nx.full_rary_tree(4,10000)   #生成规定节点数目的常规树
 
 
-# G= nx.watts_strogatz_graph(5000,7,0.5)  #小世界图
+G= nx.watts_strogatz_graph(5000,7,0.5)  #小世界图
 # G = nx.scale_free_graph(5000)        #无标度图
 
 # G=nx.general_random_intersection_graph(5000,)
