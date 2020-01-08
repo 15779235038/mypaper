@@ -21,7 +21,7 @@ import data
 from experiment import Experiment
 
 
-class CoverageCenter_all(method.Method):
+class CoverageCenter(method.Method):
     """
         detect the source with Rumor Centrality.
         Please refer to the following paper for more details.
@@ -107,7 +107,7 @@ class CoverageCenter_all(method.Method):
 
 
 if __name__ == "__main__":
-    prior_detector1 = CoverageCenter_all()
+    prior_detector1 = CoverageCenter()
     # gsba =GSBA(prior_detector1)
     methods = [prior_detector1]
     logger = log.Logger(logname='../data/main_test.log', loglevel=logging.INFO,
