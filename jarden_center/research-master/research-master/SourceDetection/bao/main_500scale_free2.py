@@ -41,6 +41,8 @@ import map_gsba_bao6 as gsba_bap6
 import map_gsba_bao7 as gsba_bao7
 import  map_gsba_bao8 as gsba_bao8
 import  map_gsba_bao9 as gsba_bao9
+
+import  map_gsba_bao15 as gsba_bao15
 if __name__ == '__main__':
     prior_detector0 = prior.Uniform()
     prior_detector1 = rc.RumorCenter()
@@ -69,27 +71,28 @@ if __name__ == '__main__':
     我的比较所有方法
 
     '''
-
-    methods = [
-        rc.RumorCenter(),
-        dc.DistanceCenter(),
-        jc.JordanCenter(),
-        ri.ReverseInfection(),
-        di.DynamicImportance(),
-        prior_detector8,
-        gsba.GSBA(prior_detector1),
-        gsba_bao7.GSBA_coverage_7(prior_detector1),
-        gsba_bao9.GSBA_coverage_9(prior_detector1)
-    ]
-
+    #
     # methods = [
-    #    # rumor_coverage.rumor_coverage(prior_detector1),
-    #    #  prior_detector8,
-    #    #  gsba.GSBA(prior_detector1),
-    #    #  gsba_bao7.GSBA_coverage_7(prior_detector1),
-    #     gsba_bao8.GSBA_coverage_8(prior_detector1),
+    #     rc.RumorCenter(),
+    #     dc.DistanceCenter(),
+    #     jc.JordanCenter(),
+    #     ri.ReverseInfection(),
+    #     di.DynamicImportance(),
+    #     prior_detector8,
+    #     gsba.GSBA(prior_detector1),
+    #     gsba_bao7.GSBA_coverage_7(prior_detector1),
     #     gsba_bao9.GSBA_coverage_9(prior_detector1)
     # ]
+
+    methods = [
+       rumor_coverage.rumor_coverage(prior_detector1),
+        prior_detector8,
+        gsba.GSBA(prior_detector1),
+       #  gsba_bao7.GSBA_coverage_7(prior_detector1),
+       #  gsba_bao8.GSBA_coverage_8(prior_detector1),
+        gsba_bao9.GSBA_coverage_9(prior_detector1),
+        gsba_bao15.GSBA_coverage_15(prior_detector1)
+    ]
 
 
 
@@ -101,7 +104,7 @@ if __name__ == '__main__':
     print "Starting..."
     d = data.Graph("../data/scale_network/500/500scale_free2.txt", weighted=0)
     d.debug = False
-    test_num = 100
+    test_num = 10
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST

@@ -58,9 +58,12 @@ def get_networkByFile( fileName='../data/facebook_combined.txt'):
     #  制造这个图
     Ginti = nx.Graph()
     # 构建图，这个图是有有效距离的。
+
     G = ContractDict(fileName, Ginti)
+
     # 因为邮件是一个有向图，我们这里构建的是无向图。
     print('一开始图的顶点个数', G.number_of_nodes())
+    nx
     print('一开始图的边个数', G.number_of_edges())
     #  先给全体的Cn、Scn,time的0的赋值。
     for node in list(G.nodes):

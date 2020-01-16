@@ -33,7 +33,7 @@ class RumorCenter(method.Method):
 
         print('谣言中心检测')
         if self.subgraph.number_of_nodes() == 0:
-            print 'subgraph.number_of_nodes =0'
+            print( 'subgraph.number_of_nodes =0')
             return
 
         self.reset_centrality()
