@@ -127,6 +127,8 @@ class GSBA_coverage_15(method.Method):
         neighbours = set()
         weights = self.data.weights
 
+
+
         import copy
         for v in infected_nodes:
             if len(bound_list)>5:
@@ -136,6 +138,14 @@ class GSBA_coverage_15(method.Method):
                 temp=copy.deepcopy(infected_nodes)
                 bound_list=list(set(temp))
             simple_subgraph_steiner_tree=MSTbyMetric_closure(self.data.subgraph,bound_list)
+            infected_nodes_steiner_tree = set(simple_subgraph_steiner_tree.nodes())
+            '''
+            就是这里的问题了，这里我们限制了解集合，那么自然就需要用steiner ——tree来处理这个问题。
+            
+            
+            
+            '''
+
 
             print('看下生成的树有多少个点')
             print(simple_subgraph_steiner_tree.number_of_nodes())
@@ -155,11 +165,15 @@ class GSBA_coverage_15(method.Method):
             w[v] = 1
             w_key_sorted.append(v)
 
-            while len(included) < n and len(w_key_sorted) > 0:
+            includedlen = len(bound_list)
+
+
+
+            while len(included) < includedlen and len(w_key_sorted) > 0:
                 # print('邻居用来计算所谓的neighbours')
                 # print(neighbours)
                 w_sum = sum([w[j] for j in neighbours])
-                u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w
+                u = w_key_sorted.pop()  # pop out the last element from w_key_sorted with the largest w 弹出最大可能被感染的元素
                 likelihood += w[u] / w_sum
                 # print('分母是？')
                 # print(w_sum)
@@ -167,7 +181,18 @@ class GSBA_coverage_15(method.Method):
                 # print(likelihood)
                 included.add(u)
                 neighbours.remove(u)
-                new = nx.neighbors(simple_subgraph_steiner_tree, u)
+                new = nx.neighbors(simple_subgraph_steiner_tree, u)  #为什么u会不在形成的树中。
+                '''
+                分析原因：
+                该steiner tree 的节点形成的边界点+斯坦纳点+源点。
+                而u是从那个集合取出来的？
+                
+                
+                '''
+
+
+
+
                 # print('new也就是在总图中的邻居')
                 # print(new)
                 for h in new:
@@ -199,7 +224,7 @@ class GSBA_coverage_15(method.Method):
                     #     w_h *= 1 - self.data.get_weight(h, be)
                     # w[h] = 1 - w_h
                     """insert h into w_key_sorted, ranking by w from small to large"""
-                    if h in infected_nodes:
+                    if h in infected_nodes_steiner_tree:
                         # print('开始排序了')
                         if h in w_key_sorted:
                             w_key_sorted.remove(h)  # remove the old w[h]
