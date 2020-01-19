@@ -77,6 +77,9 @@ class GSBA_coverage_15(method.Method):
         然后作为先验，放在先验中。
 
         '''
+
+        print('steiner tree版本检测')
+        print('------------------这一趟结束了----------------------------------')
         self.reset_centrality()
         self.prior_detector.set_data(self.data)
         self.prior_detector.detect()
@@ -110,8 +113,8 @@ class GSBA_coverage_15(method.Method):
             infect_ne = len([x for x in neig if x in infected_nodes])
             if infect_ne == 1:
                 bound_list.append(node)
-        print('bound_list,当前的边界点为')
-        print(bound_list)
+        # print('bound_list,当前的边界点为')
+        # print(bound_list)
 
 
 
@@ -125,24 +128,21 @@ class GSBA_coverage_15(method.Method):
 
         import copy
         for v in infected_nodes:
-            # path_list = []
-            # path_list.append(v)
-            # for bound_node in bound_list:
-            #     path = nx.bidirectional_shortest_path(self.subgraph, source=v, target=bound_node)
-            #     print('path')
-            #     print(path)
-            #     path_list.extend(path)
-            # simple_subgraph = self.data.graph.subgraph(set(path_list))
-
             if len(bound_list)>0:
                 bound_list.append(v)
+                bound_list = list(set(bound_list))
             else:
                 temp=copy.deepcopy(infected_nodes)
-                bound_list=list(temp)
-
-
+                bound_list=list(set(temp))
             simple_subgraph_steiner_tree=MSTbyMetric_closure(self.data.subgraph,bound_list)
-            print('开始寻找likehood的')
+
+            print('看下生成的树有多少个点')
+            print(simple_subgraph_steiner_tree.number_of_nodes())
+            print(simple_subgraph_steiner_tree.number_of_edges())
+            print('而边界点有多少个呢？和生成树应该是一样的。')
+            print(len(bound_list))
+
+            # print('开始寻找likehood的')
             """find the approximate upper bound by greedy searching"""
             included.clear()
             neighbours.clear()

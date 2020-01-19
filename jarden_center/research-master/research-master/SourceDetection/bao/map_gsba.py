@@ -171,8 +171,8 @@ class GSBA(method.Method):
             #print('每一个的可能性是likehood')
             #print(likelihood)
             posterior[v] = (decimal.Decimal(self.prior[v])* decimal.Decimal(likelihood) * rumor_centralities[v])
-            print('两百个点的时候会出现什么？')
-            print(posterior[v])
+            # print('两百个点的时候会出现什么？')
+            # print(posterior[v])
         #print('w_key_sorted')
         #print(w_key_sorted)
 

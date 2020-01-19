@@ -47,10 +47,15 @@ class Graph:
                 self.graph = nx.read_gml(path)
             elif path.endswith('.txt'):
                 self.graph = nx.read_weighted_edgelist(path, comments=comments)
+
+
+        tempGraph_node = max(nx.connected_components(self.graph), key=len)
+        import  copy
+        self.graph=copy.deepcopy(self.graph.subgraph(tempGraph_node))
         self.subgraph = self.graph
         self.weights = nx.adjacency_matrix(self.graph, weight='weight')
-        print('有权重把？')
-        print(self.weights)
+        # print('有权重把？')
+        # print(self.weights)
         # self.weights = nx.adjacency_matrix(self.graph, weight='weight').todense().tolist() # read elements faster
         i = 0
         for v in self.graph.nodes():
@@ -136,7 +141,7 @@ class Graph:
 
     def infect_from_source_SI(self, source, scheme='random',infected_size=None):
 
-        # print( 'SI模型传播')
+        print( 'SI模型传播')
         """
         diffuse by the SI model.
         three most common propagation schemes: snowball, random walk and contact process
@@ -145,15 +150,24 @@ class Graph:
         max_infected_number = self.ratio_infected * self.graph.number_of_nodes()
         if infected_size is not None:
             max_infected_number = infected_size
+        print('需要传播多少个?')
+        print(max_infected_number)
+
+        print('看下图有多少个节点')
+        print(self.graph.number_of_nodes())
         infected = set()
         waiting = set()
         # print('source',source)
         infected.add(source)
         waiting.add(source)
         stop = False
+
+
         if scheme == 'random':
+            print('卡在这里？')
             while stop == False and (waiting.__len__() < max_infected_number) and (
                         waiting.__len__() < self.graph.number_of_nodes()):
+                print('我觉是这里？')
                 for w in waiting:
                     if stop:
                         break

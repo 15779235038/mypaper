@@ -152,16 +152,16 @@ def  MSTbyMetric_closure(G,terminal_nodes):
     edge_list =[]
     for edge_shortest in mst_edges:
         #找出其路径,最小mst——edges树
-        print('edge_shortest')
+        # print('edge_shortest')
         path=nx.dijkstra_path(G,source=edge_shortest[0],target=edge_shortest[1],weight='weight')
         for i  in range(len(path)-1):
             edge_list.append([path[i],path[i+1]])
-    print('最后找到的edge_list')
-    print(edge_list)
+    # print('最后找到的edge_list')
+    # print(edge_list)
     for edge in edge_list:
         F.add_edge(edge[0],edge[1],weight=G[edge[0]][edge[1]]['weight'])
 
-    print(F.number_of_edges())
+    # print(F.number_of_edges())
     return F
 
 

@@ -43,6 +43,8 @@ import  map_gsba_bao8 as gsba_bap8
 import  map_gsba_bao9 as gsba_bao9
 import  map_gsba_bao10 as gsba_bao10
 import  map_gsba_bao9 as gsba_bao9
+
+import  map_gsba_bao15 as gsba_bao15
 if __name__ == '__main__':
     prior_detector0 = prior.Uniform()
     prior_detector1 = rc.RumorCenter()
@@ -81,7 +83,8 @@ if __name__ == '__main__':
         prior_detector8,
         gsba.GSBA(prior_detector1),
         # gsba_bao7.GSBA_coverage_7(prior_detector1),
-        gsba_bao9.GSBA_coverage_9(prior_detector1)
+        gsba_bao9.GSBA_coverage_9(prior_detector1),
+        gsba_bao15.GSBA_coverage_15(prior_detector1)
     ]
 
     logger = log.Logger(logname='../data/main_graph_CA-AstroPh0104.log', loglevel=logging.INFO, logger="experiment").get_log()
@@ -96,7 +99,7 @@ if __name__ == '__main__':
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST
-    experiment.start(d, test_category, test_num, 20, 350, 40)
+    experiment.start(d, test_category, test_num, 100, 350, 40)
     # test_category = experiment.FULL_TEST
     # experiment.start(d, test_category, test_num, 200, 400,100)
 

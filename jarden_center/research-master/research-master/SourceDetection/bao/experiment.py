@@ -117,8 +117,8 @@ class Experiment:
         count  = 0
         for s in sources:
             count +=1
-            # print('这是第多少次测试')
-            # print(count)
+            print('这是第多少次测试')
+            print(count)
             # print('---------------------------------------')
             # print('本次选中的源为')
             # print(s)
@@ -126,16 +126,21 @@ class Experiment:
             if abs(i - n_i * p) < 1:
                 print '\t percentage: ', p
                 p += 0.1
+
             if self.propagation_model is 'IC':
                 infected = data.infect_from_source_IC(s, infected_size=infected_size)
             elif self.propagation_model is 'SI':
                 # print('source',s)
+                start_time = clock()
                 infected = data.infect_from_source_SI(s, infected_size=infected_size)
+                end_time = clock()
+                print('传播时间为多少？')
+                print "Running time:", end_time - start_time
             if infected_size is not None and len(infected)<infected_size-1:
                 # print('如果传播的点没有达到要求，本次传播结束')
                 continue
 
-            # print('感染点的数目是多少')
+            print('感染点的数目是多少')
             print(len(infected))
 
             # print('传播完之后，作者使用各种方法来实验,每种方法都会有其各种尺度的测试方案')

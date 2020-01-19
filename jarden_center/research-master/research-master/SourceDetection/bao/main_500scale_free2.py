@@ -85,16 +85,14 @@ if __name__ == '__main__':
     # ]
 
     methods = [
-       rumor_coverage.rumor_coverage(prior_detector1),
-        prior_detector8,
-        gsba.GSBA(prior_detector1),
-       #  gsba_bao7.GSBA_coverage_7(prior_detector1),
-       #  gsba_bao8.GSBA_coverage_8(prior_detector1),
-        gsba_bao9.GSBA_coverage_9(prior_detector1),
+       # rumor_coverage.rumor_coverage(prior_detector1),
+       #  prior_detector8,
+       #  gsba.GSBA(prior_detector1),
+       # #  gsba_bao7.GSBA_coverage_7(prior_detector1),
+       # #  gsba_bao8.GSBA_coverage_8(prior_detector1),
+       #  gsba_bao9.GSBA_coverage_9(prior_detector1),
         gsba_bao15.GSBA_coverage_15(prior_detector1)
     ]
-
-
 
     logger = log.Logger(logname='../data/main_500scale_free20107.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)

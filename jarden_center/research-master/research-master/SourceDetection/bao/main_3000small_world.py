@@ -72,13 +72,13 @@ if __name__ == '__main__':
     '''
 
     methods = [
-        # rc.RumorCenter(),
-        # dc.DistanceCenter(),
-        # jc.JordanCenter(),
-        # ri.ReverseInfection(),
-        # di.DynamicImportance(),
-        # prior_detector8,
-        # gsba.GSBA(prior_detector1),
+        rc.RumorCenter(),
+        dc.DistanceCenter(),
+        jc.JordanCenter(),
+        ri.ReverseInfection(),
+        di.DynamicImportance(),
+        prior_detector8,
+        gsba.GSBA(prior_detector1),
         # gsba_bao7.GSBA_coverage_7(prior_detector1),
         gsba_bao9.GSBA_coverage_9(prior_detector1),
         gsba_bao15.GSBA_coverage_15(prior_detector1)
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     print "Starting..."
     d = data.Graph("../data/small_world/swall-world-graph3000.txt", weighted=0)
     d.debug = False
-    test_num = 10
+    test_num = 100
 
     print 'Graph size: ', d.graph.number_of_nodes(), d.graph.number_of_edges()
     test_category = experiment.RANDOM_TEST

@@ -120,12 +120,12 @@ class GSBA_coverage_9(method.Method):
             path_list.append(v)
             for bound_node in bound_list:
                 path = nx.bidirectional_shortest_path(self.subgraph, source=v, target=bound_node)
-                print('path')
-                print(path)
+                # print('path')
+                # print(path)
                 path_list.extend(path)
             simple_subgraph = self.data.graph.subgraph(set(path_list))
 
-            print('开始寻找likehood的')
+            # print('开始寻找likehood的')
             """find the approximate upper bound by greedy searching"""
             included.clear()
             neighbours.clear()
