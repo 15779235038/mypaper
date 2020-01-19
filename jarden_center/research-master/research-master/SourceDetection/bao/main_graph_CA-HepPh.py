@@ -86,13 +86,13 @@ if __name__ == '__main__':
         gsba_bao15.GSBA_coverage_15(prior_detector1)
     ]
 
-    logger = log.Logger(logname='../data/main_graph_CA-GrQc0104.log', loglevel=logging.INFO, logger="experiment").get_log()
+    logger = log.Logger(logname='../data/main_graph_CA-HepPh0104.log', loglevel=logging.INFO, logger="experiment").get_log()
     experiment = Experiment(methods, logger)
     experiment.propagation_model = 'SI'
 
     start_time = clock()
     print "Starting..."
-    d = data.Graph("../data/wugulidata/graph_CA-GrQc.txt", weighted=0)
+    d = data.Graph("../data/wugulidata/graph_CA-HepPh.txt", weighted=0)
     d.debug = False
     test_num = 100
 

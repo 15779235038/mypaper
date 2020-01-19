@@ -107,14 +107,15 @@ class GSBA_coverage_15(method.Method):
         # 获取边界点.不得，如果边界点为空，那么就把全体感染点作为边界点。
         infected_nodes = set(self.subgraph.nodes())
         n = len(infected_nodes)
+
         bound_list = []
         for node in infected_nodes:
             neig = nx.neighbors(self.data.graph, node)
             infect_ne = len([x for x in neig if x in infected_nodes])
             if infect_ne == 1:
                 bound_list.append(node)
-        # print('bound_list,当前的边界点为')
-        # print(bound_list)
+        print('bound_list,当前的边界点为')
+        print(bound_list)
 
 
 
@@ -128,7 +129,7 @@ class GSBA_coverage_15(method.Method):
 
         import copy
         for v in infected_nodes:
-            if len(bound_list)>0:
+            if len(bound_list)>5:
                 bound_list.append(v)
                 bound_list = list(set(bound_list))
             else:
