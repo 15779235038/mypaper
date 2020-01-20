@@ -54,6 +54,8 @@ if __name__ == '__main__':
     prior_detector7 = epa.EPA_center()
     prior_detector8 = epa2.EPA_center_weight()  # 有权重版本
     prior_detector9 = bc.Belief_coverage_center()  # 置信传播算法。
+
+
     # methods = [rc.RumorCenter(), dc.DistanceCenter(), jc.JordanCenter(),ri.ReverseInfection(),prior_detector2,
     #            gsba.GSBA( prior_detector1),gsba.GSBA(prior_detector2), gsba.GSBA( prior_detector3),
     #            gsba.GSBA(prior_detector4), gsba.GSBA( prior_detector5)]
@@ -84,6 +86,8 @@ if __name__ == '__main__':
     #     gsba_bao9.GSBA_coverage_9(prior_detector1)
     # ]
 
+
+    #验证先验性的方法。综合比较7种方法
     methods = [
        # rumor_coverage.rumor_coverage(prior_detector1),
        #  prior_detector8,

@@ -178,7 +178,7 @@ class Fig:
             plt.show()
         plt.close()
 
-    def lines(self, x, y, legend, xlabel, ylabel, title='', path=None):
+    def lines(self, x, y, legend, xlabel, ylabel,index_text, title='', path=None):
         n = len(legend)
         width = 5
         fig, ax = plt.subplots(figsize=(11, 8))
@@ -189,6 +189,10 @@ class Fig:
         plt.ylabel(ylabel, fontsize=38)
         # plt.title('Scores by group and Category')
 
+
+
+        # plt.bar(x, index_ls)
+        plt.xticks(x ,index_text) ## 可以设置坐标字
         plt.xticks(fontsize=38)
         plt.yticks(fontsize=38)  # change the num axis size
         # plt.xlim(0, 50)  # The ceil
@@ -477,18 +481,35 @@ class Fig:
 
     def effect_of_different_priors(self, base_path):
         x = np.arange(20, 46, 5)
-        methods = ['RC', 'DC', 'JC', 'GSBA-RC', 'GSBA-DC', 'GSBA-JC']
+        methods = ['RC', 'DC', 'JC', 'GSBA-RC', 'GSBA-DC', 'GSBA-JC','GSBA-EC']
         m = len(methods)
+
+        #先验的重要性。
+
+
         xlable = 'Number of  infected nodes, N'
         y = [[0.092086622, 0.075288403, 0.069216758, 0.063145112, 0.047763611, 0.043108682],
              [0.087634082, 0.069823922, 0.060716454, 0.052823315, 0.044930176, 0.042096742],
              [0.113337381, 0.087634082, 0.075490791, 0.07124064, 0.062133171, 0.049989881],
              [0.156243675, 0.126087836, 0.114754098, 0.107468124, 0.087634082, 0.081562437],
              [0.17911354, 0.148755313, 0.132564258, 0.118801862, 0.101801255, 0.094312892],
-             [0.182756527, 0.150779194, 0.133171423, 0.119409027, 0.102003643, 0.093300951], ]
+             [0.182756527, 0.150779194, 0.133171423, 0.119409027, 0.102003643, 0.093300951],
+             ]
+
+
         ylabel = 'Detection Rate'
         path = base_path + 'power-grid-prior-full-rate.pdf'
-        self.lines(x, y[0:m], methods[0:m], xlable, ylabel, path=path)
+        index_text_reality = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] #6个下标。我们先跑几个数据集试试吧。
+
+        self.lines(x, y[0:m], methods[0:m], xlable, ylabel,index_text=index_text_reality, path=path)
+
+
+
+
+
+
+
+
 
         y = [[1.859542603, 2.085205424, 2.253187614, 2.37259664, 2.522363894, 2.649868448],
              [1.865614248, 2.082169601, 2.252985226, 2.370977535, 2.505768063, 2.611009917],
@@ -740,7 +761,7 @@ if __name__ == '__main__':
     base_path = '../data/fig1204/'
     fig = Fig()
     fig.debug = False
-    fig.test_subplot(base_path)
+    fig.effect_of_different_priors(base_path)
 
     # if fig.debug == 1:
     #     fig.test(base_path)
